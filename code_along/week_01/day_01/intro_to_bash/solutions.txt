@@ -1,6 +1,9 @@
-# == References:
-# - [wdi_command_line_lab_to_oz.md]
-#   (https://gist.github.com/epoch/df6ebdc138cb80901d4f5081bc2f0ee7#file-wdi_command_line_lab_to_oz-md)
+# ---
+# source:
+# - title: wdi_command_line_lab_to_oz.md
+#   url: https://gist.github.com/epoch/df6ebdc138cb80901d4f5081bc2f0ee7#file-wdi_command_line_lab_to_oz-md
+# ---
+
 
 # ```shell
 #   mkdir House
