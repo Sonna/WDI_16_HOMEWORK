@@ -30,3 +30,5 @@ Time  | Table
 - [js-1-vars.md](https://gist.github.com/epoch/5c2c42797947ffb413d0#file-js-1-vars-md)
 
 - [js_week1_loops.md](https://gist.github.com/epoch/0df5e2eeaadb8871b9a73887162c2ab4#file-js_week1_loops-md)
+
+- [WDI Loops Warmup](https://gist.github.com/kasun-maldeni/de11a4038efd7d323cc572238ee53060)
