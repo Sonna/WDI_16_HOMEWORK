@@ -11,10 +11,10 @@
 // Store the following into variables: number of children, partner's name,
 // geographic location, job title. Output your fortune to the screen like so:
 // "You will be a X in Y, and married to Z with N kids."
-var numChildren;
-var partnersName;
-var geographicLocation;
-var jobTitle;
+var numChildren = prompt("Please enter your number of children", 2);
+var partnersName = prompt("Please enter your partner's name", "Work");
+var geographicLocation = prompt("Please enter a location", "Melbourne, Australia");
+var jobTitle = prompt("Please enter your job title", "Developer");
 
 console.log(
   "You will be a " + jobTitle +
