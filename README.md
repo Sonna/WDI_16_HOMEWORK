@@ -25,3 +25,4 @@ Time  | Table
 
 - [Markdown Cheatsheet · adam\-p/markdown\-here Wiki](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
+- [js\-day2\-else\-if\.md](https://gist.github.com/epoch/309e4a021cd06f8ae32b#file-js-day2-else-if-md)
