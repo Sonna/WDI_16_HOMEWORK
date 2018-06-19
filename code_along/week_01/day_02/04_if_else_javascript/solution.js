@@ -49,3 +49,21 @@ if (year === thisYear) {
 //   result = "future";
 // }
 // console.log(result);
+
+
+// <=> [-1, 0, 1]
+var comparison = Math.sign(year - thisYear);
+
+switch (comparison) {
+  case (-1):
+    console.log("Whoa! Blast from the past!");
+    break;
+  case (0):
+    console.log("I'm in the present!");
+    break;
+  case (1):
+    console.log("Greetings from the future!");
+    break;
+  default:
+    // Do nothing
+}
