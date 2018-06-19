@@ -20,6 +20,16 @@
       // console.log("tock");
     }
 
+    Array.from(new Array(13), function(x, i) {
+      console.log("7 x " + i + " = " + (7*i));
+    });
+
+    // var array1 = new Array(14);
+    var array1 = Array.from(new Array(13), function() { 0 });
+    array1.forEach(function(element, index) {
+      console.log("7 x " + index + " = " + (7*index));
+    });
+
     for (var number = 0; number < 13; number++) {
       console.log("7 x " + number + " = " + (7*number));
     }
