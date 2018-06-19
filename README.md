@@ -17,12 +17,16 @@ Time  | Table
 
 ## Links
 
-- [wdi\_command\_line\_lab\_to\_oz\.md](https://gist.github.com/epoch/df6ebdc138cb80901d4f5081bc2f0ee7#file-wdi_command_line_lab_to_oz-md)
+- [wdi_command_line_lab_to_oz.md](https://gist.github.com/epoch/df6ebdc138cb80901d4f5081bc2f0ee7#file-wdi_command_line_lab_to_oz-md)
 
-- [week1\_command\_line\_file\_system\.md](https://gist.github.com/epoch/ad2fc18f1c65f3696bfa6202a4579cc6#file-week1_command_line_file_system-md)
+- [week1_command_line_file_system.md](https://gist.github.com/epoch/ad2fc18f1c65f3696bfa6202a4579cc6#file-week1_command_line_file_system-md)
 
 - [WDI Brain Gym Warmup](https://gist.github.com/kasun-maldeni/d0430ab817809ccb199fe121c1651395)
 
-- [Markdown Cheatsheet · adam\-p/markdown\-here Wiki](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+- [Markdown Cheatsheet · adam-p/markdown-here Wiki](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-- [js\-day2\-else\-if\.md](https://gist.github.com/epoch/309e4a021cd06f8ae32b#file-js-day2-else-if-md)
+- [js-day2-else-if.md](https://gist.github.com/epoch/309e4a021cd06f8ae32b#file-js-day2-else-if-md)
+
+- [js-1-vars.md](https://gist.github.com/epoch/5c2c42797947ffb413d0#file-js-1-vars-md)
+
+- [js_week1_loops.md](https://gist.github.com/epoch/0df5e2eeaadb8871b9a73887162c2ab4#file-js_week1_loops-md)
