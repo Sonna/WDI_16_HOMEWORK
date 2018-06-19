@@ -5,7 +5,15 @@
 // - how am I going to show the greeting???
 // - how to join strings together and how to store the input name???
 var name = prompt("Please enter your name", "n/a")
+var age = prompt("How old are you?", "n/a")
 console.log("Hello today! " + name);
+// console.log("Hello today! " + name + ", you are " + age + "years old.");
+
+if (age >= 100) {
+  console.log("Wow!, your are ancient.");
+} else {
+  console.log("you are " + age + "years old.");
+}
 
 // Otherwise
 
