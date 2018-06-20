@@ -35,3 +35,5 @@ Time  | Table
 - [WDI Loops Solution](https://gist.github.com/kasun-maldeni/d13b6338029c4a35c0b2f6ee91b92dd0/)
 
 - [guess.md](https://gist.github.com/epoch/c05113c6b3666711c773#file-guess-md)
+
+- [week1-js-objects.md](https://gist.github.com/epoch/04ab1bc291a5f3ff79de#file-week1-js-objects-md)
