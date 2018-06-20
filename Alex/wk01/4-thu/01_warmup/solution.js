@@ -30,8 +30,8 @@ var thatArray = ["Facebook Platform","Erlang Enthusiasts","Ex-Girlfriends",
 "Camp Counselors","Nature Blogs","World of Warcraft","Models","Family Guy Enthusiasts","The Army","Cheap Vodka","Tech Incubators","Star Trek Conventions","Presentation Tools","Small Businesses","Beer","Nightclub Lines","Semi-Active Volcanoes", "Sanctimonial Artifacts","Traveling Abroad","Your Mom","Billionaires","Happy Hours","Ugg Boots","The Homeless","Blacking Out","Red Wine","Happy Families","Social Outcasts",
 "Surgeons","Pounding Jagger Bombs","Textbooks","Coffee Shops","Baristas"];
 
-var thisArrayIndex = Math.floor((Math.random() * thisArray.length) + 1);
-var thatArrayIndex = Math.floor((Math.random() * thatArray.length) + 1);
+var thisArrayIndex = Math.floor(Math.random() * thisArray.length);
+var thatArrayIndex = Math.floor(Math.random() * thatArray.length);
 
 var startupIdea = thisArray[thisArrayIndex] + ' ' + thatArray[thatArrayIndex];
 console.log(startupIdea);
@@ -51,8 +51,8 @@ console.log(startupIdea);
 // ```
 
 function generateStartupIdea(arrayA, arrayB) {
-  var arrayAIndex = Math.floor((Math.random() * arrayA.length) + 1);
-  var arrayBIndex = Math.floor((Math.random() * arrayB.length) + 1);
+  var arrayAIndex = Math.floor(Math.random() * arrayA.length);
+  var arrayBIndex = Math.floor(Math.random() * arrayB.length);
 
   return arrayA[arrayAIndex] + ' ' + arrayB[arrayBIndex];
 }
