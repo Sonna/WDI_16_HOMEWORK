@@ -37,3 +37,5 @@ Time  | Table
 - [guess.md](https://gist.github.com/epoch/c05113c6b3666711c773#file-guess-md)
 
 - [week1-js-objects.md](https://gist.github.com/epoch/04ab1bc291a5f3ff79de#file-week1-js-objects-md)
+
+- [WDI Startup Generator Warmup](https://gist.github.com/kasun-maldeni/7c2f3758c7618ad6c9bcc74a23b4c98d)
