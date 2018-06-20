@@ -83,6 +83,17 @@ QUnit.test("movie has expected stars", function(assert) {
   assert.deepEqual(movie.stars, ["Puff", "Jackie", "Living Sneezes"]);
 });
 
+function movieInfo(movie) {
+  return movie.title + " lasts for " + movie.duration + " minutes. Stars: " + movie.stars.join(', ') + ".";
+}
+
+QUnit.test("movieInfo logs expected string to console", function(assert) {
+  assert.equal(
+    movieInfo(movie),
+    "Puff the Magic Dragon lasts for 30 minutes. Stars: Puff, Jackie, Living Sneezes."
+  );
+});
+
 // == References:
 // - [QUnit]
 //   (http://qunitjs.com/)
