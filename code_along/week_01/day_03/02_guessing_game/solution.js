@@ -49,6 +49,10 @@ while (guess != randomNumber) {
 // - If the user's guess is correct, the user should see a congratulatory
 //   message
   if (guess == randomNumber) {
+    var el = document.createElement('p');
+    el.innerHTML = "obligatory congratulatory message";
+    document.body.appendChild(el);
+
     console.log("obligatory congratulatory message");
   }
 // - If the user's guess is not correct, the user should be asked to guess the
