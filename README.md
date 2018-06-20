@@ -33,3 +33,5 @@ Time  | Table
 
 - [WDI Loops Warmup](https://gist.github.com/kasun-maldeni/de11a4038efd7d323cc572238ee53060)
 - [WDI Loops Solution](https://gist.github.com/kasun-maldeni/d13b6338029c4a35c0b2f6ee91b92dd0/)
+
+- [guess.md](https://gist.github.com/epoch/c05113c6b3666711c773#file-guess-md)
