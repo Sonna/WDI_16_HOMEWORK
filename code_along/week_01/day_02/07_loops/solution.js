@@ -46,3 +46,4 @@ colours.forEach(function(colour, index) {
 
 // Bonus: Change it to log "My 1st choice, "My 2nd choice", "My 3rd choice",
 // picking the right suffix for the number based on what it is.
+

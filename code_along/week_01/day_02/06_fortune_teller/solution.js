@@ -34,12 +34,12 @@ var currentYear = new Date(Date.now()).getFullYear();
 var birthYear = 1990;
 
 // - Calculate their 2 possible ages based on the stored values.
-var age1 = currentYear - birthYear;
-var age2 = age1 - 1;
+var age = currentYear - birthYear;
+var ageBeforeBirthday = age1 - 1;
 
 // - Output them to the screen like so: "They are either NN or NN", substituting
 //   the values.
-console.log("They are either " + age1 + " or " + age2);
+console.log("They are either " + age + " or " + ageBeforeBirthday);
 
 // # The Lifetime Supply Calculator
 
