@@ -24,10 +24,10 @@ console.log("a) print out multiples of 7.");
 console.log("b) print out every second odd number.");
 // 2. For numbers between 1 and 200:<br />
 for (var num = 1; num < 200; num++) {
-//   a) print out multiples of 7.<br />
+  // a) print out multiples of 7.<br />
   ((num % 7 === 0) ||
-//   b) print out every second odd number.<br />
-   ((num % 2 === 1) && (num % 4 === 1))) && console.log(num)
+  // b) print out every second odd number.<br />
+   (num % 4 === 1)) && console.log(num);
 }
 
 // ### Extension:
