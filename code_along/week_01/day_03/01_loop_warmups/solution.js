@@ -2,6 +2,8 @@
 // source:
 // - title: WDI Loops Warmup
 //   url: https://gist.github.com/kasun-maldeni/de11a4038efd7d323cc572238ee53060
+// - title: WDI Loops Solution
+//   url: https://gist.github.com/kasun-maldeni/d13b6338029c4a35c0b2f6ee91b92dd0/
 // ---
 
 // # Loops Warmup
