@@ -29,7 +29,7 @@ for (var num = 1; num < 200; num++) {
   // a) print out multiples of 7.<br />
   ((num % 7 === 0) ||
   // b) print out every second odd number.<br />
-   (num % 4 === 1)) && console.log(num);
+   (num % 4 === 3)) && console.log(num);
 }
 
 // ### Extension:
