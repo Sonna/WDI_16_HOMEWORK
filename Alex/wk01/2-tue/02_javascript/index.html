@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+  <script>
+    console.log("hello JavaScript");
+
+    // this is a comment
+    // tick
+    // for (var number = 0; number < 14; number++, number++) {
+    for (var number = 0; number < 14; number += 2) {
+      // Find the even number
+      // if (number % 2 === 0) {
+        console.log(number);
+        // number++;
+      // }
+
+      // console.log(number);
+      // console.log("tick");
+      // console.log("tock");
+    }
+
+    Array.from(new Array(13), function(x, i) {
+      console.log("7 x " + i + " = " + (7*i));
+    });
+
+    // var array1 = new Array(14);
+    var array1 = Array.from(new Array(13), function() { 0 });
+    array1.forEach(function(element, index) {
+      console.log("7 x " + index + " = " + (7*index));
+    });
+
+    for (var number = 0; number < 13; number++) {
+      console.log("7 x " + number + " = " + (7*number));
+    }
+
+    console.log("goodbye JavaScript");
+  </script>
+</head>
+<body>
+  <!-- <h1>Banana Cake</h1> -->
+  <h1>Chicken with 100% Beef</h1>
+  <h2>Lots of banana</h2>
+  <p>group breaking discovery</p>
+  <ul>
+    <li>first fix the packaging</li>
+  </ul>
+  <div>
+    <!-- <img src="" alt="" /> -->
+    <nav>
+      <a href="about.html">about us</a>
+      <a href="donate.html">donate</a>
+    </nav>
+    <!-- <span></span> -->
+  </div>
+</body>
+</html>
