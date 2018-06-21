@@ -35,7 +35,7 @@ var birthYear = 1990;
 
 // - Calculate their 2 possible ages based on the stored values.
 var age = currentYear - birthYear;
-var ageBeforeBirthday = age1 - 1;
+var ageBeforeBirthday = age - 1;
 
 // - Output them to the screen like so: "They are either NN or NN", substituting
 //   the values.
