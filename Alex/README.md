@@ -46,3 +46,4 @@ Time  | Table
 
 - [WDI Startup Generator Warmup](https://gist.github.com/kasun-maldeni/7c2f3758c7618ad6c9bcc74a23b4c98d)
 
+- [week1-js-functions2.js](https://gist.github.com/epoch/fd1060cc1ca3502fab1c#file-week1-js-functions2-js)
