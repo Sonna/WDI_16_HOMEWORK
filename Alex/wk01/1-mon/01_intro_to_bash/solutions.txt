@@ -1,0 +1,88 @@
+# ---
+# source:
+# - title: wdi_command_line_lab_to_oz.md
+#   url: https://gist.github.com/epoch/df6ebdc138cb80901d4f5081bc2f0ee7#file-wdi_command_line_lab_to_oz-md
+# ---
+
+
+# ```shell
+#   mkdir House
+#   ls
+#   ls -s
+#   pwd
+# ```
+
+# # To Oz? To Oz!
+# Follow the steps below. Copy and paste your terminal commands into a text file
+# named solutions.txt
+#
+# 1. Create directory "House"
+mkdir House
+
+# 2. Add files: "Dorothy" and "Toto" to "House"
+touch House/{Dorothy,Toto}
+
+# 3. Create directory "Oz"
+mkdir Oz
+
+# 4. Add files for the 4 Witches to "Oz"
+# - Good Witch of the North
+touch "Oz/Good Witch of the North"
+
+# - Wicked Witch of the East
+touch "Oz/Wicked Witch of the East"
+
+# - Good Witch of the South
+touch "Oz/Good Witch of the South"
+
+# - Wicked Witch of the West
+touch "Oz/Wicked Witch of the West"
+
+# ## Ding! Dong! The Witch is Dead
+# 1. Delete: "Wicked Witch of the East"
+rm "Oz/Wicked Witch of the East"
+
+# 2. Move "Dorothy" from "House" to "Oz"
+mv House/Dorothy Oz/Dorothy
+
+# ## Follow the Yellow Brick Road
+# 1. Add file for "Scarecrow"
+touch Scarecrow
+
+# 2. Add file for "Tin Man"
+touch "Tin Man"
+
+# 3. Add file for "Cowardly Lion"
+touch "Cowardly Lion"
+
+# 4. Create directory "Emerald City"
+mkdir "Emerald City"
+
+# 5. Move 'the gang' to "Emerald City"
+mv Oz/Dorothy "Emerald City"
+mv Scarecrow "Emerald City"
+mv "Tin Man" "Emerald City"
+mv "Cowardly Lion" "Emerald City"
+
+# # You Must Kill the Witch
+# 1. Add "Flying Monkeys" to "Oz"
+touch "Oz/Flying Monkeys"
+
+# 2. Remove "Wicked Witch of the West"
+rm "Oz/Wicked Witch of the West"
+
+# 3. Give the gifts*
+#     i. Give Scarecrow a diploma
+echo "a diploma" >> "Emerald City/Scarecrow"
+
+#    ii. Give Tin Man a heart shaped watch
+echo "a heart shaped watch" >> "Emerald City/Tin Man"
+
+#   iii. Give Lion a medal
+echo "a medal" >> "Emerald City/Cowardly Lion"
+
+# *: to give gifts, you can redirect the ouput of the echo command:
+#
+# ```shell
+#   $ echo "a diploma" >> Oz/Scarecrow
+# ```
