@@ -17,6 +17,12 @@ Time  | Table
 
 ## Links
 
+### In-class covered material
+
+- [epoch/slackers](https://github.com/epoch/slackers)
+
+### Exercises
+
 - [wdi_command_line_lab_to_oz.md](https://gist.github.com/epoch/df6ebdc138cb80901d4f5081bc2f0ee7#file-wdi_command_line_lab_to_oz-md)
 
 - [week1_command_line_file_system.md](https://gist.github.com/epoch/ad2fc18f1c65f3696bfa6202a4579cc6#file-week1_command_line_file_system-md)
@@ -39,3 +45,4 @@ Time  | Table
 - [week1-js-objects.md](https://gist.github.com/epoch/04ab1bc291a5f3ff79de#file-week1-js-objects-md)
 
 - [WDI Startup Generator Warmup](https://gist.github.com/kasun-maldeni/7c2f3758c7618ad6c9bcc74a23b4c98d)
+
