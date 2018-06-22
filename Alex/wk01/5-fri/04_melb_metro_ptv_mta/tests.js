@@ -87,6 +87,41 @@ module("App", function(hooks) {
       "South Yarra"
     ]);
   });
+
+  test("calculateJourney returns array of stations when travelling " +
+       "from 'Burnley' to 'Melbourne Central'",
+       function(assert) {
+    assert.deepEqual(calculateJourney('Burnley', 'Melbourne Central'), [
+      "Burnley",
+      "East Richmond",
+      "Richmond",
+      "Parliament",
+      "Melbourne Central"
+    ]);
+  });
+
+  test("calculateJourney returns array of stations when travelling " +
+       "from 'Tooronga' to 'Windsor'",
+       function(assert) {
+    assert.deepEqual(calculateJourney('Tooronga', 'Windsor'), [
+      "Tooronga",
+      "Kooyong",
+      "Richmond",
+      "South Yarra",
+      "Prahran",
+      "Windsor"
+    ]);
+  });
+
+  test("calculateJourney returns array of stations when travelling " +
+       "from 'Melbourne Central' to 'Richmond'",
+       function(assert) {
+    assert.deepEqual(calculateJourney('Melbourne Central', 'Richmond'), [
+      "Melbourne Central",
+      "Parliament",
+      "Richmond"
+    ]);
+  });
 });
 
 

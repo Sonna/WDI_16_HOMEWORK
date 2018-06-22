@@ -75,17 +75,6 @@ var calculateJourney = function(origin, destination) {
   var originLine = findLine(origin);
   var destinationLine = findLine(destination);
 
-  // Resolve which train line belongs to "Richmond" stop bug, and set the
-  // `originLine` to the `destinationLine` or vice versa to prevent simply
-  // journey resolution
-  if (origin === intersectionStation) {
-    originLine = destinationLine;
-  }
-
-  if (destination === intersectionStation) {
-    destinationLine = originLine;
-  }
-
   // alameinLine
   // [ Melbourne Central -----> Parliament -----> Richmond
   if (originLine === destinationLine) {
@@ -94,19 +83,46 @@ var calculateJourney = function(origin, destination) {
 
     return originLine.slice(startIndex, endIndex + 1); // include last station
   } else {
+    var originLineToIntersection;
+    var destinationLineToIntersection;
+
     var startOriginIndex = originLine.indexOf(origin);
     var endOriginIndex = originLine.indexOf(intersectionStation);
+
+    if (startOriginIndex > endOriginIndex) {
+      var reversedOriginLine = originLine.slice().reverse();
+
+      startOriginIndex = reversedOriginLine.indexOf(origin);
+      endOriginIndex = reversedOriginLine.indexOf(intersectionStation);
+
+      originLineToIntersection = reversedOriginLine.slice(
+        startOriginIndex, endOriginIndex
+      );
+    } else {
+      originLineToIntersection = originLine.slice(
+        startOriginIndex, endOriginIndex
+      );
+    }
 
     var startDestinationIndex = destinationLine.indexOf(intersectionStation);
     var endDestinationIndex = destinationLine.indexOf(destination);
 
-    return originLine.slice(
-      startOriginIndex, endOriginIndex
-    ).concat(
-      destinationLine.slice(
+    if (startDestinationIndex > endDestinationIndex) {
+      var reversedDestinationLine = destinationLine.slice().reverse();
+
+      startDestinationIndex = reversedDestinationLine.indexOf(intersectionStation);
+      endDestinationIndex = reversedDestinationLine.indexOf(destination);
+
+      destinationLineToIntersection = reversedDestinationLine.slice(
         startDestinationIndex, endDestinationIndex + 1
-      )
-    );
+      );
+    } else {
+      destinationLineToIntersection = destinationLine.slice(
+        startDestinationIndex, endDestinationIndex + 1
+      );
+    }
+
+    return originLineToIntersection.concat(destinationLineToIntersection);
   }
 }
 
@@ -139,6 +155,11 @@ var printJourney = function(origin, destination) {
 // user input for easier testing in the beginning.
 
 printJourney("Melbourne Central", "Richmond");
+console.log('\n');
+printJourney('Tooronga', 'Windsor');
+console.log('\n');
+printJourney('Burnley', 'Melbourne Central');
+
 
 // ##### Hints:
 
