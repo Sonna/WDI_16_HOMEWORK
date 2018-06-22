@@ -29,56 +29,70 @@
 // ```js
 typeof 15
 // Prediction: Number
-// Actual:
+console.log(typeof 15);
+// Actual: number
 
 typeof 5.5
 // Prediction: Number
-// Actual:
+console.log(typeof 5.5);
+// Actual: number
 
 typeof NaN
 // Prediction: Number
-// Actual:
+console.log(typeof NaN);
+// Actual: number
 
 typeof "hello"
 // Prediction: String
-// Actual:
+console.log(typeof "hello");
+// Actual: string
 
 typeof true
 // Prediction: Boolean
-// Actual:
+console.log(typeof true);
+// Actual: boolean
 
 typeof 1 != 2
 // Prediction: Boolean
-// Actual:
+console.log((typeof 1 != 2));
+// Actual: true
 
 
 "hamburger" + "s"
-// Prediction: String
-// Actual:
+// Prediction: "hamburgers"
+console.log("hamburger" + "s");
+// Actual: "hamburgers"
 
 "hamburgers" - "s"
-// Prediction: String
-// Actual:
+// Prediction: `undefined method - for String`
+console.log("hamburger" - "s");
+// Actual: NaN
 
 "1" + "3"
-// Prediction: String
-// Actual:
+// Prediction: "13"
+console.log("1" + "3");
+// Actual: "13"
 
 "1" - "3"
-// Prediction: String
-// Actual:
+// Prediction: error `undefined method - for String`
+console.log("1" - "3");
+// Actual: -2
+// Really? It returns a `number`, <sigh>.
 
 "johnny" + 5
-// Prediction: String
-// Actual:
+// Prediction: "johnny5"
+console.log("johnny" + 5);
+// Actual: "johnny5"
 
 "johnny" - 5
 // Prediction: error `undefined method - for String`
-// Actual:
+console.log("johnny" - 5);
+// Actual: NaN
 
 99 * "luftbaloons"
 // Prediction: error `undefined conversion for String to type number`
-// Actual:
+console.log(99 * "luftbaloons");
+// Actual: NaN
 // ```
 
 // ### Arrays
@@ -142,22 +156,24 @@ numbers.unshift(3)
 var numbers = [2, 4, 6, 8];
 console.log(numbers);
 // Prediction: [2, 4, 6, 8]
-// Actual:
+// Actual: [2, 4, 6, 8]
 
 numbers.pop()
 console.log(numbers);
 // Prediction: [2, 4, 6]
-// Actual:
+// Actual: [2, 4, 6]
 
 numbers.push(10)
 console.log(numbers);
 // Prediction: [2, 4, 6, 10]
-// Actual:
+// Actual: [2, 4, 6, 10]
 
 numbers.unshift(3)
 console.log(numbers);
 // Prediction: [10]
-// Actual:
+// Actual: [3, 2, 4, 6, 10]
+// Oops, misread `unshift` as `shift` and assumed it took an optional argument
+// `n` to preform its operation `n` number of times.
 
 // ```
 
@@ -175,17 +191,17 @@ moreMorse.split(" ")
 var morse = ["dot", "pause", "dot"]
 console.log(morse);
 // Prediction: ["dot", "pause", "dot"]
-// Actual:
+// Actual: ["dot", "pause", "dot"]
 
 var moreMorse = morse.join(" dash ")
 console.log(moreMorse);
 // Prediction: "dot dash pause dash dot"
-// Actual:
+// Actual: "dot dash pause dash dot"
 
 moreMorse.split(" ")
 console.log(moreMorse.split(" "));
 // Prediction: ["dot", "dash", "pause", "dash", "dot"]
-// Actual:
+// Actual: ["dot", "dash", "pause", "dash", "dot"]
 
 // ```
 
@@ -209,47 +225,55 @@ bands[1][3] = "Ringo"
 var bands = []
 console.log(bands);
 // Prediction: []
-// Actual:
+// Actual: []
 
 var beatles = ["Paul", "John", "George", "Pete"]
 console.log(beatles);
 // Prediction: ["Paul", "John", "George", "Pete"]
-// Actual:
+// Actual: ["Paul", "John", "George", "Pete"]
 
 var stones = ["Brian", "Mick", "Keith", "Ronnie", "Charlie"]
 console.log(stones);
 // Prediction: ["Brian", "Mick", "Keith", "Ronnie", "Charlie"]
-// Actual:
+// Actual: ["Brian", "Mick", "Keith", "Ronnie", "Charlie"]
 
 bands.push(beatles)
 console.log(bands);
 // Prediction: [ ["Paul", "John", "George", "Pete"] ]
-// Actual:
+// Actual: [Array(4)]
+//         { 0: ["Paul", "John", "George", "Pete"] }
 
 bands.unshift(stones)
 console.log(bands);
 // Prediction: [ ["Brian", "Mick", "Keith", "Ronnie", "Charlie"],
 //               ["Paul", "John", "George", "Pete"] ]
-// Actual:
+// Actual: [Array(5), Array(4)]
+//         { 0: ["Brian", "Mick", "Keith", "Ronnie", "Charlie"],
+//           1: ["Paul", "John", "George", "Pete"] }
 
 bands[bands.length - 1].pop()
 console.log(bands);
 // Prediction: [ ["Brian", "Mick", "Keith", "Ronnie", "Charlie"],
 //               ["Paul", "John", "George"] ]
-// Actual:
+// Actual: [Array(5), Array(3)]
+//         { 0: ["Brian", "Mick", "Keith", "Ronnie", "Charlie"],
+//           1: ["Paul", "John", "George"] }
 
 bands[0].shift()
 console.log(bands);
 // Prediction: [ ["Mick", "Keith", "Ronnie", "Charlie"],
 //               ["Paul", "John", "George"] ]
-// Actual:
+// Actual: [Array(4), Array(3)]
+//         { 0: ["Mick", "Keith", "Ronnie", "Charlie"],
+//           1: ["Paul", "John", "George"] }
 
 bands[1][3] = "Ringo"
 console.log(bands);
 // Prediction: [ ["Mick", "Keith", "Ronnie", "Charlie"],
 //               ["Paul", "John", "George", "Ringo"] ]
-// Actual:
-
+// Actual: [Array(4), Array(4)]
+//         { 0: ["Mick", "Keith", "Ronnie", "Charlie"],
+//           1: ["Paul", "John", "George", "Ringo"] }
 // ```
 
 // ## Booleans & Comparison Operators
@@ -411,7 +435,7 @@ var fizzBuzz = function(number) {
   return number;
 };
 
-for (var i = 0; i < 100; i++) {
+for (var i = 1; i < 100; i++) {
   console.log(fizzBuzz(i));
 }
 // ```
