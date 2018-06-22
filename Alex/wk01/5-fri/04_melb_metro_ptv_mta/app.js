@@ -158,7 +158,9 @@ var journeyDetails = function(origin, destination) {
 };
 
 var printJourney = function(origin, destination) {
-  console.log(journeyDetails(origin, destination));
+  var details = journeyDetails(origin, destination);
+  console.log(details);
+  return details;
 };
 
 // You may want to *hard code* the origin and destination instead of getting
@@ -206,10 +208,8 @@ if (typeof prompt !== 'undefined' && typeof QUnit === 'undefined') {
     );
   }
 
-  printJourney(from, to);
-
   var el = document.createElement('pre');
-  el.textContent = journeyDetails(from, to);
+  el.textContent = printJourney(from, to);
   document.body.appendChild(el);
 }
 
