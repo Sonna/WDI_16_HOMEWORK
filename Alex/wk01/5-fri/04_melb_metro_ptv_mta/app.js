@@ -104,9 +104,16 @@ var calculateLineJourney = function(station,
                                                    findLine(station).slice();
   intersection = (typeof intersection !== 'undefined') ? intersection :
                                                          intersectionStation;
-
-  var start = endOfJourney ? intersection : station;
-  var end = endOfJourney ? station : intersection;
+  var start, end, addLastStation;
+  if (endOfJourney) {
+    start = intersection;
+    end = station;
+    addLastStation = 1;
+  } else {
+    start = station;
+    end = intersection;
+    addLastStation = 0;
+  }
 
   var startIndex = trainLine.indexOf(start);
   var endIndex = trainLine.indexOf(end);
@@ -117,21 +124,14 @@ var calculateLineJourney = function(station,
     endIndex = trainLine.indexOf(end);
   }
 
-  return trainLine.slice(startIndex, endIndex + (endOfJourney ? 1 : 0));
+  return trainLine.slice(startIndex, endIndex + addLastStation);
 };
 
 var calculateJourney = function(origin, destination) {
-  var originLine = findLine(origin, alltrainLines);
-  var destinationLine = findLine(destination, alltrainLines);
+  var originToIntersection = calculateLineJourney(origin);
+  var intersectionToDestination = calculateLineJourney(destination, true);
 
-  var originLineToIntersection = calculateLineJourney(origin);
-  //   origin, false, originLine, intersectionStation
-  // );
-  var destinationLineToIntersection = calculateLineJourney(destination, true);
-  //   destination, true, destinationLine, intersectionStation
-  // );
-
-  return originLineToIntersection.concat(destinationLineToIntersection);
+  return originToIntersection.concat(intersectionToDestination);
 }
 
 // example:
