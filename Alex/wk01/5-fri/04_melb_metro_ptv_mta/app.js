@@ -66,8 +66,8 @@ var findLine = function(station) { //, allLines) {
     return alameinLine;
   } else if (glenWaverlyLine.includes(station)) {
     return glenWaverlyLine;
-  } else if (destinationLine.includes(station)) {
-    return destinationLine;
+  } else if (sandringhamLine.includes(station)) {
+    return sandringhamLine;
   };
 }
 
