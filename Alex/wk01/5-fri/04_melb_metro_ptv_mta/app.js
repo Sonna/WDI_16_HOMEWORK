@@ -69,59 +69,59 @@ var findLine = function(station, trainLines) {
   });
 }
 
+var calculateLineJourney = function(station,
+                                    trainLine,
+                                    intersection,
+                                    endOfJourney) {
+  trainLine =
+    (typeof trainLine !== 'undefined') ? trainLine.slice() : findLine(station);
+  // var trainLine = findLine(station); //, alltrainLines);
+  // intersection =
+  //   (typeof intersection !== 'undefined') ? intersection : intersectionStation;
+  // endOfJourney = (typeof endOfJourney !== 'undefined') ? endOfJourney : false;
+  var start = endOfJourney ? intersection : station;
+  var end = endOfJourney ? station : intersection;
+
+  var startIndex = trainLine.indexOf(start);
+  var endIndex = trainLine.indexOf(end);
+
+  if (startIndex > endIndex) {
+    // var reversedTrainLine = trainLine.slice().reverse();
+    trainLine.reverse();
+
+    // startIndex = reversedTrainLine.indexOf(station);
+    // endIndex = reversedTrainLine.indexOf(intersection);
+    startIndex = trainLine.indexOf(start);
+    endIndex = trainLine.indexOf(end);
+
+    // return reversedTrainLine.slice(startIndex, endIndex);
+  } // else {
+
+  return trainLine.slice(startIndex, endIndex + (endOfJourney ? 1 : 0));
+  // }
+};
+
 var calculateJourney = function(origin, destination) {
   var originLine = findLine(origin, alltrainLines);
   var destinationLine = findLine(destination, alltrainLines);
 
   // alameinLine
   // [ Melbourne Central -----> Parliament -----> Richmond
-  if (originLine === destinationLine) {
-    var startIndex = originLine.indexOf(origin);
-    var endIndex = originLine.indexOf(origin);
+  // if (originLine === destinationLine) {
+  //   var startIndex = originLine.indexOf(origin);
+  //   var endIndex = originLine.indexOf(origin);
 
-    return originLine.slice(startIndex, endIndex + 1); // include last station
-  } else {
-    var originLineToIntersection;
-    var destinationLineToIntersection;
-
-    var startOriginIndex = originLine.indexOf(origin);
-    var endOriginIndex = originLine.indexOf(intersectionStation);
-
-    if (startOriginIndex > endOriginIndex) {
-      var reversedOriginLine = originLine.slice().reverse();
-
-      startOriginIndex = reversedOriginLine.indexOf(origin);
-      endOriginIndex = reversedOriginLine.indexOf(intersectionStation);
-
-      originLineToIntersection = reversedOriginLine.slice(
-        startOriginIndex, endOriginIndex
-      );
-    } else {
-      originLineToIntersection = originLine.slice(
-        startOriginIndex, endOriginIndex
-      );
-    }
-
-    var startDestinationIndex = destinationLine.indexOf(intersectionStation);
-    var endDestinationIndex = destinationLine.indexOf(destination);
-
-    if (startDestinationIndex > endDestinationIndex) {
-      var reversedDestinationLine = destinationLine.slice().reverse();
-
-      startDestinationIndex = reversedDestinationLine.indexOf(intersectionStation);
-      endDestinationIndex = reversedDestinationLine.indexOf(destination);
-
-      destinationLineToIntersection = reversedDestinationLine.slice(
-        startDestinationIndex, endDestinationIndex + 1
-      );
-    } else {
-      destinationLineToIntersection = destinationLine.slice(
-        startDestinationIndex, endDestinationIndex + 1
-      );
-    }
+  //   return originLine.slice(startIndex, endIndex + 1); // include last station
+  // } else {
+    var originLineToIntersection = calculateLineJourney(
+      origin, originLine, intersectionStation
+    );
+    var destinationLineToIntersection = calculateLineJourney(
+      destination, destinationLine, intersectionStation, true
+    );
 
     return originLineToIntersection.concat(destinationLineToIntersection);
-  }
+  // }
 }
 
 // example:
