@@ -70,15 +70,15 @@ var findLine = function(station, trainLines) {
 }
 
 var calculateLineJourney = function(station,
+                                    endOfJourney,
                                     trainLine,
-                                    intersection,
-                                    endOfJourney) {
-  trainLine =
-    (typeof trainLine !== 'undefined') ? trainLine.slice() : findLine(station);
-  // var trainLine = findLine(station); //, alltrainLines);
-  // intersection =
-  //   (typeof intersection !== 'undefined') ? intersection : intersectionStation;
-  // endOfJourney = (typeof endOfJourney !== 'undefined') ? endOfJourney : false;
+                                    intersection) {
+  endOfJourney = (typeof endOfJourney !== 'undefined') ? endOfJourney : false;
+  trainLine = (typeof trainLine !== 'undefined') ? trainLine.slice() :
+                                                   findLine(station).slice();
+  intersection = (typeof intersection !== 'undefined') ? intersection :
+                                                         intersectionStation;
+
   var start = endOfJourney ? intersection : station;
   var end = endOfJourney ? station : intersection;
 
@@ -86,42 +86,26 @@ var calculateLineJourney = function(station,
   var endIndex = trainLine.indexOf(end);
 
   if (startIndex > endIndex) {
-    // var reversedTrainLine = trainLine.slice().reverse();
     trainLine.reverse();
-
-    // startIndex = reversedTrainLine.indexOf(station);
-    // endIndex = reversedTrainLine.indexOf(intersection);
     startIndex = trainLine.indexOf(start);
     endIndex = trainLine.indexOf(end);
-
-    // return reversedTrainLine.slice(startIndex, endIndex);
-  } // else {
+  }
 
   return trainLine.slice(startIndex, endIndex + (endOfJourney ? 1 : 0));
-  // }
 };
 
 var calculateJourney = function(origin, destination) {
   var originLine = findLine(origin, alltrainLines);
   var destinationLine = findLine(destination, alltrainLines);
 
-  // alameinLine
-  // [ Melbourne Central -----> Parliament -----> Richmond
-  // if (originLine === destinationLine) {
-  //   var startIndex = originLine.indexOf(origin);
-  //   var endIndex = originLine.indexOf(origin);
+  var originLineToIntersection = calculateLineJourney(origin);
+  //   origin, false, originLine, intersectionStation
+  // );
+  var destinationLineToIntersection = calculateLineJourney(destination, true);
+  //   destination, true, destinationLine, intersectionStation
+  // );
 
-  //   return originLine.slice(startIndex, endIndex + 1); // include last station
-  // } else {
-    var originLineToIntersection = calculateLineJourney(
-      origin, originLine, intersectionStation
-    );
-    var destinationLineToIntersection = calculateLineJourney(
-      destination, destinationLine, intersectionStation, true
-    );
-
-    return originLineToIntersection.concat(destinationLineToIntersection);
-  // }
+  return originLineToIntersection.concat(destinationLineToIntersection);
 }
 
 // example:
