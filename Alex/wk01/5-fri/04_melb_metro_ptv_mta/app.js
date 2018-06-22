@@ -52,28 +52,26 @@ var sandringhamLine = [
 // All 3 train lines intersect at **Richmond**, but there are NO other
 // intersection points as trains run express.
 var intersectionStation = "Richmond";
-// var allLines = [
-//   alameinLine,
-//   glenWaverlyLine,
-//   sandringhamLine
-// ];
+var alltrainLines = [
+  alameinLine,
+  glenWaverlyLine,
+  sandringhamLine
+];
 
 // Write a javascript program that works out display the journey when you give
 // it an origin and destination.
 
-var findLine = function(station) { //, allLines) {
-  if (alameinLine.includes(station)) {
-    return alameinLine;
-  } else if (glenWaverlyLine.includes(station)) {
-    return glenWaverlyLine;
-  } else if (sandringhamLine.includes(station)) {
-    return sandringhamLine;
-  };
+var findLine = function(station, trainLines) {
+  trainLines = (typeof trainLines !== 'undefined') ? trainLines : alltrainLines;
+
+  return trainLines.find(function(trainLine) {
+    return trainLine.includes(station);
+  });
 }
 
 var calculateJourney = function(origin, destination) {
-  var originLine = findLine(origin);
-  var destinationLine = findLine(destination);
+  var originLine = findLine(origin, alltrainLines);
+  var destinationLine = findLine(destination, alltrainLines);
 
   // alameinLine
   // [ Melbourne Central -----> Parliament -----> Richmond

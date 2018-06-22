@@ -38,19 +38,24 @@ module("App", function(hooks) {
     ]);
   });
 
+  test("findLine can returns Alamein train Line when given 'Hawthorn' station" +
+       ", but no train lines are given", function(assert) {
+    assert.deepEqual(findLine('Hawthorn'), alameinLine);
+  });
+
   test("findLine can returns Alamein train Line when given 'Hawthorn' station",
        function(assert) {
-    assert.deepEqual(findLine('Hawthorn'), alameinLine);
+    assert.deepEqual(findLine('Hawthorn', alltrainLines), alameinLine);
   });
 
   test("findLine can returns Glen Waverly Line when given 'Flagstaff' station",
        function(assert) {
-    assert.deepEqual(findLine('Flagstaff'), glenWaverlyLine);
+    assert.deepEqual(findLine('Flagstaff', alltrainLines), glenWaverlyLine);
   });
 
   test("findLine can returns Sandringham Line when given 'Prahran' station",
        function(assert) {
-    assert.deepEqual(findLine('Prahran'), sandringhamLine);
+    assert.deepEqual(findLine('Prahran', alltrainLines), sandringhamLine);
   });
 
   test("calculateJourney returns array of stations when travelling " +
