@@ -28,56 +28,56 @@
 
 // ```js
 typeof 15
-// Prediction:
+// Prediction: Number
 // Actual:
 
 typeof 5.5
-// Prediction:
+// Prediction: Number
 // Actual:
 
 typeof NaN
-// Prediction:
+// Prediction: Number
 // Actual:
 
 typeof "hello"
-// Prediction:
+// Prediction: String
 // Actual:
 
 typeof true
-// Prediction:
+// Prediction: Boolean
 // Actual:
 
 typeof 1 != 2
-// Prediction:
+// Prediction: Boolean
 // Actual:
 
 
 "hamburger" + "s"
-// Prediction:
+// Prediction: String
 // Actual:
 
 "hamburgers" - "s"
-// Prediction:
+// Prediction: String
 // Actual:
 
 "1" + "3"
-// Prediction:
+// Prediction: String
 // Actual:
 
 "1" - "3"
-// Prediction:
+// Prediction: String
 // Actual:
 
 "johnny" + 5
-// Prediction:
+// Prediction: String
 // Actual:
 
 "johnny" - 5
-// Prediction:
+// Prediction: error `undefined method - for String`
 // Actual:
 
 99 * "luftbaloons"
-// Prediction:
+// Prediction: error `undefined conversion for String to type number`
 // Actual:
 // ```
 
@@ -101,6 +101,29 @@ typeof 1 != 2
 
 // ```js
 // Your answers go here.
+var myArray = [];
+
+// * Add an element to the back of an array.
+myArray.push(1);
+
+// * Remove an element from the back of an array.
+myArray.pop();
+
+// * Add an element to the front of an array.
+myArray.shift("hello");
+
+// * Remove an element from the front of an array.
+myArray.unshift();
+
+// * Concatenates all the elements in an array into a string.
+myArray = ["hello", " ", "world", "!"];
+myArray.join(''); // => "hello world!"
+
+// * Separates the characters of a string into an array. This one is a string
+//   method.
+"hello world!".split('')
+// => ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d", "!"]
+
 // ```
 
 // What will the contents of the below arrays be after the code samples are
@@ -116,6 +139,26 @@ numbers.unshift(3)
 
 // ```text
 // Your answer goes here.
+var numbers = [2, 4, 6, 8];
+console.log(numbers);
+// Prediction: [2, 4, 6, 8]
+// Actual:
+
+numbers.pop()
+console.log(numbers);
+// Prediction: [2, 4, 6]
+// Actual:
+
+numbers.push(10)
+console.log(numbers);
+// Prediction: [2, 4, 6, 10]
+// Actual:
+
+numbers.unshift(3)
+console.log(numbers);
+// Prediction: [10]
+// Actual:
+
 // ```
 
 // What is the return value of the below code sample? Come up with an answer
@@ -129,6 +172,21 @@ moreMorse.split(" ")
 
 // ```text
 // Your answer goes here.
+var morse = ["dot", "pause", "dot"]
+console.log(morse);
+// Prediction: ["dot", "pause", "dot"]
+// Actual:
+
+var moreMorse = morse.join(" dash ")
+console.log(moreMorse);
+// Prediction: "dot dash pause dash dot"
+// Actual:
+
+moreMorse.split(" ")
+console.log(moreMorse.split(" "));
+// Prediction: ["dot", "dash", "pause", "dash", "dot"]
+// Actual:
+
 // ```
 
 // What will the contents of the below array be after the below code sample is
@@ -148,6 +206,50 @@ bands[1][3] = "Ringo"
 
 // ```text
 // Your answer goes here.
+var bands = []
+console.log(bands);
+// Prediction: []
+// Actual:
+
+var beatles = ["Paul", "John", "George", "Pete"]
+console.log(beatles);
+// Prediction: ["Paul", "John", "George", "Pete"]
+// Actual:
+
+var stones = ["Brian", "Mick", "Keith", "Ronnie", "Charlie"]
+console.log(stones);
+// Prediction: ["Brian", "Mick", "Keith", "Ronnie", "Charlie"]
+// Actual:
+
+bands.push(beatles)
+console.log(bands);
+// Prediction: [ ["Paul", "John", "George", "Pete"] ]
+// Actual:
+
+bands.unshift(stones)
+console.log(bands);
+// Prediction: [ ["Brian", "Mick", "Keith", "Ronnie", "Charlie"],
+//               ["Paul", "John", "George", "Pete"] ]
+// Actual:
+
+bands[bands.length - 1].pop()
+console.log(bands);
+// Prediction: [ ["Brian", "Mick", "Keith", "Ronnie", "Charlie"],
+//               ["Paul", "John", "George"] ]
+// Actual:
+
+bands[0].shift()
+console.log(bands);
+// Prediction: [ ["Mick", "Keith", "Ronnie", "Charlie"],
+//               ["Paul", "John", "George"] ]
+// Actual:
+
+bands[1][3] = "Ringo"
+console.log(bands);
+// Prediction: [ ["Mick", "Keith", "Ronnie", "Charlie"],
+//               ["Paul", "John", "George", "Ringo"] ]
+// Actual:
+
 // ```
 
 // ## Booleans & Comparison Operators
@@ -155,10 +257,10 @@ bands[1][3] = "Ringo"
 // Here's an example truth table for the `!` (not) operation. In it, we're
 // listing the values of `!a` that correspond with a given value of `a`.
 
-// |a|!a|
-// |---|---|
-// |true|false|
-// |false|true|
+// |  a  |  !a |
+// | --- | --- |
+// | true|false|
+// |false| true|
 
 // Fill out the truth tables below for `&&` (and), `||` (or) and one that uses
 // multiple comparison operators. All you need to do is replace the `?`'s with
@@ -170,32 +272,32 @@ bands[1][3] = "Ringo"
 // > **HINT:** With the last one, it may be helpful to add additional columns to
 // > the table for each individual comparison.
 
-// | a | b | a AND b |
-// | --- | --- | --- |
-// | true | true | ? |
-// | true | false | ? |
-// | false | true | ? |
-// | false | false | ? |
+// |   a   |   b   | a AND b |
+// | ----- | ----- | ------- |
+// |  true |  true |    true |
+// |  true | false |   false |
+// | false |  true |   false |
+// | false | false |   false |
 
-// |a|b|a OR b|
-// |---|---|---|
-// |true|true|?|
-// |true|false|?|
-// |false|true|?|
-// |false|false|?|
+// |   a   |   b   | a OR b |
+// | ----- | ----- | ------ |
+// |  true |  true |   true |
+// |  true | false |   true |
+// | false |  true |   true |
+// | false | false |  false |
 
-// |a|b|a `!=` b|
-// |---|---|---|
-// |3|3|?|
-// |1|5|?|
-// |2|"2"|?|
+// |  a  |  b  | a `!=` b |
+// | --- | --- | -------- |
+// |   3 |   3 |    false |
+// |   1 |   5 |     true |
+// |   2 | "2" |    false |
 
-// |a|b|!a AND (a OR b)|
-// |---|---|---|
-// |true|true|?|
-// |true|false|?|
-// |false|true|?|
-// |false|false|?|
+// |   a   |   b   | !a AND (a OR b)|
+// | ----- | ----- | -------------- |
+// |  true |  true |          false |
+// |  true | false |          false |
+// | false |  true |           true |
+// | false | false |          false |
 
 // ## Conditionals
 
@@ -211,6 +313,17 @@ bands[1][3] = "Ringo"
 
 // ```js
 // Your answer goes here.
+var age = 18;
+
+if (age > 75) {
+  console.log("Are you sure you want to be here?");
+} else if (age > 21) {
+  console.log("Come on in!");
+} else if (age >= 18 && age <= 21) {
+  console.log("Come on in (but no drinking)!");
+} else if (age < 18) {
+  console.log("You're too young to be in here!");
+}
 // ```
 
 // #### Bonus
@@ -224,6 +337,47 @@ bands[1][3] = "Ringo"
 
 // > Hint: Whether the patron has an ID or not can be stored in a `hasId`
 // > variable. What do you think the stored data type should be?
+
+// ```js
+// Your answer goes here.
+var hasId = false;
+
+if (hasId) {
+  if (age > 75) {
+    console.log("Are you sure you want to be here?");
+  } else if (age > 21) {
+    console.log("Come on in!");
+  } else if (age >= 18 && age <= 21) {
+    console.log("Come on in (but no drinking)!");
+  } else if (age < 18) {
+    console.log("You're too young to be in here!");
+  }
+} else {
+  console.log("No ID, no entry.");
+}
+
+var patron = {
+  age: 22,
+  hasId: true
+}
+
+var bounce = function(possiblePatron) {
+  if (possiblePatron.hasId) {
+    if (possiblePatron.age > 75) {
+      console.log("Are you sure you want to be here?");
+    } else if (possiblePatron.age > 21) {
+      console.log("Come on in!");
+    } else if (possiblePatron.age >= 18 && possiblePatron.age <= 21) {
+      console.log("Come on in (but no drinking)!");
+    } else if (possiblePatron.age < 18) {
+      console.log("You're too young to be in here!");
+    }
+  } else {
+    console.log("No ID, no entry.");
+  }
+}
+bounce(patron);
+// ```
 
 // ## Bonus: Fizz-Buzz
 
@@ -246,6 +400,20 @@ bands[1][3] = "Ringo"
 
 // ```js
 // Your answer goes here.
+var fizzBuzz = function(number) {
+  if (number % 3 === 0 && number % 5 === 0) {
+    return 'FizzBuzz';
+  } else if (number % 3 === 0) {
+    return 'Fizz';
+  } else if (number % 5 === 0) {
+    return 'Buzz';
+  }
+  return number;
+};
+
+for (var i = 0; i < 100; i++) {
+  console.log(fizzBuzz(i));
+}
 // ```
 
 // #### Bonus (for the bonus)
@@ -254,6 +422,18 @@ bands[1][3] = "Ringo"
 //   the game will trigger function calls that look something like these...
 
 // ```js
+var fizzBuzz = function(number) {
+  if (number % 3 === 0 && number % 5 === 0) {
+    console.log('FizzBuzz');
+  } else if (number % 3 === 0) {
+    console.log('Fizz');
+  } else if (number % 5 === 0) {
+    console.log('Buzz');
+  } else {
+    console.log(number);
+  }
+};
+
 fizzBuzz(1)
 // => prints "1" to the console
 
