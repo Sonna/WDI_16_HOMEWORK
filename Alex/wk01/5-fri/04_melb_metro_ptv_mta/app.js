@@ -134,19 +134,21 @@ var calculateJourney = function(origin, destination) {
 //
 // 2 stops total
 // ```
-var printJourney = function(origin, destination) {
+var journeyDetails = function(origin, destination) {
   // var journey = ["Melbourne Central", "Parliament", "Richmond"];
   var journey = calculateJourney(origin, destination);
   var stopsTotal = journey.length - 1;
-  var details =
-    'origin: ' + origin + '\n' +
+
+  return 'origin: ' + origin + '\n' +
     'destination: ' + destination + '\n' +
     '\n' +
     journey.join(' -----> ') + '\n' +
     '\n' +
     stopsTotal + ' stops total';
+};
 
-  console.log(details);
+var printJourney = function(origin, destination) {
+  console.log(journeyDetails(origin, destination));
 };
 
 // You may want to *hard code* the origin and destination instead of getting

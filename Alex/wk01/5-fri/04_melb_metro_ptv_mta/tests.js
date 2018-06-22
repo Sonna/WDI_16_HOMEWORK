@@ -127,6 +127,35 @@ module("App", function(hooks) {
       "Richmond"
     ]);
   });
+
+  test("get journeyDetails when travelling " +
+       "from 'Melbourne Central' to 'Richmond'",
+       function(assert) {
+    assert.equal(
+      journeyDetails('Melbourne Central', 'Richmond'),
+      'origin: Melbourne Central' + '\n' +
+      'destination: Richmond' + '\n' +
+      '\n' +
+      'Melbourne Central -----> Parliament -----> Richmond' + '\n' +
+      '\n' +
+      '2 stops total'
+    );
+  });
+
+  test("get journeyDetails when travelling " +
+       "from 'East Richmond' to 'Flagstaff'",
+       function(assert) {
+    assert.equal(
+      journeyDetails('East Richmond', 'Flagstaff'),
+      'origin: East Richmond' + '\n' +
+      'destination: Flagstaff' + '\n' +
+      '\n' +
+      'East Richmond -----> Richmond -----> ' +
+      'Parliament -----> Melbourne Central -----> Flagstaff' + '\n' +
+      '\n' +
+      '4 stops total'
+    );
+  });
 });
 
 
