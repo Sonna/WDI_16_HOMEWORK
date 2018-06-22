@@ -19,7 +19,15 @@ var alameinLine = [
   "East Richmond",
   "Burnley",
   "Hawthorn",
-  "Glenferrie"
+  "Glenferrie",
+  "Auburn",
+  "Camberwell",
+  "Riversdale",
+  "Willison",
+  "Hartwell",
+  "Burwood",
+  "Ashburton",
+  "Alamein",
 ];
 
 // The **Glen Waverly** line has the following stops:
@@ -32,7 +40,16 @@ var glenWaverlyLine = [
   "Parliament",
   "Richmond",
   "Kooyong",
-  "Tooronga"
+  "Tooronga",
+  "Gardiner",
+  "Glen Iris",
+  "Darling",
+  "East Malvern",
+  "Holmesglen",
+  "Jordanville",
+  "Mount Waverly",
+  "Syndal",
+  "Glen Waverly"
 ];
 
 // The **Sandringham** line has the following stops:
@@ -44,7 +61,16 @@ var sandringhamLine = [
   "Richmond",
   "South Yarra",
   "Prahran",
-  "Windsor"
+  "Windsor",
+  "Balaclava",
+  "Ripponlea",
+  "Eisternwick",
+  "Gardenvale",
+  "North Brighton",
+  "Middle Brighton",
+  "Brighton Beach",
+  "Hampton",
+  "Sandringham"
 ];
 
 // ---
