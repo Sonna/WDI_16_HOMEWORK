@@ -27,7 +27,7 @@ var alameinLine = [
   "Hartwell",
   "Burwood",
   "Ashburton",
-  "Alamein",
+  "Alamein"
 ];
 
 // The **Glen Waverly** line has the following stops:
@@ -185,7 +185,33 @@ printJourney('Burnley', 'Melbourne Central');
 //   - User must enter a line and station in the subway network
 //   - If the user enters something else, your program should handle it
 // * Add additional stations
+var from, to;
 
+if (typeof prompt !== 'undefined' && typeof QUnit === 'undefined') {
+  from = prompt("From: station", "Melbourne Central");
+
+  while(!findLine(from)) {
+    from = prompt(
+      "Could not find " + from + " station, please enter another From: station",
+      from
+    );
+  }
+
+  to = prompt("To: station", "Richmond");
+
+  while(!findLine(to)) {
+    to = prompt(
+      "Could not find " + to + " station, please enter another To: station",
+      to
+    );
+  }
+
+  printJourney(from, to);
+
+  var el = document.createElement('pre');
+  el.textContent = journeyDetails(from, to);
+  document.body.appendChild(el);
+}
 
 // #### Resources
 // [Here's a map of the train network to help](https://drive.google.com/a/generalassemb.ly/file/d/0Bx09n7UgX2HyaGswNVNWd3B0bEE/view?usp=sharing)
