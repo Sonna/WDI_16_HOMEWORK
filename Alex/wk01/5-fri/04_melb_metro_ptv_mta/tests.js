@@ -52,6 +52,41 @@ module("App", function(hooks) {
        function(assert) {
     assert.deepEqual(findLine('Prahran'), sandringhamLine);
   });
+
+  test("calculateJourney returns array of stations when travelling " +
+       "from 'Southern Cross' to 'Kooyong'",
+       function(assert) {
+    assert.deepEqual(calculateJourney('Southern Cross', 'Kooyong'), [
+      "Southern Cross",
+      "Richmond",
+      "Kooyong"
+    ]);
+  });
+
+  test("calculateJourney returns array of stations when travelling " +
+       "from 'Flagstaff' to 'Glenferrie'",
+       function(assert) {
+    assert.deepEqual(calculateJourney('Flagstaff', 'Glenferrie'), [
+      "Flagstaff",
+      "Melbourne Central",
+      "Parliament",
+      "Richmond",
+      "East Richmond",
+      "Burnley",
+      "Hawthorn",
+      "Glenferrie"
+    ]);
+  });
+
+  test("calculateJourney returns array of stations when travelling " +
+       "from 'Flinders Street' to 'South Yarra'",
+       function(assert) {
+    assert.deepEqual(calculateJourney('Flinders Street', 'South Yarra'), [
+      "Flinders Street",
+      "Richmond",
+      "South Yarra"
+    ]);
+  });
 });
 
 

@@ -75,13 +75,16 @@ var calculateJourney = function(origin, destination) {
   var originLine = findLine(origin);
   var destinationLine = findLine(destination);
 
-  // if (alameinLine.includes(origin)) {
-  //   originLine = alameinLine;
-  // } else if (glenWaverlyLine.includes(origin)) {
-  //   originLine = glenWaverlyLine;
-  // } else if (destinationLine.includes(origin)) {
-  //   originLine = destinationLine;
-  // };
+  // Resolve which train line belongs to "Richmond" stop bug, and set the
+  // `originLine` to the `destinationLine` or vice versa to prevent simply
+  // journey resolution
+  if (origin === intersectionStation) {
+    originLine = destinationLine;
+  }
+
+  if (destination === intersectionStation) {
+    destinationLine = originLine;
+  }
 
   // alameinLine
   // [ Melbourne Central -----> Parliament -----> Richmond
@@ -94,14 +97,14 @@ var calculateJourney = function(origin, destination) {
     var startOriginIndex = originLine.indexOf(origin);
     var endOriginIndex = originLine.indexOf(intersectionStation);
 
-    var startDestinationIndex = destinationLine.indexOf(destination);
-    var endDestinationIndex = destinationLine.indexOf(intersectionStation);
+    var startDestinationIndex = destinationLine.indexOf(intersectionStation);
+    var endDestinationIndex = destinationLine.indexOf(destination);
 
     return originLine.slice(
-      startOriginIndex, endOriginIndex + 1
+      startOriginIndex, endOriginIndex
     ).concat(
-      originLine.slice(
-        startDestinationIndex, endDestinationIndex
+      destinationLine.slice(
+        startDestinationIndex, endDestinationIndex + 1
       )
     );
   }
