@@ -64,3 +64,7 @@ Time  | Table
 ##### Day 5
 
 - [WDI The Board Warmup](https://gist.github.com/kasun-maldeni/7787ab81d02477be49565381f78412cf)
+
+- Group Quiz (on JavaScript)
+
+- [js_data_types_revision_homework.md](https://gist.github.com/epoch/202871ec7120fa9e985f0acc07e64f62#file-js_data_types_revision_homework-md)
