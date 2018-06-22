@@ -13,23 +13,99 @@
 // ```
 // Flinders Street - Richmond - East Richmond - Burnley - Hawthorn - Glenferrie
 // ```
+var alameinLine = [
+  "Flinders Street",
+  "Richmond",
+  "East Richmond",
+  "Burnley",
+  "Hawthorn",
+  "Glenferrie"
+];
 
 // The **Glen Waverly** line has the following stops:
 // ```
 //   Flagstaff - Melbourne Central - Parliament - Richmond - Kooyong - Tooronga
 // ```
+var glenWaverlyLine = [
+  "Flagstaff",
+  "Melbourne Central",
+  "Parliament",
+  "Richmond",
+  "Kooyong",
+  "Tooronga"
+];
 
 // The **Sandringham** line has the following stops:
 // ```
 //   Southern Cross - Richmond - South Yarra - Prahran - Windsor.
 // ```
+var sandringhamLine = [
+  "Southern Cross",
+  "Richmond",
+  "South Yarra",
+  "Prahran",
+  "Windsor"
+];
+
 // ---
 
 // All 3 train lines intersect at **Richmond**, but there are NO other
 // intersection points as trains run express.
+var intersectionStation = "Richmond";
+// var allLines = [
+//   alameinLine,
+//   glenWaverlyLine,
+//   sandringhamLine
+// ];
 
 // Write a javascript program that works out display the journey when you give
 // it an origin and destination.
+
+var findLine = function(station) { //, allLines) {
+  if (alameinLine.includes(station)) {
+    return alameinLine;
+  } else if (glenWaverlyLine.includes(station)) {
+    return glenWaverlyLine;
+  } else if (destinationLine.includes(station)) {
+    return destinationLine;
+  };
+}
+
+var calculateJourney = function(origin, destination) {
+  var originLine = findLine(origin);
+  var destinationLine = findLine(destination);
+
+  // if (alameinLine.includes(origin)) {
+  //   originLine = alameinLine;
+  // } else if (glenWaverlyLine.includes(origin)) {
+  //   originLine = glenWaverlyLine;
+  // } else if (destinationLine.includes(origin)) {
+  //   originLine = destinationLine;
+  // };
+
+  // alameinLine
+  // [ Melbourne Central -----> Parliament -----> Richmond
+  if (originLine === destinationLine) {
+    var startIndex = originLine.indexOf(origin);
+    var endIndex = originLine.indexOf(origin);
+
+    return originLine.slice(startIndex, endIndex + 1); // include last station
+  } else {
+    var startOriginIndex = originLine.indexOf(origin);
+    var endOriginIndex = originLine.indexOf(intersectionStation);
+
+    var startDestinationIndex = destinationLine.indexOf(destination);
+    var endDestinationIndex = destinationLine.indexOf(intersectionStation);
+
+    return originLine.slice(
+      startOriginIndex, endOriginIndex + 1
+    ).concat(
+      originLine.slice(
+        startDestinationIndex, endDestinationIndex
+      )
+    );
+  }
+}
 
 // example:
 
@@ -41,9 +117,25 @@
 //
 // 2 stops total
 // ```
+var printJourney = function(origin, destination) {
+  // var journey = ["Melbourne Central", "Parliament", "Richmond"];
+  var journey = calculateJourney(origin, destination);
+  var stopsTotal = journey.length - 1;
+  var details =
+    'origin: ' + origin + '\n' +
+    'destination: ' + destination + '\n' +
+    '\n' +
+    journey.join(' -----> ') + '\n' +
+    '\n' +
+    stopsTotal + ' stops total';
+
+  console.log(details);
+};
 
 // You may want to *hard code* the origin and destination instead of getting
 // user input for easier testing in the beginning.
+
+printJourney("Melbourne Central", "Richmond");
 
 // ##### Hints:
 
