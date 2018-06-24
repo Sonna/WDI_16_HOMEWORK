@@ -145,7 +145,6 @@ var calculateJourney = function(origin, destination) {
 // 2 stops total
 // ```
 var journeyDetails = function(origin, destination) {
-  // var journey = ["Melbourne Central", "Parliament", "Richmond"];
   var journey = calculateJourney(origin, destination);
   var stopsTotal = journey.length - 1;
 
@@ -189,7 +188,9 @@ printJourney('Burnley', 'Melbourne Central');
 // * Add additional stations
 var from, to;
 
-if (typeof prompt !== 'undefined' && typeof QUnit === 'undefined') {
+if (typeof prompt !== 'undefined' &&
+    typeof QUnit === 'undefined' &&
+    typeof formEl !== 'undefined') {
   from = prompt("From: station", "Melbourne Central");
 
   while(!findLine(from)) {
@@ -209,6 +210,7 @@ if (typeof prompt !== 'undefined' && typeof QUnit === 'undefined') {
   }
 
   var el = document.createElement('pre');
+  el.setAttribute('id', 'output');
   el.textContent = printJourney(from, to);
   document.body.appendChild(el);
 }
