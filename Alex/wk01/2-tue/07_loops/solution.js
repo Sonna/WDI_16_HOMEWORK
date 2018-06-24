@@ -46,12 +46,13 @@ colours.forEach(function(colour, index) {
 
 // Bonus: Change it to log "My 1st choice, "My 2nd choice", "My 3rd choice",
 // picking the right suffix for the number based on what it is.
-colours.forEach(function(colour, index) {
-  num = index + 1;
-  suffix =
-    (num % 10 === 1) ? "st" :
+var suffix = function(num) {
+  return (num % 10 === 1) ? "st" :
     (num % 10 === 2) ? "nd" :
     (num % 10 === 3) ? "rd" : "th";
+};
 
-  console.log("My #" + num + suffix + " choice is " + colour + ".");
+colours.forEach(function(colour, index) {
+  num = index + 1;
+  console.log("My #" + num + suffix(num) + " choice is " + colour + ".");
 });
