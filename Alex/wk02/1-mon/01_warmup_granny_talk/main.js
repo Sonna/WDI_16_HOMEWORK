@@ -15,14 +15,20 @@
 
 // If you say "BYE" to her she'll reply "What's that honey, I didn't hear you.."
 
+var getRandomYear = function() {
+  var minYear = 1930;
+  var maxYear = 1950;
+  var diffYear = maxYear - minYear;
+  return minYear + Math.floor((Math.random() * diffYear));
+};
+
 var grannyTalk = function(question) {
   if (question.toUpperCase() === "BYE") {
     return "What's that honey, I didn't hear you..."
   }
 
   if (question.toUpperCase() === question) {
-    var year = 1930 + Math.floor((Math.random() * 20));
-    return "NO, NOT SINCE " + year;
+    return "NO, NOT SINCE " + getRandomYear();
   }
 
   return "SPEAK UP SONNY JIM";
