@@ -4,3 +4,6 @@
 [submodule "Alex/wk02/2-tue/02_ecardly_css"]
 	path = Alex/wk02/2-tue/02_ecardly_css
 	url = ../ecardly_css.git
+[submodule "Alex/wk02/2-tue/04_fashion_css"]
+	path = Alex/wk02/2-tue/04_fashion_css
+	url = ../fashion_css.git
