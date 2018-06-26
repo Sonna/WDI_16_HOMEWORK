@@ -1,0 +1,56 @@
+* { box-sizing: border-box; }
+
+body {
+  font-size: 42px;
+}
+
+.one {
+  background-color: lime;
+}
+
+.two {
+  background-color: plum;
+  overflow: auto;
+}
+
+.three {
+  background-color: papayawhip;
+}
+
+.four {
+  background-color: lightblue;
+}
+
+.five {
+  background-color: mistyrose;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+.aaa {
+  background-color: red;
+  float: left;
+  width: 50%;
+}
+
+.bbb {
+  background-color: yellow;
+  float: left;
+  width: 50%;
+}
+
+.five > div {
+  display: inline-block;
+}
+
+.content {
+  background-color: red;
+  flex: 1;
+}
+
+.sidebar {
+  background-color: yellow;
+  flex: 1;
+}
