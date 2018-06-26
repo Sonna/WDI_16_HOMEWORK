@@ -78,3 +78,7 @@ Time  | Table
 - [WDI Granny-Talk Warmup](https://gist.github.com/kasun-maldeni/370b6193469f0cca3a0fdba135686499)
 
 - [kasun-maldeni/brooklyn_css](https://github.com/kasun-maldeni/brooklyn_css)
+
+##### Day 2
+
+- [wdi_palindrome_warmup.md](https://gist.github.com/kasun-maldeni/d567e18549569f399b30f421f8330e49)
