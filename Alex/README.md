@@ -86,3 +86,7 @@ Time  | Table
 - [kasun-maldeni/ecardly_css](https://github.com/kasun-maldeni/ecardly_css)
 
 - [kasun-maldeni/fashion_css](https://github.com/kasun-maldeni/fashion_css)
+
+##### Day 3
+
+- [WDI Minigolf Warmup](https://gist.github.com/kasun-maldeni/9f24ddbad63aecf72f017e704692e7c3)
