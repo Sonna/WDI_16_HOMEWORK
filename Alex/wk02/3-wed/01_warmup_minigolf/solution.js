@@ -86,23 +86,44 @@ var total = function(values) {
 // - [Array.prototype.reduce - JavaScript | MDN]
 //   (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
 
-console.log("  Bob scores: " + total(bobScores));
-console.log("Jimbo scores: " + total(jimboScores));
-console.log(" Fish scores: " + total(fishScores));
+console.log("  Bob total: " + total(bobScores));
+console.log("Jimbo total: " + total(jimboScores));
+console.log(" Fish total: " + total(fishScores));
 
 // ## Extension
 // Now work out each golfers round compared to the course par.
 
 // #### Par
+var coursePar = [
 // - Hole 1 = 3
+  3,
 // - Hole 2 = 4
+  4,
 // - Hole 3 = 5
+  5,
 // - Hole 4 = 5
+  5,
 // - Hole 5 = 3
+  3,
 // - Hole 6 = 3
+  3,
 // - Hole 7 = 4
+  4,
 // - Hole 8 = 3
+  3,
 // - Hole 9 = 5
+  5
+];
+
+var golfScore = function(values, par) {
+  return values.reduce(function(sum, value, index) {
+    return sum += value - par[index];
+  }, 0);
+}
+
+console.log("  Bob golf score: " + golfScore(bobScores, coursePar));
+console.log("Jimbo golf score: " + golfScore(jimboScores, coursePar));
+console.log(" Fish golf score: " + golfScore(fishScores, coursePar));
 
 // #### Ninja Extension
 //
