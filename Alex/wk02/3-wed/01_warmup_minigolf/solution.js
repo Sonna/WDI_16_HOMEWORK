@@ -129,3 +129,17 @@ console.log(" Fish golf score: " + golfScore(fishScores, coursePar));
 //
 // Fish loves a punt. Having placed a $1 bet on each stroke over par that Bob
 // and Jimbo played per hole calculate his winnings.
+
+// Ignore minus values?
+var strokesOverPar = function(values, par) {
+  return values.reduce(function(sum, value, index) {
+    return sum += Math.max(0, value - par[index]);
+  }, 0);
+}
+
+console.log("  Bob owes Fish: $" + strokesOverPar(bobScores, coursePar));
+console.log("Jimbo owes Fish: $" + strokesOverPar(jimboScores, coursePar));
+
+// == References:
+// - [Javascript Math Object Methods - negatives to zero - Stack Overflow]
+//   (https://stackoverflow.com/questions/4924842/javascript-math-object-methods-negatives-to-zero)
