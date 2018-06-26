@@ -82,3 +82,5 @@ Time  | Table
 ##### Day 2
 
 - [wdi_palindrome_warmup.md](https://gist.github.com/kasun-maldeni/d567e18549569f399b30f421f8330e49)
+
+- [kasun-maldeni/ecardly_css](https://github.com/kasun-maldeni/ecardly_css)
