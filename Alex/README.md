@@ -92,10 +92,14 @@ Time  | Table
 - [WDI Minigolf Warmup](https://gist.github.com/kasun-maldeni/9f24ddbad63aecf72f017e704692e7c3)
 
 - Homework showoff & tell
-- CSS Recap
+- Code Along (CSS Recap)
   + display modes [`block`, `inline`, `inline-block`, `none`, `flex`]
   + units absolute [`pt`, `px`] vs relative [`em`, `%`]
   + responsive web
     * fluid foundation
     * flexible media
     * media queries
+
+- Code Along (JavaScript)
+
+- [epoch/toilet.js: toilet.js](https://github.com/epoch/toilet.js)
