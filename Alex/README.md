@@ -103,3 +103,8 @@ Time  | Table
 - Code Along (JavaScript)
 
 - [epoch/toilet.js: toilet.js](https://github.com/epoch/toilet.js)
+
+- [CSS Diner - Where we feast on CSS Selectors!](https://flukeout.github.io/)
+
+- [money_tree.md](https://gist.github.com/epoch/16fe7e406bdc23da03df747211c8112f#file-money_tree_screen_shot-png)
+
