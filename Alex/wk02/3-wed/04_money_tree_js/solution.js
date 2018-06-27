@@ -12,10 +12,6 @@ var moneyTree = function(size, symbol, padding) {
   symbol = (typeof symbol !== 'undefined') ? symbol : "$";
   padding = (typeof padding !== 'undefined') ? padding : " ";
 
-  if (size === 1) {
-    return [symbol];
-  }
-
   var lines = [];
 
   // 2n +1
@@ -37,8 +33,8 @@ var moneyTree = function(size, symbol, padding) {
   return lines.reverse();
 };
 
-var logMoneyTree = function(size, symbol) {
-  var tree = moneyTree(size, symbol);
+var logMoneyTree = function(size, symbol, padding) {
+  var tree = moneyTree(size, symbol, padding);
   tree.forEach(function(line) { console.log(line); });
 }
 
