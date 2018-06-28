@@ -113,3 +113,9 @@ Time  | Table
 - [WDI Coinflip Warmup](https://gist.github.com/kasun-maldeni/c337852cb0bf5072d6e91cb5ba78500e)
 
 - Code Along (JavaScript - Functions Playground)
+  + functions as mini programs
+  + functions as values
+  + functions as callbacks
+  + how the browsers js engine reads
+  + the document's object node
+  + events
