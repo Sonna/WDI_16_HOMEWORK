@@ -123,3 +123,7 @@ Time  | Table
 - Code Along (JavaScript - Crappy Calculator)
 
 - [WDI GA Bank Lab](https://gist.github.com/kasun-maldeni/050cbc9fb8196581bc9e76d0b9d25168)
+
+##### Day 5
+
+- [WDI Caesar Cipher Warmup](https://gist.github.com/kasun-maldeni/7994ec117ee7617d88983f9c4b1fbcd9)
