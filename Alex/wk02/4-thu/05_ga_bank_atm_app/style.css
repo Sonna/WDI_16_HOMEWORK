@@ -1,1 +1,105 @@
 * { box-sizing: border-box; }
+
+html {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    to top right, transparent 49.9%, #000000 50%, #000000 50.1%, transparent 50.2%
+  ), linear-gradient(
+    to top left, transparent 49.9%, #000000 50%, #000000 50.1%, transparent 50.2%
+  );
+}
+
+body {
+  font-family: 'Cutive', 'Consolas', san-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+button {
+  border: 0;
+  border-radius: 5px 5px 5px 5px;
+  background-color: #BBBBBB;
+  font-size: 14px;
+  padding: 5px 15px;
+  text-transform: uppercase;
+}
+
+header {
+  margin-bottom: 100px;
+}
+
+h1 {
+  font-size: 22px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+input {
+  background-color: #00BBBB;
+  border: 2px solid #000000;
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 auto;
+  padding: 20px 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+input::placeholder {
+  color: #666666;
+}
+
+p {
+  font-size: 10px;
+}
+
+#checking {
+  background-color: #FFEE00;
+}
+
+#checking,
+#savings {
+  text-align: center;
+  border: 2px solid #000000;
+  width: 350px;
+}
+
+#savings {
+  background-color: #FF8800;
+}
+
+.balance {
+  font-size: 48px;
+  letter-spacing: 6px;
+  line-height: 0.2;
+}
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.logo {
+  background-color: #FF0000;
+  border: 2px solid #000000;
+  display: inline-block;
+  padding: 40px 120px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+/*
+== References:
+- [How To Change Input Placeholder Color]
+  (https://www.w3schools.com/howto/howto_css_placeholder.asp)
+*/

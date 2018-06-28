@@ -5,24 +5,36 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>GA Bank ATM App</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Cutive" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1>GA Bank ATM App</h1>
-  <section id="savings">
-    <h2>savings</h2>
-    <p class="balance"></p>
-    <input type="number" class="amount">
-    <button class="deposit">deposit</button>
-    <button class="withdraw">withdraw</button>
-  </section>
-  <section id="checking">
-    <h2>checking</h2>
-    <p class="balance"></p>
-    <input type="number" class="amount">
-    <button class="deposit">deposit</button>
-    <button class="withdraw">withdraw</button>
-  </section>
+  <header>
+    <p class="logo">Logo</p>
+    <h1>Online Bank</h1>
+  </header>
+  <div class="container">
+    <section id="savings">
+      <h2>savings</h2>
+      <p>Your Balance is...</p>
+      <p class="balance"></p>
+      <input type="number" class="amount" placeholder="Enter amount here">
+      <div class="container">
+        <button class="withdraw">withdraw</button>
+        <button class="deposit">deposit</button>
+      </div>
+    </section>
+    <section id="checking">
+      <h2>checking</h2>
+      <p>Your Balance is...</p>
+      <p class="balance"></p>
+      <input type="number" class="amount" placeholder="Enter amount here">
+      <div class="container">
+        <button class="withdraw">withdraw</button>
+        <button class="deposit">deposit</button>
+      </div>
+    </section>
+  </div>
   <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

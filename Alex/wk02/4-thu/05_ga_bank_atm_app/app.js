@@ -41,13 +41,13 @@ var savingsDepositButtonEl = document.querySelector('#savings button.deposit');
 var checkingWithdrawButtonEl = document.querySelector('#checking button.withdraw');
 var savingsWithdrawButtonEl = document.querySelector('#savings button.withdraw');
 
-checkingBalanceEl.textContent = checking.balance;
-savingsBalanceEl.textContent = savings.balance;
+checkingBalanceEl.textContent = '$' + checking.balance.toFixed(2).padStart(5, '0');
+savingsBalanceEl.textContent = '$' + savings.balance.toFixed(2).padStart(5, '0');
 
 // * Add functionality so that a user can withdraw money from one of the bank
 //   accounts.
 var withdraw = function(amount, account) {
-  if (account.balance - amount >= 0) {
+  if (account.balance - amount >= 0.00) {
     account.balance -= amount;
   }
   return account.balance;
@@ -60,35 +60,39 @@ var withdraw = function(amount, account) {
 // * When the balance of the bank account is $0 the background of that bank
 //   account should be red. It should be gray when there is money in the account
 var updateAccountBackground = function(account, el) {
-  if (account.balance === 0) {
+  if (account.balance === 0.00) {
     el.style.backgroundColor = 'red';
   } else {
     el.style.backgroundColor = 'gray';
   }
 }
-updateAccountBackground(checking, checkingEl);
-updateAccountBackground(savings, savingsEl);
+// updateAccountBackground(checking, checkingEl);
+// updateAccountBackground(savings, savingsEl);
 
 checkingDepositButtonEl.addEventListener('click', function() {
   var amount = Number(checkingAmountInputEl.value);
-  checkingBalanceEl.textContent = deposit(amount, checking);
+  checkingBalanceEl.textContent = '$' + deposit(amount, checking).toFixed(2).padStart(5, '0');
   updateAccountBackground(checking, checkingEl);
 });
 
 savingsDepositButtonEl.addEventListener('click', function() {
   var amount = Number(savingsAmountInputEl.value);
-  savingsBalanceEl.textContent = deposit(amount, savings);
+  savingsBalanceEl.textContent = '$' + deposit(amount, savings).toFixed(2).padStart(5, '0');
   updateAccountBackground(savings, savingsEl);
 });
 
 checkingWithdrawButtonEl.addEventListener('click', function() {
   var amount = Number(checkingAmountInputEl.value);
-  checkingBalanceEl.textContent = withdraw(amount, checking);
+  checkingBalanceEl.textContent = '$' + withdraw(amount, checking).toFixed(2).padStart(5, '0');
   updateAccountBackground(checking, checkingEl);
 });
 
 savingsWithdrawButtonEl.addEventListener('click', function() {
   var amount = Number(savingsAmountInputEl.value);
-  savingsBalanceEl.textContent = withdraw(amount, savings);
+  savingsBalanceEl.textContent = '$' + withdraw(amount, savings).toFixed(2).padStart(5, '0');
   updateAccountBackground(savings, savingsEl);
 });
+
+// == References:
+// - [JavaScript toFixed Method]
+//   (https://www.w3schools.com/jsref/jsref_tofixed.asp)
