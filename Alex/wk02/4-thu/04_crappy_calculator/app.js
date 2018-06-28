@@ -15,6 +15,9 @@ var resultDiv = document.querySelector('.result-div');
 // num1Input.value; // => ''
 // num1Input.value = '35';
 
-calcBtn.addEventListener('click', function() {
-  resultDiv.textContent = parseInt(num1Input.value) + parseInt(num2Input.value);
-});
+var add = function() {
+  var total = Number(num1Input.value) + Number(num2Input.value);
+  resultDiv.textContent = total;
+}
+
+calcBtn.addEventListener('click', add);
