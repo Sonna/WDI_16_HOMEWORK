@@ -2,6 +2,8 @@
 // source:
 // - title: WDI Coinflip Warmup
 //   url: https://gist.github.com/kasun-maldeni/c337852cb0bf5072d6e91cb5ba78500e
+// - title: 3E2FA47C00000578-4307326-image-a-19_1489366007479.jpg
+//   url: http://i.dailymail.co.uk/i/pix/2017/03/13/00/3E2FA47C00000578-4307326-image-a-19_1489366007479.jpg
 // ---
 
 // # CoinFlip
@@ -54,3 +56,32 @@ if (results.TAILS === 5) {
 // 4. Now add the necessary components to the `decider.html` file so that when
 //    the coin image is clicked the `coinFlip` function result and tally are
 //    returned somewhere on the page.
+
+var results = {
+  'HEADS': 0,
+  'TAILS': 0
+};
+
+var findWinner = function(results) {
+  if (results.HEADS === 5) {
+    var el = document.createElement('h1');
+    el.innerText = 'WINNER, HEADS';
+    document.body.appendChild(el);
+  }
+
+  if (results.TAILS === 5) {
+    var el = document.createElement('h1');
+    el.innerText = 'WINNER, TAILS';
+    document.body.appendChild(el);
+  }
+}
+
+var coinEl = document.getElementsByClassName('coin')[0];
+
+coinEl.addEventListener('click', function() {
+  var result = coinFlip();
+  results[result] += 1;
+  findWinner(results);
+  coinEl.setAttribute('class', 'coin ' + result.toLowerCase());
+});
+

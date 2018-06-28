@@ -1,0 +1,26 @@
+* { box-sizing: border-box; }
+
+.coin.heads {
+  position: absolute;
+  /*clip: rect(0, 317px, 314px, 0);*/
+  /*clip-path: rectangle(x, y, width, height, rounded-x, rounded-y);*/
+  /*clip-path: rectangle(0, 0, 317px, 314px, 0, 0);*/
+  /*-webkit-clip-path: rectangle(0, 0, 317px, 314px, 0, 0);*/
+
+  width: 317px;
+  height: 314px;
+  background-position: 0px 0px;
+  background-image: url("coin.jpg");
+}
+
+.coin.tails {
+  /*position: absolute;*/
+  /*clip: rect(0, 634px,  314px, 317px);*/
+  /*clip-path: rectangle(317px, 0, 634px, 314px, 0, 0);*/
+  /*-webkit-clip-path: rectangle(317px, 0, 634, 314px, 0, 0);*/
+
+  width: 317px;
+  height: 314px;
+  background-position: 317px 0px;
+  background-image: url("coin.jpg");
+}
