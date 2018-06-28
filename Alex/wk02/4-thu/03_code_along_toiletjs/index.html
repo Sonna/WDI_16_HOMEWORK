@@ -24,21 +24,25 @@
     //                 |
     //    ----------------------------
     //    |            |             |
-    // (script)    (div[seat])  (div[cistern])
+    // (script)    (div.seat)   (div.cistern)
     //                               |
-    //                          (div[flush-btn])
+    //                          (div.flush-btn)
 
     var flush = function() {
-      document.body.children[1].style.backgroundColor = 'mintcream';
+      // document.body.children[1].style.backgroundColor = 'mintcream';
+      document.querySelector('.seat').style.backgroundColor = 'mintcream';
     };
 
     // document.body.children[1].style.backgroundColor = 'blue';
     var pee = function() {
-      document.body.children[1].style.backgroundColor = 'green';
+      // document.body.children[1].style.backgroundColor = 'green';
+      document.querySelector('.seat').style.backgroundColor = 'green';
     }
 
-    document.body.children[0].children[0].addEventListener('click', flush);
-    document.body.children[1].addEventListener('click', pee);
+    // document.body.children[0].children[0].addEventListener('click', flush);
+    document.querySelector('.flush-btn').addEventListener('click', flush);
+    // document.body.children[1].addEventListener('click', pee);
+    document.querySelector('.seat').addEventListener('click', pee);
 
     console.log('goodbye');
 
