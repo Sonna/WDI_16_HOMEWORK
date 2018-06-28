@@ -119,3 +119,7 @@ Time  | Table
   + how the browsers js engine reads
   + the document's object node
   + events
+
+- Code Along (JavaScript - Crappy Calculator)
+
+- [WDI GA Bank Lab](https://gist.github.com/kasun-maldeni/050cbc9fb8196581bc9e76d0b9d25168)
