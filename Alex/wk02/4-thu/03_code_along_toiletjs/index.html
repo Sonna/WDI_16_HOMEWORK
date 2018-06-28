@@ -37,7 +37,8 @@
       document.body.children[1].style.backgroundColor = 'green';
     }
 
-    document.body.children[0].addEventListener('click', flush);
+    document.body.children[0].children[0].addEventListener('click', flush);
+    document.body.children[1].addEventListener('click', pee);
 
     console.log('goodbye');
 
