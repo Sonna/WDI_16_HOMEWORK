@@ -108,3 +108,6 @@ Time  | Table
 
 - [money_tree.md](https://gist.github.com/epoch/16fe7e406bdc23da03df747211c8112f#file-money_tree_screen_shot-png)
 
+##### Day 4
+
+- [WDI Coinflip Warmup](https://gist.github.com/kasun-maldeni/c337852cb0bf5072d6e91cb5ba78500e)
