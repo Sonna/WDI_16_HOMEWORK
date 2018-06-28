@@ -16,6 +16,35 @@
 // 3. Add a counter that declares `WINNER` in the console when either HEADS or
 //    TAILS is flipped 5 times.
 
+var coinFlip = function() {
+  var headsOrTails = Math.round(Math.random()) ? 'HEADS' : 'TAILS';
+  console.log(headsOrTails);
+  return headsOrTails;
+}
+
+var result;
+var results = {
+  'HEADS': 0,
+  'TAILS': 0
+};
+
+while (results.HEADS < 5 && results.TAILS < 5) {
+  result = coinFlip();
+  results[result] += 1;
+}
+
+if (results.HEADS === 5) {
+  console.log('WINNER, HEADS');
+}
+
+if (results.TAILS === 5) {
+  console.log('WINNER, TAILS');
+}
+
+// == References:
+// - [JavaScript random generate 0 or 1 integer - Stack Overflow]
+//   (https://stackoverflow.com/questions/45136711/javascript-random-generate-0-or-1-integer)
+
 // #### Extension
 
 // 1. Create a file called `decider.html`
