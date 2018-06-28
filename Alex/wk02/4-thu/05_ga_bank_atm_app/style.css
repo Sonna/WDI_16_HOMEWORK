@@ -35,6 +35,13 @@ h1 {
   text-align: center;
 }
 
+@media only screen and (min-width: 800px) {
+  h1 {
+    margin-bottom: 150px;
+    margin-top: -60px;
+  }
+}
+
 h2 {
   font-size: 16px;
   margin-bottom: 50px;
@@ -69,11 +76,18 @@ p {
 #savings {
   text-align: center;
   border: 2px solid #000000;
-  width: 350px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 800px) {
+  #checking,
+  #savings {
+    width: 350px;
+  }
 }
 
 #savings {
-  background-color: #FF8800;
+  background-color: #FF6600;
 }
 
 .balance {
@@ -84,18 +98,32 @@ p {
 
 .container {
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
   padding: 10px;
-  justify-content: space-around;
+}
+
+@media only screen and (min-width: 800px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
 
 .logo {
   background-color: #FF0000;
   border: 2px solid #000000;
-  display: inline-block;
-  padding: 40px 120px;
-  margin-top: 20px;
-  margin-left: 20px;
+  padding: 40px 10%;
+  text-align: center;
+}
+
+@media only screen and (min-width: 800px) {
+  .logo {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: left;
+  }
 }
 
 /*
