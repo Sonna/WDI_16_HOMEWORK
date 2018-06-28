@@ -1,7 +1,7 @@
 * { box-sizing: border-box; }
 
 .coin.heads {
-  position: absolute;
+  /*position: absolute;*/
   /*clip: rect(0, 317px, 314px, 0);*/
   /*clip-path: rectangle(x, y, width, height, rounded-x, rounded-y);*/
   /*clip-path: rectangle(0, 0, 317px, 314px, 0, 0);*/
