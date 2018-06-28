@@ -111,3 +111,5 @@ Time  | Table
 ##### Day 4
 
 - [WDI Coinflip Warmup](https://gist.github.com/kasun-maldeni/c337852cb0bf5072d6e91cb5ba78500e)
+
+- Code Along (JavaScript - Functions Playground)
