@@ -62,17 +62,30 @@ var results = {
   'TAILS': 0
 };
 
+var updateCount = function(results) {
+  var headsCountEl = document.getElementById('heads-result');
+  var tailsCountEl = document.getElementById('tails-result');
+
+  headsCountEl.innerText = results.HEADS;
+  tailsCountEl.innerText = results.TAILS;
+
+  headsCountEl.parentNode.replaceChild(headsCountEl, headsCountEl);
+  tailsCountEl.parentNode.replaceChild(tailsCountEl, tailsCountEl);
+};
+
 var findWinner = function(results) {
   if (results.HEADS === 5) {
-    var el = document.createElement('h1');
+    var el = document.getElementById('winner');
     el.innerText = 'WINNER, HEADS';
-    document.body.appendChild(el);
+    // document.body.appendChild(el);
+    el.parentNode.replaceChild(el, el);
   }
 
   if (results.TAILS === 5) {
-    var el = document.createElement('h1');
+    var el = document.getElementById('winner');
     el.innerText = 'WINNER, TAILS';
-    document.body.appendChild(el);
+    // document.body.appendChild(el);
+    el.parentNode.replaceChild(el, el);
   }
 }
 
@@ -81,6 +94,7 @@ var coinEl = document.getElementsByClassName('coin')[0];
 coinEl.addEventListener('click', function() {
   var result = coinFlip();
   results[result] += 1;
+  updateCount(results);
   findWinner(results);
   coinEl.setAttribute('class', 'coin ' + result.toLowerCase());
 });
