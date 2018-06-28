@@ -128,8 +128,12 @@ var calculateLineJourney = function(station,
 };
 
 var calculateJourney = function(origin, destination) {
-  var originToIntersection = calculateLineJourney(origin);
-  var intersectionToDestination = calculateLineJourney(destination, true);
+  var originToIntersection = calculateLineJourney(
+    origin, false, findLine(origin), intersectionStation
+  );
+  var intersectionToDestination = calculateLineJourney(
+    destination, true, findLine(destination), intersectionStation
+  );
 
   return originToIntersection.concat(intersectionToDestination);
 }
