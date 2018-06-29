@@ -127,3 +127,13 @@ Time  | Table
 ##### Day 5
 
 - [WDI Caesar Cipher Warmup](https://gist.github.com/kasun-maldeni/7994ec117ee7617d88983f9c4b1fbcd9)
+
+- dub dub dub
+- Bank ATM show & tell
+
+- Code Along (Crappy Calculator continued? [personally missed discussion])
+
+- setTimeout & setInternal
+- PTV show & tell
+
+- Code Along (Book Shop)

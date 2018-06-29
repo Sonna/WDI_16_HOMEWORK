@@ -83,9 +83,7 @@ CaesarCipher.decrypt = function(encrypted, cipher, alphabet) {
   }).join('');
 }
 
-// CaesarCipher.prototype.encode = function(plain) {
 CaesarCipher.encode = function(plain, cipher, alphabet) {
-  // return this.decrypt(plain, alphabet, cipher);
   alphabet = (typeof alphabet !== 'undefined') ? alphabet : this.defaultAlphabet;
   cipher = (typeof cipher !== 'undefined') ? cipher : this.build(3, alphabet);
 
