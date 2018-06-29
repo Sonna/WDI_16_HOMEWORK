@@ -137,3 +137,6 @@ Time  | Table
 - PTV show & tell
 
 - Code Along (Book Shop)
+
+- Homework (`wdi_week2_research_homework_timers.md`)
+  [wdi_week2_research_homework_timers.md | GA Immersive Students Slack](https://ga-students.slack.com/files/U03B88WPM/FBG2NELF5/wdi_week2_research_homework_timers.md)
