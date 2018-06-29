@@ -30,24 +30,25 @@ var alphabetString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 // var shiftedAlphabet = 'DEFGHIJKLMNOPQRSTUVWXYZABC';
 var shiftedAlphabet = function(shift, alphabet) {
   shift = (typeof shift !== 'undefined') ? shift : 3;
-  alphabet = (typeof alphabet !== 'undefined') ? alphabet : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  alphabet = (typeof alphabet !== 'undefined') ? alphabet : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  alphabet = alphabet.split('');
 
-  return alphabet.concat(alphabet.splice(0, shift));
+  return alphabet.concat(alphabet.splice(0, shift)).join('');
 };
 
 var decrypt = function(encrypted, cipher, alphabet) {
-  alphabet = (typeof alphabet !== 'undefined') ? alphabet : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  alphabet = (typeof alphabet !== 'undefined') ? alphabet : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   cipher = (typeof cipher !== 'undefined') ? cipher : shiftedAlphabet(3, alphabet);
 
   return encrypted.split('').map(function(char, index) {
     if (char.match(/[a-z]/i)) {
-      return alphabet[cipher.indexOf(char)];
+      return alphabet.charAt(cipher.indexOf(char));
     }
     return char;
   }).join('');
 }
 
-cipher = shiftedAlphabet(3, alphabetString.split(''));
+cipher = shiftedAlphabet(3, alphabetString);
 console.log(decrypt(secretMessage, cipher));
 
 // ---
@@ -59,13 +60,14 @@ console.log(decrypt(secretMessage, cipher));
 // ```
 function CaesarCipher() {}
 CaesarCipher.defaultShiftNum = 3;
-CaesarCipher.defaultAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+CaesarCipher.defaultAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 CaesarCipher.build = function(shift, alphabet) {
   shift = (typeof shift !== 'undefined') ? shift : this.defaultShiftNum;
   alphabet = (typeof alphabet !== 'undefined') ? alphabet : this.defaultAlphabet;
+  alphabet = alphabet.split('');
 
-  return alphabet.slice(shift, alphabet.length).concat(alphabet.slice(0, shift));
+  return alphabet.slice(shift, alphabet.length).concat(alphabet.slice(0, shift)).join('');
 };
 
 CaesarCipher.decrypt = function(encrypted, cipher, alphabet) {
@@ -75,7 +77,7 @@ CaesarCipher.decrypt = function(encrypted, cipher, alphabet) {
 
   return encrypted.split('').map(function(char, index) {
     if (char.match(/[a-z]/i)) {
-      return alphabet[cipher.indexOf(char)];
+      return alphabet.charAt(cipher.indexOf(char));
     }
     return char;
   }).join('');
@@ -89,7 +91,7 @@ CaesarCipher.encode = function(plain, cipher, alphabet) {
 
   return plain.split('').map(function(char, index) {
     if (char.match(/[a-z]/i)) {
-      return cipher[alphabet.indexOf(char)];
+      return cipher.charAt(alphabet.indexOf(char));
     }
     return char;
   }).join('');
