@@ -50,6 +50,32 @@ makeFakeMap(5, 5);
 
 // ```
 
+var makeFakeMap = function(height, width, markChar) {
+  // Default arguments
+  height = (typeof height !== 'undefined') ? height : 5;
+  width = (typeof width !== 'undefined') ? width : 5;
+  markChar = (typeof markChar !== 'undefined') ? markChar : 'X';
+
+  var fillerChar = 'A';
+
+  var fakeMapRows = new Array(width);
+  var fakeMap = new Array(height);
+  fakeMapRows.fill(fillerChar);
+  fakeMap.fill(fakeMapRows);
+
+  // Mark the spot randomly
+  var x = Math.floor(Math.random() * width);
+  var y = Math.floor(Math.random() * height);
+
+  fakeMap[y][x] = markChar;
+
+  return fakeMap;
+};
+
+console.log(makeFakeMap(5, 5));
+console.log(makeFakeMap(5, 5));
+console.log(makeFakeMap(5, 5));
+
 // ### Bonus 1
 
 // Modify your function to take a third key argument and generate maps with a
