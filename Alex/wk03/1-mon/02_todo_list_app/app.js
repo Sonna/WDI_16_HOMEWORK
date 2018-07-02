@@ -5,25 +5,31 @@ var footer = document.querySelector('footer');
 var completedCount = document.querySelector('.completed-count');
 var todoItems = document.querySelectorAll('li'); // find all todo items
 
-var updateAllDone = function(show) {
-  // allTasksDone.style.display = 'none';
-  // if (show) { allTasksDone.style.display = 'block'; }
-  // allTasksDone.classList.remove('show');
-  // allTasksDone.classList.add('hide');
-  footer.classList.add('hidden');
+// var updateAllDone = function(show) {
+//   // allTasksDone.style.display = 'none';
+//   // if (show) { allTasksDone.style.display = 'block'; }
+//   // allTasksDone.classList.remove('show');
+//   // allTasksDone.classList.add('hide');
+//   footer.classList.add('hidden');
 
-  if (show) {
-    footer.classList.remove('hidden');
-    // allTasksDone.classList.remove('hide');
-    // allTasksDone.classList.add('show');
-  }
-}
+//   if (show) {
+//     footer.classList.remove('hidden');
+//     // allTasksDone.classList.remove('hide');
+//     // allTasksDone.classList.add('show');
+//   }
+// }
 
 var updateCompleteCount = function() {
-  completedCount.innerText = document.querySelectorAll('.completed').length;
+  completedCount.textContent = document.querySelectorAll('.completed').length;
   completedCount.parentNode.replaceChild(completedCount, completedCount);
 
-  updateAllDone(todoItems.length === document.querySelectorAll('.completed').length);
+  // updateAllDone(completedCount.textContent === todoItems.length.toString());
+  // updateAllDone(Number(completedCount.textContent) === todoItems.length);
+  if (Number(completedCount.textContent) === todoItems.length) {
+    footer.classList.remove('hidden');
+  } else {
+    footer.classList.add('hidden');
+  }
 }
 
 var markComplete = function(event) {
