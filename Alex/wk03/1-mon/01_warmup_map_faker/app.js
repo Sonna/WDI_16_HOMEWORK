@@ -62,6 +62,18 @@ var buildInitialFakeMap = function(height, width, value) {
   return map;
 }
 
+// Mark the spot randomly
+var generate2DCoordinate = function(height, width) {
+  var x = Math.floor(Math.random() * width);
+  var y = Math.floor(Math.random() * height);
+
+  return { x: x, y: y };
+}
+
+var markMap = function(map, marking, coordinate) {
+  map[coordinate.y][coordinate.x] = marking;
+}
+
 var makeFakeMap = function(height, width, markChar) {
   // Default arguments
   height = (typeof height !== 'undefined') ? height : 5;
@@ -71,12 +83,7 @@ var makeFakeMap = function(height, width, markChar) {
   var fillerChar = 'A';
 
   var fakeMap = buildInitialFakeMap(height, width, fillerChar);
-
-  // Mark the spot randomly
-  var x = Math.floor(Math.random() * width);
-  var y = Math.floor(Math.random() * height);
-
-  fakeMap[y][x] = markChar;
+  markMap(fakeMap, markChar, generate2DCoordinate(height, width));
 
   return fakeMap;
 };
@@ -160,20 +167,18 @@ var makeFakeMap = function(height, width, ...markings) {
 
     // Mark the spots randomly
     for (var j = 0; j < amount; j++) {
-      var x = Math.floor(Math.random() * width);
-      var y = Math.floor(Math.random() * height);
+      var markedPosition = generate2DCoordinate(height, width);
 
-      if (!priorRegions.includes({ x: x, y: y })) {
-        priorRegions.push({ x: x, y: y });
-        fakeMap[y][x] = markChar;
+      if (!priorRegions.includes(markedPosition)) {
+        priorRegions.push(markedPosition);
+        markMap(fakeMap, markChar, markedPosition);
       } else {
-        while (!priorRegions.includes({ x: x, y: y })) {
-          x = Math.floor(Math.random() * width);
-          y = Math.floor(Math.random() * height);
+        while (!priorRegions.includes(markedPosition)) {
+          markedPosition = generate2DCoordinate(height, width);
         }
 
-        priorRegions.push({ x: x, y: y });
-        fakeMap[y][x] = markChar;
+        priorRegions.push(markedPosition);
+        markMap(fakeMap, markChar, markedPosition);
       }
     }
   }
