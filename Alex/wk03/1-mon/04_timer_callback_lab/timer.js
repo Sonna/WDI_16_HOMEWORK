@@ -5,30 +5,30 @@ var timer = {
   originalStopWatchText: "Stop Watch",
 
   updateTime: function() {
-    timer.seconds += 1;
-    document.querySelector('h1#timer').textContent = timer.seconds;
+    this.seconds += 1;
+    document.querySelector('h1#timer').textContent = this.seconds;
   },
 
   startBtn: function() {
-    if (!timer.timerId) { // technically `0` or `undefined` not `false`
-      timer.timerId = setInterval(timer.updateTime, 1000);
+    if (!this.timerId) { // technically `0` or `undefined` not `false`
+      this.timerId = setInterval(this.updateTime.bind(this), 1000);
     }
   },
 
   pauseBtn: function() {
-    timer.timerId = clearInterval(timer.timerId);
+    this.timerId = clearInterval(this.timerId);
   },
 
   resetBtn: function() {
-    timer.timerId = clearInterval(timer.timerId);
-    timer.seconds = 0;
-    document.querySelector('h1#timer').textContent = timer.originalStopWatchText;
+    this.timerId = clearInterval(this.timerId);
+    this.seconds = 0;
+    document.querySelector('h1#timer').textContent = this.originalStopWatchText;
   },
 
   initialize: function() {
-    document.querySelector('#start').addEventListener('click', timer.startBtn);
-    document.querySelector('#pause').addEventListener('click', timer.pauseBtn);
-    document.querySelector('#reset').addEventListener('click', timer.resetBtn);
+    document.querySelector('#start').addEventListener('click', this.startBtn.bind(this));
+    document.querySelector('#pause').addEventListener('click', this.pauseBtn.bind(this));
+    document.querySelector('#reset').addEventListener('click', this.resetBtn.bind(this));
   }
 }
 timer.initialize();
