@@ -11,11 +11,12 @@ var markComplete = function(event) {
   // event.target.className = 'completed';
   // event.target.classList.add('completed');
 
-  if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.add('completed');
-  }
+  // if (event.target.classList.contains('completed')) {
+  //   event.target.classList.remove('completed');
+  // } else {
+  //   event.target.classList.add('completed');
+  // }
+  event.target.classList.toggle('completed')
 };
 
 // todoItems[0].addEventListener('click', function() {});
