@@ -1,0 +1,20 @@
+* { box-sizing: border-box; }
+
+/*
+1. Create 3 boxes (divs) in an html file, give them a border of `1px solid
+   black` and a height and width of `100px`, so you can see them.
+*/
+div {
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+}
+
+div.all-green {
+  background-color: green;
+}
+
+.clicked {
+  background-color: red;
+}
+

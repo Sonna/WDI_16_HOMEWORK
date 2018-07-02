@@ -11,6 +11,27 @@
 
 // 2. When you click on any box, it's background color should immediately become
 //    **red**.
+var allDivs = document.querySelectorAll('div');
+
+allDivs.forEach(function(el) {
+  el.addEventListener('click', function(event) {
+    // event.target.style.backgroundColor = 'red';
+    event.target.classList.add('clicked');
+    checkForAllGreen();
+  });
+});
 
 // 3. After **every** box has been clicked, change all of them immediately to
 //    **green**.
+
+function checkForAllGreen() {
+  var allClickedDivs = document.querySelectorAll('div.clicked');
+
+  if(allClickedDivs.length === allDivs.length) {
+    allDivs.forEach(function(el) {
+      el.classList.add('all-green');
+    });
+  }
+}
+
+
