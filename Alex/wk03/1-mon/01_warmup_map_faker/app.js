@@ -50,6 +50,18 @@ makeFakeMap(5, 5);
 
 // ```
 
+var buildFakeMapRow = function(width, value) {
+  return new Array(width).fill(value);
+}
+
+var buildInitialFakeMap = function(height, width, value) {
+  var map = []
+  for (var i = 0; i < height; i++) {
+    map.push(buildFakeMapRow(width, value));
+  }
+  return map;
+}
+
 var makeFakeMap = function(height, width, markChar) {
   // Default arguments
   height = (typeof height !== 'undefined') ? height : 5;
@@ -58,11 +70,7 @@ var makeFakeMap = function(height, width, markChar) {
 
   var fillerChar = 'A';
 
-  var fakeMapRows = new Array(width).fill(fillerChar);
-  var fakeMap = new Array(height).fill(' '); // Fill with blanks to override
-  fakeMap.forEach(function(_element, index, array) {
-    array[index] = fakeMapRows.slice();
-  });
+  var fakeMap = buildInitialFakeMap(height, width, fillerChar);
 
   // Mark the spot randomly
   var x = Math.floor(Math.random() * width);
@@ -143,11 +151,7 @@ var makeFakeMap = function(height, width, ...markings) {
   var priorRegions = [];
   var fillerChar = 'A';
 
-  var fakeMapRows = new Array(width).fill(fillerChar);
-  var fakeMap = new Array(height).fill(' '); // Fill with blanks to override
-  fakeMap.forEach(function(_element, index, array) {
-    array[index] = fakeMapRows.slice();
-  });
+  var fakeMap = buildInitialFakeMap(height, width, fillerChar);
 
   for (var i = 0; i < markings.length; i += 2) {
     var markChar = markings[i];
