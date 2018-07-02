@@ -159,41 +159,6 @@ makeFakeMap(5, 5, 'F', 2, 'X');
 // Unused idea :/
 // const dict = arr => Object.assign(...arr.map( ([k, v]) => ({[k]: v}) ));
 
-var buildFakeMapRow = function(width, value) {
-  return new Array(width).fill(value);
-}
-
-var buildInitialFakeMap = function(height, width, value) {
-  var map = []
-  for (var i = 0; i < height; i++) {
-    map.push(buildFakeMapRow(width, value));
-  }
-  return map;
-}
-
-// Mark the spot randomly
-var generate2DCoordinate = function(height, width) {
-  var x = Math.floor(Math.random() * width);
-  var y = Math.floor(Math.random() * height);
-
-  return { x: x, y: y };
-}
-
-var markMap = function(map, marking, coordinate, amount) {
-  amount = (typeof amount !== 'undefined') ? amount : 1;
-
-  var height = map.length;
-  var width = map[0].length;
-
-  for (var i = 0; i < amount; i++) {
-    for (var j = 0; j < amount; j++) {
-      if (coordinate.y + i < height && coordinate.x + j < width) {
-        map[coordinate.y + i][coordinate.x + j] = marking;
-      }
-    }
-  }
-}
-
 var makeFakeMap = function(height, width, ...markings) {
   // Default arguments
   height = (typeof height !== 'undefined') ? height : 5;
