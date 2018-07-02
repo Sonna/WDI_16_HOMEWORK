@@ -1,6 +1,18 @@
 console.log('task manager');
 
 var todoItems = document.querySelectorAll('li'); // find all todo items
+var completedCount = document.querySelector('.completed-count');
+
+var updateCompleteCount = function() {
+  var sum = 0;
+
+  todoItems.forEach(function(item) {
+    if (item.classList.contains('completed')) { sum++; }
+  });
+
+  completedCount.innerText = sum;
+  completedCount.parentNode.replaceChild(completedCount, completedCount);
+}
 
 var markComplete = function(event) {
   // event.target
@@ -16,7 +28,8 @@ var markComplete = function(event) {
   // } else {
   //   event.target.classList.add('completed');
   // }
-  event.target.classList.toggle('completed')
+  event.target.classList.toggle('completed');
+  updateCompleteCount();
 };
 
 // todoItems[0].addEventListener('click', function() {});
@@ -34,3 +47,4 @@ var markComplete = function(event) {
 todoItems.forEach(function(item) {
   item.addEventListener('click', markComplete);
 });
+
