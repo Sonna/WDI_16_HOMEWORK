@@ -75,9 +75,9 @@ var makeFakeMap = function(height, width, markChar) {
   return fakeMap;
 };
 
-console.log(makeFakeMap(5, 5));
-console.log(makeFakeMap(5, 5));
-console.log(makeFakeMap(5, 5));
+console.log(makeFakeMap(5, 5).join('\n'));
+console.log(makeFakeMap(5, 5).join('\n'));
+console.log(makeFakeMap(5, 5).join('\n'));
 
 // ### Bonus 1
 
@@ -181,4 +181,6 @@ var makeFakeMap = function(height, width, ...markings) {
   return fakeMap;
 };
 
-console.log(makeFakeMap(5, 5, 'F', 2, 'X'));
+console.log(makeFakeMap(5, 5, 'F', 2, 'X').join('\n'));
+console.log(makeFakeMap(5, 5, 'F', 3, 'W', 4, 'D', 4, 'X', 1).join('\n'));
+console.log(makeFakeMap(5, 5, 'W', 1, 'D', 10, 'X', 1, 'F', 4).join('\n'));
