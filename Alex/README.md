@@ -23,15 +23,15 @@ Time  | Table
 
 ### Exercises
 
-#### Week 01
+#### Week 01 (2018/06/18)
 
-##### Day 1
+##### Day 1 - 2018/06/18
 
 - [wdi_command_line_lab_to_oz.md](https://gist.github.com/epoch/df6ebdc138cb80901d4f5081bc2f0ee7#file-wdi_command_line_lab_to_oz-md)
 
 - [week1_command_line_file_system.md](https://gist.github.com/epoch/ad2fc18f1c65f3696bfa6202a4579cc6#file-week1_command_line_file_system-md)
 
-##### Day 2
+##### Day 2 - 2018/06/19
 
 - [WDI Brain Gym Warmup](https://gist.github.com/kasun-maldeni/d0430ab817809ccb199fe121c1651395)
 
@@ -44,7 +44,7 @@ Time  | Table
 
 - [js_week1_loops.md](https://gist.github.com/epoch/0df5e2eeaadb8871b9a73887162c2ab4#file-js_week1_loops-md)
 
-##### Day 3
+##### Day 3 - 2018/06/20
 
 - [WDI Loops Warmup](https://gist.github.com/kasun-maldeni/de11a4038efd7d323cc572238ee53060)
 - [WDI Loops Solution](https://gist.github.com/kasun-maldeni/d13b6338029c4a35c0b2f6ee91b92dd0/)
@@ -53,7 +53,7 @@ Time  | Table
 
 - [week1-js-objects.md](https://gist.github.com/epoch/04ab1bc291a5f3ff79de#file-week1-js-objects-md)
 
-##### Day 4
+##### Day 4 - 2018/06/21
 
 - [WDI Startup Generator Warmup](https://gist.github.com/kasun-maldeni/7c2f3758c7618ad6c9bcc74a23b4c98d)
 
@@ -61,7 +61,7 @@ Time  | Table
 
 - [week01_array_string_methods.md](https://gist.github.com/epoch/4c33f43b7968d9d0541d3834e28c95fe#file-week01_array_string_methods-md)
 
-##### Day 5
+##### Day 5 - 2018/06/22
 
 - [WDI The Board Warmup](https://gist.github.com/kasun-maldeni/7787ab81d02477be49565381f78412cf)
 
@@ -71,15 +71,15 @@ Time  | Table
 
 - [melb_metro_ptv_mta.md](https://gist.github.com/epoch/0771187f6d02e1006210#file-melb_metro_ptv_mta-md)
 
-#### Week 02
+#### Week 02 (2018/06/25)
 
-##### Day 1
+##### Day 1 - 2018/06/25
 
 - [WDI Granny-Talk Warmup](https://gist.github.com/kasun-maldeni/370b6193469f0cca3a0fdba135686499)
 
 - [kasun-maldeni/brooklyn_css](https://github.com/kasun-maldeni/brooklyn_css)
 
-##### Day 2
+##### Day 2 - 2018/06/26
 
 - [wdi_palindrome_warmup.md](https://gist.github.com/kasun-maldeni/d567e18549569f399b30f421f8330e49)
 
@@ -87,7 +87,7 @@ Time  | Table
 
 - [kasun-maldeni/fashion_css](https://github.com/kasun-maldeni/fashion_css)
 
-##### Day 3
+##### Day 3 - 2018/06/27
 
 - [WDI Minigolf Warmup](https://gist.github.com/kasun-maldeni/9f24ddbad63aecf72f017e704692e7c3)
 
@@ -108,7 +108,7 @@ Time  | Table
 
 - [money_tree.md](https://gist.github.com/epoch/16fe7e406bdc23da03df747211c8112f#file-money_tree_screen_shot-png)
 
-##### Day 4
+##### Day 4 - 2018/06/28
 
 - [WDI Coinflip Warmup](https://gist.github.com/kasun-maldeni/c337852cb0bf5072d6e91cb5ba78500e)
 
@@ -124,7 +124,7 @@ Time  | Table
 
 - [WDI GA Bank Lab](https://gist.github.com/kasun-maldeni/050cbc9fb8196581bc9e76d0b9d25168)
 
-##### Day 5
+##### Day 5 - 2018/06/29
 
 - [WDI Caesar Cipher Warmup](https://gist.github.com/kasun-maldeni/7994ec117ee7617d88983f9c4b1fbcd9)
 
@@ -141,10 +141,16 @@ Time  | Table
 - Homework (`wdi_week2_research_homework_timers.md`)
   [wdi_week2_research_homework_timers.md | GA Immersive Students Slack](https://ga-students.slack.com/files/U03B88WPM/FBG2NELF5/wdi_week2_research_homework_timers.md)
 
-#### Week 03
+#### Week 03 (2018/07/02)
 
-##### Day 1
+##### Day 1 - 2018/07/02
 
 - [WDI Map Faker Warmup](https://gist.github.com/kasun-maldeni/a54a21c56ac930d8069e191c2af7cb80)
 
 - Code Along (Build a ToDo List application)
+  * putting things together
+  * JS + DOM API
+  * a todolist app
+  * using CSS classes
+  * event target
+
