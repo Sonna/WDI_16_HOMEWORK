@@ -13,8 +13,14 @@ document.querySelectorAll('h1')[1].textContent = 'Friend';
 (3.) How would you add an event listener to the button element inside the div, so that when it is clicked the background colour of the div changes to red?
 
 ```javascript
-document.querySelector('div button').addEventListenr('click', function () {
+document.querySelector('div button').addEventListener('click', function () {
   document.querySelector('div').style.backgroundColor = 'red';
+});
+
+// Or
+
+document.querySelector('div button').addEventListener('click', function (event) {
+  event.target.parentNode.style.backgroundColor = 'red';
 });
 ```
 

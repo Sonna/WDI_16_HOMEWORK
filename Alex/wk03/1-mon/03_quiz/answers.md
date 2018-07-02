@@ -35,8 +35,14 @@ document.querySelectorAll('h1')[1].textContent = 'Friend';
 ```
 
 ```javascript
-document.querySelector('div button').addEventListenr('click', function () {
+document.querySelector('div button').addEventListener('click', function () {
   document.querySelector('div').style.backgroundColor = 'red';
+});
+
+// Or
+
+document.querySelector('div button').addEventListener('click', function (event) {
+  event.target.parentNode.style.backgroundColor = 'red';
 });
 ```
 
