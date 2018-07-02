@@ -23,31 +23,58 @@
 // Just take it step by step and try to meet the benchmarks below in order.
 
 // 1. Create Javascript selectors that target each of the timer buttons.
+var resetBtn = document.querySelector('#reset');
+var startBtn = document.querySelector('#start');
+var pauseBtn = document.querySelector('#pause');
 
 // 2. Create click handlers (empty, for now) for each of the timer buttons.
+resetBtn.addEventListener('click', function() {});
+startBtn.addEventListener('click', function() {});
+pauseBtn.addEventListener('click', function() {});
 
 // 3. Instantiate `seconds` and `timerId` variables for your timer. The latter
 //    will make more sense after reading up on `setInterval()`.
+var seconds = 0;
+var timerId = 0;
 
 // 4. Create an `updateTime()` function that increments the `seconds` counter
 //    and inserts that value into the `<h1>` element with `id="timer"`.
+var updateTime = function() {
+  seconds += 1;
+  document.querySelector('h1#timer').textContent = seconds;
+};
 
 // 5. Inside your click handler for the start button...
+startBtn.addEventListener('click', function() {
 //   - Replace "Stop Watch" in the HTML with the content of the `seconds`
 //     variable.
 //   - Use `setInterval()` to increment the timer by 1 every second.
+  if (!timerId) { // technically `0` or `undefined` not `false`
+    timerId = setInterval(updateTime, 1000);
+  }
+});
 
 // 6. Inside your click handler for the pause button...
+pauseBtn.addEventListener('click', function() {
 //   - Stop -- but do not reset! -- the timer using `clearInterval()`.
+  timerId = clearInterval(timerId);
+});
 
 // 7. Once again, inside your click handler for the start button...
 //   - Make sure the timer starts back up when you hit the "Start" button after
 //     hitting "Pause".
 
+var originalStopWatchText = document.querySelector('h1#timer').textContent;
+
+resetBtn.addEventListener('click', function() {
 // 8. Inside your click handler for the reset button...
 //   - Stop the timer using `clearInterval()`.
+  timerId = clearInterval(timerId);
 //   - Reset the timer.
+  seconds = 0;
 //   - Replace the time in your HTML with the original "Stop Watch" text.
+  document.querySelector('h1#timer').textContent = originalStopWatchText;
+});
 
 // **Bonus**
 
