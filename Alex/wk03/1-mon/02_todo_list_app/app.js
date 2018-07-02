@@ -21,7 +21,7 @@ var todoItems = document.querySelectorAll('li'); // find all todo items
 
 var updateCompleteCount = function() {
   completedCount.textContent = document.querySelectorAll('.completed').length;
-  completedCount.parentNode.replaceChild(completedCount, completedCount);
+  // completedCount.parentNode.replaceChild(completedCount, completedCount);
 
   // updateAllDone(completedCount.textContent === todoItems.length.toString());
   // updateAllDone(Number(completedCount.textContent) === todoItems.length);
