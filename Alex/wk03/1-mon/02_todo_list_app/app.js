@@ -1,18 +1,21 @@
 console.log('task manager');
 
-var allTasksDone = document.querySelector('.all-tasks-done');
+var footer = document.querySelector('footer');
+// var allTasksDone = document.querySelector('.all-tasks-done');
 var completedCount = document.querySelector('.completed-count');
 var todoItems = document.querySelectorAll('li'); // find all todo items
 
 var updateAllDone = function(show) {
   // allTasksDone.style.display = 'none';
   // if (show) { allTasksDone.style.display = 'block'; }
-  allTasksDone.classList.remove('show');
-  allTasksDone.classList.add('hide');
+  // allTasksDone.classList.remove('show');
+  // allTasksDone.classList.add('hide');
+  footer.classList.add('hidden');
 
   if (show) {
-    allTasksDone.classList.remove('hide');
-    allTasksDone.classList.add('show');
+    footer.classList.remove('hidden');
+    // allTasksDone.classList.remove('hide');
+    // allTasksDone.classList.add('show');
   }
 }
 
