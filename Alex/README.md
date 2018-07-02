@@ -155,3 +155,7 @@ Time  | Table
   * event target
 
 - Quiz (wk03/1-mon/03_quiz/index.html)
+  [dom_quiz.md · GitHub](https://gist.github.com/epoch/6ace5aa9da8b4598ccc9b1110ef17ed0)
+
+- Extra Task (covers `setInterval` & `setTimeout` functions)
+  [wdi_week_timer_callback_lab.md · GitHub](https://gist.github.com/epoch/4417653f1ebfa343e65f#file-wdi_week_timer_callback_lab-md)
