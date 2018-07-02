@@ -70,8 +70,19 @@ var generate2DCoordinate = function(height, width) {
   return { x: x, y: y };
 }
 
-var markMap = function(map, marking, coordinate) {
-  map[coordinate.y][coordinate.x] = marking;
+var markMap = function(map, marking, coordinate, amount) {
+  amount = (typeof amount !== 'undefined') ? amount : 1;
+
+  var height = map.length;
+  var width = map[0].length;
+
+  for (var i = 0; i < amount; i++) {
+    for (var j = 0; j < amount; j++) {
+      if (coordinate.y + i < height && coordinate.x + j < width) {
+        map[coordinate.y + i][coordinate.x + j] = marking;
+      }
+    }
+  }
 }
 
 var makeFakeMap = function(height, width, markChar) {
@@ -148,6 +159,41 @@ makeFakeMap(5, 5, 'F', 2, 'X');
 // Unused idea :/
 // const dict = arr => Object.assign(...arr.map( ([k, v]) => ({[k]: v}) ));
 
+var buildFakeMapRow = function(width, value) {
+  return new Array(width).fill(value);
+}
+
+var buildInitialFakeMap = function(height, width, value) {
+  var map = []
+  for (var i = 0; i < height; i++) {
+    map.push(buildFakeMapRow(width, value));
+  }
+  return map;
+}
+
+// Mark the spot randomly
+var generate2DCoordinate = function(height, width) {
+  var x = Math.floor(Math.random() * width);
+  var y = Math.floor(Math.random() * height);
+
+  return { x: x, y: y };
+}
+
+var markMap = function(map, marking, coordinate, amount) {
+  amount = (typeof amount !== 'undefined') ? amount : 1;
+
+  var height = map.length;
+  var width = map[0].length;
+
+  for (var i = 0; i < amount; i++) {
+    for (var j = 0; j < amount; j++) {
+      if (coordinate.y + i < height && coordinate.x + j < width) {
+        map[coordinate.y + i][coordinate.x + j] = marking;
+      }
+    }
+  }
+}
+
 var makeFakeMap = function(height, width, ...markings) {
   // Default arguments
   height = (typeof height !== 'undefined') ? height : 5;
@@ -155,7 +201,6 @@ var makeFakeMap = function(height, width, ...markings) {
   // markings = (typeof markings !== 'undefined') ? markings : { 'X': 1 };
   markings = (typeof markings !== 'undefined') ? markings : ['X', 1];
 
-  var priorRegions = [];
   var fillerChar = 'A';
 
   var fakeMap = buildInitialFakeMap(height, width, fillerChar);
@@ -166,21 +211,8 @@ var makeFakeMap = function(height, width, ...markings) {
     amount = (typeof amount !== 'undefined') ? amount : 1;
 
     // Mark the spots randomly
-    for (var j = 0; j < amount; j++) {
-      var markedPosition = generate2DCoordinate(height, width);
-
-      if (!priorRegions.includes(markedPosition)) {
-        priorRegions.push(markedPosition);
-        markMap(fakeMap, markChar, markedPosition);
-      } else {
-        while (!priorRegions.includes(markedPosition)) {
-          markedPosition = generate2DCoordinate(height, width);
-        }
-
-        priorRegions.push(markedPosition);
-        markMap(fakeMap, markChar, markedPosition);
-      }
-    }
+    var markedPosition = generate2DCoordinate(height, width);
+    markMap(fakeMap, markChar, markedPosition, amount);
   }
 
   return fakeMap;
@@ -188,4 +220,4 @@ var makeFakeMap = function(height, width, ...markings) {
 
 console.log(makeFakeMap(5, 5, 'F', 2, 'X').join('\n'));
 console.log(makeFakeMap(5, 5, 'F', 3, 'W', 4, 'D', 4, 'X', 1).join('\n'));
-console.log(makeFakeMap(5, 5, 'W', 1, 'D', 10, 'X', 1, 'F', 4).join('\n'));
+console.log(makeFakeMap(5, 5, 'W', 1, 'D', 10, 'F', 4, 'X').join('\n'));
