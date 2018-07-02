@@ -17,11 +17,14 @@ body {
   border-width: 1px;
   margin-bottom: 5px;
   padding: 10px;
+  transition: all 0.4s linear;
 }
 
 /*.todo-item.completed {*/
 .completed {
+  background-color: #e3e3e3;
   border-color: gray;
   color: gray;
   text-decoration: line-through;
+  transition: all 0.4s linear;
 }
