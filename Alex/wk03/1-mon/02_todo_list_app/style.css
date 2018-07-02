@@ -28,3 +28,11 @@ body {
   text-decoration: line-through;
   transition: all 0.4s linear;
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
