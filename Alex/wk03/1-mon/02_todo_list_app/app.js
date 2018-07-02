@@ -4,13 +4,7 @@ var todoItems = document.querySelectorAll('li'); // find all todo items
 var completedCount = document.querySelector('.completed-count');
 
 var updateCompleteCount = function() {
-  var sum = 0;
-
-  todoItems.forEach(function(item) {
-    if (item.classList.contains('completed')) { sum++; }
-  });
-
-  completedCount.innerText = sum;
+  completedCount.innerText = document.querySelectorAll('.completed').length;
   completedCount.parentNode.replaceChild(completedCount, completedCount);
 }
 
