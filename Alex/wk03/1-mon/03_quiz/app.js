@@ -46,19 +46,16 @@ var updateShoppingList = function() {
 }
 
 favColor.addEventListener('blur', function() {
-  // shoppingList
   favouriteColour = favColor.value;
   updateShoppingList();
 });
 
 leastFavColor.addEventListener('blur', function() {
-  // shoppingList
   leastFavouriteColour = leastFavColor.value;
   updateShoppingList();
 });
 
 favFood.addEventListener('blur', function() {
-  // shoppingList
   favouriteFood = favFood.value;
   updateShoppingList();
 });
