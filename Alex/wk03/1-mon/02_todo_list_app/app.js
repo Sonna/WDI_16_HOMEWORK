@@ -7,7 +7,15 @@ var markComplete = function(event) {
   // debugger
 
   // todoItems[0].style.textDecoration = 'line-through';
-  event.target.style.textDecoration = 'line-through';
+  // event.target.style.textDecoration = 'line-through';
+  // event.target.className = 'completed';
+  // event.target.classList.add('completed');
+
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
 };
 
 // todoItems[0].addEventListener('click', function() {});
