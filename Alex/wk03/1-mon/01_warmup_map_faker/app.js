@@ -58,10 +58,8 @@ var makeFakeMap = function(height, width, markChar) {
 
   var fillerChar = 'A';
 
-  var fakeMapRows = new Array(width);
-  var fakeMap = new Array(height);
-  fakeMapRows.fill(fillerChar);
-  fakeMap.fill(' '); // Fill with blanks to be overridden
+  var fakeMapRows = new Array(width).fill(fillerChar);
+  var fakeMap = new Array(height).fill(' '); // Fill with blanks to override
   fakeMap.forEach(function(_element, index, array) {
     array[index] = fakeMapRows.slice();
   });
@@ -145,10 +143,8 @@ var makeFakeMap = function(height, width, ...markings) {
   var priorRegions = [];
   var fillerChar = 'A';
 
-  var fakeMapRows = new Array(width);
-  var fakeMap = new Array(height);
-  fakeMapRows.fill(fillerChar);
-  fakeMap.fill(' '); // Fill with blanks to be overridden
+  var fakeMapRows = new Array(width).fill(fillerChar);
+  var fakeMap = new Array(height).fill(' '); // Fill with blanks to override
   fakeMap.forEach(function(_element, index, array) {
     array[index] = fakeMapRows.slice();
   });
