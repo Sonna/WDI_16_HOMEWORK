@@ -61,7 +61,10 @@ var makeFakeMap = function(height, width, markChar) {
   var fakeMapRows = new Array(width);
   var fakeMap = new Array(height);
   fakeMapRows.fill(fillerChar);
-  fakeMap.fill(fakeMapRows);
+  fakeMap.fill(' '); // Fill with blanks to be overridden
+  fakeMap.forEach(function(_element, index, array) {
+    array[index] = fakeMapRows.slice();
+  });
 
   // Mark the spot randomly
   var x = Math.floor(Math.random() * width);
@@ -128,3 +131,54 @@ makeFakeMap(5, 5, 'F', 2, 'X');
 ];
 
 // ```
+
+// Unused idea :/
+// const dict = arr => Object.assign(...arr.map( ([k, v]) => ({[k]: v}) ));
+
+var makeFakeMap = function(height, width, ...markings) {
+  // Default arguments
+  height = (typeof height !== 'undefined') ? height : 5;
+  width = (typeof width !== 'undefined') ? width : 5;
+  // markings = (typeof markings !== 'undefined') ? markings : { 'X': 1 };
+  markings = (typeof markings !== 'undefined') ? markings : ['X', 1];
+
+  var priorRegions = [];
+  var fillerChar = 'A';
+
+  var fakeMapRows = new Array(width);
+  var fakeMap = new Array(height);
+  fakeMapRows.fill(fillerChar);
+  fakeMap.fill(' '); // Fill with blanks to be overridden
+  fakeMap.forEach(function(_element, index, array) {
+    array[index] = fakeMapRows.slice();
+  });
+
+  for (var i = 0; i < markings.length; i += 2) {
+    var markChar = markings[i];
+    var amount = markings[i+1];
+    amount = (typeof amount !== 'undefined') ? amount : 1;
+
+    // Mark the spots randomly
+    for (var j = 0; j < amount; j++) {
+      var x = Math.floor(Math.random() * width);
+      var y = Math.floor(Math.random() * height);
+
+      if (!priorRegions.includes({ x: x, y: y })) {
+        priorRegions.push({ x: x, y: y });
+        fakeMap[y][x] = markChar;
+      } else {
+        while (!priorRegions.includes({ x: x, y: y })) {
+          x = Math.floor(Math.random() * width);
+          y = Math.floor(Math.random() * height);
+        }
+
+        priorRegions.push({ x: x, y: y });
+        fakeMap[y][x] = markChar;
+      }
+    }
+  }
+
+  return fakeMap;
+};
+
+console.log(makeFakeMap(5, 5, 'F', 2, 'X'));
