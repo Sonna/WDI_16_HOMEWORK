@@ -13,18 +13,27 @@
 //    **red**.
 var allDivs = document.querySelectorAll('div');
 
-allDivs.forEach(function(el) {
-  el.addEventListener('click', function(event) {
-    // event.target.style.backgroundColor = 'red';
-    event.target.classList.add('clicked');
-    checkForAllGreen();
-  });
+var clickHandler = function(event) {
+  // event.target.style.backgroundColor = 'red';
+  event.target.classList.add('clicked');
+  checkForAllClicked();
+}
+
+allDivs.forEach(function(domObject) {
+  domObject.addEventListener('click', clickHandler);
+  //                                  ^ equivalent v
+  // domObject.addEventListener('click', function(event) {
+  //   // event.target.style.backgroundColor = 'red';
+  //   event.target.classList.add('clicked');
+  //   checkForAllClicked();
+  // });
+  // domObject.addEventListener('click', checkForAllClicked);
 });
 
 // 3. After **every** box has been clicked, change all of them immediately to
 //    **green**.
 
-function checkForAllGreen() {
+function checkForAllClicked() {
   var allClickedDivs = document.querySelectorAll('div.clicked');
 
   if(allClickedDivs.length === allDivs.length) {
