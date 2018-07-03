@@ -165,3 +165,15 @@ Time  | Table
 - [Make Them Green - WDI Warmup](https://gist.github.com/kasun-maldeni/87c3e68843d1e6e16bf32cd4398f7d86)
 
 - Code Along (ToDo List application - continued)
+
+- Discussion
+  * GitHub pages
+    + Create new Git repository
+    + Add `index.html`
+    + Initial commit
+    + Create remote repository on GitHub
+    + Add remote to local Git repository
+    + Push to remote
+    + Update GitHub repository to use `master` branch for GitHub pages
+    + Done
+  * Project 1

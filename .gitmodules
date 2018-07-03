@@ -7,3 +7,6 @@
 [submodule "Alex/wk02/2-tue/04_fashion_css"]
 	path = Alex/wk02/2-tue/04_fashion_css
 	url = ../fashion_css.git
+[submodule "Alex/wk03/2-tue/03_test_app"]
+	path = Alex/wk03/2-tue/03_test_app
+	url = ../test_app.git
