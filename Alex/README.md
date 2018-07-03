@@ -163,3 +163,5 @@ Time  | Table
 ##### Day 2 - 2018/07/03
 
 - [Make Them Green - WDI Warmup](https://gist.github.com/kasun-maldeni/87c3e68843d1e6e16bf32cd4398f7d86)
+
+- Code Along (ToDo List application - continued)
