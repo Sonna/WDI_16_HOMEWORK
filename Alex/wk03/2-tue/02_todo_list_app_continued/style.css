@@ -35,6 +35,22 @@ body {
   display: none;
 }
 
+.new-todo-input {
+  border: none;
+  border-bottom: 2px solid black;
+  border-radius: 4px 4px 0 0;
+  font-size: 1.2em;
+  /*outline: none;*/
+  padding: 10px;
+  transition: all 300ms ease-out;
+  width: 100%;
+}
+
+.new-todo-input:focus {
+  background-color: papayawhip;
+  outline: none;
+}
+
 .show {
   display: block;
 }
