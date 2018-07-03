@@ -176,4 +176,6 @@ Time  | Table
     + Push to remote
     + Update GitHub repository to use `master` branch for GitHub pages
     + Done
+
   * Project 1
+    + [wdi16_project1.md](https://gist.github.com/epoch/7a0bfe359e666f37c738bcedbde5c7b4#file-wdi16_project1-md)
