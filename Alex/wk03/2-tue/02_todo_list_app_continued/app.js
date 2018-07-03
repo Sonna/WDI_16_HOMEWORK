@@ -26,10 +26,11 @@ addTodoBtn.addEventListener('click', function(event) {
   // add todo-item class to newLi
   newLi.classList.add('todo-item');
   // prepare it for the real world
-  newLi.addEventListener('click', markComplete);
+  // newLi.addEventListener('click', markComplete);
 
   // append it to `ul`
   todoList.appendChild(newLi);
+  // todoList = document.querySelector('.todo-list');
 
   // clear text (from input field)
   // set input value to empty string
@@ -49,13 +50,16 @@ function updateCompleteCount() {
 }
 
 function markComplete(event) {
+  if (!event.target.classList.contains('todo-item')) { return; }
+  // if (event.target.tagName !== 'LI') { return; }
   event.target.classList.toggle('completed');
   updateCompleteCount();
 };
 
-todoItems.forEach(function(item) {
-  item.addEventListener('click', markComplete);
-});
+// todoItems.forEach(function(item) {
+//   item.addEventListener('click', markComplete);
+// });
+todoList.addEventListener('click', markComplete);
 
 var resetTodos = function() {
   todoItems = document.querySelectorAll('li'); // re-evaluate
@@ -72,7 +76,7 @@ var addNewTodoItem = function(value) {
   var newTodoItem = document.createElement('li');
   newTodoItem.classList.add('todo-item');
   newTodoItem.textContent = value;
-  newTodoItem.addEventListener('click', markComplete);
+  // newTodoItem.addEventListener('click', markComplete);
   todoList.appendChild(newTodoItem);
   updateCompleteCount();
 };
