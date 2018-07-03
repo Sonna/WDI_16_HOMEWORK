@@ -24,10 +24,10 @@ todoItems.forEach(function(item) {
   item.addEventListener('click', markComplete);
 });
 
-var reset = function() {
+var resetTodos = function() {
   todoItems.forEach(function(item) {
     item.classList.remove('completed');
   });
 }
 
-resetBtn.addEventListener('click', reset);
+resetBtn.addEventListener('click', resetTodos);
