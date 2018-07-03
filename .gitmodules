@@ -10,3 +10,6 @@
 [submodule "Alex/wk03/2-tue/03_test_app"]
 	path = Alex/wk03/2-tue/03_test_app
 	url = ../test_app.git
+[submodule "Alex/project1/public"]
+	path = Alex/project1/public
+	url = ../wdi-project1
