@@ -19,7 +19,7 @@ Time  | Table
 
 Task                      | Due Date    | Link
 --------------------------|-------------|---------------------------------------
-Research Homework Timers  | Fri, 29 Jun | [wk03/5-fir/04_timer_callback_lab](wk03/5-fir/04_timer_callback_lab)
+Research Homework Timers  | Fri, 29 Jun | [wk03/5-fri/04_timer_callback_lab](wk03/5-fri/04_timer_callback_lab)
 GA Bank                   | Thu, 28 Jun | [wk02/4-thu/05_ga_bank_atm_app](wk02/4-thu/05_ga_bank_atm_app)
 Fashion CSS               | Tue, 26 Jun | [wk02/2-tue/04_fashion_css](wk02/2-tue/04_fashion_css)
 PTV                       | Fri, 22 Jun | [wk01/5-fri/04_melb_metro_ptv_mta](wk01/5-fri/04_melb_metro_ptv_mta)
