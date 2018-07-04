@@ -1,0 +1,203 @@
+* { box-sizing: border-box; }
+
+a {
+  color: #DE1E24;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  text-decoration: none;
+}
+
+article,
+section {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+article,
+section:not(:last-child) {
+  border-bottom: 1px solid #B4B4B4;
+}
+
+article a,
+.about-us a {
+  font-weight: 600;
+}
+
+article h1 {
+  margin-top: 0;
+}
+
+article h1,
+article time {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+article time {
+  color: #B4B4B4;
+}
+
+aside,
+footer,
+header,
+main,
+.container {
+  width: 100%;
+}
+
+@media only screen and (min-width: 800px) {
+  aside {
+    align-self: flex-start;
+    margin-left: 10px;
+    width: 30%;
+  }
+}
+
+aside a {
+  font-size: 14px;
+}
+
+aside h1 {
+  color: #777777;
+}
+
+body {
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+
+footer,
+header,
+.container {
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 800px) {
+  footer,
+  header,
+  .container {
+    max-width: 800px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  footer,
+  header,
+  .container {
+    max-width: 1000px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  footer,
+  header,
+  .container {
+    max-width: 1200px;
+  }
+}
+
+footer a {
+  padding-left: 4px;
+  padding-right: 2px;
+}
+
+footer a + a {
+  border-left: 1px solid #B4B4B4;
+}
+
+footer nav {
+  margin-bottom: 20px;
+}
+
+header h1 {
+  color: #FF0000;
+  font-weight: 300;
+}
+
+.subheading {
+  font-size: 24px;
+  color: #B4B4B4;
+}
+
+header nav {
+  width: 100%;
+}
+
+header nav a {
+  display: block;
+  background-color: #000000;
+  color: #FFFFFF;
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+}
+
+header nav a + a {
+  border-top: 1px solid #FFFFFF;
+}
+
+@media only screen and (min-width: 800px) {
+  header nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header nav a {
+    display: inline-block;
+  }
+
+  header nav a + a {
+    border-top: 0 none;
+    border-left: 1px solid #FFFFFF;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+@media only screen and (min-width: 800px) {
+  main {
+    margin-right: 10px;
+    width: 70%;
+  }
+}
+
+p {
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+}
+
+.container {
+  margin: 30px auto;
+}
+
+@media only screen and (min-width: 800px) {
+  .container {
+    display: flex;
+  }
+}
+
+.copyright {
+  color: #B4B4B4;
+  padding-bottom: 20px;
+}
+
+.leading::first-letter {
+  color: #B4B4B4;
+  float: left;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-size: 400%;
+  font-weight: 300;
+  margin-bottom: -10px;
+  margin-right: 10px;
+  margin-top: -10px;
+}
+
+.popular-posts li {
+  /* Will effect text colour though :( */
+  color: #B4B4B4;
+}
+
+.read-more {
+  text-align: right;
+}

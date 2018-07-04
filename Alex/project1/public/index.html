@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Project 1 - Tic Tac Toe</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <section class="board">
+      <section class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </section>
+
+      <section class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </section>
+
+      <section class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </section>
+    </section>
+
+    <section class="scoreboard">
+      <p>Round <span class="rounds">0</span></p>
+      <table class="wins">
+        <thead>
+          <caption>Wins</caption>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Naughts</th>
+            <th>Crosses</th>
+            <th>Ties</th>
+          </tr>
+          <tr>
+            <td class="naught">0</td>
+            <td class="cross">0</td>
+            <td class="tie">0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <section class="controls">
+        <button class="reset-board">Clear Board</button>
+        <button class="reset-scores">Clear Scores</button>
+        <button class="reset-all">Clear All</button>
+      </section>
+
+      <section class="details hidden">
+        <h1 class="winner"></h1>
+      </section>
+    </section>
+  </div>
+
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
