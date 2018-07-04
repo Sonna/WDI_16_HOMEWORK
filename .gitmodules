@@ -1,0 +1,15 @@
+[submodule "Alex/wk02/1-mon/05_brooklyn_css"]
+	path = Alex/wk02/1-mon/05_brooklyn_css
+	url = ../brooklyn_css.git
+[submodule "Alex/wk02/2-tue/02_ecardly_css"]
+	path = Alex/wk02/2-tue/02_ecardly_css
+	url = ../ecardly_css.git
+[submodule "Alex/wk02/2-tue/04_fashion_css"]
+	path = Alex/wk02/2-tue/04_fashion_css
+	url = ../fashion_css.git
+[submodule "Alex/wk03/2-tue/03_test_app"]
+	path = Alex/wk03/2-tue/03_test_app
+	url = ../test_app.git
+[submodule "Alex/project1/public"]
+	path = Alex/project1/public
+	url = ../wdi-project1

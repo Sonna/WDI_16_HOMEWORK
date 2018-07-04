@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Week 02 - Day 4 - Part 3 - ToiletJS (continued)</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <div class="cistern">
+    <div class="flush-btn"></div>
+  </div>
+  <div class="seat">
+
+  </div>
+
+  <script>
+    console.log('please flush after use');
+
+    //
+    //               (doc)
+    //                 |
+    //                 |
+    //               (body)
+    //                 |
+    //    ----------------------------
+    //    |            |             |
+    // (script)    (div.seat)   (div.cistern)
+    //                               |
+    //                          (div.flush-btn)
+
+    var flush = function() {
+      // document.body.children[1].style.backgroundColor = 'mintcream';
+      document.querySelector('.seat').style.backgroundColor = 'mintcream';
+    };
+
+    // document.body.children[1].style.backgroundColor = 'blue';
+    var pee = function() {
+      // document.body.children[1].style.backgroundColor = 'green';
+      document.querySelector('.seat').style.backgroundColor = 'green';
+    }
+
+    // document.body.children[0].children[0].addEventListener('click', flush);
+    document.querySelector('.flush-btn').addEventListener('click', flush);
+    // document.body.children[1].addEventListener('click', pee);
+    document.querySelector('.seat').addEventListener('click', pee);
+
+    console.log('goodbye');
+
+  </script>
+</body>
+</html>
