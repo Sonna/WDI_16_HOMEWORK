@@ -198,3 +198,19 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 
 - Work on Project 1
   * [wdi16_project1.md](https://gist.github.com/epoch/7a0bfe359e666f37c738bcedbde5c7b4#file-wdi16_project1-md)
+
+##### Day 4 - 2018/07/05
+
+- Work on Project 1
+  * [wdi16_project1.md](https://gist.github.com/epoch/7a0bfe359e666f37c738bcedbde5c7b4#file-wdi16_project1-md)
+
+##### Day 5 - 2018/07/06
+
+- Project 1
+  * [wdi16_project1.md](https://gist.github.com/epoch/7a0bfe359e666f37c738bcedbde5c7b4#file-wdi16_project1-md)
+
+- Project 1 presentations & discussion (2pm)
+  * Demo your game
+  * Challenges
+  * Cool Tech
+  * Lessons learned
