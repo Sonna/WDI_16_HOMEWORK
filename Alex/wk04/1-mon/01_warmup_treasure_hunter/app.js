@@ -6,7 +6,19 @@
 
 console.log("app.js loaded");
 
-var treasureFinder = function() {};
+var treasureFinder = function(map, spotMarker) {
+  // default to 'X' marks the spot
+  spotMarker = (typeof spotMarker !== 'undefined') ? spotMarker : 'X';
+
+  var x, y;
+
+  x = map.findIndex(function(row) {
+    y = row.indexOf(spotMarker);
+    return y >= 0;
+  })
+
+  return [x, y];
+};
 
 // # [It belongs in a museum!](https://www.youtube.com/watch?v=-abUtRbUS_U)
 
@@ -27,6 +39,7 @@ var map1 = [
 // Sample output:
 
 treasureFinder(map1) // should return [2, 2];
+console.log(treasureFinder(map1));
 
 // You can assume that the size of the treasure map will be the same.
 
@@ -56,6 +69,10 @@ var map4 = [
   ["v","v","V","v","A"],
   ["X","V","A","A","A"]
 ];
+
+console.log(treasureFinder(map2));
+console.log(treasureFinder(map3));
+console.log(treasureFinder(map4));
 
 
 // ### Bonus:
