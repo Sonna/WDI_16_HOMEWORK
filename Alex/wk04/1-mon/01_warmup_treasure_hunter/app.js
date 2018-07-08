@@ -10,6 +10,12 @@ var treasureFinder = function(map, spotMarker) {
   // default to 'X' marks the spot
   spotMarker = (typeof spotMarker !== 'undefined') ? spotMarker : 'X';
 
+  var count = map.reduce(function(sum, row) {
+    return sum + row.reduce((acc, column) => (column === spotMarker) ? ++acc : acc, 0);
+  }, 0);
+
+  if (count > 1) { return 'that doesnt belong in a museum!'; }
+
   var x, y;
 
   x = map.findIndex(function(row) {
@@ -95,9 +101,12 @@ var holyGrailMap = [
 //sample outputs:
 
 treasureFinder(holyGrailMap, "G") // should return [4, 2];
+console.log(treasureFinder(holyGrailMap, "G"));
 treasureFinder(holyGrailMap, "H") // should return [5, 2];
+console.log(treasureFinder(holyGrailMap, "H"));
 treasureFinder(holyGrailMap, "H") // should return [5, 2];
+console.log(treasureFinder(holyGrailMap, "H"));
 
 treasureFinder(holyGrailMap, "V")
 // should return 'that doesnt belong in a museum!';
-
+console.log(treasureFinder(holyGrailMap, "V"));
