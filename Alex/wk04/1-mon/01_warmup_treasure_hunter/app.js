@@ -11,7 +11,7 @@ var treasureFinder = function(map, spotMarker) {
   spotMarker = (typeof spotMarker !== 'undefined') ? spotMarker : 'X';
 
   var count = map.reduce(function(sum, row) {
-    return sum + row.reduce((acc, column) => (column === spotMarker) ? ++acc : acc, 0);
+    return sum + row.reduce((acc, value) => (value === spotMarker) ? ++acc : acc, 0);
   }, 0);
 
   if (count > 1) { return 'that doesnt belong in a museum!'; }
@@ -20,8 +20,8 @@ var treasureFinder = function(map, spotMarker) {
 
   x = map.findIndex(function(row) {
     y = row.indexOf(spotMarker);
-    return y >= 0;
-  })
+    return y !== -1;
+  });
 
   return [x, y];
 };
