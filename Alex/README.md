@@ -220,3 +220,11 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 1 - 2018/07/09
 - [WDI Treasure Hunter Warmup](https://gist.github.com/kasun-maldeni/f0aaae72a93520c7ecabf2c9ea6faefe)
 
+- Server Side Programming
+- Another programming language-ruby
+- How to learn a language
+  + How to run ruby
+  + tooling & ecosystem
+  + data types & data structures
+  + flow control
+  + debugging
