@@ -25,7 +25,7 @@
 # Ask the user for two inputs and store them in their own variables...
 #   1. A starting temperature value
 puts "1. A starting temperature value"
-start_temp = gets.chomp.to_i
+start_temp = gets.chomp.to_f
 
 #   2. A temperature unit (e.g., f, C, K). Store each of those in a variable.
 puts "2. A temperature unit (e.g., f, C, K)."
@@ -63,6 +63,8 @@ def convert_temp(temp, temp_unit)
 #   ...
   else
 #   ...
+    puts "Unknown unit"
+    return
   end
 # ```
 
@@ -84,10 +86,10 @@ def convert_temp(temp, temp_unit)
 # to Celsius: ...
 # to Kelvin: ...
 # ```
-puts "#{input_type}: #{temp}"
-puts "to Celsius: #{to_celsius}"
-puts "to Fahrenheit: #{to_fahrenheit}"
-puts "to Kelvin: #{to_kelvin}"
+  puts "#{input_type}: #{temp}"
+  puts "to Celsius: #{to_celsius}"
+  puts "to Fahrenheit: #{to_fahrenheit}"
+  puts "to Kelvin: #{to_kelvin}"
 end
 
 # Feel free to turn to your tablemates for help!
@@ -97,12 +99,78 @@ convert_temp(start_temp, unit)
 
 # Store the starting and converted temperatures in a hash. When you print those
 # values to the console, do it by accessing the values in the hash.
+user_input = {}
+
+puts "1. A starting temperature value"
+user_input[:start_temp] = gets.chomp.to_f
+
+puts "2. A temperature unit (e.g., f, C, K)."
+user_input[:unit] = gets.chomp
+
+def convert_temp(temp, temp_unit)
+  to_celsius = temp
+  to_fahrenheit = temp
+  to_kelvin = temp
+
+  if temp_unit == "f"
+    input_type = "fahrenheit"
+    # From: Fahrenheit To: Celsius  C = ( F - 32) / 1.8
+    to_celsius = (temp - 32) / 1.8
+    # From: Fahrenheit To: kelvin  K = ( F + 459.67) / 1.8
+    to_kelvin = (temp + 459.67) / 1.8
+  elsif temp_unit == "C"
+    input_type = "celsius"
+    # From: Celsius To: Fahrenheit   F =  C × 1.8 + 32
+    to_fahrenheit = temp * 1.8 + 32
+    # From: Celsius To: kelvin  K = C  + 273.15
+    to_kelvin = temp + 273.15
+  elsif temp_unit == "K"
+    input_type = "kelvin"
+    # From: kelvin To: Celsius  C = K - 273.15
+    to_celsius = temp - 273.15
+    # From: kelvin To: Fahrenheit   F = K × 1.8 - 459.67
+    to_fahrenheit = temp * 1.8 - 459.67
+  else
+    puts "Unknown unit"
+    return # Do Nothing
+  end
+
+  puts "#{input_type}: #{temp}"
+  puts "to Celsius: #{to_celsius}"
+  puts "to Fahrenheit: #{to_fahrenheit}"
+  puts "to Kelvin: #{to_kelvin}"
+end
+
+convert_temp(user_input[:start_temp], user_input[:unit])
 
 # ### Bonus 2
 
 # Keep the program running until the user decides to quit.
 # * **HINT:** Requires a `while` loop.
-# * When the program starts, the user should be prompted to enter a temperature OR
-#   quit the program.
+# * When the program starts, the user should be prompted to enter a temperature
+#   OR quit the program.
 # * After the program displays the starting/converted temperatures, it should
 #   return to the initial user prompt.
+
+user_input = { start_temp: "run first loop", unit: "" }
+# Could break the loop earlier
+# Could check to see if truthy and is not blank, rather than prefilling
+# Could use a different value that gets set or unset depending on the first
+# user input
+# etc
+
+while !user_input[:start_temp].empty?
+  puts "1. A starting temperature value OR nothing to quit the program"
+  user_input[:start_temp] = gets.chomp
+
+  # break if user_input[:start_temp].empty?
+
+  puts "2. A temperature unit (e.g., f, C, K)."
+  user_input[:unit] = gets.chomp
+
+  convert_temp(user_input[:start_temp].to_f, user_input[:unit])
+end
+
+# ```ruby
+# $ ruby Alex/wk04/1-mon/05_ruby_intro_homework/temp_convertor.rb
+# ```
