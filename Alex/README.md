@@ -160,6 +160,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 1 - 2018/07/02
 
 - [WDI Map Faker Warmup](https://gist.github.com/kasun-maldeni/a54a21c56ac930d8069e191c2af7cb80)
+- [WDI Map Faker Solution](https://gist.github.com/kasun-maldeni/fbe334cebd04cc0cbf241b0264b072e7)
 
 - Code Along (Build a ToDo List application)
   * putting things together
@@ -177,6 +178,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 2 - 2018/07/03
 
 - [Make Them Green - WDI Warmup](https://gist.github.com/kasun-maldeni/87c3e68843d1e6e16bf32cd4398f7d86)
+- [Make Them Green - WDI Warmup Solution](https://gist.github.com/kasun-maldeni/2907539aba47f1b998b468df5468396f)
 
 - Code Along (ToDo List application - continued)
 
@@ -226,6 +228,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 - Another programming language-ruby
 - How to learn a language
   + How to run ruby
+    * [RVM: Ruby Version Manager - RVM Ruby Version Manager - Documentation](https://rvm.io)
   + tooling & ecosystem
   + data types & data structures
   + flow control
