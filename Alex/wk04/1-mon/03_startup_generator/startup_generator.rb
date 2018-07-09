@@ -1,3 +1,5 @@
+# require "pry"
+
 this_array = ["Skynet","Digital Music Distribution",
 "FitBit","Realtime Data","ManPacks","Landing Page",
 "Conversion Funnel","Social Network","Airbnb","SnapChat",
@@ -16,5 +18,15 @@ that_array = ["Facebook Platform","Erlang Enthusiasts","Ex-Girlfriends",
 "Camp Counselors","Nature Blogs","World of Warcraft","Models","Family Guy Enthusiasts","The Army","Cheap Vodka","Tech Incubators","Star Trek Conventions","Presentation Tools","Small Businesses","Beer","Nightclub Lines","Semi-Active Volcanoes", "Sanctimonial Artifacts","Traveling Abroad","Your Mom","Billionaires","Happy Hours","Ugg Boots","The Homeless","Blacking Out","Red Wine","Happy Families","Social Outcasts",
 "Surgeons","Pounding Jagger Bombs","Textbooks","Coffee Shops","Baristas"]
 
-puts "#{this_array.sample} #{that_array.sample}"
-# >> Appstore Mitt Romney's Hair
+# binding.pry
+puts("hello slackers")
+
+# puts(this_array.sample() + " for " + that_array.sample())
+
+# Interpolation
+# puts("something for something")
+# puts("#{} for #{}")
+puts("#{this_array.sample()} for #{that_array.sample()}")
+
+# >> hello slackers
+# >> Crowdsourcing App for Mitt Romney's Hair
