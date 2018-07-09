@@ -242,4 +242,6 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
   + [arrays](https://gist.github.com/epoch/8292180)
   + [lines_of_code_loc.md](https://gist.github.com/epoch/19d85081335379269ab28ebf0be44dd9)
 
+##### Day 2 - 2018/07/10
 
+- [WDI Danchat Warmup](https://gist.github.com/kasun-maldeni/a09a90fb5e142ee5eeec15071e1850d3)
