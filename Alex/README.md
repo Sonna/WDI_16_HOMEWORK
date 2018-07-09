@@ -218,7 +218,9 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 #### Week 04 (2018/07/09)
 
 ##### Day 1 - 2018/07/09
+
 - [WDI Treasure Hunter Warmup](https://gist.github.com/kasun-maldeni/f0aaae72a93520c7ecabf2c9ea6faefe)
+- [WDI Treasure Hunter Solution](https://gist.github.com/kasun-maldeni/ad1d782edc9303ac325c5caf0d3ce197)
 
 - Server Side Programming
 - Another programming language-ruby
