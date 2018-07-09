@@ -31,7 +31,7 @@ Define a `convert_temp` method that takes those two user inputs as arguments.
 Inside the method, create a conditional statement that contains a block for each
 unit of temperature. It will look something like this...
 
-```rb
+```ruby
 if temp_unit == "f"
   ...
 elsif temp_unit == "C"
