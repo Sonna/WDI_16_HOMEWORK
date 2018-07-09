@@ -236,3 +236,10 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 - [WDI Startup Generator Warmup](https://gist.github.com/kasun-maldeni/7c2f3758c7618ad6c9bcc74a23b4c98d)
 
 - [wdi_palindrome_warmup.md](https://gist.github.com/kasun-maldeni/d567e18549569f399b30f421f8330e49)
+
+- [week4_ruby_intro_homework.md](https://gist.github.com/epoch/5fc4fc96b27b55d7f282506c29ed2ab8)
+  + [ruby_method_temperature_converter.md](https://gist.github.com/epoch/225c8ad85f2a871486933b3a6e3b6834)
+  + [arrays](https://gist.github.com/epoch/8292180)
+  + [lines_of_code_loc.md](https://gist.github.com/epoch/19d85081335379269ab28ebf0be44dd9)
+
+
