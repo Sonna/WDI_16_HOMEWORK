@@ -51,7 +51,6 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 
 - [Markdown Cheatsheet · adam-p/markdown-here Wiki](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-
 - [js-day2-else-if.md](https://gist.github.com/epoch/309e4a021cd06f8ae32b#file-js-day2-else-if-md)
 
 - [js-1-vars.md](https://gist.github.com/epoch/5c2c42797947ffb413d0#file-js-1-vars-md)
@@ -233,3 +232,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
   + data types & data structures
   + flow control
   + debugging
+
+- [WDI Startup Generator Warmup](https://gist.github.com/kasun-maldeni/7c2f3758c7618ad6c9bcc74a23b4c98d)
+
+- [wdi_palindrome_warmup.md](https://gist.github.com/kasun-maldeni/d567e18549569f399b30f421f8330e49)

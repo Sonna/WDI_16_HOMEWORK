@@ -26,7 +26,9 @@ puts("hello slackers")
 # Interpolation
 # puts("something for something")
 # puts("#{} for #{}")
+puts("#{this_array[rand(this_array.length)]} for #{that_array[rand(this_array.length)]}")
 puts("#{this_array.sample()} for #{that_array.sample()}")
 
 # >> hello slackers
-# >> Crowdsourcing App for Mitt Romney's Hair
+# >> FitBit for Farmers
+# >> Texts From Last Night for Alpha Phi Girls
