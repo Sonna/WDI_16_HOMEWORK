@@ -109,6 +109,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 3 - 2018/06/27
 
 - [WDI Minigolf Warmup](https://gist.github.com/kasun-maldeni/9f24ddbad63aecf72f017e704692e7c3)
+- [WDI Minigolf Solution](https://gist.github.com/kasun-maldeni/8e37cc1bd0fac4b085b219fb9baf702e)
 
 - Homework showoff & tell
 - Code Along (CSS Recap)
@@ -130,6 +131,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 4 - 2018/06/28
 
 - [WDI Coinflip Warmup](https://gist.github.com/kasun-maldeni/c337852cb0bf5072d6e91cb5ba78500e)
+- [WDI Coinflip Solution](https://gist.github.com/kasun-maldeni/310221e18c5a9e73284ec6caa9bbf359)
 
 - Code Along (JavaScript - Functions Playground)
   + functions as mini programs
@@ -146,6 +148,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 5 - 2018/06/29
 
 - [WDI Caesar Cipher Warmup](https://gist.github.com/kasun-maldeni/7994ec117ee7617d88983f9c4b1fbcd9)
+- [WDI Caesar Cipher Solution](https://gist.github.com/kasun-maldeni/955eedcbaa5a5a12f228a57c8e47ac01)
 
 - dub dub dub
 - Bank ATM show & tell
