@@ -58,3 +58,47 @@ end
 # * Words that start with a consonant start with lower case
 # * Consonants after the first letter alternate upper and lower case, except the
 #   alternation starts over with lowercase after a digit (ex: sCh00l)
+
+module Daniel
+  def self.leet_speak(remark)
+    response = talk(remark)
+    return response unless remark.start_with?("Bro, ")
+    response = response.tr("aeio", "4310")
+    response = response.gsub(/\b[^aeiouAEIOU]/) { |letter| letter.downcase }
+
+    # response.gsub(/\w+/) do |word|
+    #   # word.chars.map.with_index do |char, index|
+    #   word.chars.each_slice(2).map do |char1, char2|
+    #   # word[1..-1].gsub(/[^aeiouAEIOU]/).with_index do |char, index|
+    #   # word[1..-1].chars.each.with_index do |char, index|
+    #   #   puts "#{index}, #{char}"
+    #     # index.odd? ? char.upcase! : char
+    #     unless char1 =~ /\d/
+    #       char1.upcase! + char2.to_s.downcase!
+    #     else
+    #       char1.downcase! + char2.to_s.upcase!
+    #     end
+    #   end.join
+    #   # end.to_s
+    #   # (0..word.length).step(2).map do |index|
+    #   #   word[index].capitalize
+    #   # end.join
+    #   # word
+    # end
+  end
+
+  def self.talk(remark)
+    return "Fine. Be that way!" if remark.strip.empty?
+    return "Whoa, chill out!" if remark =~ /[A-Za-z]/ && remark == remark.upcase
+    return "Sure." if remark.strip.end_with?("?")
+    "Whatever."
+  end
+end
+
+loop do
+  # talk to Daniel here
+  puts "talk to Daniel here (l33t speak available, begin with \"Bro, \")"
+  remark = gets.chomp
+  break if remark.empty?
+  puts Daniel.leet_speak(remark)
+end
