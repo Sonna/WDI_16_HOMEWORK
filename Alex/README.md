@@ -51,7 +51,6 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 
 - [Markdown Cheatsheet · adam-p/markdown-here Wiki](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-
 - [js-day2-else-if.md](https://gist.github.com/epoch/309e4a021cd06f8ae32b#file-js-day2-else-if-md)
 
 - [js-1-vars.md](https://gist.github.com/epoch/5c2c42797947ffb413d0#file-js-1-vars-md)
@@ -160,6 +159,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 1 - 2018/07/02
 
 - [WDI Map Faker Warmup](https://gist.github.com/kasun-maldeni/a54a21c56ac930d8069e191c2af7cb80)
+- [WDI Map Faker Solution](https://gist.github.com/kasun-maldeni/fbe334cebd04cc0cbf241b0264b072e7)
 
 - Code Along (Build a ToDo List application)
   * putting things together
@@ -177,6 +177,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 2 - 2018/07/03
 
 - [Make Them Green - WDI Warmup](https://gist.github.com/kasun-maldeni/87c3e68843d1e6e16bf32cd4398f7d86)
+- [Make Them Green - WDI Warmup Solution](https://gist.github.com/kasun-maldeni/2907539aba47f1b998b468df5468396f)
 
 - Code Along (ToDo List application - continued)
 
@@ -198,3 +199,54 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 
 - Work on Project 1
   * [wdi16_project1.md](https://gist.github.com/epoch/7a0bfe359e666f37c738bcedbde5c7b4#file-wdi16_project1-md)
+
+##### Day 4 - 2018/07/05
+
+- Work on Project 1
+  * [wdi16_project1.md](https://gist.github.com/epoch/7a0bfe359e666f37c738bcedbde5c7b4#file-wdi16_project1-md)
+
+##### Day 5 - 2018/07/06
+
+- Project 1
+  * [wdi16_project1.md](https://gist.github.com/epoch/7a0bfe359e666f37c738bcedbde5c7b4#file-wdi16_project1-md)
+
+- Project 1 presentations & discussion (2pm)
+  * Demo your game
+  * Challenges
+  * Cool Tech
+  * Lessons learned
+
+#### Week 04 (2018/07/09)
+
+##### Day 1 - 2018/07/09
+
+- [WDI Treasure Hunter Warmup](https://gist.github.com/kasun-maldeni/f0aaae72a93520c7ecabf2c9ea6faefe)
+- [WDI Treasure Hunter Solution](https://gist.github.com/kasun-maldeni/ad1d782edc9303ac325c5caf0d3ce197)
+
+- Server Side Programming
+- Another programming language-ruby
+- How to learn a language
+  + How to run ruby
+    * [RVM: Ruby Version Manager - RVM Ruby Version Manager - Documentation](https://rvm.io)
+  + tooling & ecosystem
+  + data types & data structures
+  + flow control
+  + debugging
+
+- [WDI Startup Generator Warmup](https://gist.github.com/kasun-maldeni/7c2f3758c7618ad6c9bcc74a23b4c98d)
+
+- [wdi_palindrome_warmup.md](https://gist.github.com/kasun-maldeni/d567e18549569f399b30f421f8330e49)
+
+- [week4_ruby_intro_homework.md](https://gist.github.com/epoch/5fc4fc96b27b55d7f282506c29ed2ab8)
+  + [ruby_method_temperature_converter.md](https://gist.github.com/epoch/225c8ad85f2a871486933b3a6e3b6834)
+  + [arrays](https://gist.github.com/epoch/8292180)
+  + [lines_of_code_loc.md](https://gist.github.com/epoch/19d85081335379269ab28ebf0be44dd9)
+
+##### Day 2 - 2018/07/10
+
+- [WDI Danchat Warmup](https://gist.github.com/kasun-maldeni/a09a90fb5e142ee5eeec15071e1850d3)
+
+- Homework - highlights
+- Rubyism
+  + symbols & hashes
+  + enumerables
