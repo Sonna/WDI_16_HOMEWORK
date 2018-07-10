@@ -61,9 +61,8 @@ end
 
 module Daniel
   def self.leet_speak(remark)
-    response = talk(remark)
-    return response unless remark.start_with?("Bro, ")
-    response = response.tr("aeio", "4310")
+    return talk(remark) unless remark.start_with?("Bro, ")
+    response = remark[5..-1].tr("aeio", "4310")
     response = response.gsub(/\b[^aeiouAEIOU]/) { |letter| letter.downcase }
 
     response.each_char.map.with_index do |c, index|
