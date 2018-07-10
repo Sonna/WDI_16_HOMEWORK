@@ -22,7 +22,7 @@ names = [
   "Bob Hawke"
 ]
 
-directories = names.map { |name| name.downcase.gsub(/[^A-Za-z]/, '_')  }
+directories = names.map { |name| name.downcase.gsub(/[^a-z]/, '_')  }
 
 FileUtils.mkdir(directories)
 
