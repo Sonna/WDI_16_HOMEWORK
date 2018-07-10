@@ -259,3 +259,4 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 - Rubyism
   + symbols & hashes
   + enumerables
+  + built-in methods & standard libraries

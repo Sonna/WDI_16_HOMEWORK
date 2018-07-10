@@ -37,8 +37,8 @@ _movies = [
 # binding.pry
 
 'abc' # => "abc"
-'abc'.object_id # => 70346661360360
-'abc'.object_id # => 70346661265240
+'abc'.object_id # => 70245948315060
+'abc'.object_id # => 70245948312940
 42.object_id # => 85
 42.object_id # => 85
 42.object_id # => 85
@@ -68,3 +68,34 @@ db # => {3=>["inder", "micael"], 4=>["axel", "megan"]}
 db[4] # => ["axel", "megan"]
 db[3] # => ["inder", "micael"]
 db[3].length # => 2
+
+db = {
+  2 => ['dt'],
+  3 => ['inder', 'micael'],
+  4 => ['megan', 'axel']
+}
+
+students = ['inder', 'micael', 'megan']
+students.each do |student|
+  # puts student
+  student # => "inder", "micael", "megan"
+end
+
+# db is a collection
+
+db.each do |thing|
+  # puts thing
+  # p thing
+  thing # => [2, ["dt"]], [3, ["inder", "micael"]], [4, ["megan", "axel"]]
+end
+
+# db.each do |key, value|
+#   puts "#{key} #{value.join(' ')}"
+db.each do |score, student_names|
+  puts "#{score} #{student_names.join(' ')}"
+end
+# db.each { |key, value| puts "#{key} #{value.join(' ')}" }
+
+# >> 2 dt
+# >> 3 inder micael
+# >> 4 megan axel
