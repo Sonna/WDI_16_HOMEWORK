@@ -49,12 +49,13 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 2 - 2018/06/19
 
 - [WDI Brain Gym Warmup](https://gist.github.com/kasun-maldeni/d0430ab817809ccb199fe121c1651395)
+- [WDI Brain Gym Solution](https://gist.github.com/kasun-maldeni/754abeca748c8858b9f89b6ca07afa0b/)
 
 - [Markdown Cheatsheet · adam-p/markdown-here Wiki](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 - [js-day2-else-if.md](https://gist.github.com/epoch/309e4a021cd06f8ae32b#file-js-day2-else-if-md)
 
-- [js-1-vars.md](https://gist.github.com/epoch/5c2c42797947ffb413d0#file-js-1-vars-md)
+- [js-1-vars.md "Fortune Teller"](https://gist.github.com/epoch/5c2c42797947ffb413d0#file-js-1-vars-md)
 
 - [js_week1_loops.md](https://gist.github.com/epoch/0df5e2eeaadb8871b9a73887162c2ab4#file-js_week1_loops-md)
 
@@ -70,6 +71,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 4 - 2018/06/21
 
 - [WDI Startup Generator Warmup](https://gist.github.com/kasun-maldeni/7c2f3758c7618ad6c9bcc74a23b4c98d)
+- [WDI Startup Generator Solution](https://gist.github.com/kasun-maldeni/b4137bb75ee62d1f85629892800c082c/)
 
 - [week1-js-functions2.js](https://gist.github.com/epoch/fd1060cc1ca3502fab1c#file-week1-js-functions2-js)
 
@@ -78,6 +80,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 5 - 2018/06/22
 
 - [WDI The Board Warmup](https://gist.github.com/kasun-maldeni/7787ab81d02477be49565381f78412cf)
+- [WDI The Board Solution](https://gist.github.com/kasun-maldeni/7d130dbf50fc4bb1bde9eedb97fc3980)
 
 - Group Quiz (on JavaScript)
 
@@ -90,12 +93,14 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 1 - 2018/06/25
 
 - [WDI Granny-Talk Warmup](https://gist.github.com/kasun-maldeni/370b6193469f0cca3a0fdba135686499)
+- [WDI Granny-Talk Solution](https://gist.github.com/kasun-maldeni/5bf61960b86e4e9e8ba8d133a9265345)
 
 - [kasun-maldeni/brooklyn_css](https://github.com/kasun-maldeni/brooklyn_css)
 
 ##### Day 2 - 2018/06/26
 
-- [wdi_palindrome_warmup.md](https://gist.github.com/kasun-maldeni/d567e18549569f399b30f421f8330e49)
+- [WDI Palindrome Warmup](https://gist.github.com/kasun-maldeni/d567e18549569f399b30f421f8330e49)
+- [WDI Palindrome Solution](https://gist.github.com/kasun-maldeni/30b3e92ffef58201dab1c3e26332ed97)
 
 - [kasun-maldeni/ecardly_css](https://github.com/kasun-maldeni/ecardly_css)
 
