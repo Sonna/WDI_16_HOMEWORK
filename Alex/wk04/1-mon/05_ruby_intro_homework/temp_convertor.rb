@@ -108,28 +108,21 @@ puts "2. A temperature unit (e.g., f, C, K)."
 user_input[:unit] = gets.chomp
 
 def convert_temp(temp, temp_unit)
-  to_celsius = temp
-  to_fahrenheit = temp
-  to_kelvin = temp
-
   if temp_unit == "f"
-    input_type = "fahrenheit"
-    # From: Fahrenheit To: Celsius  C = ( F - 32) / 1.8
-    to_celsius = (temp - 32) / 1.8
-    # From: Fahrenheit To: kelvin  K = ( F + 459.67) / 1.8
-    to_kelvin = (temp + 459.67) / 1.8
+    input_type    = "fahrenheit"
+    to_celsius    = (temp - 32) / 1.8
+    to_fahrenheit = temp
+    to_kelvin     = (temp + 459.67) / 1.8
   elsif temp_unit == "C"
-    input_type = "celsius"
-    # From: Celsius To: Fahrenheit   F =  C × 1.8 + 32
+    input_type    = "celsius"
+    to_celsius    = temp
     to_fahrenheit = temp * 1.8 + 32
-    # From: Celsius To: kelvin  K = C  + 273.15
-    to_kelvin = temp + 273.15
+    to_kelvin     = temp + 273.15
   elsif temp_unit == "K"
-    input_type = "kelvin"
-    # From: kelvin To: Celsius  C = K - 273.15
-    to_celsius = temp - 273.15
-    # From: kelvin To: Fahrenheit   F = K × 1.8 - 459.67
+    input_type    = "kelvin"
+    to_celsius    = temp - 273.15
     to_fahrenheit = temp * 1.8 - 459.67
+    to_kelvin     = temp
   else
     puts "Unknown unit"
     return # Do Nothing

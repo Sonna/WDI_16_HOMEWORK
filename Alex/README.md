@@ -245,3 +245,8 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 2 - 2018/07/10
 
 - [WDI Danchat Warmup](https://gist.github.com/kasun-maldeni/a09a90fb5e142ee5eeec15071e1850d3)
+
+- Homework - highlights
+- Rubyism
+  + symbols & hashes
+  + enumerables
