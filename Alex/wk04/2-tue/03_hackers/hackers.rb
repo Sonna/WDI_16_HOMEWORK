@@ -30,7 +30,16 @@ hackers.each do |hacker|
   # secret = 42 # scoped local to the block
   dir_name = hacker.downcase.gsub(" ", "")
   FileUtils.mkdir(dir_name)
-  FileUtils.touch("#{dir_name}/README.md")
+
+  # FileUtils.cd(dir_name)
+  # FileUtils.touch("README.md")
+  # FileUtils.cd("../")
+
+  FileUtils.cd(dir_name) do
+    FileUtils.touch("README.md")
+  end
+
+  # FileUtils.touch("#{dir_name}/README.md")
 end
 
 # loop for each hackers
