@@ -19,6 +19,7 @@ Time  | Table
 
 Task                      | Due Date    | Link
 --------------------------|-------------|---------------------------------------
+Ruby Loops and Arrays     | Mon, 09 Jul | [wk04/1-mon/05_ruby_intro_homework](wk04/1-mon/05_ruby_intro_homework)
 Research Homework Timers  | Fri, 29 Jun | [wk02/5-fri/03_homework_setTimeout_setInterval](wk02/5-fri/03_homework_setTimeout_setInterval)
 GA Bank                   | Thu, 28 Jun | [wk02/4-thu/05_ga_bank_atm_app](wk02/4-thu/05_ga_bank_atm_app)
 Fashion CSS               | Tue, 26 Jun | [wk02/2-tue/04_fashion_css](wk02/2-tue/04_fashion_css)
