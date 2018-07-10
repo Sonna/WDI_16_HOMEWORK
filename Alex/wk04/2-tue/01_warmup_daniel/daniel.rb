@@ -66,25 +66,13 @@ module Daniel
     response = response.tr("aeio", "4310")
     response = response.gsub(/\b[^aeiouAEIOU]/) { |letter| letter.downcase }
 
-    # response.gsub(/\w+/) do |word|
-    #   # word.chars.map.with_index do |char, index|
-    #   word.chars.each_slice(2).map do |char1, char2|
-    #   # word[1..-1].gsub(/[^aeiouAEIOU]/).with_index do |char, index|
-    #   # word[1..-1].chars.each.with_index do |char, index|
-    #   #   puts "#{index}, #{char}"
-    #     # index.odd? ? char.upcase! : char
-    #     unless char1 =~ /\d/
-    #       char1.upcase! + char2.to_s.downcase!
-    #     else
-    #       char1.downcase! + char2.to_s.upcase!
-    #     end
-    #   end.join
-    #   # end.to_s
-    #   # (0..word.length).step(2).map do |index|
-    #   #   word[index].capitalize
-    #   # end.join
-    #   # word
-    # end
+    response.each_char.map.with_index do |c, index|
+      if index.odd? && response[index - 1] !~ /\d/ # && response[index + 1] !~ /\d/
+        c.upcase
+      else
+        c.downcase
+      end
+    end.join
   end
 
   def self.talk(remark)
