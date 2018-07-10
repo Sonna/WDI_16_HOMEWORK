@@ -37,8 +37,8 @@ _movies = [
 # binding.pry
 
 'abc' # => "abc"
-'abc'.object_id # => 70347723169680
-'abc'.object_id # => 70347723168840
+'abc'.object_id # => 70346661360360
+'abc'.object_id # => 70346661265240
 42.object_id # => 85
 42.object_id # => 85
 42.object_id # => 85
@@ -49,3 +49,22 @@ _movies = [
 5.class # => Integer
 5.0.class # => Float
 :title.to_s # => "title"
+
+# axel - 4
+# megan - 4
+# inder - 3
+# kate - 4
+# micael - 3
+
+db = {
+  3 => ['inder', 'micael']
+}
+
+db # => {3=>["inder", "micael"]}
+db[4] = ["axel"] # => ["axel"]
+db # => {3=>["inder", "micael"], 4=>["axel"]}
+db[4].push('megan') # => ["axel", "megan"]
+db # => {3=>["inder", "micael"], 4=>["axel", "megan"]}
+db[4] # => ["axel", "megan"]
+db[3] # => ["inder", "micael"]
+db[3].length # => 2
