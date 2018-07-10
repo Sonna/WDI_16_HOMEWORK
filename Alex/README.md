@@ -17,18 +17,19 @@ Time  | Table
 
 ## Homework Tasks
 
-Task                      | Due Date    | Link
---------------------------|-------------|---------------------------------------
-Ruby Loops and Arrays     | Mon, 09 Jul | [wk04/1-mon/05_ruby_intro_homework](wk04/1-mon/05_ruby_intro_homework)
-Research Homework Timers  | Fri, 29 Jun | [wk02/5-fri/03_homework_setTimeout_setInterval](wk02/5-fri/03_homework_setTimeout_setInterval)
-GA Bank                   | Thu, 28 Jun | [wk02/4-thu/05_ga_bank_atm_app](wk02/4-thu/05_ga_bank_atm_app)
-Fashion CSS               | Tue, 26 Jun | [wk02/2-tue/04_fashion_css](wk02/2-tue/04_fashion_css)
-PTV                       | Fri, 22 Jun | [wk01/5-fri/04_melb_metro_ptv_mta](wk01/5-fri/04_melb_metro_ptv_mta)
-JavaScript Data Types     | Fri, 22 Jun | [wk01/5-fri/03_data_types_revision_homework](wk01/5-fri/03_data_types_revision_homework)
-JavaScript Functions      | Thu, 21 Jun | [wk01/4-thu/03_functions](wk01/4-thu/03_functions)
-JavaScript Objects        | Wed, 20 Jun | [wk01/3-wed/04_exercise_objects](wk01/3-wed/04_exercise_objects)
-Javascript Loops          | Tue, 19 Jun | [wk01/2-tue/07_loops](wk01/2-tue/07_loops)
-JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-tue/06_fortune_teller)
+Task                            | Due Date    | Link
+--------------------------------|-------------|---------------------------------------
+Ruby Arrays, Hashes and Methods | Tue, 10 Jul | [wk04/2-tue/04_week4_ruby_homework2](wk04/2-tue/04_week4_ruby_homework2)
+Ruby Loops and Arrays           | Mon, 09 Jul | [wk04/1-mon/05_ruby_intro_homework](wk04/1-mon/05_ruby_intro_homework)
+Research Homework Timers        | Fri, 29 Jun | [wk02/5-fri/03_homework_setTimeout_setInterval](wk02/5-fri/03_homework_setTimeout_setInterval)
+GA Bank                         | Thu, 28 Jun | [wk02/4-thu/05_ga_bank_atm_app](wk02/4-thu/05_ga_bank_atm_app)
+Fashion CSS                     | Tue, 26 Jun | [wk02/2-tue/04_fashion_css](wk02/2-tue/04_fashion_css)
+PTV                             | Fri, 22 Jun | [wk01/5-fri/04_melb_metro_ptv_mta](wk01/5-fri/04_melb_metro_ptv_mta)
+JavaScript Data Types           | Fri, 22 Jun | [wk01/5-fri/03_data_types_revision_homework](wk01/5-fri/03_data_types_revision_homework)
+JavaScript Functions            | Thu, 21 Jun | [wk01/4-thu/03_functions](wk01/4-thu/03_functions)
+JavaScript Objects              | Wed, 20 Jun | [wk01/3-wed/04_exercise_objects](wk01/3-wed/04_exercise_objects)
+Javascript Loops                | Tue, 19 Jun | [wk01/2-tue/07_loops](wk01/2-tue/07_loops)
+JavaScript Variables            | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-tue/06_fortune_teller)
 
 ## Links
 
@@ -260,3 +261,8 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
   + symbols & hashes
   + enumerables
   + built-in methods & standard libraries
+
+- [week4_ruby_homework2.md](https://gist.github.com/epoch/15038c4f14c9d1dab0996cbeb558e4fc)
+  + [ruby_collections.md](https://gist.github.com/epoch/e6e4f013cd88cd88f65c88d1dec3be08)
+  + [hashes.md](https://gist.github.com/epoch/d5940ff7ace0d2f485cb)
+  + [ruby_methods.md](https://gist.github.com/epoch/1bd7781634ec0587c809)
