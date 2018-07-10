@@ -17,18 +17,19 @@ Time  | Table
 
 ## Homework Tasks
 
-Task                      | Due Date    | Link
---------------------------|-------------|---------------------------------------
-Ruby Loops and Arrays     | Mon, 09 Jul | [wk04/1-mon/05_ruby_intro_homework](wk04/1-mon/05_ruby_intro_homework)
-Research Homework Timers  | Fri, 29 Jun | [wk02/5-fri/03_homework_setTimeout_setInterval](wk02/5-fri/03_homework_setTimeout_setInterval)
-GA Bank                   | Thu, 28 Jun | [wk02/4-thu/05_ga_bank_atm_app](wk02/4-thu/05_ga_bank_atm_app)
-Fashion CSS               | Tue, 26 Jun | [wk02/2-tue/04_fashion_css](wk02/2-tue/04_fashion_css)
-PTV                       | Fri, 22 Jun | [wk01/5-fri/04_melb_metro_ptv_mta](wk01/5-fri/04_melb_metro_ptv_mta)
-JavaScript Data Types     | Fri, 22 Jun | [wk01/5-fri/03_data_types_revision_homework](wk01/5-fri/03_data_types_revision_homework)
-JavaScript Functions      | Thu, 21 Jun | [wk01/4-thu/03_functions](wk01/4-thu/03_functions)
-JavaScript Objects        | Wed, 20 Jun | [wk01/3-wed/04_exercise_objects](wk01/3-wed/04_exercise_objects)
-Javascript Loops          | Tue, 19 Jun | [wk01/2-tue/07_loops](wk01/2-tue/07_loops)
-JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-tue/06_fortune_teller)
+Task                            | Due Date    | Link
+--------------------------------|-------------|---------------------------------------
+Ruby Arrays, Hashes and Methods | Tue, 10 Jul | [wk04/2-tue/04_week4_ruby_homework2](wk04/2-tue/04_week4_ruby_homework2)
+Ruby Loops and Arrays           | Mon, 09 Jul | [wk04/1-mon/05_ruby_intro_homework](wk04/1-mon/05_ruby_intro_homework)
+Research Homework Timers        | Fri, 29 Jun | [wk02/5-fri/03_homework_setTimeout_setInterval](wk02/5-fri/03_homework_setTimeout_setInterval)
+GA Bank                         | Thu, 28 Jun | [wk02/4-thu/05_ga_bank_atm_app](wk02/4-thu/05_ga_bank_atm_app)
+Fashion CSS                     | Tue, 26 Jun | [wk02/2-tue/04_fashion_css](wk02/2-tue/04_fashion_css)
+PTV                             | Fri, 22 Jun | [wk01/5-fri/04_melb_metro_ptv_mta](wk01/5-fri/04_melb_metro_ptv_mta)
+JavaScript Data Types           | Fri, 22 Jun | [wk01/5-fri/03_data_types_revision_homework](wk01/5-fri/03_data_types_revision_homework)
+JavaScript Functions            | Thu, 21 Jun | [wk01/4-thu/03_functions](wk01/4-thu/03_functions)
+JavaScript Objects              | Wed, 20 Jun | [wk01/3-wed/04_exercise_objects](wk01/3-wed/04_exercise_objects)
+Javascript Loops                | Tue, 19 Jun | [wk01/2-tue/07_loops](wk01/2-tue/07_loops)
+JavaScript Variables            | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-tue/06_fortune_teller)
 
 ## Links
 
@@ -49,12 +50,13 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 2 - 2018/06/19
 
 - [WDI Brain Gym Warmup](https://gist.github.com/kasun-maldeni/d0430ab817809ccb199fe121c1651395)
+- [WDI Brain Gym Solution](https://gist.github.com/kasun-maldeni/754abeca748c8858b9f89b6ca07afa0b/)
 
 - [Markdown Cheatsheet · adam-p/markdown-here Wiki](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 - [js-day2-else-if.md](https://gist.github.com/epoch/309e4a021cd06f8ae32b#file-js-day2-else-if-md)
 
-- [js-1-vars.md](https://gist.github.com/epoch/5c2c42797947ffb413d0#file-js-1-vars-md)
+- [js-1-vars.md "Fortune Teller"](https://gist.github.com/epoch/5c2c42797947ffb413d0#file-js-1-vars-md)
 
 - [js_week1_loops.md](https://gist.github.com/epoch/0df5e2eeaadb8871b9a73887162c2ab4#file-js_week1_loops-md)
 
@@ -70,6 +72,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 4 - 2018/06/21
 
 - [WDI Startup Generator Warmup](https://gist.github.com/kasun-maldeni/7c2f3758c7618ad6c9bcc74a23b4c98d)
+- [WDI Startup Generator Solution](https://gist.github.com/kasun-maldeni/b4137bb75ee62d1f85629892800c082c/)
 
 - [week1-js-functions2.js](https://gist.github.com/epoch/fd1060cc1ca3502fab1c#file-week1-js-functions2-js)
 
@@ -78,6 +81,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 5 - 2018/06/22
 
 - [WDI The Board Warmup](https://gist.github.com/kasun-maldeni/7787ab81d02477be49565381f78412cf)
+- [WDI The Board Solution](https://gist.github.com/kasun-maldeni/7d130dbf50fc4bb1bde9eedb97fc3980)
 
 - Group Quiz (on JavaScript)
 
@@ -90,12 +94,14 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 1 - 2018/06/25
 
 - [WDI Granny-Talk Warmup](https://gist.github.com/kasun-maldeni/370b6193469f0cca3a0fdba135686499)
+- [WDI Granny-Talk Solution](https://gist.github.com/kasun-maldeni/5bf61960b86e4e9e8ba8d133a9265345)
 
 - [kasun-maldeni/brooklyn_css](https://github.com/kasun-maldeni/brooklyn_css)
 
 ##### Day 2 - 2018/06/26
 
-- [wdi_palindrome_warmup.md](https://gist.github.com/kasun-maldeni/d567e18549569f399b30f421f8330e49)
+- [WDI Palindrome Warmup](https://gist.github.com/kasun-maldeni/d567e18549569f399b30f421f8330e49)
+- [WDI Palindrome Solution](https://gist.github.com/kasun-maldeni/30b3e92ffef58201dab1c3e26332ed97)
 
 - [kasun-maldeni/ecardly_css](https://github.com/kasun-maldeni/ecardly_css)
 
@@ -104,6 +110,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 3 - 2018/06/27
 
 - [WDI Minigolf Warmup](https://gist.github.com/kasun-maldeni/9f24ddbad63aecf72f017e704692e7c3)
+- [WDI Minigolf Solution](https://gist.github.com/kasun-maldeni/8e37cc1bd0fac4b085b219fb9baf702e)
 
 - Homework showoff & tell
 - Code Along (CSS Recap)
@@ -125,6 +132,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 4 - 2018/06/28
 
 - [WDI Coinflip Warmup](https://gist.github.com/kasun-maldeni/c337852cb0bf5072d6e91cb5ba78500e)
+- [WDI Coinflip Solution](https://gist.github.com/kasun-maldeni/310221e18c5a9e73284ec6caa9bbf359)
 
 - Code Along (JavaScript - Functions Playground)
   + functions as mini programs
@@ -141,6 +149,7 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 ##### Day 5 - 2018/06/29
 
 - [WDI Caesar Cipher Warmup](https://gist.github.com/kasun-maldeni/7994ec117ee7617d88983f9c4b1fbcd9)
+- [WDI Caesar Cipher Solution](https://gist.github.com/kasun-maldeni/955eedcbaa5a5a12f228a57c8e47ac01)
 
 - dub dub dub
 - Bank ATM show & tell
@@ -251,3 +260,9 @@ JavaScript Variables      | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/2-
 - Rubyism
   + symbols & hashes
   + enumerables
+  + built-in methods & standard libraries
+
+- [week4_ruby_homework2.md](https://gist.github.com/epoch/15038c4f14c9d1dab0996cbeb558e4fc)
+  + [ruby_collections.md](https://gist.github.com/epoch/e6e4f013cd88cd88f65c88d1dec3be08)
+  + [hashes.md](https://gist.github.com/epoch/d5940ff7ace0d2f485cb)
+  + [ruby_methods.md](https://gist.github.com/epoch/1bd7781634ec0587c809)
