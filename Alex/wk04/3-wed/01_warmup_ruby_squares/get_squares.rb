@@ -9,14 +9,14 @@
 # ![squares](http://i.giphy.com/x6F5Kp0hnZ2Fy.gif)
 
 
-# A perfect square is defined as a whole number that when square rooted is a whole
-# number (such as 1, 4, 9, 16, etc.).
+# A perfect square is defined as a whole number that when square rooted is a
+# whole number (such as 1, 4, 9, 16, etc.).
 
 # Make a new file called `get_squares.rb`.
 
-# Write a method called `get_squares` that takes an argument, an array of numbers.
-# This method will return a new array of numbers that qualify as perfect squares
-# from the argument array.
+# Write a method called `get_squares` that takes an argument, an array of
+# numbers. This method will return a new array of numbers that qualify as
+# perfect squares from the argument array.
 
 def get_squares1(numbers)
   numbers.each_with_object([]) do |number, result|
