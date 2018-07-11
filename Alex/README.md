@@ -270,3 +270,8 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 3 - 2018/07/11
 
 - [WDI Ruby Squares Warmup](https://gist.github.com/kasun-maldeni/51626fb1920dc1c4786c615cb0e0db39)
+
+- Homework highlights
+- Web Server & Application Server
+- Abstraction in software
+- HTTP request & HTTP response
