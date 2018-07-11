@@ -275,3 +275,5 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 - Web Server & Application Server
 - Abstraction in software
 - HTTP request & HTTP response
+
+- [stocks.md](https://gist.github.com/epoch/54a95fe5c4d595a3285bfb29490923f2)
