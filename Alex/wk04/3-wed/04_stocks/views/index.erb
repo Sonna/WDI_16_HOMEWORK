@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stocks</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<%
+
+=begin
+Stock: {
+  "MSFT"=>{
+    "quote"=>{
+      "symbol"=>"MSFT",
+      "companyName"=>"Microsoft Corporation",
+      "primaryExchange"=>"Nasdaq Global Select",
+      "sector"=>"Technology",
+      "calculationPrice"=>"close",
+      "open"=>102.06,
+      "openTime"=>1531229400476,
+      "close"=>102.12,
+      "closeTime"=>1531252800406,
+      "high"=>102.51,
+      "low"=>101.86,
+      "latestPrice"=>102.12,
+      "latestSource"=>"Close",
+      "latestTime"=>"July 10, 2018",
+      "latestUpdate"=>1531252800406,
+      "latestVolume"=>19175744,
+      "iexRealtimePrice"=>102.05,
+      "iexRealtimeSize"=>87,
+      "iexLastUpdated"=>1531252790500,
+      "delayedPrice"=>102.12,
+      "delayedPriceTime"=>1531252800406,
+      "extendedPrice"=>101.77,
+      "extendedChange"=>-0.35,
+      "extendedChangePercent"=>-0.00343,
+      "extendedPriceTime"=>1531256339540,
+      "previousClose"=>101.85,
+      "change"=>0.27,
+      "changePercent"=>0.00265,
+      "iexMarketPercent"=>0.01748,
+      "iexVolume"=>335192,
+      "avgTotalVolume"=>26697396,
+      "iexBidPrice"=>0,
+      "iexBidSize"=>0,
+      "iexAskPrice"=>0,
+      "iexAskSize"=>0,
+      "marketCap"=>784608129006,
+      "peRatio"=>29.09,
+      "week52High"=>102.69,
+      "week52Low"=>69.75,
+      "ytdChange"=>0.2015370496249076
+    }
+  }
+}
+=end
+
+%>
+  <h1>Stock:</h1>
+  <dl>
+    <dt>symbol:</dt>
+    <dd><%= quote.symbol %></dd>
+    <dt>companyName:</dt>
+    <dd><%= quote.company_name %></dd>
+
+    <dt>primaryExchange: </dt>
+    <dd><%= quote.primary_exchange %></dd>
+    <dt>sector: </dt>
+    <dd><%= quote.sector %></dd>
+    <dt>calculationPrice: </dt>
+    <dd><%= quote.calculation_price %></dd>
+    <dt>open: </dt>
+    <dd><%= quote.open %></dd>
+    <dt>openTime: </dt>
+    <dd><%= quote.open_time %></dd>
+    <dt>close: </dt>
+    <dd><%= quote.close %></dd>
+    <dt>closeTime: </dt>
+    <dd><%= quote.close_time %></dd>
+    <dt>high: </dt>
+    <dd><%= quote.high %></dd>
+    <dt>low: </dt>
+    <dd><%= quote.low %></dd>
+    <dt>latestPrice: </dt>
+    <dd><%= quote.latest_price %></dd>
+    <dt>latestSource: </dt>
+    <dd><%= quote.latest_source %></dd>
+    <dt>latestTime: </dt>
+    <dd><%= quote.latest_time %></dd>
+    <dt>latestUpdate: </dt>
+    <dd><%= quote.latest_update %></dd>
+    <dt>latestVolume: </dt>
+    <dd><%= quote.latest_volume %></dd>
+    <dt>iexRealtimePrice: </dt>
+    <dd><%= quote.iex_realtime_price %></dd>
+    <dt>iexRealtimeSize: </dt>
+    <dd><%= quote.iex_realtime_size %></dd>
+    <dt>iexLastUpdated: </dt>
+    <dd><%= quote.iex_last_updated %></dd>
+    <dt>delayedPrice: </dt>
+    <dd><%= quote.delayed_price %></dd>
+    <dt>delayedPriceTime: </dt>
+    <dd><%= quote.delayed_price_time %></dd>
+    <dt>extendedPrice: </dt>
+    <dd><%= quote.extended_price %></dd>
+    <dt>extendedChange: </dt>
+    <dd><%= quote.extended_change %></dd>
+    <dt>extendedChangePercent: </dt>
+    <dd><%= quote.extended_change_percent %></dd>
+    <dt>extendedPriceTime: </dt>
+    <dd><%= quote.extended_price_time %></dd>
+    <dt>previousClose: </dt>
+    <dd><%= quote.previous_close %></dd>
+    <dt>change: </dt>
+    <dd><%= quote.change %></dd>
+    <dt>changePercent: </dt>
+    <dd><%= quote.change_percent %></dd>
+    <dt>iexMarketPercent: </dt>
+    <dd><%= quote.iex_market_percent %></dd>
+    <dt>iexVolume: </dt>
+    <dd><%= quote.iex_volume %></dd>
+    <dt>avgTotalVolume: </dt>
+    <dd><%= quote.avg_total_volume %></dd>
+    <dt>iexBidPrice: </dt>
+    <dd><%= quote.iex_bid_price %></dd>
+    <dt>iexBidSize: </dt>
+    <dd><%= quote.iex_bid_size %></dd>
+    <dt>iexAskPrice: </dt>
+    <dd><%= quote.iex_ask_price %></dd>
+    <dt>iexAskSize: </dt>
+    <dd><%= quote.iex_ask_size %></dd>
+    <dt>marketCap: </dt>
+    <dd><%= quote.market_cap %></dd>
+    <dt>peRatio: </dt>
+    <dd><%= quote.pe_ratio %></dd>
+    <dt>week52High: </dt>
+    <dd><%= quote.week52_high %></dd>
+    <dt>week52Low: </dt>
+    <dd><%= quote.week52_low %></dd>
+    <dt>ytdChange: </dt>
+    <dd><%= quote.ytd_change %></dd>
+
+  </dl>
+</body>
+</html>
