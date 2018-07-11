@@ -280,3 +280,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 - [stocks.md](https://gist.github.com/epoch/54a95fe5c4d595a3285bfb29490923f2)
 
 ##### Day 4 - 2018/07/12
+
+- [WDI Lunch Orders Warmup](https://gist.github.com/kasun-maldeni/3ff70009c99feb615a717a9a4ba07b4d)
+
+- Site visit @ 2:00pm (leaving @ 1:30)
