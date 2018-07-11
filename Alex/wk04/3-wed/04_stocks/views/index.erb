@@ -60,6 +60,7 @@ Stock: {
   <p>goodbye to yahoo finance<p>
 
   <h1>Stock:</h1>
+<% if quote %>
   <dl>
     <dt>symbol:</dt>
     <dd><%= quote.symbol %></dd>
@@ -141,7 +142,9 @@ Stock: {
     <dd><%= quote.week52_low %></dd>
     <dt>ytdChange: </dt>
     <dd><%= quote.ytd_change %></dd>
-
+<% else %>
+  <p>Stock <%= stock %> not found</p>
+<% end %>
   </dl>
 </body>
 </html>

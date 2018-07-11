@@ -19,6 +19,7 @@ Time  | Table
 
 Task                        | Due Date    | Link
 ----------------------------|-------------|---------------------------------------
+Stocks App                  | Wed, 11 Jul | [wk04/3-wed/04_stocks](wk04/3-wed/04_stocks)
 Ruby Hashes and Collections | Tue, 10 Jul | [wk04/2-tue/04_week4_ruby_homework2](wk04/2-tue/04_week4_ruby_homework2)
 Ruby Loops and Arrays       | Mon, 09 Jul | [wk04/1-mon/05_ruby_intro_homework](wk04/1-mon/05_ruby_intro_homework)
 Research Homework Timers    | Fri, 29 Jun | [wk02/5-fri/03_homework_setTimeout_setInterval](wk02/5-fri/03_homework_setTimeout_setInterval)
@@ -277,3 +278,5 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 - HTTP request & HTTP response
 
 - [stocks.md](https://gist.github.com/epoch/54a95fe5c4d595a3285bfb29490923f2)
+
+##### Day 4 - 2018/07/12
