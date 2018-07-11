@@ -1,3 +1,4 @@
+# require "pry"
 require "sinatra"
 require "sinatra/reloader"
 
@@ -8,13 +9,13 @@ require "sinatra/reloader"
 # different methods - get
 
 get "/" do
-  return "welcome to my home page"
+  return '<h1>welcome to my home page</h1><a href="/about">about</a>'
 end
 
 get "/about" do
   # return "its me. alex"
   # return "its me. alex #{Time.now}"
-  return "<h1>its me. alex</h1>"
+  return '<h1>its me. alex</h1><a href="/">home</a>'
 end
 
 # localhost:4567/hello?name=slackers
@@ -31,9 +32,13 @@ end
 # localhost:4567/crappy_calc?num1=5&num2=6
 # respond with the sum of the numbers
 get "/crappy_calc" do
+  # binding.pry
+  sum = params['num1'].to_f + params['num2'].to_f
+  return "sum: #{ sum }"
+
   # your turn
   # return params['num1'] + params['num2']
-  return (params['num1'].to_i + params['num2'].to_i).to_s
+  # return (params['num1'].to_i + params['num2'].to_i).to_s
 end
 
 # get "/" do
