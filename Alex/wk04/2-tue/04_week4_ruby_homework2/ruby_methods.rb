@@ -120,7 +120,7 @@ letter_reverse("Now I know what a TV dinner feels like")
 letterReverse("Put Hans back on the line")
 # => "tuP snaH kcab no eht enil"
 # ```
-# --- # !> previous definition of longest was here
+# ---
 # ## Round 6
 
 # Write a function `longest` that accepts a single argument, an array of strings.
@@ -128,7 +128,7 @@ letterReverse("Put Hans back on the line")
 # method should return either.
 
 # ```ruby
-def longest(collection) # !> method redefined; discarding old longest
+def longest(collection)
   # block = lambda { |a, b| a.length <=> b.length }
   # block = ->(a, b) { a.length <=> b.length }
   # block = Proc.new { |a, b| a.length <=> b.length }
@@ -136,7 +136,7 @@ def longest(collection) # !> method redefined; discarding old longest
   collection.max(&block)
 end
 
-longest(["oh", "good", "grief"]) # => [5, ["grief"]]
+longest(["oh", "good", "grief"]) # => "grief"
 longest(["Nothing" , "takes", "the", "taste", "out", "of", "peanut", "butter", "quite", "like", "unrequited", "love"])
-# => [10, ["unrequited"]]
+# => "unrequited"
 # ```
