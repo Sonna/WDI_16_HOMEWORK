@@ -19,6 +19,7 @@ Time  | Table
 
 Task                        | Due Date    | Link
 ----------------------------|-------------|---------------------------------------
+99 Bottles of Beer          | Thu, 12 Jul | [wk04/4-thu/04_sinatra_99_bottles](wk04/4-thu/04_sinatra_99_bottles)
 Stocks App                  | Wed, 11 Jul | [wk04/3-wed/04_stocks](wk04/3-wed/04_stocks)
 Ruby Hashes and Collections | Tue, 10 Jul | [wk04/2-tue/04_week4_ruby_homework2](wk04/2-tue/04_week4_ruby_homework2)
 Ruby Loops and Arrays       | Mon, 09 Jul | [wk04/1-mon/05_ruby_intro_homework](wk04/1-mon/05_ruby_intro_homework)
