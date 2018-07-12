@@ -9,7 +9,7 @@
 # It's approaching lunch hour… let's collect orders. Create a new file called
 # `lunch_orders.rb` to complete this exercise.
 
-# def run # `run` is a keyword?
+# def run # ~`run` is a keyword?~ (Probably a method called in MiniTest)
 def app
   # orders = {}
   orders = Hash.new { |hash, key| hash[key] = [] }
