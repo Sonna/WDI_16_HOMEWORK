@@ -298,6 +298,20 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 
   + ```shell
       $ sinatra new stock_app -va
+
+      create  stock_app
+      create  stock_app/main.rb
+      create  stock_app/Gemfile
+      create  stock_app/config.ru
+      create  stock_app/views
+      create  stock_app/views/layout.erb
+      create  stock_app/views/index.erb
+      create  stock_app/public
+      create  stock_app/public/javascripts/application.js
+      create  stock_app/public/stylesheets/main.css
+      insert  stock_app/views/layout.erb
     ```
 
-- Site visit @ 2:00pm (leaving @ 1:30)
+- Site visit [99designs] @ 2:00pm (leaving @ 1:30)
+
+- [week4_sinatra_99_bottles_of_beer.md](https://gist.github.com/epoch/2b700d261912047fe8b7cdca0324c580)
