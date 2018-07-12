@@ -283,4 +283,21 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 
 - [WDI Lunch Orders Warmup](https://gist.github.com/kasun-maldeni/3ff70009c99feb615a717a9a4ba07b4d)
 
+- Class "show & tell" Stocks App
+
+- Install Sinatra project generator
+  `gem install sinatra_generator`
+
+  + ```shell
+    $ sinatra help
+
+    Commands:
+      sinatra help [COMMAND]  # Describe available commands or one specific command
+      sinatra new [APP_NAME]  # Generate a basic hello world app
+    ```
+
+  + ```shell
+      $ sinatra new stock_app -va
+    ```
+
 - Site visit @ 2:00pm (leaving @ 1:30)
