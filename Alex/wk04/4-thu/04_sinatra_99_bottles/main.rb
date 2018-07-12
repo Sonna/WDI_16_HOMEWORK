@@ -21,7 +21,9 @@ require 'sinatra/reloader'
 BEER_BOTTLES = 99
 
 get '/' do
-  redirect "/#{BEER_BOTTLES}"
+  # redirect "/#{BEER_BOTTLES}"
+  @num_of_bottles = BEER_BOTTLES
+  erb :index
 end
 
 get '/0' do
