@@ -280,3 +280,38 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 - [stocks.md](https://gist.github.com/epoch/54a95fe5c4d595a3285bfb29490923f2)
 
 ##### Day 4 - 2018/07/12
+
+- [WDI Lunch Orders Warmup](https://gist.github.com/kasun-maldeni/3ff70009c99feb615a717a9a4ba07b4d)
+
+- Class "show & tell" Stocks App
+
+- Install Sinatra project generator
+  `gem install sinatra_generator`
+
+  + ```shell
+    $ sinatra help
+
+    Commands:
+      sinatra help [COMMAND]  # Describe available commands or one specific command
+      sinatra new [APP_NAME]  # Generate a basic hello world app
+    ```
+
+  + ```shell
+      $ sinatra new stock_app -va
+
+      create  stock_app
+      create  stock_app/main.rb
+      create  stock_app/Gemfile
+      create  stock_app/config.ru
+      create  stock_app/views
+      create  stock_app/views/layout.erb
+      create  stock_app/views/index.erb
+      create  stock_app/public
+      create  stock_app/public/javascripts/application.js
+      create  stock_app/public/stylesheets/main.css
+      insert  stock_app/views/layout.erb
+    ```
+
+- Site visit [99designs] @ 2:00pm (leaving @ 1:30)
+
+- [week4_sinatra_99_bottles_of_beer.md](https://gist.github.com/epoch/2b700d261912047fe8b7cdca0324c580)

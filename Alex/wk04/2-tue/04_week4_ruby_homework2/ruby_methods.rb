@@ -129,6 +129,7 @@ letterReverse("Put Hans back on the line")
 
 # ```ruby
 def longest(collection)
+  # collection.max { |a, b| a.length <=> b.length }
   # block = lambda { |a, b| a.length <=> b.length }
   # block = ->(a, b) { a.length <=> b.length }
   # block = Proc.new { |a, b| a.length <=> b.length }
