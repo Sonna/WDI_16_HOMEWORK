@@ -1,6 +1,7 @@
 # super mario
 
-$LOAD_PATH.push File.expand_path("/Users/Sonna/Projects/all/wdi/Alex/wk04/5-fri/02_classes_oop/", __dir__)
+# $LOAD_PATH.push File.expand_path("/Users/Sonna/Projects/all/wdi/Alex/wk04/5-fri/02_classes_oop/", __dir__)
+$LOAD_PATH.push File.expand_path('../', __FILE__)
 
 # require_relative 'mario'
 # require_relative 'yoshi'

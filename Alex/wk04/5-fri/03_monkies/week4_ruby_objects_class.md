@@ -17,7 +17,8 @@ And the following methods:
 
 Create another file app.rb to use test out the Monkey class
 you should be able to call all the following methods
-```
+
+```ruby
 adam = Monkey.new("Adam", "Spider Monkey")
 adam.eat('fruit salad')
 adam.eat('banana milkshake')
