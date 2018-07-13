@@ -327,4 +327,6 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
   + instance method
   + initialize, getters & setters & encapsulation
 
+- [week4_ruby_objects_class.md](https://gist.github.com/epoch/e9bf9c429fbcb2888c87cc7548364c99#file-week4_ruby_objects_class-md)
+
 - [happitials.md](https://gist.github.com/epoch/69ce72204a35f72da045)
