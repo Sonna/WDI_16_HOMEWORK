@@ -326,3 +326,5 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
   + an *instance* of a class
   + instance method
   + initialize, getters & setters & encapsulation
+
+- [happitials.md](https://gist.github.com/epoch/69ce72204a35f72da045)
