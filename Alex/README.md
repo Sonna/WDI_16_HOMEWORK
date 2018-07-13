@@ -316,3 +316,13 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 - Site visit [99designs] @ 2:00pm (leaving @ 1:30)
 
 - [week4_sinatra_99_bottles_of_beer.md](https://gist.github.com/epoch/2b700d261912047fe8b7cdca0324c580)
+
+##### Day 5 - 2018/07/13
+
+- Software, abstraction & object oriented programming
+
+- objects
+  + _class_ of objects
+  + an *instance* of a class
+  + instance method
+  + initialize, getters & setters & encapsulation
