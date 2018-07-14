@@ -159,7 +159,6 @@ module Happitails
   end
 end
 
-
 if $PROGRAM_NAME == __FILE__ && ARGV.first == "run"
   # without `clear`, `"run"` is used as filename & `gets` is called from it
   ARGV.clear

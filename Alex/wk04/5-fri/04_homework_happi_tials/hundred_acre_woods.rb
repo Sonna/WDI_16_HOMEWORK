@@ -43,7 +43,7 @@ module HundredAcreWoods
     #     @toys=["honey", "red shirt"]>
 
     def tigger
-      Animal.new('tigger', 4, 'male', 'stuffed tiger', 'A bouncing ball', 'A jumping jack', 'A jumping Jill', 'A rocket ship', 'A couple dozen banana splits', 'A Pogo stick', 'A trampoline', 'A flying machine', 'A banana split', 'A Pogo stick ', 'Book on "Tigers bounce best"')
+      Animal.new('tigger', 4, 'male', 'stuffed tiger', 'A bouncing ball', 'A jumping jack', 'A jumping Jill', 'A rocket ship', 'A couple dozen banana splits', 'A Pogo stick', 'A trampoline', 'A flying machine', 'A banana split', 'A Pogo stick', 'Book on "Tigers bounce best"')
     end
     # => #<Animal:0x00007fadc783e808
     #     @age=4,
