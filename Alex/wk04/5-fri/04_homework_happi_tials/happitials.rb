@@ -9,9 +9,11 @@ $LOAD_PATH.push File.expand_path('../', __FILE__)
 # require_relative 'animal'
 # require_relative 'client'
 # require_relative 'shelter'
+# require_relative 'hundred_acre_woods'
 require 'animal'
 require 'client'
 require 'shelter'
+require 'hundred_acre_woods'
 
 # # HappiTails
 
@@ -42,57 +44,10 @@ require 'shelter'
 
 # - Can create animals and clients
 
-robin = Client.new('Christopher Robin', 9) # => #<Client:0x00007fadc7053378 @name="Christopher Robin", @age=9, @num_children=0, @pets=[]>
-aa_milne = Client.new('Alan Alexander Milne', 30, 1)
-# => #<Client:0x00007fadc78579c0
-#     @age=30,
-#     @name="Alan Alexander Milne",
-#     @num_children=1,
-#     @pets=[]>
-
-pooh = Animal.new('winnie', 2, 'male', 'stuffed bear', 'honey', 'red shirt')
-# => #<Animal:0x00007fadc785fdc8
-#     @age=2,
-#     @gender="male",
-#     @name="winnie",
-#     @species="stuffed bear",
-#     @toys=["honey", "red shirt"]>
-
-tigger = Animal.new('tigger', 4, 'male', 'stuffed tiger', 'A bouncing ball', 'A jumping jack', 'A jumping Jill', 'A rocket ship', 'A couple dozen banana splits', 'A Pogo stick', 'A trampoline', 'A flying machine', 'A banana split', 'A Pogo stick ', 'Book on "Tigers bounce best"')
-# => #<Animal:0x00007fadc783e808
-#     @age=4,
-#     @gender="male",
-#     @name="tigger",
-#     @species="stuffed tiger",
-#     @toys=
-#      ["A bouncing ball",
-#       "A jumping jack",
-#       "A jumping Jill",
-#       "A rocket ship",
-#       "A couple dozen banana splits",
-#       "A Pogo stick",
-#       "A trampoline",
-#       "A flying machine",
-#       "A banana split",
-#       "A Pogo stick ",
-#       "Book on \"Tigers bounce best\""]>
-
-kanga = Animal.new('kanga', 1, 'female', 'kangaroo') # => #<Animal:0x00007fadc7847f70 @name="kanga", @age=1, @gender="female", @species="kangaroo", @toys=[]>
-roo = Animal.new('roo', 1, 'male', 'kangaroo') # => #<Animal:0x00007fadc78458d8 @name="roo", @age=1, @gender="male", @species="kangaroo", @toys=[]>
-eyore = Animal.new('eyore', 1, 'male', 'donkey') # => #<Animal:0x00007fadc7844d70 @name="eyore", @age=1, @gender="male", @species="donkey", @toys=[]>
-piglet = Animal.new('piglet', 1, 'male', 'pig') # => #<Animal:0x00007fadc7844208 @name="piglet", @age=1, @gender="male", @species="pig", @toys=[]>
-rabbit = Animal.new('rabbit', 1, 'female', 'rabbit', 'carrots') # => #<Animal:0x00007fadc782b370 @name="rabbit", @age=1, @gender="female", @species="rabbit", @toys=["carrots"]>
-gopher = Animal.new('gopher', 1, 'male', 'gopher') # => #<Animal:0x00007fadc782a768 @name="gopher", @age=1, @gender="male", @species="gopher", @toys=[]>
-owl = Animal.new('owl', 1, 'male', 'owl') # => #<Animal:0x00007fadc7829cc8 @name="owl", @age=1, @gender="male", @species="owl", @toys=[]>
-lumpy = Animal.new('lumpy', 1, 'male', 'heffalump') # => #<Animal:0x00007fadc7828e18 @name="lumpy", @age=1, @gender="male", @species="heffalump", @toys=[]>
-
 # ##### Phase 2
 
 # - New animals and clients can be added to the shelter
-hundred_acre_woods = Shelter.new(
-  [robin, aa_milne],
-  [pooh, tigger, kanga, roo, eyore, piglet, rabbit, gopher, owl, lumpy]
-)
+hundred_acre_woods = HundredAcreWoods.build
 
 # ##### Phase 3
 
@@ -170,11 +125,7 @@ end
 # - After selecting from the menu the task the user is prompted through the
 #   entire process
 
-shelter = hundred_acre_woods
-# shelter = Shelter.new(
-#   [robin, aa_milne],
-#   [pooh, tigger, kanga, roo, eyore, piglet, rabbit, gopher, owl, lumpy]
-# )
+shelter = HundredAcreWoods.build
 
 loop do
   puts <<~MENU
