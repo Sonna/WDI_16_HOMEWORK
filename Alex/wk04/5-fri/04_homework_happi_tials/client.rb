@@ -23,6 +23,18 @@ class Client
     @num_children = num_children
     @pets = pets
   end
+
+  # - Relationships:
+  #   - A client should be able to adopt an animal.
+  def adopt(animal)
+    pets.push(animal) if animal
+  end
+
+  # - Relationships:
+  #   - A client should be able to put an animal up for adoption
+  def abandon(animal)
+    pets.delete(animal) if animal
+  end
 end
 
 Client.new # => #<Client:0x00007fadc693e010 @name="", @age=0, @num_children=0, @pets=[]>

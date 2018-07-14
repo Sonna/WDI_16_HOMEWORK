@@ -117,7 +117,9 @@ class Shelter
 
     puts "The name of Animal being adopted by the Client?"
     name = gets.chomp
-    client.push(animals.delete_if { |x| x.name == name })
+    # client.pets.push(animals.delete_if { |x| x.name == name })
+    pet = animals.delete_if { |x| x.name == name }
+    client.adopt(pet)
   end
 
   def facilitate_client_puts_an_animal_up_for_adoption
@@ -131,7 +133,8 @@ class Shelter
 
     puts "The name of Animal being put up for adoption?"
     name = gets.chomp
-    animal.push(client.pets.delete_if { |x| x.name == name })
+    pet = client.pets.find { |x| x.name == name }
+    animal.push(client.abandon(pet))
   end
 end
 
