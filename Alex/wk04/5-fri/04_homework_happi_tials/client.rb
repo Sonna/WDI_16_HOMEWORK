@@ -10,6 +10,9 @@
 #   - A client should have an age.
 #   - A client should have a list of pets.
 
+# ##### Phase 1
+
+# - Can create animals and clients
 class Client
   attr_reader :name, :num_children, :age, :pets
 

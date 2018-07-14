@@ -13,6 +13,9 @@
 #   - An animal should have a species.
 #   - An animal can have multiple toys.
 
+# ##### Phase 1
+
+# - Can create animals and clients
 class Animal
   attr_reader :name, :age, :gender, :species, :toys
 

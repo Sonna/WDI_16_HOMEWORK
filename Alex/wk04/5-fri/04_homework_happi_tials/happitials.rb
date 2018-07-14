@@ -94,16 +94,6 @@ hundred_acre_woods = Shelter.new(
   [pooh, tigger, kanga, roo, eyore, piglet, rabbit, gopher, owl, lumpy]
 )
 
-class Shelter
-  def add_client(client)
-    @clients.push(client)
-  end
-
-  def add_animal(animal)
-    @animals.push(animal)
-  end
-end
-
 # ##### Phase 3
 
 # - When creating an animal or client, the user is prompted for information like
