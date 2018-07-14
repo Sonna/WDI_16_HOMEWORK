@@ -29,6 +29,8 @@ class Monkey
   end
 
   def introduce
-    "Nice to meet you, I'm #{name} the #{species}, I have been eating #{foods_eaten.join(', ')}"
+    *head, tail = foods_eaten
+    "Nice to meet you, I'm #{name} the #{species}, I have been eating " \
+      "#{head.join(', ') + (head.any? ? ' & ' : '')}#{tail}"
   end
 end

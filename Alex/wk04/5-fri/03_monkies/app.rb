@@ -21,5 +21,5 @@ adam = Monkey.new("Adam", "Spider Monkey")
 adam.eat('fruit salad')
 adam.eat('banana milkshake')
 # "Hi my name is Adam. I am a Spider Monkey. I had fruit salad and banana milkshake for brunch"
-adam.introduce # => "Nice to meet you, I'm Adam the Spider Monkey, I have been eating fruit salad, banana milkshake"
+adam.introduce # => "Nice to meet you, I'm Adam the Spider Monkey, I have been eating fruit salad & banana milkshake"
 # ```
