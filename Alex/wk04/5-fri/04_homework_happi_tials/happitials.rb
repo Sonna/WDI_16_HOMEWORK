@@ -130,16 +130,7 @@ module Happitails
     shelter = HundredAcreWoods.build
 
     loop do
-      puts <<~MENU
-        1) display all animals
-        2) display all clients
-        3) create an animal
-        4) create an client
-        5) facilitate client adopts an animal
-        6) facilitate client puts an animal up for adoption
-        0) quit
-      MENU
-
+      puts menu_prompt + "\n"
       puts case gets.chomp.to_i
         when 0 then break
         when 1 then shelter.display_all_animals
@@ -153,6 +144,18 @@ module Happitails
         end
       puts "\n" # newline space between ouput & menu
     end
+  end
+
+  def self.menu_prompt
+    <<~MENU
+      1) display all animals
+      2) display all clients
+      3) create an animal
+      4) create an client
+      5) facilitate client adopts an animal
+      6) facilitate client puts an animal up for adoption
+      0) quit
+    MENU
   end
 end
 
@@ -170,13 +173,43 @@ elsif $PROGRAM_NAME == __FILE__ ||
     def test_it_works
       assert true
     end
+
+    def test_cli_can_quit
+      captured_output = local_io("\n") { described_class.cli }
+      assert_equal(<<~EXPECTED, captured_output)
+        1) display all animals
+        2) display all clients
+        3) create an animal
+        4) create an client
+        5) facilitate client adopts an animal
+        6) facilitate client puts an animal up for adoption
+        0) quit
+
+      EXPECTED
+    end
+
+    def test_cli_can_receive_unknown_command
+      captured_output = local_io("9\n\n") { described_class.cli }
+      assert_equal(<<~EXPECTED, captured_output)
+        #{described_class.menu_prompt}
+        Unknown input, please try again
+
+        #{described_class.menu_prompt}
+      EXPECTED
+    end
+
+    private
+
+    def described_class
+      Happitails
+    end
   end
 end
-# >> Run options: --seed 52119
+# >> Run options: --seed 43191
 # >>
 # >> # Running:
 # >>
-# >> .
+# >> ...
 # >>
-# >> Finished in 0.000834s, 1199.0410 runs/s, 1199.0410 assertions/s.
-# >> 1 runs, 1 assertions, 0 failures, 0 errors, 0 skips
+# >> Finished in 0.000916s, 3275.1092 runs/s, 3275.1092 assertions/s.
+# >> 3 runs, 3 assertions, 0 failures, 0 errors, 0 skips
