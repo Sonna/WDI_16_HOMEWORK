@@ -47,7 +47,7 @@ require 'hundred_acre_woods'
 # ##### Phase 2
 
 # - New animals and clients can be added to the shelter
-hundred_acre_woods = HundredAcreWoods.build
+hundred_acre_woods = HundredAcreWoods.build # !> assigned but unused variable - hundred_acre_woods
 
 # ##### Phase 3
 
@@ -125,30 +125,58 @@ end
 # - After selecting from the menu the task the user is prompted through the
 #   entire process
 
-shelter = HundredAcreWoods.build
+module Happitails
+  def self.cli
+    shelter = HundredAcreWoods.build
 
-loop do
-  puts <<~MENU
-    1) display all animals
-    2) display all clients
-    3) create an animal
-    4) create an client
-    5) facilitate client adopts an animal
-    6) facilitate client puts an animal up for adoption
-    0) quit
-  MENU
-  choice = gets.chomp
+    loop do
+      puts <<~MENU
+        1) display all animals
+        2) display all clients
+        3) create an animal
+        4) create an client
+        5) facilitate client adopts an animal
+        6) facilitate client puts an animal up for adoption
+        0) quit
+      MENU
 
-  puts case choice.to_i
-    when 0 then break
-    when 1 then shelter.display_all_animals
-    when 2 then shelter.display_all_clients
-    when 3 then shelter.create_an_animal
-    when 4 then shelter.create_an_client
-    when 5 then shelter.facilitate_client_adopts_an_animal
-    when 6 then shelter.facilitate_client_puts_an_animal_up_for_adoption
-    else
-      "Unknown input, please try again"
+      puts case gets.chomp.to_i
+        when 0 then break
+        when 1 then shelter.display_all_animals
+        when 2 then shelter.display_all_clients
+        when 3 then shelter.create_an_animal
+        when 4 then shelter.create_an_client
+        when 5 then shelter.facilitate_client_adopts_an_animal
+        when 6 then shelter.facilitate_client_puts_an_animal_up_for_adoption
+        else
+          "Unknown input, please try again"
+        end
+      puts "\n" # newline space between ouput & menu
     end
-  puts "\n" # newline space between ouput & menu
+  end
 end
+
+
+if $PROGRAM_NAME == __FILE__ && ARGV.first == "run"
+  # without `clear`, `"run"` is used as filename & `gets` is called from it
+  ARGV.clear
+  Happitails.cli
+elsif $PROGRAM_NAME == __FILE__ ||
+  ($PROGRAM_NAME == __FILE__ && ARGV.first == "test")
+  require "minitest/autorun"
+  require "test_helper"
+
+  class HappiTailsTest < Minitest::Test
+    def test_it_works
+      assert true
+    end
+  end
+end
+# >> Run options: --seed 52119
+# >>
+# >> # Running:
+# >>
+# >> .
+# >>
+# >> Finished in 0.000834s, 1199.0410 runs/s, 1199.0410 assertions/s.
+# >> 1 runs, 1 assertions, 0 failures, 0 errors, 0 skips
