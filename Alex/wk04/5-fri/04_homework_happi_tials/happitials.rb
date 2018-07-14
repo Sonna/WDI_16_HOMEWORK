@@ -8,8 +8,10 @@ $LOAD_PATH.push File.expand_path('../', __FILE__)
 
 # require_relative 'animal'
 # require_relative 'client'
+# require_relative 'shelter'
 require 'animal'
 require 'client'
+require 'shelter'
 
 # # HappiTails
 
@@ -22,21 +24,6 @@ require 'client'
 
 # ### Specification:
 # ##### Object Specs:
-
-# - Shelter:
-#   - The shelter should display all the clients.
-#   - The shelter should display all the animals.
-
-class Shelter
-  attr_reader :clients, :animals
-
-  def initialize(clients = [], animals = [])
-    @clients = clients
-    @animals = animals
-  end
-end
-
-Shelter.new # => #<Shelter:0x00007fadc6919670 @clients=[], @animals=[]>
 
 # - Relationships:
 #   - A client should be able to adopt an animal.
