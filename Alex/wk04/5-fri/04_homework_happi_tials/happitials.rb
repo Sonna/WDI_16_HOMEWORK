@@ -109,60 +109,62 @@ end
 # - When creating an animal or client, the user is prompted for information like
 #   names, gender etc.
 
-animals = []
-clients = []
+def phase3
+  animals = []
+  clients = []
 
-loop do
-  print "Add Animal or Client? (1 => animal, 2 => client)"
-  choice = gets.chomp
+  loop do
+    print "Add Animal or Client? (1 => animal, 2 => client)"
+    choice = gets.chomp
 
-  case choice.downcase
-  when "1", "animal"
-    print "A name for the new Animal?"
-    name = gets.chomp
+    case choice.downcase
+    when "1", "animal"
+      print "A name for the new Animal?"
+      name = gets.chomp
 
-    print "Its age?"
-    age = gets.chomp.to_i
+      print "Its age?"
+      age = gets.chomp.to_i
 
-    print "Its gender?"
-    gender = gets.chomp
+      print "Its gender?"
+      gender = gets.chomp
 
-    print "Its species?"
-    species = gets.chomp
+      print "Its species?"
+      species = gets.chomp
 
-    toys = []
-    loop do
-      print "Give/add a Toy to the Animal? (leave blank to stop adding toys)"
-      break if (toy = gets.chomp).empty?
-      toys.push(toy)
+      toys = []
+      loop do
+        print "Give/add a Toy to the Animal? (leave blank to stop adding toys)"
+        break if (toy = gets.chomp).empty?
+        toys.push(toy)
+      end
+      animals << Animal.new(name, age, gender, species, *toys)
+    when "2", "client"
+      print "A name for the new Client?"
+      name = gets.chomp
+
+      print "Their age?"
+      age = gets.chomp.to_i
+
+      print "Their gender?"
+      gender = gets.chomp
+
+      print "Number of children?"
+      num_children = gets.chomp.to_i
+
+      pets = []
+      loop do
+        print "Name of a pet? (leave blank to stop adding pets)"
+        break if (pet = gets.chomp).empty?
+        pets.push(pet)
+      end
+      clients << Client.new(name, age, gender, num_children, *pets)
+    else
+      puts "Unkown choice"
     end
-    animals << Animal.new(name, age, gender, species, *toys)
-  when "2", "client"
-    print "A name for the new Client?"
-    name = gets.chomp
 
-    print "Their age?"
-    age = gets.chomp.to_i
-
-    print "Their gender?"
-    gender = gets.chomp
-
-    print "Number of children?"
-    num_children = gets.chomp.to_i
-
-    pets = []
-    loop do
-      print "Name of a pet? (leave blank to stop adding pets)"
-      break if (pet = gets.chomp).empty?
-      pets.push(pet)
-    end
-    clients << Client.new(name, age, gender, num_children, *pets)
-  else
-    puts "Unkown choice"
+    print "Add another Animal or Client? (y/n)"
+    break unless (gets.chomp == "y")
   end
-
-  print "Add another Animal or Client? (y/n)"
-  break unless (gets.chomp == "y")
 end
 
 # ##### Phase 4
