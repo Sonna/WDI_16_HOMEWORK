@@ -6,10 +6,10 @@
 
 // # Finish Him!
 
-// In JavaScript, write a function 'spiner' that takes a string as an argument and
-// returns the string as all lowercase words joined by dashes. Your function should
-// account for upper/lower case inputs, as well as sentences __not__ seperated by
-// spaces.
+// In JavaScript, write a function 'spiner' that takes a string as an argument
+// and returns the string as all lowercase words joined by dashes. Your function
+// should account for upper/lower case inputs, as well as sentences __not__
+// seperated by spaces.
 
 function spiner(sentence) {
   return sentence.toLowerCase().replace(/[^a-z]/gi, "-");

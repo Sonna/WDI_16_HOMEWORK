@@ -320,6 +320,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 5 - 2018/07/13
 
 - [WDI Spiner Warmup](https://gist.github.com/kasun-maldeni/df34ad18c7cabfabd597fc5f6736b0b9)
+- [WDI Spiner Warmup Solution](https://gist.github.com/kasun-maldeni/6ae37b3aef93c487417f5b966a3e5b53)
 
 - Software, abstraction & object oriented programming
 
