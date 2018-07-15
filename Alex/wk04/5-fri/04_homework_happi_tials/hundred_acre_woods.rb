@@ -33,7 +33,7 @@ module HundredAcreWoods
 
     # ## Animals
     def pooh
-      Animal.new('winnie', 3, 'male', 'stuffed bear', 'honey', 'red shirt')
+      Animal.new('winnie', 3, 'male', 'pooh bear', 'honey', 'red shirt')
     end
     # => #<Animal:0x00007fadc785fdc8
     #     @age=2,
