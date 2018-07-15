@@ -114,29 +114,30 @@ class Shelter
 
   def facilitate_client_adopts_an_animal
     puts "The name of Client, adopting an animal?"
-    name = gets.chomp
-    client = clients.select &by_name(name) # !> `&' interpreted as argument prefix
+    client_name = gets.chomp
+    client = clients.find(&by_name(client_name))
 
     puts "The name of Animal being adopted by the Client?"
-    name = gets.chomp
-    # client.pets.push(animals.delete_if { |x| x.name == name })
-    pet = animals.delete_if &by_name(name) # !> `&' interpreted as argument prefix
+    pet_name = gets.chomp
+    # client.pets.push(animals.delete_if { |x| x.name == pet_name })
+    pet_idx = animals.find_index(&by_name(pet_name))
+    pet = animals.delete_at(pet_idx)
     client.adopt(pet)
   end
 
   def facilitate_client_puts_an_animal_up_for_adoption
     puts "A name of Client, putting animal up for adoption?"
-    name = gets.chomp
-    client = clients.select &by_name(name) # !> `&' interpreted as argument prefix
+    client_name = gets.chomp
+    client = clients.find(&by_name(client_name))
 
     *head, tail = client.pets
     puts "This Client has the following pets: " \
       "#{head.join(', ') + (head.any? ? ' & ' : '')}#{tail}"
 
     puts "The name of Animal being put up for adoption?"
-    name = gets.chomp
-    pet = client.pets.find &by_name(name) # !> `&' interpreted as argument prefix
-    animal.push(client.abandon(pet))
+    pet_name = gets.chomp
+    pet = client.pets.find(&by_name(pet_name))
+    animals.push(client.abandon(pet))
   end
 
   private
@@ -238,6 +239,55 @@ if $PROGRAM_NAME == __FILE__
       EXPECTED_OUTPUT
     end
 
+    def test_facilitate_client_adopts_an_animal
+      robin = Client.new("Christopher Robin", 9)
+      winnie = Animal.new("Winnie", 3, "male", "Pooh Bear")
+      subject = described_class.new([robin], [winnie])
+
+      assert_equal [robin], subject.clients
+      assert_equal [], robin.pets
+      assert_equal [winnie], subject.animals
+
+      captured_ouptut = local_io(<<~USER_INPUT) { subject.facilitate_client_adopts_an_animal }
+        Christopher Robin
+        Winnie
+      USER_INPUT
+
+      assert_equal [robin], subject.clients
+      assert_equal [winnie], robin.pets
+      assert_equal [], subject.animals
+
+      assert_equal(<<~EXPECTED_OUTPUT, captured_ouptut)
+        The name of Client, adopting an animal?
+        The name of Animal being adopted by the Client?
+      EXPECTED_OUTPUT
+    end
+
+    def test_facilitate_client_puts_an_animal_up_for_adoption
+      winnie = Animal.new("Winnie", 3, "male", "Pooh Bear", "red shirt")
+      robin = Client.new("Christopher Robin", 9, 0, winnie)
+      subject = described_class.new([robin], [])
+
+      assert_equal [robin], subject.clients
+      assert_equal [winnie], robin.pets
+      assert_equal [], subject.animals
+
+      captured_ouptut = local_io(<<~USER_INPUT) { subject.facilitate_client_puts_an_animal_up_for_adoption }
+        Christopher Robin
+        Winnie
+      USER_INPUT
+
+      assert_equal [robin], subject.clients
+      assert_equal [], robin.pets
+      assert_equal [winnie], subject.animals
+
+      assert_equal(<<~EXPECTED_OUTPUT, captured_ouptut)
+        A name of Client, putting animal up for adoption?
+        This Client has the following pets: Winnie (3 year old male Pooh Bear). Toys: red shirt
+        The name of Animal being put up for adoption?
+      EXPECTED_OUTPUT
+    end
+
     private
 
     def described_class
@@ -245,11 +295,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 42990
+# >> Run options: --seed 30451
 # >>
 # >> # Running:
 # >>
-# >> .........
+# >> ...........
 # >>
-# >> Finished in 0.001185s, 7594.9371 runs/s, 12658.2285 assertions/s.
-# >> 9 runs, 15 assertions, 0 failures, 0 errors, 0 skips
+# >> Finished in 0.001392s, 7902.2995 runs/s, 20833.3350 assertions/s.
+# >> 11 runs, 29 assertions, 0 failures, 0 errors, 0 skips
