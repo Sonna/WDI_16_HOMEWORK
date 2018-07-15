@@ -48,11 +48,11 @@ class Shelter
   # - After selecting from the menu the task the user is prompted through the
   #   entire process
   def display_all_animals
-    animals.to_s
+    animals
   end
 
   def display_all_clients
-    clients.to_s
+    clients
   end
 
   # ##### Phase 3
@@ -181,12 +181,12 @@ if $PROGRAM_NAME == __FILE__
 
     def test_display_all_animals
       subject = described_class.new [], ["tiger", "bear", "rabbit"]
-      assert_equal subject.display_all_animals, %(["tiger", "bear", "rabbit"])
+      assert_equal subject.display_all_animals, ["tiger", "bear", "rabbit"]
     end
 
     def test_display_all_clients
       subject = described_class.new ["Robin", "Christopher"]
-      assert_equal subject.display_all_clients, %(["Robin", "Christopher"])
+      assert_equal subject.display_all_clients, ["Robin", "Christopher"]
     end
 
     def test_create_an_animal
@@ -295,11 +295,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 30451
+# >> Run options: --seed 43898
 # >>
 # >> # Running:
 # >>
 # >> ...........
 # >>
-# >> Finished in 0.001392s, 7902.2995 runs/s, 20833.3350 assertions/s.
+# >> Finished in 0.001525s, 7213.1138 runs/s, 19016.3909 assertions/s.
 # >> 11 runs, 29 assertions, 0 failures, 0 errors, 0 skips
