@@ -90,9 +90,6 @@ def phase3
       print "Their age?"
       age = gets.chomp.to_i
 
-      print "Their gender?"
-      gender = gets.chomp
-
       print "Number of children?"
       num_children = gets.chomp.to_i
 
@@ -102,7 +99,7 @@ def phase3
         break if (pet = gets.chomp).empty?
         pets.push(pet)
       end
-      clients << Client.new(name, age, gender, num_children, *pets)
+      clients << Client.new(name, age, num_children, *pets)
     else
       puts "Unkown choice"
     end

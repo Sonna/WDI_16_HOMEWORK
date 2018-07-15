@@ -337,3 +337,5 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 #### Week 05 (2018/07/15)
 
 ##### Day 1 - 2018/07/15
+
+- [WDI Starbucks Warmup](https://gist.github.com/kasun-maldeni/b38a4bcdb17078f48b5179ff9fc85d21)
