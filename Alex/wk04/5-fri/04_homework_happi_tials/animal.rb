@@ -27,6 +27,16 @@ class Animal
     @toys = toys
   end
 
+  # You should look at the implementation of #== on Array or its members.
+  def ==(other)
+    self.class == other.class &&
+      name == other.name &&
+      age == other.age &&
+      gender == other.gender &&
+      species == other.species &&
+      toys == other.toys
+  end
+
   def to_s
     return "" if [name, gender, species, toys].all?(&:empty?) && age.zero?
     "#{name} (#{age} year old #{gender} #{species}). Toys: #{toys.join(', ')}"

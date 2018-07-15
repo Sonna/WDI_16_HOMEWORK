@@ -24,6 +24,15 @@ class Client
     @pets = pets
   end
 
+  # You should look at the implementation of #== on Array or its members.
+  def ==(other)
+    self.class == other.class &&
+      name == other.name &&
+      age == other.age &&
+      num_children == other.num_children &&
+      pets == other.pets
+  end
+
   def to_s
     return if [name, pets].all?(&:empty?) && [age, num_children].all?(&:zero?)
     "#{name} (age #{age}, with #{num_children} kids). Pets: #{pets.join(', ')}"
@@ -46,7 +55,7 @@ end
 if $PROGRAM_NAME == __FILE__
   require "minitest/autorun"
 
-  class AnimalTest < Minitest::Test
+  class ClientTest < Minitest::Test
     def test_its_constructor_works
       assert described_class.new
     end
