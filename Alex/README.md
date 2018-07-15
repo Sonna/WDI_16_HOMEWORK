@@ -319,6 +319,8 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 
 ##### Day 5 - 2018/07/13
 
+- [WDI Spiner Warmup](https://gist.github.com/kasun-maldeni/df34ad18c7cabfabd597fc5f6736b0b9)
+
 - Software, abstraction & object oriented programming
 
 - objects
@@ -330,3 +332,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 - [week4_ruby_objects_class.md](https://gist.github.com/epoch/e9bf9c429fbcb2888c87cc7548364c99#file-week4_ruby_objects_class-md)
 
 - [happitials.md](https://gist.github.com/epoch/69ce72204a35f72da045)
+
+#### Week 05 (2018/07/15)
+
+##### Day 1 - 2018/07/15
