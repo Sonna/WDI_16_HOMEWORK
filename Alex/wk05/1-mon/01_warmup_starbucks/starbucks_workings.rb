@@ -153,14 +153,14 @@ class Coffee
   def to_s
     misspelling = customer.tr("Dy", "Be")
     result = "#{misspelling}'s #{name}, #{size}, #{sugar} sugars."
-    result = result[0..-2] + " (with #{options.join(' ')})." if options.any?
+    result = result[0..-2] + " (with #{options.join(', ')})." if options.any?
     # ready?(Time.now + 300) ? result.upcase : result
     ready? ? result.upcase : result
   end
 end
 
 c2 = Coffee.new('Darryl', 'latte', 'medium', 2, "hot of hazelnut", "whipped cream", "chocolate syrup")
-c2.to_s # => "Barrel's latte, medium, 2 sugars. (with hot of hazelnut whipped cream chocolate syrup)."
+c2.to_s # => "Barrel's latte, medium, 2 sugars. (with hot of hazelnut, whipped cream, chocolate syrup)."
 
 # == References:
 # - https://stackoverflow.com/questions/6936203/add-minutes-to-time-object

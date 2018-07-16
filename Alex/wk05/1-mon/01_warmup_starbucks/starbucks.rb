@@ -55,7 +55,7 @@ coffees.select(&:collected)
 #      @sugar=2>]
 
 c2 = Coffee.new('Darryl', 'latte', 'medium', 2, "hot of hazelnut", "whipped cream", "chocolate syrup")
-c2.to_s # => "Barrel's latte, medium, 2 sugars (with hot of hazelnut whipped cream chocolate syrup)."
-c2.to_s(Time.now + 300) # => "BARREL'S LATTE, MEDIUM, 2 SUGARS (WITH HOT OF HAZELNUT WHIPPED CREAM CHOCOLATE SYRUP)."
+c2.to_s # => "Barrel's latte, medium, 2 sugars (with hot of hazelnut, whipped cream, chocolate syrup)."
+c2.to_s(Time.now + 300) # => "BARREL'S LATTE, MEDIUM, 2 SUGARS (WITH HOT OF HAZELNUT, WHIPPED CREAM, CHOCOLATE SYRUP)."
 
 # >> Barrel's latte, medium, 2 sugars.
