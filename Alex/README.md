@@ -19,6 +19,7 @@ Time  | Table
 
 Task                        | Due Date    | Link
 ----------------------------|-------------|---------------------------------------
+HappiTails                  | Fri, 13 Jul | [wk04/5-fir/04_homework_happi_tials](wk04/5-fir/04_homework_happi_tials)
 99 Bottles of Beer          | Thu, 12 Jul | [wk04/4-thu/04_sinatra_99_bottles](wk04/4-thu/04_sinatra_99_bottles)
 Stocks App                  | Wed, 11 Jul | [wk04/3-wed/04_stocks](wk04/3-wed/04_stocks)
 Ruby Hashes and Collections | Tue, 10 Jul | [wk04/2-tue/04_week4_ruby_homework2](wk04/2-tue/04_week4_ruby_homework2)
@@ -353,4 +354,5 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
       - updating
       - selective
       - schema
+
 - [Postgresql Guide](https://gist.github.com/kasun-maldeni/33587a9405b6b6c84c42c0d433cef9f2)
