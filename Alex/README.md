@@ -356,3 +356,15 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
       - schema
 
 - [Postgresql Guide](https://gist.github.com/kasun-maldeni/33587a9405b6b6c84c42c0d433cef9f2)
+
+- [Library DB Gist](https://gist.github.com/epoch/276a9244217ca03c34542ce2c1f1096b)
+
+- [SQLBolt - Learn SQL - Introduction to SQL](https://sqlbolt.com)
+
+- [OMDb API - The Open Movie Database](http://www.omdbapi.com)
+
+- [movies.md](https://gist.github.com/epoch/6a7ac3bce7684984d527#file-movies-md)
+
+##### Day 2 - 2018/07/16
+
+- [WDI Say In English Warmup](https://gist.github.com/kasun-maldeni/5a452491fd938d0b920d607750658bb6)
