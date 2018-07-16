@@ -353,3 +353,4 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
       - updating
       - selective
       - schema
+- [Postgresql Guide](https://gist.github.com/kasun-maldeni/33587a9405b6b6c84c42c0d433cef9f2)
