@@ -19,6 +19,7 @@ Time  | Table
 
 Task                        | Due Date    | Link
 ----------------------------|-------------|---------------------------------------
+Movies 1                    | Mon, 16 Jul | [wk05/1-mon/04_movies_I](wk05/1-mon/04_movies_I)
 HappiTails                  | Fri, 13 Jul | [wk04/5-fir/04_homework_happi_tials](wk04/5-fir/04_homework_happi_tials)
 99 Bottles of Beer          | Thu, 12 Jul | [wk04/4-thu/04_sinatra_99_bottles](wk04/4-thu/04_sinatra_99_bottles)
 Stocks App                  | Wed, 11 Jul | [wk04/3-wed/04_stocks](wk04/3-wed/04_stocks)
