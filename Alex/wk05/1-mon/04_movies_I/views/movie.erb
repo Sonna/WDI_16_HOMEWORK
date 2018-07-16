@@ -1,3 +1,6 @@
+<% unless response %>
+<h1><%= param_title %> - <%= result["Error"] %></h1>
+<% else %>
 <article class="movie">
   <div class="poster">
     <img src="<%= poster_url %>">
@@ -12,4 +15,6 @@
   </div>
   <div class="foot"></div>
 </article>
+<% end %>
 
+<a href="/">&crarr; Return to homepage</a>

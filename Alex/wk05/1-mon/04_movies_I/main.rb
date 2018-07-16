@@ -10,6 +10,10 @@ get "/" do
   erb :index
 end
 
+post "/" do
+  redirect "/#{params['movie_name']}"
+end
+
 get "/about" do
   erb :about
 end
@@ -17,6 +21,9 @@ end
 get "/:title" do
   result = HTTParty.get("https://omdbapi.com/?t=#{params['title']}&apikey=#{ENV['API_KEY']}")
   erb :movie, locals: {
+    response: result["Response"] == "True",
+    param_title: params['title'],
+
     title: result["Title"],
     year: result["Year"],
     rated: result["Rated"],
