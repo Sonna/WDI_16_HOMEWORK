@@ -339,3 +339,17 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 1 - 2018/07/15
 
 - [WDI Starbucks Warmup](https://gist.github.com/kasun-maldeni/b38a4bcdb17078f48b5179ff9fc85d21)
+
+- Databases (Monday 11:00)
+  * Why do we need a database
+  * What is a database
+  * `http` is a database protocol
+  * data modeling
+  * relation database
+    + tables & row
+    + Structured Query Language (SQL)
+      - inserting
+      - deleting
+      - updating
+      - selective
+      - schema
