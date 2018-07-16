@@ -189,3 +189,149 @@ Potential ideas for Food attribute in our site:
 $ touch goodfoodhunting.sql
 $ subl .
 ```
+
+```psql
+postgres=# create database goodfoodhunting;
+CREATE DATABASE
+
+postgres=# \c goodfoodhunting
+psql (9.5.4, server 10.4 (Debian 10.4-2.pgdg90+1))
+WARNING: psql major version 9.5, server major version 10.0.
+         Some psql features might not work.
+You are now connected to database "goodfoodhunting" as user "postgres".
+
+goodfoodhunting=# CREATE TABLE dishes (
+goodfoodhunting(#   id SERIAL4 PRIMARY KEY,
+goodfoodhunting(#   name VARCHAR(100),
+goodfoodhunting(#   image_url VARCHAR(400)
+goodfoodhunting(# );
+CREATE TABLE
+
+goodfoodhunting=# \dt
+ public | dishes | table | postgres
+
+goodfoodhunting=# \c postgres
+psql (9.5.4, server 10.4 (Debian 10.4-2.pgdg90+1))
+WARNING: psql major version 9.5, server major version 10.0.
+         Some psql features might not work.
+You are now connected to database "postgres" as user "postgres".
+
+postgres=# \c goodfoodhunting
+
+```
+
+```psql
+goodfoodhunting=# select * from dishes;
+id | name | image_url
+---+------+----------
+(0 rows)
+
+goodfoodhunting=# INSERT INTO dishes (name, image_url) values ('birthday cake', 'https://www.stayathomemum.com.au/cache/860x380-0/wp-content/uploads/2015/04/bigstock-Delicious-birthday-cake-on-tab-78718583.jpg');
+INSERT 0 1
+
+goodfoodhunting=# select * from dishes;
+  1 | birthday cake | https://www.stayathomemum.com.au/cache/860x380-0/wp-content/uploads/2015/04/bigstock-Delicious-birthday-cake-on-tab-78718583.jpg
+
+goodfoodhunting=# select name from dishes;
+ birthday cake
+
+goodfoodhunting=# select name, id from dishes;
+      name     | id
+---------------+-----
+ birthday cake |  1
+(1 rows)
+
+goodfoodhunting=# INSERT INTO dishes (name, image_url) values ('pudding', 'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2016/10/cherry-chocolate-pudding.jpg?itok=dNPboDsi');
+INSERT 0 1
+
+goodfoodhunting=# INSERT INTO dishes (name, image_url) values ('sandwich', 'http://www.chingssecret.com/assets/uploads/images/chings-secret-schezwan-chutney-sandwitch%2003.jpg');
+INSERT 0 1
+
+goodfoodhunting=# select name from dishes;
+      name
+---------------
+ birthday cake
+ pudding
+ sandwich
+(3 rows)
+
+goodfoodhunting=# select id, name from dishes;
+ id |      name
+----+---------------
+  1 | birthday cake
+  2 | pudding
+  3 | sandwich
+(3 rows)
+
+goodfoodhunting=# select name from dishes where id = 2;
+  name
+---------
+ pudding
+(1 row)
+
+goodfoodhunting=# select name from dishes where id = 4;
+  name
+---------
+(0 rows)
+
+goodfoodhunting=# select name from dishes where name = 'pudding';
+  name
+---------
+ pudding
+(1 row)
+
+goodfoodhunting=# select name from dishes where id > 1;
+   name
+----------
+ pudding
+ sandwich
+(2 rows)
+
+goodfoodhunting=# select name from dishes where name = 'pudding' and name = 'sandwich';
+ name
+------
+(0 rows)
+
+goodfoodhunting=# select name from dishes where name = 'pudding' or name = 'sandwich';
+   name
+----------
+ pudding
+ sandwich
+(2 rows)
+
+goodfoodhunting=# select name from dishes where name like 'p%';
+goodfoodhunting=# select name from dishes where name ilike 'p%';
+  name
+---------
+ pudding
+(1 row)
+
+goodfoodhunting=# select name from dishes where name ilike '%ing';
+  name
+---------
+ pudding
+(1 row)
+
+goodfoodhunting=# select name from dishes where id in(1,2,3);
+      name
+---------------
+ birthday cake
+ pudding
+ sandwich
+(3 rows)
+
+goodfoodhunting=# select name from dishes where name in('pudding','birthday cake');
+      name
+---------------
+ birthday cake
+ pudding
+(2 rows)
+
+goodfoodhunting=# delete from dishes;
+      name
+---------------
+ birthday cake
+ pudding
+(2 rows)
+
+```
