@@ -3,6 +3,7 @@ require "dotenv"
 require "httparty"
 require "sinatra"
 require "sinatra/reloader"
+require "uri"
 
 Dotenv.load File.join(File.dirname(__FILE__), ".env")
 
@@ -11,7 +12,7 @@ get "/" do
 end
 
 post "/" do
-  redirect "/#{params['movie_name']}"
+  redirect "/#{URI::encode(params['movie_name'])}"
 end
 
 get "/about" do
