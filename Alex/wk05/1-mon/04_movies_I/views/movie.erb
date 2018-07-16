@@ -1,1 +1,15 @@
-<h1><%= title %></h1>
+<article class="movie">
+  <div class="poster">
+    <img src="<%= poster_url %>">
+  </div>
+  <div class="details">
+    <div class="head">
+      <h1><%= title %> (<%= year %>) | <%= rated %></h1>
+    </div>
+    <div class="body">
+      <p><%= plot %></p>
+    </div>
+  </div>
+  <div class="foot"></div>
+</article>
+
