@@ -8,12 +8,37 @@
   <div class="details">
     <div class="head">
       <h1><%= title %> (<%= year %>) | <%= rated %></h1>
+      <span class="released"><%= released %></span>
+      <span class="runtime"><%= runtime %></span>
+      <span class="rating-details">
+        <span class="rating-value"><%= imdb_rating.to_html %></span>
+        <span class="rating-votes"><%= imdb_votes %></span>
+      </span>
+      <span class="genre"><%= genre %></span>
     </div>
     <div class="body">
       <p><%= plot %></p>
     </div>
   </div>
-  <div class="foot"></div>
+  <div class="foot">
+    <h2>Cast and Credits</h2>
+    <span class="actors">
+      <h3>Actors</h3>
+      <p><%= actors %></p>
+    </span>
+    <span class="producers">
+      <h3>Producers</h3>
+      <p><%= producers %></p>
+    </span>
+    <span class="director">
+      <h3>Director</h3>
+      <p><%= director %></p>
+    </span>
+    <span class="writer">
+      <h3>Writer</h3>
+      <p><%= writer %></p>
+    </span>
+  </div>
 </article>
 <% end %>
 

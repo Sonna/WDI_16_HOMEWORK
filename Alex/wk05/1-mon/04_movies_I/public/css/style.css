@@ -46,6 +46,18 @@ img {
   }
 }
 
+.genre,
+.rating-details,
+.released,
+.runtime {
+  font-size: 0.75em;
+}
+
+.genre {
+  display: block;
+  font-weight: 900;
+}
+
 .main-menu {
   background-color: deepskyblue;
   margin: 0;
@@ -101,6 +113,19 @@ img {
 .movie .details {
 }
 
+.movie .foot {
+  padding: 10px;
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  .movie .foot > *:not(h2) {
+    float: left;
+    min-height: 150px;
+    width: 50%;
+  }
+}
+
 .movie .head {
   background-color: lightgreen;
   margin: 0;
@@ -116,4 +141,55 @@ img {
   margin: 10px;
   margin-top: -60px;
   width: 200px;
+}
+
+.rating-details {
+  display: flex;
+  float: right;
+}
+
+.rating-votes:after {
+  padding-left: 5px;
+}
+
+.rating-votes:after {
+  content: "\f007";
+  font-weight: 900;
+}
+
+.rating-details .stars .empty:before,
+.rating-details .stars .full:before,
+.rating-details .stars .half-alt:before,
+.rating-votes:after {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  text-rendering: auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+}
+
+.rating-details .stars .empty:before {
+  content: "\f005";
+  font-weight: 400;
+}
+
+.rating-details .stars .full:before {
+  content: "\f005";
+  font-weight: 900;
+}
+
+.rating-details .stars .half-alt:before {
+  content: "\f5c0";
+  font-weight: 900;
+}
+
+.runtime {
+  padding-left: 15px;
+}
+
+.stars {
+  display: flex;
 }
