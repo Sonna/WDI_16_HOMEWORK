@@ -20,7 +20,7 @@ class Coffee
   def to_s(time = Time.now)
     misspelling = customer.tr("Dy", "Be")
     result = "#{misspelling}'s #{name}, #{size}, #{sugar} sugars."
-    result = result[0..-1] + " (with #{options.join(' ')})." if options.any?
+    result = result[0..-2] + " (with #{options.join(' ')})." if options.any?
     # ready?(Time.now + 300) ? result.upcase : result
     # ready? ? result.upcase : result
     ready?(time) ? result.upcase : result

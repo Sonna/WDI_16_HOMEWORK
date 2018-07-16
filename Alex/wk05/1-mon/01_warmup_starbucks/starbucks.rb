@@ -13,49 +13,49 @@ coffees.first.collected = true
 coffees.last.collected = true
 coffees.reject(&:collected).length # => 3
 coffees.reject(&:collected)
-# => [#<Coffee:0x00007fb0ec17f788
+# => [#<Coffee:0x00007fc9e097f868
 #      @customer="Earryl",
 #      @name="latte",
 #      @options=[],
-#      @ready_at=2018-07-16 10:26:02 +1000,
+#      @ready_at=2018-07-16 10:29:47 +1000,
 #      @size="medium",
 #      @sugar=2>,
-#     #<Coffee:0x00007fb0ec17f300
+#     #<Coffee:0x00007fc9e097f3b8
 #      @customer="Farryl",
 #      @name="latte",
 #      @options=[],
-#      @ready_at=2018-07-16 10:27:02 +1000,
+#      @ready_at=2018-07-16 10:30:47 +1000,
 #      @size="medium",
 #      @sugar=2>,
-#     #<Coffee:0x00007fb0ec17d8e8
+#     #<Coffee:0x00007fc9e097d8d8
 #      @customer="Garryl",
 #      @name="latte",
 #      @options=[],
-#      @ready_at=2018-07-16 10:26:02 +1000,
+#      @ready_at=2018-07-16 10:29:47 +1000,
 #      @size="medium",
 #      @sugar=2>]
 
 coffees.select(&:collected).length # => 2
 coffees.select(&:collected)
-# => [#<Coffee:0x00007fb0ec17fb98
+# => [#<Coffee:0x00007fc9e097fc28
 #      @collected=true,
 #      @customer="Darryl",
 #      @name="latte",
 #      @options=[],
-#      @ready_at=2018-07-16 10:29:02 +1000,
+#      @ready_at=2018-07-16 10:31:47 +1000,
 #      @size="medium",
 #      @sugar=2>,
-#     #<Coffee:0x00007fb0ec17ca10
+#     #<Coffee:0x00007fc9e097caa0
 #      @collected=true,
 #      @customer="Harryl",
 #      @name="latte",
 #      @options=[],
-#      @ready_at=2018-07-16 10:29:02 +1000,
+#      @ready_at=2018-07-16 10:31:47 +1000,
 #      @size="medium",
 #      @sugar=2>]
 
 c2 = Coffee.new('Darryl', 'latte', 'medium', 2, "hot of hazelnut", "whipped cream", "chocolate syrup")
-c2.to_s # => "Barrel's latte, medium, 2 sugars. (with hot of hazelnut whipped cream chocolate syrup)."
-c2.to_s(Time.now + 300) # => "BARREL'S LATTE, MEDIUM, 2 SUGARS. (WITH HOT OF HAZELNUT WHIPPED CREAM CHOCOLATE SYRUP)."
+c2.to_s # => "Barrel's latte, medium, 2 sugars (with hot of hazelnut whipped cream chocolate syrup)."
+c2.to_s(Time.now + 300) # => "BARREL'S LATTE, MEDIUM, 2 SUGARS (WITH HOT OF HAZELNUT WHIPPED CREAM CHOCOLATE SYRUP)."
 
 # >> Barrel's latte, medium, 2 sugars.
