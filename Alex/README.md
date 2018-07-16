@@ -19,6 +19,7 @@ Time  | Table
 
 Task                        | Due Date    | Link
 ----------------------------|-------------|---------------------------------------
+HappiTails                  | Fri, 13 Jul | [wk04/5-fir/04_homework_happi_tials](wk04/5-fir/04_homework_happi_tials)
 99 Bottles of Beer          | Thu, 12 Jul | [wk04/4-thu/04_sinatra_99_bottles](wk04/4-thu/04_sinatra_99_bottles)
 Stocks App                  | Wed, 11 Jul | [wk04/3-wed/04_stocks](wk04/3-wed/04_stocks)
 Ruby Hashes and Collections | Tue, 10 Jul | [wk04/2-tue/04_week4_ruby_homework2](wk04/2-tue/04_week4_ruby_homework2)
@@ -316,3 +317,42 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 - Site visit [99designs] @ 2:00pm (leaving @ 1:30)
 
 - [week4_sinatra_99_bottles_of_beer.md](https://gist.github.com/epoch/2b700d261912047fe8b7cdca0324c580)
+
+##### Day 5 - 2018/07/13
+
+- [WDI Spiner Warmup](https://gist.github.com/kasun-maldeni/df34ad18c7cabfabd597fc5f6736b0b9)
+- [WDI Spiner Warmup Solution](https://gist.github.com/kasun-maldeni/6ae37b3aef93c487417f5b966a3e5b53)
+
+- Software, abstraction & object oriented programming
+
+- objects
+  + _class_ of objects
+  + an *instance* of a class
+  + instance method
+  + initialize, getters & setters & encapsulation
+
+- [week4_ruby_objects_class.md](https://gist.github.com/epoch/e9bf9c429fbcb2888c87cc7548364c99#file-week4_ruby_objects_class-md)
+
+- [happitials.md](https://gist.github.com/epoch/69ce72204a35f72da045)
+
+#### Week 05 (2018/07/15)
+
+##### Day 1 - 2018/07/15
+
+- [WDI Starbucks Warmup](https://gist.github.com/kasun-maldeni/b38a4bcdb17078f48b5179ff9fc85d21)
+
+- Databases (Monday 11:00)
+  * Why do we need a database
+  * What is a database
+  * `http` is a database protocol
+  * data modeling
+  * relation database
+    + tables & row
+    + Structured Query Language (SQL)
+      - inserting
+      - deleting
+      - updating
+      - selective
+      - schema
+
+- [Postgresql Guide](https://gist.github.com/kasun-maldeni/33587a9405b6b6c84c42c0d433cef9f2)
