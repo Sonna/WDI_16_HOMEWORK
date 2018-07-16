@@ -327,6 +327,17 @@ goodfoodhunting=# select name from dishes where name in('pudding','birthday cake
  pudding
 (2 rows)
 
+goodfoodhunting=# \d dishes;
+                                  Table "public.dishes"
+  Column   |          Type          |                      Modifiers
+-----------+------------------------+-----------------------------------------------------
+ id        | integer                | not null default nextval('dishes_id_seq'::regclass)
+ name      | character varying(100) |
+ image_url | character varying(400) |
+Indexes:
+    "dishes_pkey" PRIMARY KEY, btree (id)
+
+
 goodfoodhunting=# delete from dishes;
       name
 ---------------
