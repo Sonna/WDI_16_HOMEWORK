@@ -364,3 +364,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 - [OMDb API - The Open Movie Database](http://www.omdbapi.com)
 
 - [movies.md](https://gist.github.com/epoch/6a7ac3bce7684984d527#file-movies-md)
+
+##### Day 2 - 2018/07/16
+
+- [WDI Say In English Warmup](https://gist.github.com/kasun-maldeni/5a452491fd938d0b920d607750658bb6)

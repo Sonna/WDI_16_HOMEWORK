@@ -43,7 +43,7 @@ get "/:title" do
     poster_url: result["Poster"],
     imdb_rating: Rating.new(result["imdbRating"].to_f),
     imdb_votes: result["imdbVotes"],
-    producers: result["Production"],
+    production: result["Production"],
     result: result.parsed_response
   }
 end
