@@ -1,8 +1,10 @@
 require 'pg'
 
-db_conn = PG.connect(:dbname => 'nba_db', :host => 'localhost')
+# db_conn = PG.connect(:dbname => 'nba_db', :host => 'localhost')
+db_conn = PG.connect(:dbname => 'nba_db', :host => 'localhost', port: 5433, user: 'postgres')
 
-file = File.new("data.csv", "a+")
+# file = File.new("data.csv", "a+")
+file = File.new(File.join(File.dirname(__FILE__), "data.csv"), "a+")
 
 file.each do |line|
   player = line.split(",")
