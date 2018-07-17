@@ -12,13 +12,15 @@ require "rating"
 Dotenv.load File.join(File.dirname(__FILE__), ".env")
 
 get "/" do
-  erb :index
-end
+  return erb :index, locals: { response: nil, results: [] } if params['movie_name'].nil?
 
-post "/" do
-  # results = HTTParty.get("https://omdbapi.com/?s=#{params['title']}&apikey=#{ENV['API_KEY']}")
-  # params['movie_name']
-  redirect "/#{URI::encode(params['movie_name'])}"
+  results = HTTParty.get("https://omdbapi.com/?s=#{params['movie_name']}&apikey=#{ENV['API_KEY']}")
+
+  return erb :index, locals: { response: false, results: results } if results['Response'] == 'False' # results['Search'].length.zero?
+
+  redirect "/#{URI::encode(params['movie_name'])}" if results['totalResults'] == "1"
+
+  erb :index, locals: { response: true, results: results['Search'], total_results: results['totalResults'] }
 end
 
 get "/about" do

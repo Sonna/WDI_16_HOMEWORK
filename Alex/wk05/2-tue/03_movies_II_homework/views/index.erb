@@ -1,10 +1,33 @@
-<h1>Index</h1>
+<h1>Movie Search</h1>
 <section class="search">
-  <form method="POST">
-    <input type="text" name="movie_name">
+  <form>
+    <input type="text" name="movie_name" value="<%= params['movie_name'] %>">
     <button>Search</button>
   </form>
 </section>
+
+<% unless response.nil? %>
+<section class="results">
+
+  <% unless response %>
+    <h1><%= params['movie_name'] %> - <%= results["Error"] %></h1>
+  <% else %>
+    <span class="results-found">Found <%= total_results %> Results</span>
+    <nav>
+      <% results.each do |result| %>
+        <a href="/<%= result['Title'] %>">
+          <article>
+            <h2><%= result['Title'] %> (<%= result['Year'] %>)</h2>
+            <!-- <img class="inline-poster" src="<%= result['Poster'] %>"> -->
+          </article>
+        </a>
+      <% end %>
+    </nav>
+  <% end %>
+
+</section>
+<% end %>
+
 <section class="extras">
   <p>Check out these movies</p>
   <ul>
