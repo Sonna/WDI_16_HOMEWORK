@@ -2,12 +2,10 @@ class Say
   UNITS = %w(zero one two three four five six seven eight nine ten eleven twelve
              thirteen fourteen fifteen sixteen seventeen eighteen nineteen)
   TENS = %w(_ _ twenty thirty forty fifty sixty seventy eighty ninety)
-  # MAGNITUDE = %w(_ thousand million billion)
 
   attr_reader :question
 
   def initialize(question)
-    # unless (0..999_999_999_999).include?(question)
     unless (0..99).include?(question)
       raise ArgumentError, "Number must be between 0 and 99, inclusive."
     end
@@ -16,32 +14,17 @@ class Say
 
   def in_english
     return UNITS.first if question.zero?
-    chunkify(question).each_with_object([]).with_index do |(chunk, memo), i|
-      next if chunk.zero?
-      # memo << MAGNITUDE[i] unless i.zero?
-      memo << textify(chunk)
-    end.reverse.join(' ')
+    textify(question)
   end
 
   private
-
-  def chunkify(number)
-    chunks = []
-    while number > 0
-      number, chunk = number.divmod(1000)
-      chunks << chunk
-    end
-    chunks
-  end
 
   def textify(number)
     return UNITS[number] if number < UNITS.length
 
     tens, units = number.divmod(10)
-    hundreds, tens = tens.divmod(10) # !> assigned but unused variable - hundreds
 
     out = []
-    # out << "#{UNITS[hundreds]} hundred " if hundreds > 0
     out << "#{TENS[tens]}" if tens > 0 && number >= 20
     out << "-" if tens > 0 && units > 0
     out << "#{UNITS[units]}" if units > 0
@@ -58,7 +41,7 @@ class Integer
   end
 end
 
-0.in_english # => "zero"
+Say.new(0).in_english # => "zero"
 1.in_english # => "one"
 2.in_english # => "two"
 3.in_english # => "three"
@@ -126,54 +109,12 @@ if $PROGRAM_NAME == __FILE__
       assert_equal('twenty-two', Say.new(question).in_english)
     end
 
-    # def test_one_hundred
     def test_one_hundred_is_out_range
       question = 100
-      # assert_equal('one hundred', Say.new(question).in_english)
       assert_raises ArgumentError do
         Say.new(question).in_english
       end
     end
-
-    # def test_one_hundred_twenty_three
-    #   question = 123
-    #   assert_equal('one hundred twenty-three', Say.new(question).in_english)
-    # end
-
-    # def test_one_thousand
-    #   question = 1_000
-    #   assert_equal('one thousand', Say.new(question).in_english)
-    # end
-
-    # def test_one_thousand_two_hundred_thirty_four
-    #   question = 1_234
-    #   assert_equal('one thousand two hundred thirty-four', Say.new(question).in_english)
-    # end
-
-    # def test_one_million
-    #   question = 1_000_000
-    #   assert_equal('one million', Say.new(question).in_english)
-    # end
-
-    # def test_one_million_two_thousand_three_hundred_forty_five
-    #   question = 1_002_345
-    #   assert_equal('one million two thousand three hundred forty-five', Say.new(question).in_english)
-    # end
-
-    # def test_one_billion
-    #   question = 1_000_000_000
-    #   assert_equal('one billion', Say.new(question).in_english)
-    # end
-
-    # def test_a_big_number
-    #   question = 654_321_123
-    #   assert_equal('six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three', Say.new(question).in_english)
-    # end
-
-    # def test_a_bigger_number
-    #   question = 987_654_321_123
-    #   assert_equal('nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three', Say.new(question).in_english)
-    # end
 
     def test_numbers_below_zero_are_out_of_range
       question = -1
@@ -190,12 +131,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> 8 runs, 8 assertions, 0 failures, 0 errors, 0 skips
-# >> Run options: --seed 51084
+# >> Run options: --seed 13314
 # >>
 # >> # Running:
 # >>
 # >> ........
 # >>
-# >> Finished in 0.001032s, 7751.9384 runs/s, 7751.9384 assertions/s.
+# >> Finished in 0.001301s, 6149.1166 runs/s, 6149.1166 assertions/s.
 # >> 8 runs, 8 assertions, 0 failures, 0 errors, 0 skips
