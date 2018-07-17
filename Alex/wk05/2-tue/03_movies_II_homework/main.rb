@@ -18,7 +18,7 @@ get "/" do
   prev_page = page - 1
   next_page = page + 1
 
-  results = HTTParty.get("https://omdbapi.com/?s=#{params['movie_name']}&page=#{page}&apikey=#{ENV['API_KEY']}")
+  results = HTTParty.get("https://omdbapi.com/?s=#{params['movie_name']}&type=movie&page=#{page}&apikey=#{ENV['API_KEY']}")
 
   total_results = results['totalResults'].to_i
   last_page = (total_results / 10) + 1
