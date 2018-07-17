@@ -377,3 +377,5 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 - [Movies II Homework](https://gist.github.com/epoch/bb116ac628ed11eab544)
 
 - [SQL Clauses & Aggregation Homework](https://gist.github.com/epoch/1a65771a39879464aad5830947d94263)
+
+- [WDI Dice Warmup](https://gist.github.com/kasun-maldeni/9f54de1a1dee4515c32ba335fb31e721)
