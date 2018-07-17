@@ -225,11 +225,16 @@ img {
 
 .rating-details {
   display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 600px) {
   .rating-details {
     float: right;
+  }
+
+  .rating-votes {
+    padding-left: 15px;
   }
 }
 
