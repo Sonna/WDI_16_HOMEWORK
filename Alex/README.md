@@ -19,6 +19,8 @@ Time  | Table
 
 Task                        | Due Date    | Link
 ----------------------------|-------------|---------------------------------------
+NBA Stats                   | Tue, 17 Jul | [wk05/2-tue/04_nba_database_homework](wk05/2-tue/04_nba_database_homework)
+Movies 2                    | Tue, 17 Jul | [wk05/2-tue/03_movies_II_homework](wk05/2-tue/03_movies_II_homework)
 Movies 1                    | Mon, 16 Jul | [wk05/1-mon/04_movies_I](wk05/1-mon/04_movies_I)
 HappiTails                  | Fri, 13 Jul | [wk04/5-fir/04_homework_happi_tials](wk04/5-fir/04_homework_happi_tials)
 99 Bottles of Beer          | Thu, 12 Jul | [wk04/4-thu/04_sinatra_99_bottles](wk04/4-thu/04_sinatra_99_bottles)
@@ -369,3 +371,9 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 2 - 2018/07/16
 
 - [WDI Say In English Warmup](https://gist.github.com/kasun-maldeni/5a452491fd938d0b920d607750658bb6)
+
+- Discussion on HTTP verbs, Request & Response (in relation to databases)
+
+- [Movies II Homework](https://gist.github.com/epoch/bb116ac628ed11eab544)
+
+- [SQL Clauses & Aggregation Homework](https://gist.github.com/epoch/1a65771a39879464aad5830947d94263)
