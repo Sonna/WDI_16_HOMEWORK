@@ -82,6 +82,7 @@ img {
 
 .movie {
   margin-top: 50px;
+  position: relative;
 }
 
 .movie img {
@@ -110,6 +111,13 @@ img {
 }
 
 .movie .details {
+  margin-top: 350px;
+}
+
+@media (min-width: 400px) {
+  .movie .details {
+    margin-top: 0;
+  }
 }
 
 .movie .foot {
@@ -136,10 +144,28 @@ img {
 }
 
 .movie .poster {
-  float: left;
-  margin: 10px;
-  margin-top: -60px;
-  width: 200px;
+  margin-top: -350px;
+  position: absolute;
+  -webkit-mask-image: -webkit-gradient(linear, center top, center bottom,
+                      from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+  width: 100%;
+}
+
+@media (min-width: 400px) {
+  .movie .poster {
+    float: left;
+    margin: 25px;
+    margin-top: -60px;
+    position: initial;
+    -webkit-mask-image: none;
+    width: 140px;
+  }
+}
+
+@media (min-width: 600px) {
+  .movie .poster {
+    width: 200px;
+  }
 }
 
 .results h2 {
@@ -199,7 +225,12 @@ img {
 
 .rating-details {
   display: flex;
-  float: right;
+}
+
+@media (min-width: 600px) {
+  .rating-details {
+    float: right;
+  }
 }
 
 .rating-votes:after {
