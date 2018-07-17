@@ -143,16 +143,19 @@ img {
   width: 200px;
 }
 
+.results h2 {
+  display: inline-block;
+}
+
 .results nav a {
   display: block;
 }
-/*
+
 .results .inline-poster {
-  display: block;
-  float: right;
+  display: inline-block;
   width: 10%;
 }
-*/
+
 .rating-details {
   display: flex;
   float: right;

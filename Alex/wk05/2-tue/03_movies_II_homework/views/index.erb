@@ -17,8 +17,8 @@
       <% results.each do |result| %>
         <a href="/<%= result['Title'] %>">
           <article>
+            <img class="inline-poster" src="<%= result['Poster'] %>">
             <h2><%= result['Title'] %> (<%= result['Year'] %>)</h2>
-            <!-- <img class="inline-poster" src="<%= result['Poster'] %>"> -->
           </article>
         </a>
       <% end %>
@@ -26,7 +26,8 @@
   <% end %>
 
 </section>
-<% end %>
+
+<% else %>
 
 <section class="extras">
   <p>Check out these movies</p>
@@ -36,3 +37,4 @@
     <li><a href="/once">Once</a></li>
   </ul>
 </section>
+<% end %>
