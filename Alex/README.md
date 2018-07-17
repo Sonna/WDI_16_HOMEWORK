@@ -371,3 +371,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 - [WDI Say In English Warmup](https://gist.github.com/kasun-maldeni/5a452491fd938d0b920d607750658bb6)
 
 - Discussion on HTTP verbs, Request & Response (in relation to databases)
+
+- [Movies II Homework](https://gist.github.com/epoch/bb116ac628ed11eab544)
+
+- [SQL Clauses & Aggregation Homework](https://gist.github.com/epoch/1a65771a39879464aad5830947d94263)
