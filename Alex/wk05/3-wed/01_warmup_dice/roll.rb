@@ -2,7 +2,29 @@ class Dice
   RANGE = (1..6)
 
   def self.roll(n = 1)
-    n.times.map { rand(RANGE) }
+    Results.new(n.times.map { rand(RANGE) })
+  end
+
+  class Results
+    include Enumerable
+    attr_reader :values
+
+    def initialize(values)
+      @values = values
+    end
+
+    def each
+      return enum_for(__callee__) { values.size } unless block_given?
+      values.each { |value| yield value }
+    end
+
+    # def to_a
+    #   values
+    # end
+
+    def total
+      [values, values.sum]
+    end
   end
 end
 
@@ -42,7 +64,11 @@ if $PROGRAM_NAME == __FILE__
     # 1. Write a method called `total` you can chain directly after
     # `Dice.roll(n)`; e.g. `Dice.roll(4).total # => [[6,3,2,4], 15]`
     def test_chain_total_method_after_dice_roll
-      skip
+      subject = Dice.roll.total
+      assert subject.is_a?(Enumerable)
+      assert subject.first.is_a?(Enumerable)
+      assert subject.last.is_a?(Numeric)
+      assert_equal subject.first.sum, subject.last
     end
 
     # 2. Display die faces after rolling.
@@ -57,11 +83,13 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 53252
+# >> Run options: --seed 46850
 # >>
 # >> # Running:
 # >>
-# >> ....
+# >> ..S...
 # >>
-# >> Finished in 0.000886s, 4514.6727 runs/s, 4514.6727 assertions/s.
-# >> 4 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+# >> Finished in 0.000915s, 6557.3771 runs/s, 8743.1694 assertions/s.
+# >> 6 runs, 8 assertions, 0 failures, 0 errors, 1 skips
+# >>
+# >> You have skipped tests. Run with --verbose for details.
