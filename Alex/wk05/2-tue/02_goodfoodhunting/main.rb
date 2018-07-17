@@ -26,3 +26,8 @@ get '/dishes/:dishname' do
 ensure
   conn.close
 end
+
+# post "/" do
+#   params['name']
+#   params['image_url']
+# end
