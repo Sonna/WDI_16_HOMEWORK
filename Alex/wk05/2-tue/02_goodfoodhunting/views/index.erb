@@ -1,1 +1,9 @@
-<h1>hello world</h1>
+<h1>good food hunting</h1>
+
+<% @dishes.each do |dish| %>
+
+  <a href="dishes/<%= dish["name"] %>">
+    <p><%= dish["name"] %></p>
+  </a>
+
+<% end %>

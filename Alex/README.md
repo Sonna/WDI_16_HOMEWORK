@@ -369,3 +369,5 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 2 - 2018/07/16
 
 - [WDI Say In English Warmup](https://gist.github.com/kasun-maldeni/5a452491fd938d0b920d607750658bb6)
+
+- Discussion on HTTP verbs, Request & Response (in relation to databases)
