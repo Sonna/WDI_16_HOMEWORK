@@ -7,26 +7,129 @@ class Dice
 
   class Results
     include Enumerable
-    attr_reader :values
+    attr_reader :rolls
 
-    def initialize(values)
-      @values = values
+    def initialize(rolls)
+      @rolls = rolls.map { |pips| Roll.new(pips) }
     end
 
     def each
-      return enum_for(__callee__) { values.size } unless block_given?
-      values.each { |value| yield value }
+      return enum_for(__callee__) { rolls.size } unless block_given?
+      rolls.each { |roll| yield roll }
     end
 
-    # def to_a
-    #   values
-    # end
+    def to_a
+      rolls.map(&:pips)
+    end
+
+    def to_s
+      rolls.map(&:to_s).join
+    end
 
     def total
-      [values, values.sum]
+      [rolls.map(&:pips), rolls.sum]
+    end
+  end
+
+  class Roll
+    FACES = {
+      6 => <<~GRAPHIC,
+            _________
+            | *   * |
+            | *   * |
+            | *   * |
+            _________
+          GRAPHIC
+      5 => <<~GRAPHIC,
+            _________
+            | *   * |
+            |   *   |
+            | *   * |
+            _________
+          GRAPHIC
+      4 => <<~GRAPHIC,
+            _________
+            | *   * |
+            |       |
+            | *   * |
+            _________
+          GRAPHIC
+      3 => <<~GRAPHIC,
+            _________
+            | *     |
+            |   *   |
+            |     * |
+            _________
+          GRAPHIC
+      2 => <<~GRAPHIC,
+            _________
+            | *     |
+            |       |
+            |     * |
+            _________
+          GRAPHIC
+      1 => <<~GRAPHIC,
+            _________
+            |       |
+            |   *   |
+            |       |
+            _________
+          GRAPHIC
+    }.freeze
+
+    attr_reader :pips
+
+    def initialize(pips)
+      @pips = pips
+    end
+
+    def <=>(other)
+      case other
+      when self.class then pips <=> other.pips
+      when Numeric then pips <=> other
+      else
+        if other.respond_to? :coerce
+          a, b = other.coerce(self)
+          a + b
+        else
+          raise TypeError, "#{other.class} can't be coerced into #{self.class}"
+        end
+      end
+    end
+
+    def +(other)
+      case other
+      # Does this idea of adding pips, to make a new Die/Roll, make sense?
+      # self.class.new(pips + other.pips)
+      when self.class then pips + other.pips
+      when Numeric then pips + other
+      else
+        if other.respond_to? :coerce
+          a, b = other.coerce(self)
+          a + b
+        else
+          raise TypeError, "#{other.class} can't be coerced into #{self.class}"
+        end
+      end
+    end
+
+    def coerce(other)
+      [self.class.new(other), self]
+    end
+
+    def to_s
+      FACES[pips]
     end
   end
 end
+
+Dice.roll # => #<Dice::Results:0x00007fd5a90695b0 @rolls=[#<Dice::Roll:0x00007fd5a90693f8 @pips=1>]>
+Dice.roll.to_a # => [3]
+Dice.roll(3) # => #<Dice::Results:0x00007fd5a9059520 @rolls=[#<Dice::Roll:0x00007fd5a9059250 @pips=2>, #<Dice::Roll:0x00007fd5a9058a80 @pips=4>, #<Dice::Roll:0x00007fd5a9058a30 @pips=5>]>
+Dice.roll(3).to_a # => [1, 4, 5]
+Dice.roll(3).total # => [[6, 6, 1], 13]
+Dice.roll(3).to_s # => "_________\n| *     |\n|       |\n|     * |\n_________\n_________\n|       |\n|   *   |\n|       |\n_________\n_________\n| *   * |\n|   *   |\n| *   * |\n_________\n"
+puts Dice.roll(3)
 
 if $PROGRAM_NAME == __FILE__
   require "minitest/autorun"
@@ -57,6 +160,7 @@ if $PROGRAM_NAME == __FILE__
     # how to test for rand values between 1 & 6
     def test_roll_returns_values_between_1_and_6
       results = Dice.roll(10)
+      # assert results.all? { |result| (1..6).cover?(result.pips) }
       assert results.all? { |result| (1..6).cover?(result) }
     end
 
@@ -73,7 +177,11 @@ if $PROGRAM_NAME == __FILE__
 
     # 2. Display die faces after rolling.
     def test_display_die_faces_after_rolling
-      skip
+      subject = Dice.roll
+      # subject.to_s
+      # = > ["_________\n| *     |\n|       |\n|     * |\n_________\n"]
+      # assert subject.to_s.each { |str| Dice::Roll::FACES.values.include?(str) }
+      assert Dice::Roll::FACES.values.include?(subject.to_s)
     end
 
     protected
@@ -83,13 +191,26 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 46850
+# >> _________
+# >> | *   * |
+# >> | *   * |
+# >> | *   * |
+# >> _________
+# >> _________
+# >> | *     |
+# >> |   *   |
+# >> |     * |
+# >> _________
+# >> _________
+# >> |       |
+# >> |   *   |
+# >> |       |
+# >> _________
+# >> Run options: --seed 31370
 # >>
 # >> # Running:
 # >>
-# >> ..S...
+# >> ......
 # >>
-# >> Finished in 0.000915s, 6557.3771 runs/s, 8743.1694 assertions/s.
-# >> 6 runs, 8 assertions, 0 failures, 0 errors, 1 skips
-# >>
-# >> You have skipped tests. Run with --verbose for details.
+# >> Finished in 0.001474s, 4070.5563 runs/s, 6105.8345 assertions/s.
+# >> 6 runs, 9 assertions, 0 failures, 0 errors, 0 skips
