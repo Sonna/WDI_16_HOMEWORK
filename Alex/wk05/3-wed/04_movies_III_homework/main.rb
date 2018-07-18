@@ -42,23 +42,21 @@ get "/" do
     current_page: params['page']
   )
 
-  return erb :index, locals: {
-    response: false,
-    results: results,
-    total_results: pagination.total_items,
-    result_count: pagination.result_count,
-    pagination: pagination.to_h
-  } if results['Response'] == 'False' # results['Search'].length.zero?
-
-  redirect "/#{URI::encode(params['movie_name'])}" if results['totalResults'] == "1"
-
-  erb :index, locals: {
+  locals = {
     response: true,
     results: results['Search'],
     total_results: pagination.total_items,
     result_count: pagination.result_count,
     pagination: pagination.to_h
   }
+
+  return erb(:index, locals: locals.merge({
+    response: false
+  })) if results['Response'] == 'False' # results['Search'].length.zero?
+
+  redirect "/#{URI::encode(params['movie_name'])}" if results['totalResults'] == "1"
+
+  erb(:index, locals: locals)
 end
 
 get "/about" do
