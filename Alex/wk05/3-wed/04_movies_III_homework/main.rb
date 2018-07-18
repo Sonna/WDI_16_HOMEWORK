@@ -1,4 +1,4 @@
-$LOAD_PATH.push File.expand_path('../', __FILE__)
+$LOAD_PATH.push File.expand_path('../lib', __FILE__)
 
 # require "dotenv/load"
 require "dotenv"
@@ -8,29 +8,11 @@ require "sinatra/reloader"
 require "pg"
 require "uri"
 
-require "rating"
 require "pagination"
+require "rating"
+require "sql"
 
 Dotenv.load File.join(File.dirname(__FILE__), ".env")
-
-def conn_sql
-  conn = PG.connect(dbname: ENV["DB_NAME"], port: ENV["DB_PORT"],
-                    user: ENV["DB_USER"], hostaddr: ENV["DB_ADDR"])
-  yield conn
-ensure
-  conn.close
-end
-
-def run_sql(sql)
-  conn_sql { |conn| conn.exec(sql) }
-end
-
-def prepare_sql(name, sql, *args)
-  conn_sql do |conn|
-    conn.prepare(name, sql)
-    conn.exec_prepared(name, args)
-  end
-end
 
 get "/" do
   return erb :index, locals: { response: nil, results: [] } if params['movie_name'].nil?
