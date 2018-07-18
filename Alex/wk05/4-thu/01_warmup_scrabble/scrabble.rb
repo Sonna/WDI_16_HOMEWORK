@@ -42,11 +42,13 @@ module Scrabble
     %w(K).map(&map_score(5)),
     %w(J X).map(&map_score(8)),
     %w(Q Z).map(&map_score(10))
-  ].flatten]
+  ].flatten].freeze
 
-  def self.score(word)
-    word.chars.reduce(0) do |sum, letter|
-      sum += LETTER_SCORE[letter.upcase]
+  MODIFIERS = { double: 2, triple: 3 }.freeze
+
+  def self.score(word, modifiers = {})
+    word.each_char.with_index(1).sum do |letter, index|
+      LETTER_SCORE[letter.upcase] * (MODIFIERS[modifiers[index]] || 1)
     end
   end
 end
@@ -55,7 +57,6 @@ end
 
 # * You can play a `:double` or a `:triple` letter.
 # * You can play a `:double` or a `:triple` word.
-
 
 if $PROGRAM_NAME == __FILE__
   require "minitest/autorun"
@@ -119,6 +120,15 @@ if $PROGRAM_NAME == __FILE__
       end
     end
 
+    # * You can play a `:double` or a `:triple` letter.
+    def test_play_a_double_letter
+      assert_equal 7, described_class.score('ab', { 2 => :double })
+    end
+
+    def test_play_a_triple_letter
+      assert_equal 30, described_class.score('q', { 1 => :triple })
+    end
+
     protected
 
     def described_class
@@ -126,11 +136,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 41657
+# >> Run options: --seed 56819
 # >>
 # >> # Running:
 # >>
-# >> ...........
+# >> .............
 # >>
-# >> Finished in 0.001352s, 8136.0947 runs/s, 22189.3492 assertions/s.
-# >> 11 runs, 30 assertions, 0 failures, 0 errors, 0 skips
+# >> Finished in 0.001764s, 7369.6145 runs/s, 18140.5896 assertions/s.
+# >> 13 runs, 32 assertions, 0 failures, 0 errors, 0 skips
