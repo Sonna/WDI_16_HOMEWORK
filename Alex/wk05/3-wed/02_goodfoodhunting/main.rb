@@ -3,18 +3,30 @@ require 'pg'
 require 'sinatra'
 require 'sinatra/reloader'
 
-#    get '/dishes/:id'      | show
-#    get '/dishes/new'      | new
-#   post '/dishes'          | redirect
-# delete '/dishes/new'      | redirect
-#    get '/dishes/:id/edit' | edit
-#    put '/dishes/:id'      | redirect
+#                |    get '/dishes/:id'      | show
+# show new form  |    get '/dishes/new'      | new
+# create dish    |   post '/dishes'          | redirect
+#                | delete '/dishes/new'      | redirect
+# show edit form |    get '/dishes/:id/edit' | edit
+# update dish    |    put '/dishes/:id'      | redirect
 
 def run_sql(sql)
   conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
   result = conn.exec(sql)
   conn.close
   return result
+# ensure
+#   conn.close
+end
+
+def prepare_sql(name, sql)
+  conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
+  conn.prepare(name, sql)
+  # yield conn
+  # args = yield
+  # conn.exec_prepared(name, args)
+  conn.exec_prepared(name, yield)
+  conn.close
 # ensure
 #   conn.close
 end
@@ -94,7 +106,11 @@ end
 
 # updates an existing dish
 put '/dishes/:id' do
-  run_sql("UPDATE dishes SET name = '#{ params[:name] }', image_url = '#{ params[:image_url] }' where id = #{ params[:id] };")
+  # prepare_sql("update_dish", "UPDATE dishes SET name = $1, image_url = $2 where id = $3;") do |conn|
+    # conn.exec_prepared("update_dish", [params[:name], params[:image_url], params[:id]])
+  prepare_sql("update_dish", "UPDATE dishes SET name = $1, image_url = $2 where id = $3;") do
+    [params[:name], params[:image_url], params[:id]]
+  end
 
   redirect '/'
 end
