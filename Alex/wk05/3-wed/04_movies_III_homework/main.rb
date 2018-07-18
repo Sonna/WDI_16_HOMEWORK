@@ -1,3 +1,4 @@
+$LOAD_PATH.push File.expand_path('../actions', __FILE__)
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 
 # require "dotenv/load"
@@ -8,45 +9,15 @@ require "sinatra/reloader"
 require "pg"
 require "uri"
 
+require "movie_index"
+
 require "pagination"
 require "rating"
 require "sql"
 
 Dotenv.load File.join(File.dirname(__FILE__), ".env")
 
-get "/" do
-  return erb :index, locals: { response: nil, results: [] } if params['movie_name'].nil?
-
-  page = params['page'] ? params['page'].to_i : 1
-
-  results = HTTParty.get(ENV['API_URL'], query: {
-    's' => params['movie_name'],
-    'type' => 'movie',
-    'page' => page,
-    'apikey' => ENV['API_KEY']
-  })
-
-  locals = { response: true, results: results['Search'] }
-
-  return erb(:index, locals: locals.merge({
-    response: false
-  })) if results['Response'] == 'False'
-
-  redirect "/#{URI::encode(params['movie_name'])}" if results['totalResults'] == "1"
-
-  pagination = Pagination.new(
-    total_items: results['totalResults'],
-    items_per_page: 10,
-    current_page: params['page']
-  ).to_h
-
-  erb(:index, locals: locals) do
-    erb(:pagination, locals: pagination) do
-      # erb(:movies, locals: { results: locals[:results] })
-      erb(:movies, locals: locals)
-    end
-  end
-end
+get("/") { movie_index(params) }
 
 get "/about" do
   erb :about
