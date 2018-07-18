@@ -13,21 +13,23 @@ require "pagination"
 
 Dotenv.load File.join(File.dirname(__FILE__), ".env")
 
-def run_sql(sql)
+def conn_sql
   conn = PG.connect(dbname: ENV["DB_NAME"], port: ENV["DB_PORT"],
                     user: ENV["DB_USER"], hostaddr: ENV["DB_ADDR"])
-  conn.exec(sql)
+  yield conn
 ensure
   conn.close
 end
 
-def prepare_sql(name, sql)
-  conn = PG.connect(dbname: ENV["DB_NAME"], port: ENV["DB_PORT"],
-                    user: ENV["DB_USER"], hostaddr: ENV["DB_ADDR"])
-  conn.prepare(name, sql)
-  conn.exec_prepared(name, yield)
-ensure
-  conn.close
+def run_sql(sql)
+  conn_sql { |conn| conn.exec(sql) }
+end
+
+def prepare_sql(name, sql, *args)
+  conn_sql do |conn|
+    conn.prepare(name, sql)
+    conn.exec_prepared(name, args)
+  end
 end
 
 get "/" do
@@ -99,15 +101,14 @@ get "/:title" do
         );
       SQL
 
-      prepare_sql("create_movie", sql) do
-        [
-          result["Title"], result["Year"], result["Rated"], result["Released"],
-          result["Runtime"], result["Genre"], result["Director"],
-          result["Writer"], result["Actors"], result["Plot"], result["Language"],
-          result["Poster"], result["imdbRating"], result["imdbVotes"],
-          result["Production"]
-        ]
-      end
+      prepare_sql(
+        "create_movie", sql,
+        result["Title"], result["Year"], result["Rated"], result["Released"],
+        result["Runtime"], result["Genre"], result["Director"],
+        result["Writer"], result["Actors"], result["Plot"], result["Language"],
+        result["Poster"], result["imdbRating"], result["imdbVotes"],
+        result["Production"]
+      )
     end
 
     result = result.transform_keys { |key| key.downcase.to_sym }
