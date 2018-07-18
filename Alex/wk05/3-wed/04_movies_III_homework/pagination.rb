@@ -55,6 +55,6 @@ class Pagination
   end
 
   def items_of
-    "#{item_count} - #{[item_count + 10, total_items].min}"
+    "#{item_count} - #{[item_count + items_per_page, total_items].min}"
   end
 end
