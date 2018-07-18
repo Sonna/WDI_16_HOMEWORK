@@ -20,6 +20,15 @@ ensure
   conn.close
 end
 
+def prepare_sql(name, sql)
+  conn = PG.connect(dbname: ENV["DB_NAME"], port: ENV["DB_PORT"],
+                    user: ENV["DB_USER"], hostaddr: ENV["DB_ADDR"])
+  conn.prepare(name, sql)
+  conn.exec_prepared(name, yield)
+ensure
+  conn.close
+end
+
 get "/" do
   return erb :index, locals: { response: nil, results: [] } if params['movie_name'].nil?
 
@@ -67,14 +76,14 @@ end
 get "/:title" do
   title = params['title']
   # Find movie (by title)
-  sql = "SELECT * FROM movies WHERE title = '#{title}';"
+  sql = "SELECT * FROM movies WHERE title ILIKE '#{title}';"
   result = run_sql(sql).first
 
   # if found
   if result
     # - store in result
-    result["Response"] = "True"
-
+    result["response"] = "True"
+    result.transform_keys!(&:to_sym)
   # if no result
   else
     # - query remote API
@@ -91,39 +100,50 @@ get "/:title" do
         imdbRating, imdbVotes,
         Production
       ) VALUES (
-        '#{result["Title"]}', #{result["Year"]}, '#{result["Rated"]}',
-        '#{result["Released"]}', '#{result["Runtime"]}', '#{result["Genre"]}',
-        '#{result["Director"]}', '#{result["Writer"]}', '#{result["Actors"]}',
-        '#{result["Plot"]}', '#{result["Language"]}', '#{result["Poster"]}',
-        '#{result["imdbRating"]}', '#{result["imdbVotes"]}',
-        '#{result["Production"]}'
+        $1, $2, $3, $4,
+        $5, $6, $7,
+        $8, $9, $10, $11,
+        $12, $13, $14,
+        $15
       );
     SQL
-    run_sql(sql)
+    prepare_sql("create_movie", sql) do
+      [
+        result["Title"], result["Year"], result["Rated"], result["Released"],
+        result["Runtime"], result["Genre"], result["Director"],
+        result["Writer"], result["Actors"], result["Plot"], result["Language"],
+        result["Poster"], result["imdbRating"], result["imdbVotes"],
+        result["Production"]
+      ]
+    end
+
+    result = result.transform_keys { |key| key.downcase.to_sym }
   end
 
   # render
   erb :movie, locals: {
-    response: result["Response"] == "True",
+    response: result[:response] == "True",
     param_title: title,
 
-    title: result["Title"],
-    year: result["Year"],
-    rated: result["Rated"],
-    released: result["Released"],
-    runtime: result["Runtime"],
-    genre: result["Genre"],
-    director: result["Director"],
-    writer: result["Writer"],
-    actors: result["Actors"],
-    plot: result["Plot"],
-    language: result["Language"],
-    poster_url: result["Poster"],
-    imdb_rating: Rating.new(result["imdbRating"].to_f),
-    imdb_votes: result["imdbVotes"],
-    production: result["Production"],
+    title: result[:title],
+    year: result[:year],
+    rated: result[:rated],
+    released: result[:released],
+    runtime: result[:runtime],
+    genre: result[:genre],
+    director: result[:director],
+    writer: result[:writer],
+    actors: result[:actors],
+    plot: result[:plot],
+    language: result[:language],
+    poster_url: result[:poster],
+    imdb_rating: Rating.new(result[:imdbrating].to_f),
+    imdb_votes: result[:imdbvotes],
+    production: result[:production],
 
-    error_message: result["Error"]
+    result: result,
+    # result: result.parsed_response,
+    error_message: result[:error]
     # error_message: result.parsed_response
   }
 end

@@ -5,7 +5,7 @@ CREATE TABLE movies (
   id SERIAL4 PRIMARY KEY,
   Title VARCHAR(150) NOT NULL,
   Year int,
-  Rated VARCHAR(3),
+  Rated VARCHAR(15),
   Released TEXT,
   Runtime VARCHAR(50),
   Genre TEXT,
