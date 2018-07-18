@@ -5,11 +5,20 @@ require "dotenv"
 require "httparty"
 require "sinatra"
 require "sinatra/reloader"
+require "pg"
 require "uri"
 
 require "rating"
 
 Dotenv.load File.join(File.dirname(__FILE__), ".env")
+
+def run_sql(sql)
+  conn = PG.connect(dbname: ENV["DB_NAME"], port: ENV["DB_PORT"],
+                    user: ENV["DB_USER"], hostaddr: ENV["DB_ADDR"])
+  conn.exec(sql)
+ensure
+  conn.close
+end
 
 get "/" do
   return erb :index, locals: { response: nil, results: [] } if params['movie_name'].nil?
@@ -56,10 +65,47 @@ get "/about" do
 end
 
 get "/:title" do
-  result = HTTParty.get("https://omdbapi.com/?t=#{params['title']}&apikey=#{ENV['API_KEY']}")
+  title = params['title']
+  # Find movie (by title)
+  sql = "SELECT * FROM movies WHERE title = '#{title}';"
+  result = run_sql(sql).first
+
+  # if found
+  if result
+    # - store in result
+    result["Response"] = "True"
+
+  # if no result
+  else
+    # - query remote API
+    # - store in result
+    result = HTTParty.get("https://omdbapi.com/?t=#{title}&apikey=#{ENV['API_KEY']}")
+
+    # - save result to database
+    sql = <<~SQL
+      INSERT INTO movies (
+        Title, Year, Rated,
+        Released, Runtime, Genre,
+        Director, Writer, Actors,
+        Plot, Language, Poster,
+        imdbRating, imdbVotes,
+        Production
+      ) VALUES (
+        '#{result["Title"]}', #{result["Year"]}, '#{result["Rated"]}',
+        '#{result["Released"]}', '#{result["Runtime"]}', '#{result["Genre"]}',
+        '#{result["Director"]}', '#{result["Writer"]}', '#{result["Actors"]}',
+        '#{result["Plot"]}', '#{result["Language"]}', '#{result["Poster"]}',
+        '#{result["imdbRating"]}', '#{result["imdbVotes"]}',
+        '#{result["Production"]}'
+      );
+    SQL
+    run_sql(sql)
+  end
+
+  # render
   erb :movie, locals: {
     response: result["Response"] == "True",
-    param_title: params['title'],
+    param_title: title,
 
     title: result["Title"],
     year: result["Year"],
@@ -76,6 +122,8 @@ get "/:title" do
     imdb_rating: Rating.new(result["imdbRating"].to_f),
     imdb_votes: result["imdbVotes"],
     production: result["Production"],
-    result: result.parsed_response
+
+    error_message: result["Error"]
+    # error_message: result.parsed_response
   }
 end
