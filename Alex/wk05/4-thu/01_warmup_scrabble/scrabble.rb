@@ -107,13 +107,13 @@ if $PROGRAM_NAME == __FILE__
       assert_equal 5, described_class.score("k")
     end
 
-    def test_calculates_score_4_for_JX # !> previous definition of test_calculates_score_4_for_JX was here
+    def test_calculates_score_8_for_JX
       %w(j x).each do |letter|
         assert_equal 8, described_class.score(letter)
       end
     end
 
-    def test_calculates_score_4_for_JX # !> method redefined; discarding old test_calculates_score_4_for_JX
+    def test_calculates_score_10_for_QZ
       %w(q z).each do |letter|
         assert_equal 10, described_class.score(letter)
       end
@@ -126,11 +126,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 41237
+# >> Run options: --seed 41657
 # >>
 # >> # Running:
 # >>
-# >> ..........
+# >> ...........
 # >>
-# >> Finished in 0.001355s, 7380.0738 runs/s, 20664.2066 assertions/s.
-# >> 10 runs, 28 assertions, 0 failures, 0 errors, 0 skips
+# >> Finished in 0.001352s, 8136.0947 runs/s, 22189.3492 assertions/s.
+# >> 11 runs, 30 assertions, 0 failures, 0 errors, 0 skips
