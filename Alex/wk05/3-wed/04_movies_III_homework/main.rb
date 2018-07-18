@@ -47,11 +47,13 @@ get "/" do
     response: false,
     results: results,
     result_count: result_count,
-    curr_page: page,
-    page_range: page_range,
-    prev_page: prev_page,
-    next_page: next_page,
-    last_page: last_page,
+    pagination: {
+      curr_page: page,
+      page_range: page_range,
+      prev_page: prev_page,
+      next_page: next_page,
+      last_page: last_page
+    }
   } if results['Response'] == 'False' # results['Search'].length.zero?
 
   redirect "/#{URI::encode(params['movie_name'])}" if results['totalResults'] == "1"
@@ -61,11 +63,13 @@ get "/" do
     results: results['Search'],
     total_results: total_results,
     result_count: result_count,
-    curr_page: page,
-    page_range: page_range,
-    prev_page: prev_page,
-    next_page: next_page,
-    last_page: last_page
+    pagination: {
+      curr_page: page,
+      page_range: page_range,
+      prev_page: prev_page,
+      next_page: next_page,
+      last_page: last_page
+    }
   }
 end
 
