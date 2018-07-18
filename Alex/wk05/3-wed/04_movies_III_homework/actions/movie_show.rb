@@ -1,4 +1,4 @@
-def movie_index(params)
+def movie_show(params)
   title = params['title']
   # Find movie (by title)
   sql = "SELECT * FROM movies WHERE title ILIKE ($1);"

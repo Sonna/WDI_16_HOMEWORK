@@ -20,4 +20,4 @@ Dotenv.load File.join(File.dirname(__FILE__), ".env")
 
 get("/") { movie_index(params) }
 get("/about") { erb :about }
-get("/:title") { movie_show }
+get("/:title") { movie_show(params) }
