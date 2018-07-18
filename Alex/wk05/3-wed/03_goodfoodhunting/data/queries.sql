@@ -15,3 +15,7 @@ SELECT id, content, dish_id FROM comments;
 -- ----+---------+---------
 --   1 | yum     |       2
 -- (1 row)
+
+DELETE FROM dishes WHERE id = 2;
+-- ERROR:  update or delete on table "dishes" violates foreign key constraint "comments_dish_id_fkey" on table "comments"
+-- DETAIL:  Key (id)=(2) is still referenced from table "comments".
