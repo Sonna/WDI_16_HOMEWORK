@@ -13,8 +13,6 @@ require "pagination"
 
 Dotenv.load File.join(File.dirname(__FILE__), ".env")
 
-API_URL = "https://omdbapi.com/".freeze
-
 def conn_sql
   conn = PG.connect(dbname: ENV["DB_NAME"], port: ENV["DB_PORT"],
                     user: ENV["DB_USER"], hostaddr: ENV["DB_ADDR"])
@@ -39,7 +37,7 @@ get "/" do
 
   page = params['page'] ? params['page'].to_i : 1
 
-  results = HTTParty.get(API_URL, query: {
+  results = HTTParty.get(ENV['API_URL'], query: {
     's' => params['movie_name'],
     'type' => 'movie',
     'page' => page,
@@ -87,7 +85,7 @@ get "/:title" do
   else
     # - query remote API
     # - store in result
-    result = HTTParty.get(API_URL, query: {
+    result = HTTParty.get(ENV['API_URL'], query: {
       "t" => title,
       "apikey" => ENV['API_KEY']
     })
