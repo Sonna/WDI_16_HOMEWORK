@@ -23,8 +23,24 @@ end
 
 # create a dish
 post '/dishes' do
-  "should create dish now"
-  # return params.to_s
+  # "should create dish now"
+  # params.to_s
+
+  # how?
+  # inputs from the form - params
+  # sql - insert
+  # sql = "INSERT INTO dishes () VALUES ();"
+  # sql = "INSERT INTO dishes (name, image_url) VALUES ('pudding', 'http://.../.png');"
+  sql = "INSERT INTO dishes (name, image_url) VALUES ('#{ params[:name] }', '#{ params[:image_url] }');"
+
+  conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
+  conn.exec(sql)
+
+  # 'yay'
+  # get post redirect
+  redirect '/' # needs to a route - because its making a request
+ensure
+  conn.close
 end
 
 # delete a dish

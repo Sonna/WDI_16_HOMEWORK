@@ -387,7 +387,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
   * CRUD
   * Restful URLs
   * `http` verbs/methods
-    + `get`
-    + `post`
+    + `get` (harmless/safe)
+    + `post` (danger!)
     + `delete`
     + `put/patch`
