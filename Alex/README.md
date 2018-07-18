@@ -19,6 +19,7 @@ Time  | Table
 
 Task                        | Due Date    | Link
 ----------------------------|-------------|---------------------------------------
+Movies 3                    | Wed, 18 Jul | [wk05/3-wed/04_movies_III_homework](wk05/3-wed/04_movies_III_homework)
 NBA Stats                   | Tue, 17 Jul | [wk05/2-tue/04_nba_database_homework](wk05/2-tue/04_nba_database_homework)
 Movies 2                    | Tue, 17 Jul | [wk05/2-tue/03_movies_II_homework](wk05/2-tue/03_movies_II_homework)
 Movies 1                    | Mon, 16 Jul | [wk05/1-mon/04_movies_I](wk05/1-mon/04_movies_I)
@@ -391,3 +392,5 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
     + `post` (danger!)
     + `delete` (danger!)
     + `put/patch`
+
+- [Movies III Homework](https://gist.github.com/epoch/16cc562c1891161fe359fd01b2863a00#file-movies3-md)
