@@ -91,30 +91,33 @@ get "/:title" do
     result = HTTParty.get("https://omdbapi.com/?t=#{title}&apikey=#{ENV['API_KEY']}")
 
     # - save result to database
-    sql = <<~SQL
-      INSERT INTO movies (
-        Title, Year, Rated,
-        Released, Runtime, Genre,
-        Director, Writer, Actors,
-        Plot, Language, Poster,
-        imdbRating, imdbVotes,
-        Production
-      ) VALUES (
-        $1, $2, $3, $4,
-        $5, $6, $7,
-        $8, $9, $10, $11,
-        $12, $13, $14,
-        $15
-      );
-    SQL
-    prepare_sql("create_movie", sql) do
-      [
-        result["Title"], result["Year"], result["Rated"], result["Released"],
-        result["Runtime"], result["Genre"], result["Director"],
-        result["Writer"], result["Actors"], result["Plot"], result["Language"],
-        result["Poster"], result["imdbRating"], result["imdbVotes"],
-        result["Production"]
-      ]
+    unless result["Error"]
+      sql = <<~SQL
+        INSERT INTO movies (
+          Title, Year, Rated,
+          Released, Runtime, Genre,
+          Director, Writer, Actors,
+          Plot, Language, Poster,
+          imdbRating, imdbVotes,
+          Production
+        ) VALUES (
+          $1, $2, $3, $4,
+          $5, $6, $7,
+          $8, $9, $10, $11,
+          $12, $13, $14,
+          $15
+        );
+      SQL
+
+      prepare_sql("create_movie", sql) do
+        [
+          result["Title"], result["Year"], result["Rated"], result["Released"],
+          result["Runtime"], result["Genre"], result["Director"],
+          result["Writer"], result["Actors"], result["Plot"], result["Language"],
+          result["Poster"], result["imdbRating"], result["imdbVotes"],
+          result["Production"]
+        ]
+      end
     end
 
     result = result.transform_keys { |key| key.downcase.to_sym }
