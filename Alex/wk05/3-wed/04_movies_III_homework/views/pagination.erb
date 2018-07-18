@@ -1,0 +1,23 @@
+<nav class="pagination">
+  <% unless curr_page == 1 %>
+    <a href="/?movie_name=<%= params['movie_name'] %>&page=1">«</a>
+  <% end %>
+  <% if prev_page >= 1 %>
+    <a href="/?movie_name=<%= params['movie_name'] %>&page=<%= prev_page %>">‹</a>
+  <% end %>
+
+  <% page_range.to_a.each do |inner_page| %>
+    <% if curr_page == inner_page %>
+      <span><%= inner_page %></span>
+    <% else %>
+      <a href="/?movie_name=<%= params['movie_name'] %>&page=<%= inner_page %>"><%= inner_page %></a>
+    <% end %>
+  <% end %>
+
+  <% if next_page <= last_page %>
+    <a href="/?movie_name=<%= params['movie_name'] %>&page=<%= next_page %>">›</a>
+  <% end %>
+  <% unless curr_page == last_page %>
+    <a href="/?movie_name=<%= params['movie_name'] %>&page=<%= last_page %>">»</a>
+  <% end %>
+</nav>

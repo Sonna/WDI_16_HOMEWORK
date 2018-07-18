@@ -19,6 +19,7 @@ Time  | Table
 
 Task                        | Due Date    | Link
 ----------------------------|-------------|---------------------------------------
+Movies 3                    | Wed, 18 Jul | [wk05/3-wed/04_movies_III_homework](wk05/3-wed/04_movies_III_homework)
 NBA Stats                   | Tue, 17 Jul | [wk05/2-tue/04_nba_database_homework](wk05/2-tue/04_nba_database_homework)
 Movies 2                    | Tue, 17 Jul | [wk05/2-tue/03_movies_II_homework](wk05/2-tue/03_movies_II_homework)
 Movies 1                    | Mon, 16 Jul | [wk05/1-mon/04_movies_I](wk05/1-mon/04_movies_I)
@@ -377,3 +378,19 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 - [Movies II Homework](https://gist.github.com/epoch/bb116ac628ed11eab544)
 
 - [SQL Clauses & Aggregation Homework](https://gist.github.com/epoch/1a65771a39879464aad5830947d94263)
+
+##### Day 3 - 2018/07/17
+
+- [WDI Dice Warmup](https://gist.github.com/kasun-maldeni/9f54de1a1dee4515c32ba335fb31e721)
+
+- Databases & Sinatra Applications (11:00)
+  * Resources
+  * CRUD
+  * Restful URLs
+  * `http` verbs/methods
+    + `get` (harmless/safe)
+    + `post` (danger!)
+    + `delete` (danger!)
+    + `put/patch`
+
+- [Movies III Homework](https://gist.github.com/epoch/16cc562c1891161fe359fd01b2863a00#file-movies3-md)
