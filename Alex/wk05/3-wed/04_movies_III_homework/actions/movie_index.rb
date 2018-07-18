@@ -1,33 +1,47 @@
-def movie_index(params)
-  return erb :index, locals: { response: nil, results: [] } if params['movie_name'].nil?
+require "lib/erb_render"
 
-  page = params['page'] ? params['page'].to_i : 1
+class MovieIndexAction
+  include ErbRender
 
-  results = HTTParty.get(ENV['API_URL'], query: {
-    's' => params['movie_name'],
-    'type' => 'movie',
-    'page' => page,
-    'apikey' => ENV['API_KEY']
-  })
+  attr_reader :params
 
-  locals = { response: true, results: results['Search'] }
+  def initialize(params)
+    @params = params
+  end
 
-  return erb(:index, locals: locals.merge({
-    response: false
-  })) if results['Response'] == 'False'
+  def to_template
+    return erb(:index, layout: :layout, locals: { response: nil, results: [] }) if params['movie_name'].nil?
 
-  redirect "/#{URI::encode(params['movie_name'])}" if results['totalResults'] == "1"
+    page = params['page'] ? params['page'].to_i : 1
 
-  pagination = Pagination.new(
-    total_items: results['totalResults'],
-    items_per_page: 10,
-    current_page: params['page']
-  ).to_h
+    results = HTTParty.get(ENV['API_URL'], query: {
+      's' => params['movie_name'],
+      'type' => 'movie',
+      'page' => page,
+      'apikey' => ENV['API_KEY']
+    })
 
-  erb(:index, locals: locals) do
-    erb(:pagination, locals: pagination) do
-      # erb(:movies, locals: { results: locals[:results] })
-      erb(:movies, locals: locals)
+    locals = { response: true, results: results['Search'], error_message: results["Error"] }
+
+    return erb(:index, layout: :layout, locals: locals.merge({ response: false })) if results['Response'] == 'False'
+
+    redirect "/#{URI::encode(params['movie_name'])}" if results['totalResults'] == "1"
+
+    pagination = Pagination.new(
+      total_items: results['totalResults'],
+      items_per_page: 10,
+      current_page: params['page']
+    ).to_h
+
+    erb(:index, layout: :layout, locals: locals) do
+      erb(:pagination, locals: pagination) do
+        # erb(:movies, locals: { results: locals[:results] })
+        erb(:movies, locals: locals)
+      end
     end
   end
+end
+
+def movie_index(params)
+  MovieIndexAction.new(params).to_template
 end
