@@ -378,4 +378,16 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 
 - [SQL Clauses & Aggregation Homework](https://gist.github.com/epoch/1a65771a39879464aad5830947d94263)
 
+##### Day 3 - 2018/07/17
+
 - [WDI Dice Warmup](https://gist.github.com/kasun-maldeni/9f54de1a1dee4515c32ba335fb31e721)
+
+- Databases & Sinatra Applications (11:00)
+  * Resources
+  * CRUD
+  * Restful URLs
+  * `http` verbs/methods
+    + `get`
+    + `post`
+    + `delete`
+    + `put/patch`
