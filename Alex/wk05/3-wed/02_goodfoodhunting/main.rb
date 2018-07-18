@@ -3,10 +3,17 @@ require 'pg'
 require 'sinatra'
 require 'sinatra/reloader'
 
-get '/' do
+def run_sql(sql)
   conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
-  @dishes = conn.exec("SELECT * FROM dishes;")
+  result = conn.exec(sql)
   conn.close
+  return result
+# ensure
+#   conn.close
+end
+
+get '/' do
+  @dishes = run_sql("SELECT * FROM dishes;")
   erb :index
 end
 
@@ -33,14 +40,15 @@ post '/dishes' do
   # sql = "INSERT INTO dishes (name, image_url) VALUES ('pudding', 'http://.../.png');"
   sql = "INSERT INTO dishes (name, image_url) VALUES ('#{ params[:name] }', '#{ params[:image_url] }');"
 
-  conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
-  conn.exec(sql)
+  # conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
+  # conn.exec(sql)
+  run_sql(sql)
 
   # 'yay'
   # get post redirect
   redirect '/' # needs to a route - because its making a request
-ensure
-  conn.close
+# ensure
+#   conn.close
 end
 
 # delete a dish
@@ -49,20 +57,21 @@ delete '/dishes/:id' do
   sql = "DELETE FROM dishes WHERE id = #{ params[:id] };"
   # return sql
 
-  conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
-  conn.exec(sql)
+  # conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
+  # conn.exec(sql)
+  run_sql(sql)
 
   redirect '/'
-ensure
-  conn.close
+# ensure
+#   conn.close
 end
 
 get '/dishes/:id' do
-  conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
+  # conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
   sql = "SELECT * FROM dishes WHERE id = #{ params[:id] };"
-  result = conn.exec(sql)
+  result = run_sql(sql)
   @dish = result.first
   erb :dish_details, locals: { name: @dish["name"], image_url: @dish["image_url"] }
-ensure
-  conn.close
+# ensure
+#   conn.close
 end
