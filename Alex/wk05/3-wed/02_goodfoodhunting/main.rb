@@ -3,6 +3,13 @@ require 'pg'
 require 'sinatra'
 require 'sinatra/reloader'
 
+#    get '/dishes/:id'      | show
+#    get '/dishes/new'      | new
+#   post '/dishes'          | redirect
+# delete '/dishes/new'      | redirect
+#    get '/dishes/:id/edit' | edit
+#    put '/dishes/:id'      | redirect
+
 def run_sql(sql)
   conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
   result = conn.exec(sql)
@@ -66,6 +73,7 @@ delete '/dishes/:id' do
 #   conn.close
 end
 
+# showing single dish by id
 get '/dishes/:id' do
   # conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
   sql = "SELECT * FROM dishes WHERE id = #{ params[:id] };"
@@ -74,4 +82,19 @@ get '/dishes/:id' do
   erb :dish_details, locals: { name: @dish["name"], image_url: @dish["image_url"] }
 # ensure
 #   conn.close
+end
+
+get '/dishes/:id/edit' do
+  # return "edit form"
+  result = run_sql("SELECT * FROM dishes WHERE id = #{ params[:id] };")
+  @dish = result.first
+
+  erb :edit
+end
+
+# updates an existing dish
+put '/dishes/:id' do
+  run_sql("UPDATE dishes SET name = '#{ params[:name] }', image_url = '#{ params[:image_url] }' where id = #{ params[:id] };")
+
+  redirect '/'
 end
