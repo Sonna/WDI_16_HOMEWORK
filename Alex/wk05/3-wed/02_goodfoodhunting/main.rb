@@ -13,12 +13,24 @@ end
 get '/about' do
 end
 
-get '/dishes/:dishname' do
+get '/dishes/:id' do
   conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
-  sql = "SELECT * FROM dishes WHERE name = '#{ params[:dishname] }';"
+  sql = "SELECT * FROM dishes WHERE id = #{ params[:id] };"
   result = conn.exec(sql)
   @dish = result.first
   erb :dish_details, locals: { name: @dish["name"], image_url: @dish["image_url"] }
 ensure
   conn.close
+end
+
+# get '/create_dish' do
+# end
+
+get '/dishes/new' do
+end
+
+post '/dishes' do
+end
+
+delete '/dishes' do
 end
