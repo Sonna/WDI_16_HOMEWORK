@@ -68,8 +68,8 @@ end
 get "/:title" do
   title = params['title']
   # Find movie (by title)
-  sql = "SELECT * FROM movies WHERE title ILIKE '#{title}';"
-  result = run_sql(sql).first
+  sql = "SELECT * FROM movies WHERE title ILIKE ($1);"
+  result = prepare_sql("find_movie", sql, title).first
 
   # if found
   if result
