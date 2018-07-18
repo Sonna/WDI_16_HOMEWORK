@@ -1,3 +1,10 @@
+<span class="results-showing">
+  Showing results <strong><%= items_of %></strong>
+</span>
+<span class="results-found">(Found <%= total_items %> Results)</span>
+
+<%= yield %>
+
 <nav class="pagination">
   <% unless curr_page == 1 %>
     <a href="/?movie_name=<%= params['movie_name'] %>&page=1">«</a>
