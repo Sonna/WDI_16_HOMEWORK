@@ -44,7 +44,17 @@ ensure
 end
 
 # delete a dish
-delete '/dishes' do
+delete '/dishes/:id' do
+  # "danger!!!!"
+  sql = "DELETE FROM dishes WHERE id = #{ params[:id] };"
+  # return sql
+
+  conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
+  conn.exec(sql)
+
+  redirect '/'
+ensure
+  conn.close
 end
 
 get '/dishes/:id' do

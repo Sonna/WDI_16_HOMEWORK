@@ -389,5 +389,5 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
   * `http` verbs/methods
     + `get` (harmless/safe)
     + `post` (danger!)
-    + `delete`
+    + `delete` (danger!)
     + `put/patch`
