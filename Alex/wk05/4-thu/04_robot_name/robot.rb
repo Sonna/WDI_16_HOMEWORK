@@ -88,13 +88,61 @@
 # puts robot3.name
 # ```
 
-class Robot
-  # attr_reader :name
-  def name
-    "RX837"
+# idea from:
+# - https://gist.github.com/jiggneshhgohel/d4d5996207dcf81bef8e
+module MacAddress
+  # M => Manufacturer, S => Serial number assigned by Manufacturer
+  FORMAT = "MM:MM:MM:SS:SS:SS".freeze
+  OCTALS = (0..15).to_a.freeze
+
+  def self.generate(m = manufacturer, s = serial_number)
+    "#{m}:#{s}"
+  end
+
+  def self.manufacturer
+    6.times.map { OCTALS.sample.to_s(16) }.each_slice(2).map(&:join).join(":").upcase
+  end
+
+  def self.serial_number
+    6.times.map { OCTALS.sample.to_s(16) }.each_slice(2).map(&:join).join(":").upcase
   end
 end
 
+module RobotName
+  PREFIX = ("AA".."ZZ").to_a.freeze
+  SUFFIX = ("000".."999").to_a.freeze
+
+  def self.generate(prefix = PREFIX, suffix = SUFFIX)
+    prefix.sample + suffix.sample
+  end
+end
+
+# module RobotFactory
+#   def self.build
+#     @@manufacturer_id ||= MacAddress.manufacturer
+#     robot = Robot.new
+#     robot.name = RobotName.generate
+#   end
+# end
+
+class Robot
+  # attr_reader :mac_address
+
+  # def mac_address=(mac_address)
+  #   @mac_address ||= mac_address
+  # end
+  def mac_address
+    @mac_address ||= MacAddress.generate
+  end
+
+  def name
+    @name ||= RobotName.generate
+  end
+
+  def reset
+    @name = nil
+  end
+end
 
 if $PROGRAM_NAME == __FILE__
   require "minitest/autorun"
@@ -115,6 +163,49 @@ if $PROGRAM_NAME == __FILE__
       assert_equal robot_names.uniq.length, robot_names.length, robot_names
     end
 
+    def test_robot_keeps_name_when_asked_multiple_times
+      subject = described_class.new
+      assert_equal subject.name, subject.name
+    end
+
+    # Every once in a while we need to reset a robot to its factory settings,
+    # which means that their name gets wiped. The next time you ask, it gets a
+    # new name.
+    def test_reseting_robot_gives_it_a_new_name
+      subject = described_class.new
+      first_name = subject.name
+
+      subject.reset
+
+      refute_equal first_name, subject.name
+    end
+
+    # All robots have a mac address. The mac address never changes, even if you
+    # reset it to factory settings.
+    def test_robot_has_a_mac_address
+      assert described_class.new.mac_address
+    end
+
+    def test_robot_keeps_mac_address_after_reset_multiple_times
+      subject = described_class.new
+      first_mac_address = subject.mac_address
+
+      10.times { subject.reset }
+
+      assert_equal first_mac_address, subject.mac_address
+    end
+
+    def test_robots_have_unique_mac_addresses
+      refute_equal described_class.new.mac_address, described_class.new.mac_address
+    end
+
+    # Not necessary, but a stricter format for Mac Address
+    def test_robot_mac_addresses_is_IEEE_802_standard
+      subject = described_class.new
+      assert_match(/[A-Z0-9][A-Z0-9]:[A-Z0-9][A-Z0-9]:[A-Z0-9][A-Z0-9]:[A-Z0-9][A-Z0-9]:[A-Z0-9][A-Z0-9]:[A-Z0-9][A-Z0-9]/,
+                   subject.mac_address)
+    end
+
     protected
 
     def described_class
@@ -122,28 +213,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 41876
+# >> Run options: --seed 33624
 # >>
 # >> # Running:
 # >>
-# >> F
+# >> .........
 # >>
-# >> Failure:
-# >> RobotTest#test_multiple_robots_do_not_share_names [-:115]:
-# >> Expected: 1
-# >>   Actual: 10
-# >>
-# >> bin/rails test -:113
-# >>
-# >> F
-# >>
-# >> Failure:
-# >> RobotTest#test_two_robots_do_not_share_names [-:110]:
-# >> Expected "RX837" to not be equal to "RX837".
-# >>
-# >> bin/rails test -:109
-# >>
-# >> .
-# >>
-# >> Finished in 0.001537s, 1951.8543 runs/s, 2602.4723 assertions/s.
-# >> 3 runs, 4 assertions, 2 failures, 0 errors, 0 skips
+# >> Finished in 0.001219s, 7383.1008 runs/s, 9023.7899 assertions/s.
+# >> 9 runs, 11 assertions, 0 failures, 0 errors, 0 skips
