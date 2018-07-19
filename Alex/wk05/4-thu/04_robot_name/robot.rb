@@ -126,21 +126,34 @@ end
 # end
 
 class Robot
-  # attr_reader :mac_address
+  attr_reader :instruction_count
+
+  def initialize
+    @instruction_count = 0
+  end
 
   # def mac_address=(mac_address)
   #   @mac_address ||= mac_address
   # end
   def mac_address
+    increase_operator_count
     @mac_address ||= MacAddress.generate
   end
 
   def name
+    increase_operator_count
     @name ||= RobotName.generate
   end
 
   def reset
+    increase_operator_count
     @name = nil
+  end
+
+  private
+
+  def increase_operator_count
+    @instruction_count += 1
   end
 end
 
@@ -206,6 +219,32 @@ if $PROGRAM_NAME == __FILE__
                    subject.mac_address)
     end
 
+    # It's important that we not overwork our robots. While resetting to factory
+    # defaults is great, the wear and tear on the robot mechanics doesn't go
+    # away. Have your robot track the total number of operations that have been
+    # performed on it.
+    def test_robot_keeps_track_of_number_of_preformed_operators
+      subject = Robot.new
+
+      subject.name
+      subject.name
+      subject.reset
+      subject.name
+      subject.name
+
+      assert_equal 5, subject.instruction_count
+    end
+
+    def test_robot_keeps_track_of_number_of_different_preformed_operators
+      subject = Robot.new
+
+      subject.name
+      subject.reset
+      subject.name
+
+      assert_equal 3, subject.instruction_count
+    end
+
     protected
 
     def described_class
@@ -213,11 +252,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 33624
+# >> Run options: --seed 58702
 # >>
 # >> # Running:
 # >>
-# >> .........
+# >> ...........
 # >>
-# >> Finished in 0.001219s, 7383.1008 runs/s, 9023.7899 assertions/s.
-# >> 9 runs, 11 assertions, 0 failures, 0 errors, 0 skips
+# >> Finished in 0.001216s, 9046.0526 runs/s, 10690.7894 assertions/s.
+# >> 11 runs, 13 assertions, 0 failures, 0 errors, 0 skips
