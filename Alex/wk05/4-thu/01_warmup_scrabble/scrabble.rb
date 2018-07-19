@@ -29,27 +29,27 @@
 # ```
 
 module Scrabble
-  def self.map_score(s)
-    ->(l) { [l, s] }
+  def self.letter_value(v)
+    ->(l) { [l, v] }
   end
 
-# Letter                           Value
-  LETTER_SCORE = Hash[*[
-    %w(A E I O U L N R S T).map(&map_score(1)),
-    %w(D G).map(&map_score(2)),
-    %w(B C M P).map(&map_score(3)),
-    %w(F H V W Y).map(&map_score(4)),
-    %w(K).map(&map_score(5)),
-    %w(J X).map(&map_score(8)),
-    %w(Q Z).map(&map_score(10))
+  # Letter                           Value
+  POINTS = Hash[*[
+    %w(A E I O U L N R S T).map(&letter_value(1)),
+    %w(D G).map(&letter_value(2)),
+    %w(B C M P).map(&letter_value(3)),
+    %w(F H V W Y).map(&letter_value(4)),
+    %w(K).map(&letter_value(5)),
+    %w(J X).map(&letter_value(8)),
+    %w(Q Z).map(&letter_value(10))
   ].flatten].freeze
 
-  MODIFIERS = { double: 2, triple: 3 }.freeze
+  MODIFIERS = { nil => 1, double: 2, triple: 3 }.freeze
 
   def self.score(word, modifiers = {})
-    word.each_char.with_index(1).sum do |letter, index|
-      LETTER_SCORE[letter.upcase] * (MODIFIERS[modifiers[index]] || 1)
-    end * (MODIFIERS[modifiers[:word]] || 1)
+    word.upcase.each_char.with_index(1).sum do |letter, index|
+      POINTS[letter] * MODIFIERS[modifiers[index]]
+    end * MODIFIERS[modifiers[:word]]
   end
 end
 
@@ -151,11 +151,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 23319
+# >> Run options: --seed 64495
 # >>
 # >> # Running:
 # >>
 # >> ................
 # >>
-# >> Finished in 0.001946s, 8221.9938 runs/s, 17985.6115 assertions/s.
+# >> Finished in 0.002996s, 5340.4539 runs/s, 11682.2430 assertions/s.
 # >> 16 runs, 35 assertions, 0 failures, 0 errors, 0 skips
