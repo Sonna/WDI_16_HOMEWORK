@@ -11,6 +11,7 @@ require "uri"
 require "actions/movie_index"
 require "actions/movie_show"
 
+require "lib/external_api"
 require "lib/pagination"
 require "lib/rating"
 require "lib/sql"

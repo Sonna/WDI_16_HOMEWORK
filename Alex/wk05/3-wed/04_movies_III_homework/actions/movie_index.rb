@@ -5,20 +5,13 @@ class MovieIndexAction
 
   attr_reader :params
 
-  def initialize(params)
+  def initialize(params, external_api = ExternalAPI)
     @params = params
+    @external_api = external_api
   end
 
   def search_by_external_api_request
-    HTTParty.get(
-      ENV["API_URL"],
-      query: {
-        "s" => params["movie_name"],
-        "type" => "movie",
-        "page" => page,
-        "apikey" => ENV["API_KEY"]
-      }
-    )
+    @external_api.movie_search_by(title: params["movie_name"], page: page)
   end
 
   def locals
@@ -55,6 +48,6 @@ class MovieIndexAction
   end
 end
 
-def movie_index(params)
-  MovieIndexAction.new(params).to_template
+def movie_index(params, external_api = ExternalAPI)
+  MovieIndexAction.new(params, external_api).to_template
 end

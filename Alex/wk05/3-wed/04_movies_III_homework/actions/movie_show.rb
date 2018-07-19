@@ -3,18 +3,13 @@ class MovieShowAction
 
   attr_reader :params
 
-  def initialize(params)
+  def initialize(params, external_api = ExternalAPI)
     @params = params
+    @external_api = external_api
   end
 
   def find_by_external_api_request
-    HTTParty.get(
-      ENV['API_URL'],
-      query: {
-        "t" => title,
-        "apikey" => ENV['API_KEY']
-      }
-    )
+    @external_api.movie_find_by(title: title)
   end
 
   def filtered_params(result)
@@ -94,6 +89,6 @@ class MovieShowAction
   end
 end
 
-def movie_show(params)
-  MovieShowAction.new(params).to_template
+def movie_show(params, external_api = ExternalAPI)
+  MovieShowAction.new(params, external_api).to_template
 end
