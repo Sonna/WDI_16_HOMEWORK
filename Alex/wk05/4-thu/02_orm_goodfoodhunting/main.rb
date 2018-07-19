@@ -3,6 +3,21 @@ require 'pg'
 require 'sinatra'
 require 'sinatra/reloader'
 
+# class Dish
+
+#   def self.all
+#     # connect db
+#     # work which table
+#     #
+#   end
+
+# end
+
+# d1 = Dish.new
+# d2 = Dish.new
+# d1.name
+# Dish.all
+
 #                |    get '/dishes/:id'      | show
 # show new form  |    get '/dishes/new'      | new
 # create dish    |   post '/dishes'          | redirect
@@ -33,6 +48,7 @@ end
 
 get '/' do
   @dishes = run_sql("SELECT * FROM dishes;")
+  # @dishes = Dish.all
   erb :index
 end
 

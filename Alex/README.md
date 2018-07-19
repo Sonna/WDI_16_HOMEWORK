@@ -398,3 +398,16 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 4 - 2018/07/18
 
 - [WDI Scrabble Warmup](https://gist.github.com/kasun-maldeni/e0cbf312fe38afeb0f1997df85442a29)
+
+- Lecture / Code Along / Discussion
+  * data modeling with ER diagrams
+  * Object Relational Mapper (ORM)
+
+    ```txt
+      tables ----> classes
+      records ---> objects
+
+      :) --> [App] --> [ORM] --> [DB]
+    ```
+
+  * ORMs `ActiveRecord`
