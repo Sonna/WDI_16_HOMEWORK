@@ -50,32 +50,24 @@ class MovieShowAction
     "SELECT * FROM movies WHERE title ILIKE ($1);"
   end
 
+  def result
+    movie = prepare_sql("find_movie", find_sql, title).first
+
+    if movie
+      movie["response"] = "True"
+    else
+      movie = find_by_external_api_request
+      prepare_sql("create_movie", create_sql, *filtered_params(movie)) unless movie["Error"]
+    end
+
+    movie.transform_keys { |key| key.downcase.to_sym }
+  end
+
   def title
     params['title']
   end
 
   def to_template
-    # Find movie (by title)
-    result = prepare_sql("find_movie", find_sql, title).first
-
-    # if found
-    if result
-      # - store in result
-      result["response"] = "True"
-      result.transform_keys!(&:to_sym)
-    # if no result
-    else
-      # - query remote API
-      # - store in result
-      result = find_by_external_api_request
-
-      # - save result to database
-      prepare_sql("create_movie", create_sql, *filtered_params(result)) unless result["Error"]
-
-      result = result.transform_keys { |key| key.downcase.to_sym }
-    end
-
-    # render
     erb :movie, layout: :layout, locals: {
       response: result[:response] == "True",
       param_title: title,
