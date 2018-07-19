@@ -34,13 +34,13 @@ def run_sql(sql)
 #   conn.close
 end
 
-def prepare_sql(name, sql)
+def prepare_sql(name, sql, *args)
   conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
   conn.prepare(name, sql)
   # yield conn
   # args = yield
   # conn.exec_prepared(name, args)
-  conn.exec_prepared(name, yield)
+  conn.exec_prepared(name, args)
   conn.close
 # ensure
 #   conn.close
@@ -124,9 +124,8 @@ end
 put '/dishes/:id' do
   # prepare_sql("update_dish", "UPDATE dishes SET name = $1, image_url = $2 where id = $3;") do |conn|
     # conn.exec_prepared("update_dish", [params[:name], params[:image_url], params[:id]])
-  prepare_sql("update_dish", "UPDATE dishes SET name = $1, image_url = $2 where id = $3;") do
-    [params[:name], params[:image_url], params[:id]]
-  end
+  prepare_sql("update_dish", "UPDATE dishes SET name = $1, image_url = $2 where id = $3;",
+              [params[:name], params[:image_url], params[:id]])
 
   redirect '/'
 end
