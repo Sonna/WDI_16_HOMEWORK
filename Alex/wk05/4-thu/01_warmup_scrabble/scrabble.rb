@@ -49,7 +49,7 @@ module Scrabble
   def self.score(word, modifiers = {})
     word.each_char.with_index(1).sum do |letter, index|
       LETTER_SCORE[letter.upcase] * (MODIFIERS[modifiers[index]] || 1)
-    end
+    end * (MODIFIERS[modifiers[:word]] || 1)
   end
 end
 
@@ -129,6 +129,21 @@ if $PROGRAM_NAME == __FILE__
       assert_equal 30, described_class.score('q', { 1 => :triple })
     end
 
+    # * You can play a `:double` or a `:triple` word.
+    def test_play_a_double_word
+      assert_equal 28, described_class.score('cabbage', { word: :double })
+    end
+
+    def test_play_a_triple_word
+      assert_equal 42, described_class.score('cabbage', { word: :triple })
+    end
+
+    def test_play_a_triple_word_with_a_double_letter
+      assert_equal 51, described_class.score('cabbage', {
+        3 => :double, word: :triple
+      })
+    end
+
     protected
 
     def described_class
@@ -136,11 +151,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 56819
+# >> Run options: --seed 23319
 # >>
 # >> # Running:
 # >>
-# >> .............
+# >> ................
 # >>
-# >> Finished in 0.001764s, 7369.6145 runs/s, 18140.5896 assertions/s.
-# >> 13 runs, 32 assertions, 0 failures, 0 errors, 0 skips
+# >> Finished in 0.001946s, 8221.9938 runs/s, 17985.6115 assertions/s.
+# >> 16 runs, 35 assertions, 0 failures, 0 errors, 0 skips
