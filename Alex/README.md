@@ -421,3 +421,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 - [WDI CRUD App](https://gist.github.com/kasun-maldeni/e52edee736c88d0b9bbf9be13457c963)
 
 - [Robot Name](https://gist.github.com/epoch/2ac2bd21c2fd8c8ac106#file-robot-md)
+
+##### Day 5 - 2018/07/19
+
+- [WDI Odd Int Warmup](https://gist.github.com/kasun-maldeni/919b2d75fe2d41c563c826ff1616bbf7)
