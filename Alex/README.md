@@ -346,6 +346,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 1 - 2018/07/15
 
 - [WDI Starbucks Warmup](https://gist.github.com/kasun-maldeni/b38a4bcdb17078f48b5179ff9fc85d21)
+- [WDI Starbucks Solution](https://gist.github.com/kasun-maldeni/bdfa0ad5ed07da12257d57b92c4a3cb5)
 
 - Databases (Monday 11:00)
   * Why do we need a database
@@ -374,6 +375,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 2 - 2018/07/16
 
 - [WDI Say In English Warmup](https://gist.github.com/kasun-maldeni/5a452491fd938d0b920d607750658bb6)
+- [WDI Say In English Solution](https://gist.github.com/kasun-maldeni/edef240fd32901ee9497de3f445928ae)
 
 - Discussion on HTTP verbs, Request & Response (in relation to databases)
 
@@ -384,6 +386,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 3 - 2018/07/17
 
 - [WDI Dice Warmup](https://gist.github.com/kasun-maldeni/9f54de1a1dee4515c32ba335fb31e721)
+- [WDI Dice Solution](https://gist.github.com/kasun-maldeni/445474d2f05f2cbcccaef0ea77c7ff54)
 
 - Databases & Sinatra Applications (11:00)
   * Resources
@@ -400,6 +403,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 4 - 2018/07/18
 
 - [WDI Scrabble Warmup](https://gist.github.com/kasun-maldeni/e0cbf312fe38afeb0f1997df85442a29)
+- [WDI Scrabble Solution](https://gist.github.com/kasun-maldeni/7fb634fddebe9934651a284bfe947dfc)
 
 - Lecture / Code Along / Discussion
   * data modeling with ER diagrams
