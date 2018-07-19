@@ -412,4 +412,6 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 
   * ORMs `ActiveRecord`
 
+- [WDI CRUD App](https://gist.github.com/kasun-maldeni/e52edee736c88d0b9bbf9be13457c963)
+
 - [Robot Name](https://gist.github.com/epoch/2ac2bd21c2fd8c8ac106#file-robot-md)
