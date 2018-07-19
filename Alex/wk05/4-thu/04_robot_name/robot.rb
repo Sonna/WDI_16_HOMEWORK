@@ -58,8 +58,8 @@
 
 # It's important that we not overwork our robots. While resetting to factory
 # defaults is great, the wear and tear on the robot mechanics doesn't go away.
-# Have your robot track the total number of operations that have been performed on
-# it.
+# Have your robot track the total number of operations that have been performed
+# on it.
 
 # ```ruby
 # puts "Robot 3: "
@@ -130,29 +130,44 @@ class Robot
 
   def initialize
     @instruction_count = 0
+    @boot_time = Time.now
+    @up_time = Time.now
+  end
+
+  def boot_time
+    Time.now.to_i - @boot_time.to_i
   end
 
   # def mac_address=(mac_address)
   #   @mac_address ||= mac_address
   # end
   def mac_address
-    increase_operator_count
+    preformed_operation
     @mac_address ||= MacAddress.generate
   end
 
   def name
-    increase_operator_count
+    preformed_operation
     @name ||= RobotName.generate
   end
 
+  def up_time
+    Time.now.to_i - @up_time.to_i
+  end
+
   def reset
-    increase_operator_count
+    preformed_operation
     @name = nil
+  end
+
+  def timers
+    "#{boot_time} seconds since last boot, #{up_time} seconds since creation"
   end
 
   private
 
-  def increase_operator_count
+  def preformed_operation
+    @boot_time = Time.now
     @instruction_count += 1
   end
 end
@@ -245,6 +260,24 @@ if $PROGRAM_NAME == __FILE__
       assert_equal 3, subject.instruction_count
     end
 
+    # Number of instructions is important, but so is the total age of the robot.
+    def test_robot_keeps_track_of_its_age
+      assert_match(/\d+ seconds since last boot, \d+ seconds since creation/,
+                    described_class.new.timers)
+    end
+
+    def test_robot_seconds_since_last_boot_different_to_its_age_on_second_request
+      regex_capture = /(?<boot>\d+) seconds since last boot, (?<age>\d+) seconds since creation/
+      subject = described_class.new
+
+      first_boot, first_age = subject.timers.match(regex_capture).captures # !> assigned but unused variable - first_age
+      sleep 1
+      second_boot, second_age = subject.timers.match(regex_capture).captures # !> assigned but unused variable - second_age
+
+      refute_equal(first_boot, second_boot)
+    end
+
+
     protected
 
     def described_class
@@ -252,11 +285,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 58702
+# >> Run options: --seed 36111
 # >>
 # >> # Running:
 # >>
-# >> ...........
+# >> .............
 # >>
-# >> Finished in 0.001216s, 9046.0526 runs/s, 10690.7894 assertions/s.
-# >> 11 runs, 13 assertions, 0 failures, 0 errors, 0 skips
+# >> Finished in 1.002998s, 12.9611 runs/s, 15.9522 assertions/s.
+# >> 13 runs, 16 assertions, 0 failures, 0 errors, 0 skips
