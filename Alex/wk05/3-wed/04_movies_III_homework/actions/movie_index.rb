@@ -9,6 +9,18 @@ class MovieIndexAction
     @params = params
   end
 
+  def search_by_external_api_request
+    HTTParty.get(
+      ENV["API_URL"],
+      query: {
+        "s" => params["movie_name"],
+        "type" => "movie",
+        "page" => page,
+        "apikey" => ENV["API_KEY"]
+      }
+    )
+  end
+
   def locals
     { response: true, results: results["Search"], error_message: results["Error"] }
   end
@@ -27,14 +39,7 @@ class MovieIndexAction
 
   def results
     @results ||= {}
-    @results[[params["movie_name"], page]] ||= HTTParty.get(
-      ENV["API_URL"], query: {
-        "s" => params["movie_name"],
-        "type" => "movie",
-        "page" => page,
-        "apikey" => ENV["API_KEY"]
-      }
-    )
+    @results[[params["movie_name"], page]] ||= search_by_external_api_request
   end
 
   def to_template

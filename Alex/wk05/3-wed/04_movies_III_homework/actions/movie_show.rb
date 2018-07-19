@@ -7,6 +7,16 @@ class MovieShowAction
     @params = params
   end
 
+  def find_by_external_api_request
+    HTTParty.get(
+      ENV['API_URL'],
+      query: {
+        "t" => title,
+        "apikey" => ENV['API_KEY']
+      }
+    )
+  end
+
   def filtered_params(result)
     [
       result["Title"], result["Year"], result["Rated"], result["Released"],
@@ -57,10 +67,7 @@ class MovieShowAction
     else
       # - query remote API
       # - store in result
-      result = HTTParty.get(ENV['API_URL'], query: {
-        "t" => title,
-        "apikey" => ENV['API_KEY']
-      })
+      result = find_by_external_api_request
 
       # - save result to database
       prepare_sql("create_movie", create_sql, *filtered_params(result)) unless result["Error"]
