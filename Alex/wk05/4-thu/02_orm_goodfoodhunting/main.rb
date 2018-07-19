@@ -31,27 +31,6 @@ require "models/comment"
 # show edit form |    get '/dishes/:id/edit' | edit
 # update dish    |    put '/dishes/:id'      | redirect
 
-def run_sql(sql)
-  conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
-  result = conn.exec(sql)
-  conn.close
-  return result
-# ensure
-#   conn.close
-end
-
-def prepare_sql(name, sql, *args)
-  conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
-  conn.prepare(name, sql)
-  # yield conn
-  # args = yield
-  # conn.exec_prepared(name, args)
-  conn.exec_prepared(name, args)
-  conn.close
-# ensure
-#   conn.close
-end
-
 get '/' do
   @dishes = Dish.all # run_sql("SELECT * FROM dishes;")
   erb :index
@@ -69,14 +48,13 @@ end
 post '/dishes' do
   # sql = "INSERT INTO dishes (name, image_url) VALUES ('#{ params[:name] }', '#{ params[:image_url] }');"
   Dish.create(name: params[:name], image_url: params[:image_url])
-  redirect '/' # needs to a route - because its making a request
+  redirect '/'
 end
 
 # delete a dish
 delete '/dishes/:id' do
   # "danger!!!!"
   Dish.destroy(params[:id]) # "DELETE FROM dishes WHERE id = #{ params[:id] };"
-
   redirect '/'
 end
 
@@ -89,16 +67,21 @@ end
 
 get '/dishes/:id/edit' do
   # return "edit form"
-  result = run_sql("SELECT * FROM dishes WHERE id = #{ params[:id] };")
-  @dish = result.first
-
+  # run_sql("SELECT * FROM dishes WHERE id = #{ params[:id] };")
+  @dish = Dish.find(params[:id])
   erb :edit
 end
 
 # updates an existing dish
 put '/dishes/:id' do
-  prepare_sql("update_dish", "UPDATE dishes SET name = $1, image_url = $2 where id = $3;",
-              [params[:name], params[:image_url], params[:id]])
+  # prepare_sql("update_dish", "UPDATE dishes SET name = $1, image_url = $2 where id = $3;",
+  #             [params[:name], params[:image_url], params[:id]])
 
+  # dish = Dish.find(params[:id])
+  # dish.name = params[:name]
+  # dish.image_url = params[:image_url]
+  # dish.save
+
+  Dish.find(params[:id]).update(name: params[:name], image_url: params[:image_url])
   redirect '/'
 end
