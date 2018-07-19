@@ -29,13 +29,23 @@
 # ```
 
 module Scrabble
-  def self.letter_value(v)
-    ->(l) { [l, v] }
-  end
+  # def self.letter_value(v)
+  #   ->(l) { [l, v] }
+  # end
 
-  POINTS = ('A'..'Z').to_a.zip(
-    [1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10]
-  ).to_h.freeze
+  POINTS = {
+    1 => %w[A E I O U L N R S T],
+    2 => %w[D G],
+    3 => %w[B C M P],
+    4 => %w[F H V W Y],
+    5 => %w[K],
+    8 => %w[J X],
+    10 => %w[Q Z]
+  }.inject({}) { |h, (k,v)| v.map{ |f| h[f] = k }; h }.freeze
+
+  # POINTS = ('A'..'Z').to_a.zip(
+  #   [1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10]
+  # ).to_h.freeze
 
   # Letter                           Value
   # POINTS = Hash[*[
@@ -165,11 +175,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 17885
+# >> Run options: --seed 2524
 # >>
 # >> # Running:
 # >>
 # >> ................
 # >>
-# >> Finished in 0.001868s, 8565.3105 runs/s, 18736.6168 assertions/s.
+# >> Finished in 0.001746s, 9163.8030 runs/s, 20045.8191 assertions/s.
 # >> 16 runs, 35 assertions, 0 failures, 0 errors, 0 skips
