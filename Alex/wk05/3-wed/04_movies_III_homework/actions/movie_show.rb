@@ -50,17 +50,17 @@ class MovieShowAction
     "SELECT * FROM movies WHERE title ILIKE ($1);"
   end
 
-  def result
-    movie = prepare_sql("find_movie", find_sql, title).first
+  def movie
+    result = prepare_sql("find_movie", find_sql, title).first
 
-    if movie
-      movie["response"] = "True"
+    if result
+      result["response"] = "True"
     else
-      movie = find_by_external_api_request
-      prepare_sql("create_movie", create_sql, *filtered_params(movie)) unless movie["Error"]
+      result = find_by_external_api_request
+      prepare_sql("create_movie", create_sql, *filtered_params(result)) unless result["Error"]
     end
 
-    movie.transform_keys { |key| key.downcase.to_sym }
+    result.transform_keys { |key| key.downcase.to_sym }
   end
 
   def title
@@ -69,27 +69,27 @@ class MovieShowAction
 
   def to_template
     erb :movie, layout: :layout, locals: {
-      response: result[:response] == "True",
+      response: movie[:response] == "True",
       param_title: title,
 
-      title: result[:title],
-      year: result[:year],
-      rated: result[:rated],
-      released: result[:released],
-      runtime: result[:runtime],
-      genre: result[:genre],
-      director: result[:director],
-      writer: result[:writer],
-      actors: result[:actors],
-      plot: result[:plot],
-      language: result[:language],
-      poster_url: result[:poster],
-      imdb_rating: Rating.new(result[:imdbrating].to_f),
-      imdb_votes: result[:imdbvotes],
-      production: result[:production],
+      title: movie[:title],
+      year: movie[:year],
+      rated: movie[:rated],
+      released: movie[:released],
+      runtime: movie[:runtime],
+      genre: movie[:genre],
+      director: movie[:director],
+      writer: movie[:writer],
+      actors: movie[:actors],
+      plot: movie[:plot],
+      language: movie[:language],
+      poster_url: movie[:poster],
+      imdb_rating: Rating.new(movie[:imdbrating].to_f),
+      imdb_votes: movie[:imdbvotes],
+      production: movie[:production],
 
-      result: result,
-      error_message: result[:error]
+      result: movie,
+      error_message: movie[:error]
     }
   end
 end
