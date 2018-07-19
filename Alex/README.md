@@ -411,3 +411,5 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
     ```
 
   * ORMs `ActiveRecord`
+
+- [Robot Name](https://gist.github.com/epoch/2ac2bd21c2fd8c8ac106#file-robot-md)
