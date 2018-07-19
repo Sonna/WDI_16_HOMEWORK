@@ -130,12 +130,12 @@ class Robot
 
   def initialize
     @instruction_count = 0
-    @boot_time = Time.now
-    @up_time = Time.now
+    @booted_at = Time.now
+    @created_at = Time.now
   end
 
   def boot_time
-    Time.now.to_i - @boot_time.to_i
+    Time.now.to_i - @booted_at.to_i
   end
 
   # def mac_address=(mac_address)
@@ -152,7 +152,7 @@ class Robot
   end
 
   def up_time
-    Time.now.to_i - @up_time.to_i
+    Time.now.to_i - @created_at.to_i
   end
 
   def reset
@@ -167,7 +167,7 @@ class Robot
   private
 
   def preformed_operation
-    @boot_time = Time.now
+    @booted_at = Time.now
     @instruction_count += 1
   end
 end
@@ -285,11 +285,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 47222
+# >> Run options: --seed 15569
 # >>
 # >> # Running:
 # >>
 # >> .............
 # >>
-# >> Finished in 1.003211s, 12.9584 runs/s, 15.9488 assertions/s.
+# >> Finished in 1.002656s, 12.9656 runs/s, 15.9576 assertions/s.
 # >> 13 runs, 16 assertions, 0 failures, 0 errors, 0 skips
