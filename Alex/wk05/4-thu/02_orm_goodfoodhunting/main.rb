@@ -60,9 +60,6 @@ end
 get '/about' do
 end
 
-# get '/create_dish' do
-# end
-
 # getting the form
 get '/dishes/new' do
   erb :new
@@ -108,10 +105,8 @@ end
 
 # showing single dish by id
 get '/dishes/:id' do
-  # conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
-  sql = "SELECT * FROM dishes WHERE id = #{ params[:id] };"
-  result = run_sql(sql)
-  @dish = result.first
+  @dish = Dish.find(params[:id]) # "SELECT * FROM dishes WHERE id = #{ params[:id] };"
+  @comments = @dish.comments
   erb :dish_details, locals: { name: @dish["name"], image_url: @dish["image_url"] }
 # ensure
 #   conn.close
