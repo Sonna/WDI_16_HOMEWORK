@@ -1,0 +1,9 @@
+<h1><%= name %></h1>
+<img src="<%= image_url %>" alt="Picture of '<%= name %>' planet" style="width:100px;">
+
+<form action="/planets/<%= @planet['id'] %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button>delete</button>
+</form>
+
+<a href="/planets/<%= @planet['id'] %>/edit">edit</a>
