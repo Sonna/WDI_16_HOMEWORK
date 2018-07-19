@@ -113,7 +113,7 @@ module RobotName
   SUFFIX = ("000".."999").to_a.freeze
 
   def self.generate(prefix = PREFIX, suffix = SUFFIX)
-    prefix.sample + suffix.sample
+    "#{prefix.sample}#{suffix.sample}"
   end
 end
 
