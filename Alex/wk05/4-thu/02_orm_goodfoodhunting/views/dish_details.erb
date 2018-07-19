@@ -9,9 +9,11 @@
 
 <a href="/dishes/<%= @dish['id'] %>/edit">edit</a>
 
-<section class="comments">
-  <h2>Comments</h2>
-  <% @comments.each do |comment| %>
-    <p><%= comment.content %></p>
-  <% end %>
-</section>
+<% if @comments %>
+  <section class="comments">
+    <h2>Comments</h2>
+    <% @comments.each do |comment| %>
+      <p><%= comment.content %></p>
+    <% end %>
+  </section>
+<% end %>

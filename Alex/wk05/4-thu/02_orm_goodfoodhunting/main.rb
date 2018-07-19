@@ -67,40 +67,17 @@ end
 
 # create a dish
 post '/dishes' do
-  # "should create dish now"
-  # params.to_s
-
-  # how?
-  # inputs from the form - params
-  # sql - insert
-  # sql = "INSERT INTO dishes () VALUES ();"
-  # sql = "INSERT INTO dishes (name, image_url) VALUES ('pudding', 'http://.../.png');"
-  sql = "INSERT INTO dishes (name, image_url) VALUES ('#{ params[:name] }', '#{ params[:image_url] }');"
-
-  # conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
-  # conn.exec(sql)
-  run_sql(sql)
-
-  # 'yay'
-  # get post redirect
+  # sql = "INSERT INTO dishes (name, image_url) VALUES ('#{ params[:name] }', '#{ params[:image_url] }');"
+  Dish.create(name: params[:name], image_url: params[:image_url])
   redirect '/' # needs to a route - because its making a request
-# ensure
-#   conn.close
 end
 
 # delete a dish
 delete '/dishes/:id' do
   # "danger!!!!"
-  sql = "DELETE FROM dishes WHERE id = #{ params[:id] };"
-  # return sql
-
-  # conn = PG.connect(dbname: "goodfoodhunting", port: 5433, user: "postgres", hostaddr: "::")
-  # conn.exec(sql)
-  run_sql(sql)
+  Dish.destroy(params[:id]) # "DELETE FROM dishes WHERE id = #{ params[:id] };"
 
   redirect '/'
-# ensure
-#   conn.close
 end
 
 # showing single dish by id
@@ -108,8 +85,6 @@ get '/dishes/:id' do
   @dish = Dish.find(params[:id]) # "SELECT * FROM dishes WHERE id = #{ params[:id] };"
   @comments = @dish.comments
   erb :dish_details, locals: { name: @dish["name"], image_url: @dish["image_url"] }
-# ensure
-#   conn.close
 end
 
 get '/dishes/:id/edit' do
@@ -122,8 +97,6 @@ end
 
 # updates an existing dish
 put '/dishes/:id' do
-  # prepare_sql("update_dish", "UPDATE dishes SET name = $1, image_url = $2 where id = $3;") do |conn|
-    # conn.exec_prepared("update_dish", [params[:name], params[:image_url], params[:id]])
   prepare_sql("update_dish", "UPDATE dishes SET name = $1, image_url = $2 where id = $3;",
               [params[:name], params[:image_url], params[:id]])
 
