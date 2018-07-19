@@ -270,9 +270,9 @@ if $PROGRAM_NAME == __FILE__
       regex_capture = /(?<boot>\d+) seconds since last boot, (?<age>\d+) seconds since creation/
       subject = described_class.new
 
-      first_boot, first_age = subject.timers.match(regex_capture).captures # !> assigned but unused variable - first_age
+      first_boot, _first_age = subject.timers.match(regex_capture).captures
       sleep 1
-      second_boot, second_age = subject.timers.match(regex_capture).captures # !> assigned but unused variable - second_age
+      second_boot, _second_age = subject.timers.match(regex_capture).captures
 
       refute_equal(first_boot, second_boot)
     end
@@ -285,11 +285,11 @@ if $PROGRAM_NAME == __FILE__
     end
   end
 end
-# >> Run options: --seed 36111
+# >> Run options: --seed 47222
 # >>
 # >> # Running:
 # >>
 # >> .............
 # >>
-# >> Finished in 1.002998s, 12.9611 runs/s, 15.9522 assertions/s.
+# >> Finished in 1.003211s, 12.9584 runs/s, 15.9488 assertions/s.
 # >> 13 runs, 16 assertions, 0 failures, 0 errors, 0 skips
