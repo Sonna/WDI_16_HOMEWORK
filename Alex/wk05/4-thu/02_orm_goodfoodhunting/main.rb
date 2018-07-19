@@ -1,7 +1,13 @@
+$LOAD_PATH.push File.expand_path('../', __FILE__)
+
 require 'pg'
 
 require 'sinatra'
 require 'sinatra/reloader'
+
+require "db_config"
+require "models/dish"
+require "models/comment"
 
 # class Dish
 
@@ -47,8 +53,7 @@ def prepare_sql(name, sql, *args)
 end
 
 get '/' do
-  @dishes = run_sql("SELECT * FROM dishes;")
-  # @dishes = Dish.all
+  @dishes = Dish.all # run_sql("SELECT * FROM dishes;")
   erb :index
 end
 
