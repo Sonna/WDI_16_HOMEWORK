@@ -19,6 +19,8 @@ Time  | Table
 
 Task                        | Due Date    | Link
 ----------------------------|-------------|---------------------------------------
+CRUD App                    | Thu, 19 Jul | [wk05/4-thu/03_crud_app_planets](wk05/4-thu/03_crud_app_planets)
+Ruby Robots                 | Thu, 19 Jul | [wk05/4-thu/04_robot_name](wk05/4-thu/04_robot_name)
 Movies 3                    | Wed, 18 Jul | [wk05/3-wed/04_movies_III_homework](wk05/3-wed/04_movies_III_homework)
 NBA Stats                   | Tue, 17 Jul | [wk05/2-tue/04_nba_database_homework](wk05/2-tue/04_nba_database_homework)
 Movies 2                    | Tue, 17 Jul | [wk05/2-tue/03_movies_II_homework](wk05/2-tue/03_movies_II_homework)
