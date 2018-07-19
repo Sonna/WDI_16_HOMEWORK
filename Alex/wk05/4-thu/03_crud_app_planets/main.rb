@@ -39,6 +39,6 @@ end
 
 put '/planets/:id' do
   planet = Planet.find(params[:id])
-  planet.update(name: params[:name], image_url: params[:image_url])
+  planet&.update(name: params[:name], image_url: params[:image_url])
   redirect '/'
 end
