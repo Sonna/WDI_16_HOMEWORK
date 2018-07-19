@@ -7,11 +7,46 @@ class MovieShowAction
     @params = params
   end
 
+  def filtered_params(result)
+    [
+      result["Title"], result["Year"], result["Rated"], result["Released"],
+      result["Runtime"], result["Genre"], result["Director"],
+      result["Writer"], result["Actors"], result["Plot"], result["Language"],
+      result["Poster"], result["imdbRating"], result["imdbVotes"],
+      result["Production"]
+    ]
+  end
+
+  def create_sql
+    <<~SQL
+      INSERT INTO movies (
+        Title, Year, Rated,
+        Released, Runtime, Genre,
+        Director, Writer, Actors,
+        Plot, Language, Poster,
+        imdbRating, imdbVotes,
+        Production
+      ) VALUES (
+        $1, $2, $3, $4,
+        $5, $6, $7,
+        $8, $9, $10, $11,
+        $12, $13, $14,
+        $15
+      );
+    SQL
+  end
+
+  def find_sql
+    "SELECT * FROM movies WHERE title ILIKE ($1);"
+  end
+
+  def title
+    params['title']
+  end
+
   def to_template
-    title = params['title']
     # Find movie (by title)
-    sql = "SELECT * FROM movies WHERE title ILIKE ($1);"
-    result = prepare_sql("find_movie", sql, title).first
+    result = prepare_sql("find_movie", find_sql, title).first
 
     # if found
     if result
@@ -28,33 +63,7 @@ class MovieShowAction
       })
 
       # - save result to database
-      unless result["Error"]
-        sql = <<~SQL
-          INSERT INTO movies (
-            Title, Year, Rated,
-            Released, Runtime, Genre,
-            Director, Writer, Actors,
-            Plot, Language, Poster,
-            imdbRating, imdbVotes,
-            Production
-          ) VALUES (
-            $1, $2, $3, $4,
-            $5, $6, $7,
-            $8, $9, $10, $11,
-            $12, $13, $14,
-            $15
-          );
-        SQL
-
-        prepare_sql(
-          "create_movie", sql,
-          result["Title"], result["Year"], result["Rated"], result["Released"],
-          result["Runtime"], result["Genre"], result["Director"],
-          result["Writer"], result["Actors"], result["Plot"], result["Language"],
-          result["Poster"], result["imdbRating"], result["imdbVotes"],
-          result["Production"]
-        )
-      end
+      prepare_sql("create_movie", create_sql, *filtered_params(result)) unless result["Error"]
 
       result = result.transform_keys { |key| key.downcase.to_sym }
     end
