@@ -7,9 +7,10 @@
 </head>
 <body>
   <header>
-    <% unless current_user %>
+    <% unless logged_in? %>
       <nav>
         <a href="/login">login</a>
+        <a href="/users/new">signup</a>
       </nav>
     <% else %>
       <span class="user">logged in as <%= current_user.email %></span>

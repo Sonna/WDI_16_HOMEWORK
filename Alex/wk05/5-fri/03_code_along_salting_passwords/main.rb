@@ -16,6 +16,15 @@ helpers do
   def current_user
     User.find_by(id: session[:user_id])
   end
+
+  def logged_in?
+    # if current_user # user object or nil
+    #   return true
+    # else
+    #   return false
+    # end
+    !!current_user
+  end
 end
 
 get '/' do
@@ -81,4 +90,14 @@ delete "/session" do
   session[:user_id] = nil
   # redirect to /login
   redirect '/login'
+end
+
+get "/users/new" do
+  erb :signup
+end
+
+post "/users" do
+  user = User.new(email: params[:email], password: params[:password])
+  redirect "/" if user.valid? && user.save
+  erb :signup
 end
