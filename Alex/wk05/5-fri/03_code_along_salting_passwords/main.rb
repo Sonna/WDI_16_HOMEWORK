@@ -54,3 +54,18 @@ end
 get "/login" do
   erb :login
 end
+
+post "/session" do
+  # grab email & password
+  # find the user by email
+  user = User.find_by(email: params[:email])
+  # authenticate user with password
+  if user && user.authenticate(params[:password])
+    # create a new session
+    session[:user_id] = user.id
+    # redirect (to secret page)
+    redirect '/'
+  else
+    erb :login
+  end
+end
