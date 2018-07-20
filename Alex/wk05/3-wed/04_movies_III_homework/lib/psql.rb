@@ -1,3 +1,5 @@
+require "pg"
+
 module PSQL
   class << self
     def connect
