@@ -14,7 +14,10 @@
     <% else %>
       <span class="user">logged in as <%= current_user %></span>
       <nav>
-        <a href="/logout">logout</a>
+        <form action="/session" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button>logout</button>
+        </form>
       </nav>
     <% end %>
   </header>

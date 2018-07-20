@@ -74,7 +74,9 @@ post "/session" do
   end
 end
 
-get "/logout" do
+delete "/session" do
+  # delete the session
   session[:user_id] = nil
-  redirect '/'
+  # redirect to /login
+  redirect '/login'
 end
