@@ -3,47 +3,29 @@ class MovieShowAction
 
   attr_reader :params
 
-  def initialize(params, external_api = ExternalAPI)
+  def initialize(params, external_api = ExternalAPI, repo = MovieRepository)
     @params = params
     @external_api = external_api
+    @repo = repo.new
   end
 
   def find_by_external_api_request
     @external_api.movie_find_by(title: title)
   end
 
-  ATTRIBUTES = %w(
-    title year rated released runtime genre director writer actors plot language
-    poster imdbrating imdbvotes production
-  )
-
-  def filtered_params(result, attributes = ATTRIBUTES)
+  def filtered_params(result = {}, attributes = [])
     result = result.transform_keys(&:downcase)
     attributes.map { |attribute| result[attribute] }
   end
 
-  def create_sql(table = "movies", attributes = ATTRIBUTES)
-    <<~SQL
-      INSERT INTO #{ table } (
-        #{ attributes.join(',') }
-      ) VALUES (
-        #{ attributes.map.with_index(1) { |_, i| "$#{i}" }.join(",") }
-      );
-    SQL
-  end
-
-  def find_sql
-    "SELECT * FROM movies WHERE title ILIKE ($1);"
-  end
-
   def movie
-    result = prepare_sql("find_movie", find_sql, title).first
+    result = @repo.find(title)
 
     if result
       result["response"] = "True"
     else
       result = find_by_external_api_request
-      prepare_sql("create_movie", create_sql, *filtered_params(result)) unless result["Error"]
+      @repo.create(filtered_params(result, @repo.attributes)) unless result["Error"]
     end
 
     result.transform_keys { |key| key.downcase.to_sym }
