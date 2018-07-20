@@ -3,8 +3,8 @@ class MovieShowAction
 
   attr_reader :params, :service
 
-  def self.call(context, params)
-    new(params).to_template
+  def self.call(context)
+    new(context.params).to_template
   end
 
   def initialize(params, service = MovieService)

@@ -5,8 +5,8 @@ class MovieIndexAction
 
   attr_reader :params, :service
 
-  def self.call(context, params)
-    action = new(params)
+  def self.call(context)
+    action = new(context.params)
     if action.results["totalResults"] == "1"
       context.redirect "/#{URI::encode(action.results['Search'].first['Title'])}"
     end
@@ -39,7 +39,7 @@ class MovieIndexAction
   end
 
   def results
-    @results ||= service.call(params) unless params["movie_name"].nil?
+    @results ||= service.call(params)
   end
 
   def to_template

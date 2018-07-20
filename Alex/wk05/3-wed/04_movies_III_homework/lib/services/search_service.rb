@@ -16,9 +16,11 @@ class SearchService
   end
 
   def call
-    {
+    results = {
       "Response" => nil, "Search" => [], "Error" => "", "totalResults" => "0"
-    }.merge(
+    }
+    return results if params["movie_name"].nil?
+    results.merge(
       external_api.movie_search_by(title: params["movie_name"], page: page)
     )
   end
