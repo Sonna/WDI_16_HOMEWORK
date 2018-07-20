@@ -47,10 +47,10 @@ class MovieIndexAction
   end
 end
 
-def movie_index(params, external_api = ExternalAPI)
+def movie_index(context, params, external_api = ExternalAPI)
   action = MovieIndexAction.new(params, external_api)
   if action.results["totalResults"] == "1"
-    redirect "/#{URI::encode(action.results['Search'].first['Title'])}"
+    context.redirect "/#{URI::encode(action.results['Search'].first['Title'])}"
   end
   action.to_template
 end

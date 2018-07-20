@@ -12,31 +12,22 @@ class MovieShowAction
     @external_api.movie_find_by(title: title)
   end
 
-  def filtered_params(result)
-    [
-      result["Title"], result["Year"], result["Rated"], result["Released"],
-      result["Runtime"], result["Genre"], result["Director"],
-      result["Writer"], result["Actors"], result["Plot"], result["Language"],
-      result["Poster"], result["imdbRating"], result["imdbVotes"],
-      result["Production"]
-    ]
+  ATTRIBUTES = %w(
+    title year rated released runtime genre director writer actors plot language
+    poster imdbrating imdbvotes production
+  )
+
+  def filtered_params(result, attributes = ATTRIBUTES)
+    result = result.transform_keys(&:downcase)
+    attributes.map { |attribute| result[attribute] }
   end
 
-  def create_sql
+  def create_sql(table = "movies", attributes = ATTRIBUTES)
     <<~SQL
-      INSERT INTO movies (
-        Title, Year, Rated,
-        Released, Runtime, Genre,
-        Director, Writer, Actors,
-        Plot, Language, Poster,
-        imdbRating, imdbVotes,
-        Production
+      INSERT INTO #{ table } (
+        #{ attributes.join(',') }
       ) VALUES (
-        $1, $2, $3, $4,
-        $5, $6, $7,
-        $8, $9, $10, $11,
-        $12, $13, $14,
-        $15
+        #{ attributes.map.with_index(1) { |_, i| "$#{i}" }.join(",") }
       );
     SQL
   end
@@ -67,25 +58,13 @@ class MovieShowAction
       response: movie[:response] == "True",
       param_title: title,
 
-      title: movie[:title],
-      year: movie[:year],
-      rated: movie[:rated],
-      released: movie[:released],
-      runtime: movie[:runtime],
-      genre: movie[:genre],
-      director: movie[:director],
-      writer: movie[:writer],
-      actors: movie[:actors],
-      plot: movie[:plot],
-      language: movie[:language],
       poster_url: movie[:poster],
       imdb_rating: Rating.new(movie[:imdbrating].to_f),
       imdb_votes: movie[:imdbvotes],
-      production: movie[:production],
 
       result: movie,
       error_message: movie[:error]
-    }
+    }.merge(movie)
   end
 end
 
