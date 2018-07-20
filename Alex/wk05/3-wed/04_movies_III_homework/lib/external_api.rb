@@ -1,3 +1,5 @@
+require "httparty"
+
 module ExternalAPI
   def self.movie_find_by(query = {})
     request({"t" => query[:title]})

@@ -1,3 +1,5 @@
+require "uri"
+
 require "lib/erb_render"
 
 class MovieIndexAction
