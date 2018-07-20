@@ -3,6 +3,10 @@ class MovieShowAction
 
   attr_reader :params, :service
 
+  def self.call(context, params)
+    new(params).to_template
+  end
+
   def initialize(params, service = MovieService)
     @params = params
     @service = service
@@ -29,8 +33,4 @@ class MovieShowAction
       error_message: movie[:error]
     }.merge(movie)
   end
-end
-
-def movie_show(params, service = MovieService)
-  MovieShowAction.new(params, service).to_template
 end

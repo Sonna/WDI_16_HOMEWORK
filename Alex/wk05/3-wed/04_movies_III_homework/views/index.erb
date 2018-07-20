@@ -9,7 +9,7 @@
 <% unless response.nil? %>
 <section class="results">
 
-  <% unless response %>
+  <% unless response == "True" %>
     <h1><%= params['movie_name'] %> - <%= error_message %></h1>
   <% else %>
     <%= yield %>

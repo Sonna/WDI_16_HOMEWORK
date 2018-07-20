@@ -16,6 +16,10 @@ class SearchService
   end
 
   def call
-    external_api.movie_search_by(title: params["movie_name"], page: page)
+    {
+      "Response" => nil, "Search" => [], "Error" => "", "totalResults" => "0"
+    }.merge(
+      external_api.movie_search_by(title: params["movie_name"], page: page)
+    )
   end
 end
