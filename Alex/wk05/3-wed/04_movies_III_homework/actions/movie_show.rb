@@ -12,14 +12,6 @@ class MovieShowAction
     @service = service
   end
 
-  def movie
-    @movie ||= service.call(params)
-  end
-
-  def to_template
-    erb :movie, layout: :layout, locals: locals
-  end
-
   def locals
     {
       response: movie[:response] == "True",
@@ -32,5 +24,13 @@ class MovieShowAction
       result: movie,
       error_message: movie[:error]
     }.merge(movie)
+  end
+
+  def movie
+    @movie ||= service.call(params)
+  end
+
+  def to_template
+    erb :movie, layout: :layout, locals: locals
   end
 end
