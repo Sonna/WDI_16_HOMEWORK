@@ -3,20 +3,19 @@ require "lib/erb_render"
 class MovieIndexAction
   include ErbRender
 
-  attr_reader :params
+  attr_reader :params, :service
 
-  def initialize(params, external_api = ExternalAPI)
+  def initialize(params, service = SearchService)
     @params = params
-    @external_api = external_api
-    @results = {}
-  end
-
-  def search_by_external_api_request
-    @external_api.movie_search_by(title: params["movie_name"], page: page)
+    @service = service
   end
 
   def locals
-    { response: true, results: results["Search"], error_message: results["Error"] }
+    {
+      response: results["Response"],
+      results: results["Search"],
+      error_message: results["Error"]
+    }
   end
 
   def page
@@ -32,13 +31,11 @@ class MovieIndexAction
   end
 
   def results
-    @results[[params["movie_name"], page]] ||= search_by_external_api_request
+    return @results ||= service.call(params) unless params["movie_name"].nil?
+    { "Response" => nil, "Search" => [], "Error" => "", "totalResults" => "0" }
   end
 
   def to_template
-    return erb(:index, layout: :layout, locals: { response: nil, results: [] }) if params["movie_name"].nil?
-    return erb(:index, layout: :layout, locals: locals.merge({ response: false })) if results["Response"] == "False"
-
     erb(:index, layout: :layout, locals: locals) do
       erb(:pagination, locals: pagination) do
         erb(:movies, locals: locals)
@@ -47,8 +44,8 @@ class MovieIndexAction
   end
 end
 
-def movie_index(context, params, external_api = ExternalAPI)
-  action = MovieIndexAction.new(params, external_api)
+def movie_index(context, params)
+  action = MovieIndexAction.new(params)
   if action.results["totalResults"] == "1"
     context.redirect "/#{URI::encode(action.results['Search'].first['Title'])}"
   end
