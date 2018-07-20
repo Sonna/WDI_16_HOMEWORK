@@ -5,18 +5,6 @@ class MovieIndexAction
 
   attr_reader :params
 
-  class << self
-    def build(params, external_api = ExternalAPI)
-      lambda do
-        action = MovieIndexAction.new(params, external_api)
-        if action.results["totalResults"] == "1"
-          redirect "/#{URI::encode(action.results['Search'].first['Title'])}"
-        end
-        action.to_template
-      end
-    end
-  end
-
   def initialize(params, external_api = ExternalAPI)
     @params = params
     @external_api = external_api
@@ -57,4 +45,12 @@ class MovieIndexAction
       end
     end
   end
+end
+
+def movie_index(params, external_api = ExternalAPI)
+  action = MovieIndexAction.new(params, external_api)
+  if action.results["totalResults"] == "1"
+    redirect "/#{URI::encode(action.results['Search'].first['Title'])}"
+  end
+  action.to_template
 end

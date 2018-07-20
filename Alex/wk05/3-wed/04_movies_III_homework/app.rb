@@ -4,6 +4,7 @@ $LOAD_PATH.push File.expand_path('../', __FILE__)
 require "dotenv"
 require "httparty"
 require "sinatra"
+require "sinatra/base"
 require "sinatra/reloader"
 require "pg"
 require "uri"
@@ -18,8 +19,10 @@ require "lib/sql"
 
 ROOT = File.expand_path('../', __FILE__)
 
-Dotenv.load File.join(ROOT, ".env")
+class MovieApp < Sinatra::Base
+  Dotenv.load File.join(ROOT, ".env")
 
-get("/") { MovieIndexAction.build(params).call }
-get("/about") { erb :about }
-get("/:title") { MovieShowAction.build(params).call }
+  get("/") { movie_index(params) }
+  get("/about") { erb :about }
+  get("/:title") { movie_show(params) }
+end
