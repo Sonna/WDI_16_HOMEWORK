@@ -16,6 +16,7 @@ require "lib/external_api"
 require "lib/pagination"
 require "lib/rating"
 require "lib/repositories/movie_repository"
+require "lib/services/movie_service"
 require "lib/sql"
 
 ROOT = File.expand_path('../', __FILE__)

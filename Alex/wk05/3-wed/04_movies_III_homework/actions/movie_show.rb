@@ -1,44 +1,25 @@
 class MovieShowAction
   include ErbRender
 
-  attr_reader :params
+  attr_reader :params, :service
 
-  def initialize(params, external_api = ExternalAPI, repo = MovieRepository)
+  def initialize(params, service = MovieService)
     @params = params
-    @external_api = external_api
-    @repo = repo.new
-  end
-
-  def find_by_external_api_request
-    @external_api.movie_find_by(title: title)
-  end
-
-  def filtered_params(result = {}, attributes = [])
-    result = result.transform_keys(&:downcase)
-    attributes.map { |attribute| result[attribute] }
+    @service = service
   end
 
   def movie
-    result = @repo.find(title)
-
-    if result
-      result["response"] = "True"
-    else
-      result = find_by_external_api_request
-      @repo.create(filtered_params(result, @repo.attributes)) unless result["Error"]
-    end
-
-    result.transform_keys { |key| key.downcase.to_sym }
-  end
-
-  def title
-    params['title']
+    @movie ||= service.call(params)
   end
 
   def to_template
-    erb :movie, layout: :layout, locals: {
+    erb :movie, layout: :layout, locals: locals
+  end
+
+  def locals
+    {
       response: movie[:response] == "True",
-      param_title: title,
+      param_title: params[:title],
 
       poster_url: movie[:poster],
       imdb_rating: Rating.new(movie[:imdbrating].to_f),
@@ -50,6 +31,6 @@ class MovieShowAction
   end
 end
 
-def movie_show(params, external_api = ExternalAPI)
-  MovieShowAction.new(params, external_api).to_template
+def movie_show(params, service = MovieService)
+  MovieShowAction.new(params, service).to_template
 end
