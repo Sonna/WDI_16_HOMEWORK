@@ -35,6 +35,12 @@ end
 get '/about' do
 end
 
+post '/comments' do
+  # redirect "/" unless logged_in?
+  Comment.create(content: params['content'], dish_id: params['dish_id'].to_i)
+  redirect "/dishes/#{params[:dish_id]}"
+end
+
 get '/dishes/new' do
   erb :new
 end
