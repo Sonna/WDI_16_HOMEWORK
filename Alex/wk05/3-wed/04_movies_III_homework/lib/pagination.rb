@@ -44,12 +44,17 @@ class Pagination
       prev_page: prev_page,
       next_page: next_page,
       last_page: last_page,
-      result_count: result_count,
+      item_count: item_count,
+      items_of: items_of,
       total_items: total_items
     }
   end
 
-  def result_count
+  def item_count
     prev_page * items_per_page
+  end
+
+  def items_of
+    "#{item_count} - #{[item_count + items_per_page, total_items].min}"
   end
 end

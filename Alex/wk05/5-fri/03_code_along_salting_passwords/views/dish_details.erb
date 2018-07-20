@@ -1,0 +1,26 @@
+<h1><%= name %></h1>
+<img src="<%= image_url %>" alt="Picture of '<%= name %>' dish" style="width:100px;">
+
+<!-- <form action="/dishes/<%= @dish['id'] %>" method="delete"> -->
+<form action="/dishes/<%= @dish['id'] %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button>delete</button>
+</form>
+
+<a href="/dishes/<%= @dish['id'] %>/edit">edit</a>
+
+<% if @comments %>
+  <section class="comments">
+    <h2>Comments</h2>
+    <% @comments.each do |comment| %>
+      <p><%= comment.content %></p>
+    <% end %>
+
+    <form action="/comments" method="post">
+      <input type="hidden" name="dish_id" value="<%= @dish['id'] %>">
+      <textarea name="content" row="80" cols="20"></textarea>
+      <button>post</button>
+    </form>
+
+  </section>
+<% end %>

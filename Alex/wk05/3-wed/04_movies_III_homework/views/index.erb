@@ -9,27 +9,11 @@
 <% unless response.nil? %>
 <section class="results">
 
-  <% unless response %>
-    <h1><%= params['movie_name'] %> - <%= results["Error"] %></h1>
+  <% unless response == "True" %>
+    <h1><%= params['movie_name'] %> - <%= error_message %></h1>
   <% else %>
-    <span class="results-showing">
-      Showing results <strong><%= result_count %> - <%= [result_count + 10, total_results].min %></strong>
-    </span>
-    <span class="results-found">(Found <%= total_results %> Results)</span>
-    <nav class="movies">
-      <% results.each do |result| %>
-        <a href="/<%= result['Title'] %>">
-          <article>
-            <img class="inline-poster" src="<%= result['Poster'] %>">
-            <h2><%= result['Title'] %> (<%= result['Year'] %>)</h2>
-          </article>
-        </a>
-      <% end %>
-    </nav>
-
-    <%= erb :pagination, locals: pagination %>
+    <%= yield %>
   <% end %>
-
 </section>
 
 <% else %>
@@ -37,8 +21,8 @@
 <section class="extras">
   <p>Not sure what to look for? Check out these movies, whilst you decide</p>
   <ul>
-    <li><a href="/blade+runner">Blade Runner</a></li>
-    <li><a href="/the+godfather">The Godfather</a></li>
+    <li><a href="/blade%20runner">Blade Runner</a></li>
+    <li><a href="/the%20godfather">The Godfather</a></li>
     <li><a href="/jaws">Jaws</a></li>
     <li><a href="/sharknado">Sharknado</a></li>
     <li><a href="/once">Once</a></li>

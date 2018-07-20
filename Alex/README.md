@@ -19,6 +19,8 @@ Time  | Table
 
 Task                        | Due Date    | Link
 ----------------------------|-------------|---------------------------------------
+CRUD App                    | Thu, 19 Jul | [wk05/4-thu/03_crud_app_planets](wk05/4-thu/03_crud_app_planets)
+Ruby Robots                 | Thu, 19 Jul | [wk05/4-thu/04_robot_name](wk05/4-thu/04_robot_name)
 Movies 3                    | Wed, 18 Jul | [wk05/3-wed/04_movies_III_homework](wk05/3-wed/04_movies_III_homework)
 NBA Stats                   | Tue, 17 Jul | [wk05/2-tue/04_nba_database_homework](wk05/2-tue/04_nba_database_homework)
 Movies 2                    | Tue, 17 Jul | [wk05/2-tue/03_movies_II_homework](wk05/2-tue/03_movies_II_homework)
@@ -344,6 +346,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 1 - 2018/07/15
 
 - [WDI Starbucks Warmup](https://gist.github.com/kasun-maldeni/b38a4bcdb17078f48b5179ff9fc85d21)
+- [WDI Starbucks Solution](https://gist.github.com/kasun-maldeni/bdfa0ad5ed07da12257d57b92c4a3cb5)
 
 - Databases (Monday 11:00)
   * Why do we need a database
@@ -372,6 +375,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 2 - 2018/07/16
 
 - [WDI Say In English Warmup](https://gist.github.com/kasun-maldeni/5a452491fd938d0b920d607750658bb6)
+- [WDI Say In English Solution](https://gist.github.com/kasun-maldeni/edef240fd32901ee9497de3f445928ae)
 
 - Discussion on HTTP verbs, Request & Response (in relation to databases)
 
@@ -382,6 +386,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 3 - 2018/07/17
 
 - [WDI Dice Warmup](https://gist.github.com/kasun-maldeni/9f54de1a1dee4515c32ba335fb31e721)
+- [WDI Dice Solution](https://gist.github.com/kasun-maldeni/445474d2f05f2cbcccaef0ea77c7ff54)
 
 - Databases & Sinatra Applications (11:00)
   * Resources
@@ -394,3 +399,29 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
     + `put/patch`
 
 - [Movies III Homework](https://gist.github.com/epoch/16cc562c1891161fe359fd01b2863a00#file-movies3-md)
+
+##### Day 4 - 2018/07/18
+
+- [WDI Scrabble Warmup](https://gist.github.com/kasun-maldeni/e0cbf312fe38afeb0f1997df85442a29)
+- [WDI Scrabble Solution](https://gist.github.com/kasun-maldeni/7fb634fddebe9934651a284bfe947dfc)
+
+- Lecture / Code Along / Discussion
+  * data modeling with ER diagrams
+  * Object Relational Mapper (ORM)
+
+    ```txt
+      tables ----> classes
+      records ---> objects
+
+      :) --> [App] --> [ORM] --> [DB]
+    ```
+
+  * ORMs `ActiveRecord`
+
+- [WDI CRUD App](https://gist.github.com/kasun-maldeni/e52edee736c88d0b9bbf9be13457c963)
+
+- [Robot Name](https://gist.github.com/epoch/2ac2bd21c2fd8c8ac106#file-robot-md)
+
+##### Day 5 - 2018/07/19
+
+- [WDI Odd Int Warmup](https://gist.github.com/kasun-maldeni/919b2d75fe2d41c563c826ff1616bbf7)
