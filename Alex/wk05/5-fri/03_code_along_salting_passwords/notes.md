@@ -5,3 +5,20 @@
 
 - Examples of encryption libraries:
   * BCrypt
+
+
+- User model
+
+  ```relationships
+    # models
+    Dishes
+    Comments
+    Users
+
+    # relations
+
+    Dish --* Comments
+
+    User --* Comments
+    User --* Dishes
+  ```

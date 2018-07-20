@@ -11,19 +11,6 @@ INSERT INTO dishes (name, image_url) values ('birthday cake', 'https://www.staya
 INSERT INTO dishes (name, image_url) values ('pudding', 'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2016/10/cherry-chocolate-pudding.jpg?itok=dNPboDsi');
 INSERT INTO dishes (name, image_url) values ('sandwich', 'http://www.chingssecret.com/assets/uploads/images/chings-secret-schezwan-chutney-sandwitch%2003.jpg');
 
--- CREATE TABLE comments (
---   id SERIAL4 PRIMARY KEY,
---   content TEXT,
---   dish_id INTEGER -- FOREIGN KEY REFERENCES dishes(id)
--- );
-
--- DROP TABLE IF EXISTS comments;
--- CREATE TABLE comments (
---   id SERIAL4 PRIMARY KEY,
---   content TEXT NOT NULL,
---   dish_id INTEGER REFERENCES dishes(id)
--- );
-
 DROP TABLE IF EXISTS comments;
 CREATE TABLE comments (
   id SERIAL4 PRIMARY KEY,
@@ -36,3 +23,9 @@ CREATE TABLE comments (
 INSERT INTO comments (content, dish_id) values ('yum', 2);
 INSERT INTO comments (content, dish_id) values ('first', 2);
 INSERT INTO comments (content, dish_id) values ('yay', 2);
+
+CREATE TABLE users (
+  id SERIAL4 PRIMARY KEY,
+  email VARCHAR(300),
+  password_digest VARCHAR(400)
+);

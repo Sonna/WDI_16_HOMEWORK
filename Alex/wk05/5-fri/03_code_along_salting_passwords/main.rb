@@ -9,6 +9,8 @@ require "db_config"
 require "models/dish"
 require "models/comment"
 
+enable :sessions
+
 get '/' do
   @dishes = Dish.all
   erb :index
