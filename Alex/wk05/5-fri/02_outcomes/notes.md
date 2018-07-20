@@ -84,3 +84,13 @@
   * Tips:
     + Research & always address it to the right person
       (finding the right person can help build rapport)
+
+    + Tailor your Resume (do not rewrite)
+
+    + No such cover letter template (avoid having a template altogether)
+
+- Q&A
+  * Referees not necessary on resumes
+    (its common knowledge, and is usually asked for)
+
+  * Over the weekend to prepare and (re)design a resume
