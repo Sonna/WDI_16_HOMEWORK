@@ -15,5 +15,9 @@
 # For Example: `[20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]`, answer is `5` since
 # it is the only number that appears an odd number of times.
 
-[20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5].group_by(&:itself).select { |k, v| v.size.odd? }.keys
+my_array = [20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]
+my_array.group_by(&:itself).select { |k, v| v.size.odd? }.keys
 # => [5]
+
+my_array.find { |x| my_array.count(x).odd? }
+# => 5
