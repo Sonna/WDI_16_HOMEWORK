@@ -1,5 +1,5 @@
 class MovieService
-  attr_reader :params, :repo
+  attr_reader :external_api, :params, :repo
 
   def self.call(*args)
     self.new(*args).movie
@@ -11,23 +11,14 @@ class MovieService
     @repo = repo.new
   end
 
-  def find_by_external_api_request
-    @external_api.movie_find_by(title: title)
-  end
-
-  def filtered_params(result = {}, attributes = [])
-    result = result.transform_keys(&:downcase)
-    attributes.map { |attribute| result[attribute] }
-  end
-
   def movie
     result = repo.find(title)
 
     if result
       result["response"] = "True"
     else
-      result = find_by_external_api_request
-      repo.create(filtered_params(result, repo.attributes)) unless result["Error"]
+      result = external_api.movie_find_by(title: title)
+      cache(result) unless result["Error"]
     end
 
     result.transform_keys { |key| key.downcase.to_sym }
@@ -35,5 +26,16 @@ class MovieService
 
   def title
     params["title"]
+  end
+
+  private
+
+  def cache(result)
+    repo.create(filtered_params(result, repo.attributes))
+  end
+
+  def filtered_params(result = {}, attributes = [])
+    result = result.transform_keys(&:downcase)
+    attributes.map { |attribute| result[attribute] }
   end
 end
