@@ -20,6 +20,6 @@ ROOT = File.expand_path('../', __FILE__)
 
 Dotenv.load File.join(ROOT, ".env")
 
-get("/") { movie_index(params) }
+get("/") { MovieIndexAction.build(params).call }
 get("/about") { erb :about }
-get("/:title") { movie_show(params) }
+get("/:title") { MovieShowAction.build(params).call }

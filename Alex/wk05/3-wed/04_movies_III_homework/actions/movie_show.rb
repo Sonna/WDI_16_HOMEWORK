@@ -3,6 +3,12 @@ class MovieShowAction
 
   attr_reader :params
 
+  class << self
+    def build(params, external_api = ExternalAPI)
+      ->() { MovieShowAction.new(params, external_api).to_template }
+    end
+  end
+
   def initialize(params, external_api = ExternalAPI)
     @params = params
     @external_api = external_api
@@ -87,8 +93,4 @@ class MovieShowAction
       error_message: movie[:error]
     }
   end
-end
-
-def movie_show(params, external_api = ExternalAPI)
-  MovieShowAction.new(params, external_api).to_template
 end
