@@ -12,8 +12,10 @@ require "models/user"
 
 enable :sessions
 
-def current_user
-  User.find_by(id: session[:user_id])&.email
+helpers do
+  def current_user
+    User.find_by(id: session[:user_id])
+  end
 end
 
 get '/' do

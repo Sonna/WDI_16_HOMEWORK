@@ -12,7 +12,7 @@
         <a href="/login">login</a>
       </nav>
     <% else %>
-      <span class="user">logged in as <%= current_user %></span>
+      <span class="user">logged in as <%= current_user.email %></span>
       <nav>
         <form action="/session" method="post">
           <input type="hidden" name="_method" value="delete">
