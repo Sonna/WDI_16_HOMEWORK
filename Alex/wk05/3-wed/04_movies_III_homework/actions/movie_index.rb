@@ -8,6 +8,7 @@ class MovieIndexAction
   def initialize(params, external_api = ExternalAPI)
     @params = params
     @external_api = external_api
+    @results = {}
   end
 
   def search_by_external_api_request
@@ -26,19 +27,17 @@ class MovieIndexAction
     Pagination.new(
       total_items: results["totalResults"],
       items_per_page: 10,
-      current_page: params["page"]
+      current_page: page
     ).to_h
   end
 
   def results
-    @results ||= {}
     @results[[params["movie_name"], page]] ||= search_by_external_api_request
   end
 
   def to_template
     return erb(:index, layout: :layout, locals: { response: nil, results: [] }) if params["movie_name"].nil?
     return erb(:index, layout: :layout, locals: locals.merge({ response: false })) if results["Response"] == "False"
-    redirect %(/#{URI::encode(params["movie_name"])}) if results["totalResults"] == "1"
 
     erb(:index, layout: :layout, locals: locals) do
       erb(:pagination, locals: pagination) do
@@ -49,5 +48,9 @@ class MovieIndexAction
 end
 
 def movie_index(params, external_api = ExternalAPI)
-  MovieIndexAction.new(params, external_api).to_template
+  action = MovieIndexAction.new(params, external_api)
+  if action.results["totalResults"] == "1"
+    redirect "/#{URI::encode(action.results['Search'].first['Title'])}"
+  end
+  action.to_template
 end
