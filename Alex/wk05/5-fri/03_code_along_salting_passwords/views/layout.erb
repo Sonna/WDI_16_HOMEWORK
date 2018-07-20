@@ -7,7 +7,7 @@
 </head>
 <body>
   <header>
-    <% unless session[:user_id] %>
+    <% unless current_user %>
       <nav>
         <a href="/login">login</a>
       </nav>

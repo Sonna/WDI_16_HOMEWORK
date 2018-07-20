@@ -13,7 +13,7 @@ require "models/user"
 enable :sessions
 
 def current_user
-  User.find(session[:user_id]).email
+  User.find_by(id: session[:user_id])&.email
 end
 
 get '/' do
