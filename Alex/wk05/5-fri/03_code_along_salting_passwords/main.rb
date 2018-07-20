@@ -12,6 +12,10 @@ require "models/user"
 
 enable :sessions
 
+def current_user
+  User.find(session[:user_id]).email
+end
+
 get '/' do
   @dishes = Dish.all
   erb :index
@@ -68,4 +72,9 @@ post "/session" do
   else
     erb :login
   end
+end
+
+get "/logout" do
+  session[:user_id] = nil
+  redirect '/'
 end

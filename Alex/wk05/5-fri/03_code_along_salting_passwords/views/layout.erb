@@ -6,10 +6,18 @@
   <link rel='stylesheet' href='/stylesheets/main.css'>
 </head>
 <body>
-  <nav>
-    <span class="user"><%= session[:user_id] %></span>
-    <a href="/login">login</a>
-  </nav>
+  <header>
+    <% unless session[:user_id] %>
+      <nav>
+        <a href="/login">login</a>
+      </nav>
+    <% else %>
+      <span class="user">logged in as <%= current_user %></span>
+      <nav>
+        <a href="/logout">logout</a>
+      </nav>
+    <% end %>
+  </header>
 
   <%= yield %>
 
