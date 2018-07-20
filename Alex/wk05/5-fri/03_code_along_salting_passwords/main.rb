@@ -49,3 +49,8 @@ put '/dishes/:id' do
   Dish.find(params[:id]).update(name: params[:name], image_url: params[:image_url])
   redirect '/'
 end
+
+# get "/session/new" do
+get "/login" do
+  erb :login
+end

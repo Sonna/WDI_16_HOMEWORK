@@ -18,4 +18,18 @@ u1.password # => nil
 u1.email = "dt@ga.co"
 u1.password = "pudding"
 u1.password # => "pudding"
-u1.password_digest # => "$2a$10$IhEDuUxsphNAgELfzvvVTeF2MPaCf1ssjEmO/yz1iwQ6wlh7jRVT."
+u1.password_digest # => "$2a$10$KxIAekVsBAk0F/BD7pU0Muf7PW96FlWGazaH43ytGQjkeEboKRSM2"
+
+# Saved once before
+# u1.save # = > true
+u = User.find(1) # => #<User id: 1, email: "dt@ga.co", password_digest: "$2a$10$QvEwCixvxIq1rkadt5B/QeUKW0ECX0HSg52PXdDJuTm...">
+
+u.authenticate("cake") # => false
+u.authenticate("pudding") # => #<User id: 1, email: "dt@ga.co", password_digest: "$2a$10$QvEwCixvxIq1rkadt5B/QeUKW0ECX0HSg52PXdDJuTm...">
+
+User.all
+# => [#<User:0x00007fe7aa98d0c0
+#      id: 1,
+#      email: "dt@ga.co",
+#      password_digest:
+#       "$2a$10$QvEwCixvxIq1rkadt5B/QeUKW0ECX0HSg52PXdDJuTm/3ccmlAmo6">]
