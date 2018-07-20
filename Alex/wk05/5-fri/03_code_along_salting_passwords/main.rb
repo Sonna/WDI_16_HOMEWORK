@@ -6,8 +6,9 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 require "db_config"
-require "models/dish"
 require "models/comment"
+require "models/dish"
+require "models/user"
 
 enable :sessions
 
