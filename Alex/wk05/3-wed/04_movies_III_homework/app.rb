@@ -4,8 +4,7 @@ require "dotenv"
 require "sinatra/base"
 require "sinatra/reloader"
 
-require "actions/movie_index"
-require "actions/movie_show"
+require "lib/actions"
 
 ROOT = File.expand_path('../', __FILE__)
 Dotenv.load File.join(ROOT, ".env")
