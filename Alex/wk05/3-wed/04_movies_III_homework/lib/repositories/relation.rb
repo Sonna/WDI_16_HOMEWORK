@@ -30,50 +30,51 @@ class Relation
     "<#{self.class.name}:#{object_id} [#{rows.inspect}]>"
   end
 
-  # def dup
-  #   self.class.new(table: table).tap do |relation|
-  #     relation.wheres = wheres
-  #     relation.limit_sql = limit_sql
-  #     relation.order_sql = order_sql
-  #   end
-  # end
+  def copy
+    self.class.new(table: table).tap do |relation|
+      relation.columns = columns
+      relation.wheres = wheres
+      relation.limit_sql = limit_sql
+      relation.order_sql = order_sql
+    end
+  end
+
+  def select(*columns)
+    copy.tap do |relation|
+      relation.columns = columns.join(", ")
+    end
+  end
+
+  def pluck(column)
+    copy.tap do |relation|
+      relation.columns = column
+    end.rows.map { |row| row[column.to_s] }
+  end
 
   def where(cond)
-    relation = self.class.new(table: table)
-    # relation.wheres = wheres
-    relation.wheres << wheres +
-      case cond
-      when Hash then cond.map { |k, v| "#{k} = '#{v}'" }
-      else [cond]
-      end
-    # self
-    relation.limit_sql = limit_sql
-    relation.order_sql = order_sql
-    relation
+    copy.tap do |relation|
+      relation.wheres = wheres +
+        case cond
+        when Hash then cond.map { |k, v| "#{k} = '#{v}'" }
+        else [cond]
+        end
+    end
   end
 
   def limit(n = 0)
-    # @limit_sql = "LIMIT #{n}" if n.positive?
-    # self
-    relation = self.class.new(table: table)
-    relation.wheres = wheres
-    relation.limit_sql = "LIMIT #{n}" if n.positive?
-    relation.order_sql = order_sql
-    relation
+    copy.tap do |relation|
+      relation.limit_sql = "LIMIT #{n}" if n.positive?
+    end
   end
 
   def order(attribute = "id", direction = "ASC")
-    # @order_sql = "ORDER BY #{attribute} #{direction}"
-    # self
-    relation = self.class.new(table: table)
-    relation.wheres = wheres
-    relation.limit_sql = limit_sql
-    relation.order_sql = "ORDER BY #{attribute} #{direction}"
-    relation
+    copy.tap do |relation|
+      relation.order_sql = "ORDER BY #{attribute} #{direction.to_s.upcase}"
+    end
   end
 
   def to_sql
-    <<~SQL.strip + ";"
+    <<~SQL.gsub(/\n/, " ").strip + ";"
       SELECT #{columns}
       FROM #{table}
       #{where_sql}
