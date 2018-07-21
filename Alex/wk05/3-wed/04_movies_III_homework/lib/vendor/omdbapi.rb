@@ -1,6 +1,6 @@
 require "httparty"
 
-module ExternalAPI
+module OMDBAPI
   def self.movie_find_by(query = {})
     request({"t" => query[:title]})
   end

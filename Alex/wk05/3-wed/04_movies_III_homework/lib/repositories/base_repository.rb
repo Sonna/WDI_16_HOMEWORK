@@ -1,39 +1,13 @@
-require "lib/psql"
+require "lib/entities/entity"
+require "lib/repositories/adapters/psql"
 
 class BaseRepository
-  class BaseEntity
-    attr_reader :attributes
+  attr_reader :adapter, :entity_klass, :table_name
 
-    def initialize(attributes = {})
-      @attributes = attributes.transform_keys(&:to_sym)
-    end
-
-    def ==(other)
-      self.class == other.class &&
-        id == other.id
-    end
-
-    def [](method_name)
-      send(method_name)
-    end
-
-    def id
-      attributes.fetch(:id, nil)
-    end
-
-    def method_missing(method_name, *)
-      attributes.fetch(method_name, nil)
-    end
-
-    alias to_h attributes
-    alias to_hash to_h
-  end
-
-  attr_reader :adapter, :table_name
-
-  def initialize(table:, adapter: PSQL)
+  def initialize(table:, adapter: PSQL, entity_klass: Entity)
     @table_name = table
     @adapter = adapter
+    @entity_klass = entity_klass
   end
 
   # Create a record for the given data (or entity)
@@ -80,10 +54,6 @@ class BaseRepository
   end
 
   protected
-
-  def entity_klass
-    BaseEntity
-  end
 
   def create_sql(columns)
     <<~SQL

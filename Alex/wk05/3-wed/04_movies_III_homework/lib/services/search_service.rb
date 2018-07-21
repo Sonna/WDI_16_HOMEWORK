@@ -1,15 +1,15 @@
-require "lib/external_api"
+require "lib/vendor/omdbapi"
 
 class SearchService
-  attr_reader :external_api, :params
+  attr_reader :api, :params
 
   def self.call(params)
     new(params).call
   end
 
-  def initialize(params, external_api = ExternalAPI)
+  def initialize(params, api = OMDBAPI)
     @params = params
-    @external_api = external_api
+    @api = api
   end
 
   def page
@@ -18,6 +18,6 @@ class SearchService
 
   def call
     return { search: [], error: "Null Results", totalresults: "0" } if params["movie_name"].nil?
-    external_api.movie_search_by(title: params["movie_name"], page: page)
+    api.movie_search_by(title: params["movie_name"], page: page)
   end
 end

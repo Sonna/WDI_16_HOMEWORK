@@ -1,5 +1,5 @@
-require "lib/external_api"
 require "lib/repositories/movie_repository"
+require "lib/vendor/omdbapi"
 
 class MovieService
   ATTRIBUTES = %i(
@@ -7,15 +7,15 @@ class MovieService
     poster imdbrating imdbvotes production
   ).freeze
 
-  attr_reader :external_api, :params, :repo
+  attr_reader :api, :params, :repo
 
   def self.call(*args)
     self.new(*args).movie
   end
 
-  def initialize(params, external_api = ExternalAPI, repo = MovieRepository)
+  def initialize(params, api = OMDBAPI, repo = MovieRepository)
     @params = params
-    @external_api = external_api
+    @api = api
     @repo = repo.new
   end
 
@@ -23,7 +23,7 @@ class MovieService
     record = repo.find_by_title(title)
 
     unless record
-      result = external_api.movie_find_by(title: title)
+      result = api.movie_find_by(title: title)
       return result if result[:error]
       record = cache(result)
     end

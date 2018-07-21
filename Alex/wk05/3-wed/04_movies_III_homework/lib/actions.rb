@@ -1,2 +1,2 @@
-require "lib/actions/movie_index"
-require "lib/actions/movie_show"
+require "lib/actions/movie/index"
+require "lib/actions/movie/show"

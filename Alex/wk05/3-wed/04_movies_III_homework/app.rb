@@ -10,7 +10,7 @@ ROOT = File.expand_path('../', __FILE__)
 Dotenv.load File.join(ROOT, ".env")
 
 class MovieApp < Sinatra::Base
-  get("/") { MovieIndexAction.call(self) }
+  get("/") { Action::Movie::Index.call(self) }
   get("/about") { erb :about }
-  get("/:title") { MovieShowAction.call(self) }
+  get("/:title") { Action::Movie::Show.call(self) }
 end
