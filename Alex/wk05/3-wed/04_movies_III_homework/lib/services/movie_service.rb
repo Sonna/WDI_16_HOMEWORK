@@ -1,3 +1,6 @@
+require "lib/external_api"
+require "lib/repositories/movie_repository"
+
 class MovieService
   ATTRIBUTES = %i(
     title year rated released runtime genre director writer actors plot language

@@ -1,3 +1,5 @@
+require "lib/repositories/base_repository"
+
 class MovieRepository < BaseRepository
   class MovieEntity < BaseEntity; end
 

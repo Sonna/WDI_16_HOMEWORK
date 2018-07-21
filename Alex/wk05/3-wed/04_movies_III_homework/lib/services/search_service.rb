@@ -1,3 +1,5 @@
+require "lib/external_api"
+
 class SearchService
   attr_reader :external_api, :params
 

@@ -1,3 +1,6 @@
+require "lib/rating"
+require "lib/services/movie_service"
+
 class MovieShowAction
   include ErbRender
 

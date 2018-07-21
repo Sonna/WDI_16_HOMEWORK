@@ -1,6 +1,8 @@
 require "uri"
 
 require "lib/erb_render"
+require "lib/pagination"
+require "lib/services/search_service"
 
 class MovieIndexAction
   include ErbRender
@@ -9,7 +11,7 @@ class MovieIndexAction
 
   def self.call(context)
     action = new(context.params)
-    if action.results[:totalresults].to_i.one?
+    if action.results[:totalresults] == "1"
       context.redirect "/#{URI::encode(action.results[:search].first['Title'])}"
     end
     action.to_template

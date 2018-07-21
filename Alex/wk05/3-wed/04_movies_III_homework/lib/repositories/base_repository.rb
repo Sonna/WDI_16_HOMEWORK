@@ -1,3 +1,5 @@
+require "lib/psql"
+
 class BaseRepository
   class BaseEntity
     attr_reader :attributes
