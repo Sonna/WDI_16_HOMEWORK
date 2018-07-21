@@ -10,7 +10,7 @@ class MovieIndexAction
   def self.call(context)
     action = new(context.params)
     if action.results[:totalresults] == "1"
-      context.redirect "/#{URI::encode(action.results['Search'].first['Title'])}"
+      context.redirect "/#{URI::encode(action.results[:search].first['Title'])}"
     end
     action.to_template
   end
