@@ -44,7 +44,7 @@ class Relation
     relation.wheres << wheres +
       case cond
       when Hash then cond.map { |k, v| "#{k} = '#{v}'" }
-      else cond
+      else [cond]
       end
     # self
     relation.limit_sql = limit_sql
