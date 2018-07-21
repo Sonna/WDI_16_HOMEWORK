@@ -1,13 +1,8 @@
 class MovieRepository < BaseRepository
   class MovieEntity < BaseEntity; end
 
-  ATTRIBUTES = %w(
-    title year rated released runtime genre director writer actors plot language
-    poster imdbrating imdbvotes production
-  ).freeze
-
-  def initialize(table: "movies", adapter: PSQL, attributes: ATTRIBUTES)
-    super(table: table, adapter: adapter, attributes: attributes)
+  def initialize
+    super(table: "movies")
   end
 
   def find_by_title(title)

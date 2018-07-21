@@ -1,4 +1,9 @@
 class MovieService
+  ATTRIBUTES = %w(
+    title year rated released runtime genre director writer actors plot language
+    poster imdbrating imdbvotes production
+  ).freeze
+
   attr_reader :external_api, :params, :repo
 
   def self.call(*args)
@@ -31,11 +36,10 @@ class MovieService
   private
 
   def cache(result)
-    repo.create(filtered_params(result, repo.attributes))
+    repo.create(movie_params(result))
   end
 
-  def filtered_params(result = {}, attributes = [])
-    result = result.transform_keys(&:downcase)
-    attributes.each_with_object({}) { |attr, h| h[attr] = result[attr] }
+  def movie_params(result = {})
+    result.transform_keys(&:downcase).select { |k, _v| ATTRIBUTES.include?(k) }
   end
 end

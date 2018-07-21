@@ -27,12 +27,11 @@ class BaseRepository
     alias to_hash to_h
   end
 
-  attr_reader :adapter, :attributes, :table_name
+  attr_reader :adapter, :table_name
 
-  def initialize(table:, adapter: PSQL, attributes: [])
+  def initialize(table:, adapter: PSQL)
     @table_name = table
     @adapter = adapter
-    @attributes = attributes
   end
 
   # Create a record for the given data (or entity)
