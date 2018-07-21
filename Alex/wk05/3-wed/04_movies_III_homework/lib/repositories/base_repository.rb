@@ -1,4 +1,24 @@
 class BaseRepository
+  class Entity
+    attr_reader :attributes
+
+    def initialize(attributes = {})
+      @attributes = attributes.transform_keys(&:to_sym)
+    end
+
+    def [](method_name)
+      send(method_name)
+    end
+
+    def id
+      attributes.fetch(:id, nil)
+    end
+
+    def method_missing(method_name, *)
+      attributes.fetch(method_name, nil)
+    end
+  end
+
   attr_reader :adapter, :attributes, :table_name
 
   def initialize(table:, adapter: PSQL, attributes: [])
@@ -26,22 +46,22 @@ class BaseRepository
 
   # Fetch all the entities from the relation
   def all
-    adapter.exec(all_sql).to_a
+    adapter.exec(all_sql).map { |r| Entity.new(r) }
   end
 
   # Fetch an entity from the relation by primary key
   def find(id)
-    adapter.exec_prepared("find_#{table_name}", find_sql, id).first
+    Entity.new(adapter.exec_prepared("find_#{table_name}", find_sql, id).first)
   end
 
   # Fetch the first entity from the relation
   def first
-    adapter.exec(first_sql).first
+    Entity.new(adapter.exec(first_sql).first)
   end
 
   # Fetch the last entity from the relation
   def last
-    adapter.exec(last_sql).first
+    Entity.new(adapter.exec(last_sql).first)
   end
 
   # Delete all the records from the relation
