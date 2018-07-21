@@ -10,6 +10,8 @@ module ExternalAPI
   end
 
   def self.request(query = {})
-    HTTParty.get(ENV['API_URL'], query: query.merge("apikey" => ENV["API_KEY"]))
+    HTTParty.get(
+      ENV["API_URL"], query: query.merge("apikey" => ENV["API_KEY"])
+    ).transform_keys { |key| key.downcase.to_sym }
   end
 end

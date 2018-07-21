@@ -1,9 +1,9 @@
-<% unless response %>
-<h1><%= param_title %> - <%= error_message %></h1>
+<% if error_message %>
+<h1><%= title %> - <%= error_message %></h1>
 <% else %>
 <article class="movie">
   <div class="poster">
-    <img src="<%= poster_url %>">
+    <img src="<%= poster %>">
   </div>
   <div class="details">
     <div class="head">
@@ -11,8 +11,8 @@
       <span class="released"><%= released %></span>
       <span class="runtime"><%= runtime %></span>
       <span class="rating-details">
-        <span class="rating-value"><%= imdb_rating.to_html %></span>
-        <span class="rating-votes"><%= imdb_votes %></span>
+        <span class="rating-value"><%= rating.to_html %></span>
+        <span class="rating-votes"><%= imdbvotes %></span>
       </span>
       <span class="genre"><%= genre %></span>
     </div>

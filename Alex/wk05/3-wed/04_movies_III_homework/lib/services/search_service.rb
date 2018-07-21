@@ -8,7 +8,6 @@ class SearchService
   def initialize(params, external_api = ExternalAPI)
     @params = params
     @external_api = external_api
-    @results = {}
   end
 
   def page
@@ -16,12 +15,8 @@ class SearchService
   end
 
   def call
-    results = {
-      "Response" => nil, "Search" => [], "Error" => "", "totalResults" => "0"
-    }
+    results = { search: [], error: "Null Results", totalresults: "0" }
     return results if params["movie_name"].nil?
-    results.merge(
-      external_api.movie_search_by(title: params["movie_name"], page: page)
-    )
+    external_api.movie_search_by(title: params["movie_name"], page: page)
   end
 end

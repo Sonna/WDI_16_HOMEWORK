@@ -14,14 +14,8 @@ class MovieShowAction
 
   def locals
     {
-      response: movie[:response] == "True",
-      param_title: params[:title],
-
-      poster_url: movie[:poster],
-      imdb_rating: Rating.new(movie[:imdbrating].to_f),
-      imdb_votes: movie[:imdbvotes],
-
-      result: movie,
+      title: params[:title],
+      rating: Rating.new(movie[:imdbrating].to_f),
       error_message: movie[:error]
     }.merge(movie)
   end

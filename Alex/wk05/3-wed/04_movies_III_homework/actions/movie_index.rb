@@ -9,7 +9,7 @@ class MovieIndexAction
 
   def self.call(context)
     action = new(context.params)
-    if action.results["totalResults"] == "1"
+    if action.results[:totalresults] == "1"
       context.redirect "/#{URI::encode(action.results['Search'].first['Title'])}"
     end
     action.to_template
@@ -22,10 +22,8 @@ class MovieIndexAction
 
   def locals
     {
-      response: results["Response"],
-      results: results["Search"],
-      error_message: results["Error"]
-    }
+      error_message: results[:error]
+    }.merge(results)
   end
 
   def page
@@ -34,7 +32,7 @@ class MovieIndexAction
 
   def pagination
     Pagination.new(
-      total_items: results["totalResults"],
+      total_items: results[:totalresults],
       items_per_page: 10,
       current_page: page
     ).to_h

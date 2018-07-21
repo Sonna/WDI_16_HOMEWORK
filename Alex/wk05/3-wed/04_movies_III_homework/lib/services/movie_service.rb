@@ -21,15 +21,15 @@ class MovieService
 
     unless record
       result = external_api.movie_find_by(title: title)
-      return result.transform_keys { |key| key.downcase.to_sym } if result["Error"]
-      record = cache(result).to_h
+      return result if result[:error]
+      record = cache(result)
     end
 
-    record.to_h.tap { |r| r[:response] = "True" }
+    record.to_h.tap { |r| r[:response] = r.any? }
   end
 
   def title
-    params["title"]
+    params[:title]
   end
 
   private
