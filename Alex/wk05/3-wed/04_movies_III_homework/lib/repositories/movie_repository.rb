@@ -15,6 +15,6 @@ class MovieRepository < BaseRepository
   protected
 
   def find_by_title_sql
-    find_sql("title")
+    "SELECT * FROM #{table_name} WHERE title ILIKE ($1);"
   end
 end

@@ -36,6 +36,6 @@ class MovieService
 
   def filtered_params(result = {}, attributes = [])
     result = result.transform_keys(&:downcase)
-    attributes.map { |attribute| result[attribute] }
+    attributes.each_with_object({}) { |attr, h| h[attr] = result[attr] }
   end
 end
