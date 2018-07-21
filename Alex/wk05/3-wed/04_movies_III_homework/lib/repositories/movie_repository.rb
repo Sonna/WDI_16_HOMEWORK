@@ -1,4 +1,6 @@
 class MovieRepository < BaseRepository
+  class MovieEntity < BaseEntity; end
+
   ATTRIBUTES = %w(
     title year rated released runtime genre director writer actors plot language
     poster imdbrating imdbvotes production
@@ -16,5 +18,9 @@ class MovieRepository < BaseRepository
 
   def find_by_title_sql
     "SELECT * FROM #{table_name} WHERE title ILIKE ($1);"
+  end
+
+  def entity_klass
+    MovieEntity
   end
 end

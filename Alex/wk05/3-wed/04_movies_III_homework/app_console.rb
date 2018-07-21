@@ -11,7 +11,7 @@ require "lib/psql"
 
 repo = MovieRepository.new
 repo
-# => #<MovieRepository:0x00007ff64783f398
+# => #<MovieRepository:0x00007fd959870d90
 #     @adapter=PSQL,
 #     @attributes=
 #      ["title",
@@ -32,9 +32,9 @@ repo
 #     @table_name="movies">
 
 movie = repo.create(title: "Hello World")
-# => #<BaseRepository::Entity:0x00007ff64491bdc8
+# => #<MovieRepository::MovieEntity:0x00007fd9590a1538
 #     @attributes=
-#      {:id=>"106",
+#      {:id=>"107",
 #       :title=>"Hello World",
 #       :year=>nil,
 #       :rated=>nil,
@@ -51,8 +51,13 @@ movie = repo.create(title: "Hello World")
 #       :imdbvotes=>nil,
 #       :production=>nil}>
 
+movie.attributes # => {:id=>"107", :title=>"Hello World", :year=>nil, :rated=>nil, :released=>nil, :runtime=>nil, :genre=>nil, :director=>nil, :writer=>nil, :actors=>nil, :plot=>nil, :language=>nil, :poster=>nil, :imdbrating=>nil, :imdbvotes=>nil, :production=>nil}
+movie.to_h # => {:id=>"107", :title=>"Hello World", :year=>nil, :rated=>nil, :released=>nil, :runtime=>nil, :genre=>nil, :director=>nil, :writer=>nil, :actors=>nil, :plot=>nil, :language=>nil, :poster=>nil, :imdbrating=>nil, :imdbvotes=>nil, :production=>nil}
+movie.to_hash # => {:id=>"107", :title=>"Hello World", :year=>nil, :rated=>nil, :released=>nil, :runtime=>nil, :genre=>nil, :director=>nil, :writer=>nil, :actors=>nil, :plot=>nil, :language=>nil, :poster=>nil, :imdbrating=>nil, :imdbvotes=>nil, :production=>nil}
+movie == movie # => true
+
 repo.all.take(5)
-# => [#<BaseRepository::Entity:0x00007ff645089740
+# => [#<MovieRepository::MovieEntity:0x00007fd959889318
 #      @attributes=
 #       {:id=>"2",
 #        :title=>"Sharknado",
@@ -72,7 +77,7 @@ repo.all.take(5)
 #        :imdbrating=>"3.3",
 #        :imdbvotes=>"40,724",
 #        :production=>"NCM Fathom"}>,
-#     #<BaseRepository::Entity:0x00007ff645089448
+#     #<MovieRepository::MovieEntity:0x00007fd959889020
 #      @attributes=
 #       {:id=>"3",
 #        :title=>"Blade Runner",
@@ -94,7 +99,7 @@ repo.all.take(5)
 #        :imdbrating=>"8.2",
 #        :imdbvotes=>"589,433",
 #        :production=>"Warner Bros. Pictures"}>,
-#     #<BaseRepository::Entity:0x00007ff645089150
+#     #<MovieRepository::MovieEntity:0x00007fd959888d28
 #      @attributes=
 #       {:id=>"4",
 #        :title=>"The Godfather",
@@ -116,7 +121,7 @@ repo.all.take(5)
 #        :imdbrating=>"9.2",
 #        :imdbvotes=>"1,344,736",
 #        :production=>"Paramount Pictures"}>,
-#     #<BaseRepository::Entity:0x00007ff645088e58
+#     #<MovieRepository::MovieEntity:0x00007fd959888a30
 #      @attributes=
 #       {:id=>"5",
 #        :title=>"Once",
@@ -136,7 +141,7 @@ repo.all.take(5)
 #        :imdbrating=>"7.9",
 #        :imdbvotes=>"101,549",
 #        :production=>"Fox Searchlight"}>,
-#     #<BaseRepository::Entity:0x00007ff645088b60
+#     #<MovieRepository::MovieEntity:0x00007fd959888738
 #      @attributes=
 #       {:id=>"6",
 #        :title=>"Once Upon a Time in America",
@@ -158,19 +163,19 @@ repo.all.take(5)
 #        :imdbrating=>"8.4",
 #        :imdbvotes=>"258,711",
 #        :production=>"Warner Home Video"}>]
-repo.first # => #<BaseRepository::Entity:0x00007ff647869a30 @attributes={:id=>"1", :title=>"Jaws: The Revenge", :year=>"1987", :rated=>"PG-13", :released=>"17 Jul 1987", :runtime=>"89 min", :genre=>"Adventure, Horror, Thriller", :director=>"Joseph Sargent", :writer=>"Peter Benchley (characters), Michael De Guzman", :actors=>"Lorraine Gary, Lance Guest, Mario Van Peebles, Karen Young", :plot=>"Chief Brody's widow believes that her family is deliberately being targeted by another shark in search of revenge.", :language=>"English", :poster=>"https://m.media-amazon.com/images/M/MV5BNGI1MTAxMWItOTE0OC00ZDhkLWE3Y2EtNjFiZmQ4NjQ1NGNkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg", :imdbrating=>"2.9", :imdbvotes=>"34,724", :production=>"Universal Pictures"}>
-repo.last # => #<BaseRepository::Entity:0x00007ff647843e48 @attributes={:id=>"106", :title=>"Hello World", :year=>nil, :rated=>nil, :released=>nil, :runtime=>nil, :genre=>nil, :director=>nil, :writer=>nil, :actors=>nil, :plot=>nil, :language=>nil, :poster=>nil, :imdbrating=>nil, :imdbvotes=>nil, :production=>nil}>
+repo.first # => #<MovieRepository::MovieEntity:0x00007fd95906f880 @attributes={:id=>"1", :title=>"Jaws: The Revenge", :year=>"1987", :rated=>"PG-13", :released=>"17 Jul 1987", :runtime=>"89 min", :genre=>"Adventure, Horror, Thriller", :director=>"Joseph Sargent", :writer=>"Peter Benchley (characters), Michael De Guzman", :actors=>"Lorraine Gary, Lance Guest, Mario Van Peebles, Karen Young", :plot=>"Chief Brody's widow believes that her family is deliberately being targeted by another shark in search of revenge.", :language=>"English", :poster=>"https://m.media-amazon.com/images/M/MV5BNGI1MTAxMWItOTE0OC00ZDhkLWE3Y2EtNjFiZmQ4NjQ1NGNkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg", :imdbrating=>"2.9", :imdbvotes=>"34,724", :production=>"Universal Pictures"}>
+repo.last # => #<MovieRepository::MovieEntity:0x00007fd95906ddf0 @attributes={:id=>"107", :title=>"Hello World", :year=>nil, :rated=>nil, :released=>nil, :runtime=>nil, :genre=>nil, :director=>nil, :writer=>nil, :actors=>nil, :plot=>nil, :language=>nil, :poster=>nil, :imdbrating=>nil, :imdbvotes=>nil, :production=>nil}>
 
 # repo.delete(movie["id"])
 repo.delete(movie.id)
-# => #<PG::Result:0x00007ff647841fd0 status=PGRES_COMMAND_OK ntuples=0 nfields=0 cmd_tuples=1>
+# => #<PG::Result:0x00007fd95906c2e8 status=PGRES_COMMAND_OK ntuples=0 nfields=0 cmd_tuples=1>
 # repo.delete(repo.last["id"]).cmd_status
 # =/> "DELETE 1"
 # repo.delete(repo.last["id"]).cmd_tuples
 # =/> 1
 
 repo.first
-# => #<BaseRepository::Entity:0x00007ff646893930
+# => #<MovieRepository::MovieEntity:0x00007fd9590663e8
 #     @attributes=
 #      {:id=>"1",
 #       :title=>"Jaws: The Revenge",
@@ -192,7 +197,7 @@ repo.first
 #       :production=>"Universal Pictures"}>
 
 repo.find(2)
-# => #<BaseRepository::Entity:0x00007ff64783cbe8
+# => #<MovieRepository::MovieEntity:0x00007fd95895f180
 #     @attributes=
 #      {:id=>"2",
 #       :title=>"Sharknado",
@@ -213,11 +218,11 @@ repo.find(2)
 #       :imdbvotes=>"40,724",
 #       :production=>"NCM Fathom"}>
 
-repo.update(1, imdbrating: "5.4") # => #<PG::Result:0x00007ff647835708 status=PGRES_COMMAND_OK ntuples=0 nfields=0 cmd_tuples=1>
+repo.update(1, imdbrating: "5.4") # => #<PG::Result:0x00007fd959057708 status=PGRES_COMMAND_OK ntuples=0 nfields=0 cmd_tuples=1>
 repo.find(1)["imdbrating"] # => "5.4"
 repo.find(1)[:imdbrating] # => "5.4"
 repo.find(1).imdbrating # => "5.4"
-repo.update(1, imdbrating: "2.9") # => #<PG::Result:0x00007ff64784e528 status=PGRES_COMMAND_OK ntuples=0 nfields=0 cmd_tuples=1>
+repo.update(1, imdbrating: "2.9") # => #<PG::Result:0x00007fd958968208 status=PGRES_COMMAND_OK ntuples=0 nfields=0 cmd_tuples=1>
 repo.find(1)["imdbrating"] # => "2.9"
 repo.find(1)[:imdbrating] # => "2.9"
 repo.find(1).imdbrating # => "2.9"

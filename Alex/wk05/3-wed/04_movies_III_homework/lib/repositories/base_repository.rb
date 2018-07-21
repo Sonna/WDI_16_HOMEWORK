@@ -1,9 +1,14 @@
 class BaseRepository
-  class Entity
+  class BaseEntity
     attr_reader :attributes
 
     def initialize(attributes = {})
       @attributes = attributes.transform_keys(&:to_sym)
+    end
+
+    def ==(other)
+      self.class == other.class &&
+        id == other.id
     end
 
     def [](method_name)
@@ -17,6 +22,9 @@ class BaseRepository
     def method_missing(method_name, *)
       attributes.fetch(method_name, nil)
     end
+
+    alias to_h attributes
+    alias to_hash to_h
   end
 
   attr_reader :adapter, :attributes, :table_name
@@ -46,22 +54,22 @@ class BaseRepository
 
   # Fetch all the entities from the relation
   def all
-    adapter.exec(all_sql).map { |r| Entity.new(r) }
+    adapter.exec(all_sql).map { |r| entity_klass.new(r) }
   end
 
   # Fetch an entity from the relation by primary key
   def find(id)
-    Entity.new(adapter.exec_prepared("find_#{table_name}", find_sql, id).first)
+    entity_klass.new(adapter.exec_prepared("find_#{table_name}", find_sql, id).first)
   end
 
   # Fetch the first entity from the relation
   def first
-    Entity.new(adapter.exec(first_sql).first)
+    entity_klass.new(adapter.exec(first_sql).first)
   end
 
   # Fetch the last entity from the relation
   def last
-    Entity.new(adapter.exec(last_sql).first)
+    entity_klass.new(adapter.exec(last_sql).first)
   end
 
   # Delete all the records from the relation
@@ -70,6 +78,10 @@ class BaseRepository
   end
 
   protected
+
+  def entity_klass
+    BaseEntity
+  end
 
   def create_sql(columns)
     <<~SQL
