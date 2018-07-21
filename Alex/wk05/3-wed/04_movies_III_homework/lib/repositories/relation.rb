@@ -39,6 +39,14 @@ class Relation
     end
   end
 
+  def first
+    entity_klass.new(copy.order(:id, :asc).limit(1).rows.first)
+  end
+
+  def last
+    entity_klass.new(copy.order(:id, :desc).limit(1).rows.first)
+  end
+
   def select(*columns)
     copy.tap do |relation|
       relation.columns = columns.join(", ")
