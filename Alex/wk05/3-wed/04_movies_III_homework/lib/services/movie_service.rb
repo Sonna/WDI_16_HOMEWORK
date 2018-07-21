@@ -1,5 +1,5 @@
 class MovieService
-  ATTRIBUTES = %w(
+  ATTRIBUTES = %i(
     title year rated released runtime genre director writer actors plot language
     poster imdbrating imdbvotes production
   ).freeze
@@ -25,7 +25,7 @@ class MovieService
       record = cache(result)
     end
 
-    record.to_h.tap { |r| r[:response] = r.any? }
+    record.to_h
   end
 
   def title
