@@ -6,7 +6,6 @@ module ExternalAPI
   end
 
   def self.movie_search_by(query = {})
-    return { search: [], error: "Null Results", totalresults: "0" } if query[:title].nil?
     request({"s" => query[:title], "type" => "movie", "page" => query[:page]})
   end
 
