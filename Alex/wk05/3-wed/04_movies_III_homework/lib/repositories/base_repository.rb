@@ -78,8 +78,8 @@ class BaseRepository
     "SELECT * FROM #{table_name};"
   end
 
-  def find_sql
-    "SELECT * FROM #{table_name} WHERE id = ($1);"
+  def find_sql(condition = "id = ($1)")
+    "SELECT * FROM #{table_name} WHERE #{condition};"
   end
 
   def first_sql

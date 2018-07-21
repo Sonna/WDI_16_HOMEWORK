@@ -7,6 +7,7 @@ Dotenv.load File.join(ROOT, ".env")
 
 require "lib/repositories/base_repository"
 require "lib/repositories/movie_repository"
+require "lib/repositories/relation"
 require "lib/psql"
 
 repo = MovieRepository.new
