@@ -6,10 +6,10 @@ module ErbRender
   include Sinatra::Helpers
 
   def settings
-    @settings ||= begin
-      settings = Sinatra::Application.settings
+    @settings ||= MovieApp.settings.tap do |settings|
+      # settings = Sinatra::Application.settings
       settings.root = "#{ROOT}"
-      settings
+      # settings.views = File.join(settings.root, "/lib/templates")
     end
   end
 
