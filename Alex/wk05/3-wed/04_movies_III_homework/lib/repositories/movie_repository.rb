@@ -8,11 +8,13 @@ class MovieRepository < BaseRepository
     super(table: table, adapter: adapter, attributes: attributes)
   end
 
-  def create(attributes)
-    adapter.exec_prepared("create_movie", create_sql, *attributes)
+  def find_by_title(title)
+    adapter.exec_prepared("find_#{table_name}", find_by_title_sql, title).first
   end
 
-  def find(title)
-    adapter.exec_prepared("find_movie", find_sql("title"), title).first
+  protected
+
+  def find_by_title_sql
+    find_sql("title")
   end
 end

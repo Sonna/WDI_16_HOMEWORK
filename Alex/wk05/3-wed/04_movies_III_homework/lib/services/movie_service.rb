@@ -12,7 +12,7 @@ class MovieService
   end
 
   def movie
-    result = repo.find(title)
+    result = repo.find_by_title(title)
 
     if result
       result["response"] = "True"

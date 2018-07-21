@@ -7,6 +7,14 @@ class BaseRepository
     @attributes = attributes
   end
 
+  def create(attributes)
+    adapter.exec_prepared("create_#{table_name}", create_sql, *attributes)
+  end
+
+  def find(id)
+    adapter.exec_prepared("find_#{table_name}", find_sql, id).first
+  end
+
   protected
 
   def create_sql(attr = attributes)
