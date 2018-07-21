@@ -17,16 +17,15 @@ class MovieService
   end
 
   def movie
-    result = repo.find_by_title(title)
+    record = repo.find_by_title(title)
 
-    if result
-      result["response"] = "True"
-    else
+    unless record
       result = external_api.movie_find_by(title: title)
-      cache(result) unless result["Error"]
+      return result.transform_keys { |key| key.downcase.to_sym } if result["Error"]
+      record = cache(result).to_h
     end
 
-    result.transform_keys { |key| key.downcase.to_sym }
+    record.to_h.tap { |r| r[:response] = "True" }
   end
 
   def title

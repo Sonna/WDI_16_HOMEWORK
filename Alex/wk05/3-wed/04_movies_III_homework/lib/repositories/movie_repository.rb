@@ -6,7 +6,8 @@ class MovieRepository < BaseRepository
   end
 
   def find_by_title(title)
-    adapter.exec_prepared("find_#{table_name}", find_by_title_sql, title).first
+    record = adapter.exec_prepared("find_#{table_name}", find_by_title_sql, title).first
+    entity_klass.new(record) if record
   end
 
   protected

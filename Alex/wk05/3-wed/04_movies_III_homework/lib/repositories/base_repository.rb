@@ -58,7 +58,8 @@ class BaseRepository
 
   # Fetch an entity from the relation by primary key
   def find(id)
-    entity_klass.new(adapter.exec_prepared("find_#{table_name}", find_sql, id).first)
+    record = adapter.exec_prepared("find_#{table_name}", find_sql, id).first
+    entity_klass.new(record) if record
   end
 
   # Fetch the first entity from the relation
