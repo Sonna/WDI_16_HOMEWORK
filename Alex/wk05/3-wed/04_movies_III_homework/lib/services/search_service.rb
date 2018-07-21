@@ -15,8 +15,6 @@ class SearchService
   end
 
   def call
-    results = { search: [], error: "Null Results", totalresults: "0" }
-    return results if params["movie_name"].nil?
     external_api.movie_search_by(title: params["movie_name"], page: page)
   end
 end
