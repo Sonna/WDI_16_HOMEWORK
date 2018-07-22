@@ -425,3 +425,16 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 5 - 2018/07/19
 
 - [WDI Odd Int Warmup](https://gist.github.com/kasun-maldeni/919b2d75fe2d41c563c826ff1616bbf7)
+
+- Career Outcomes Lecture (Resume writing)
+
+- Homework
+  * Movies III
+  * CRUD App
+  * Robot Name
+
+#### Week 06 (2018/07/23)
+
+##### Day 1 - 2018/07/23
+
+- [WDI Week 4 Ruby Checkpoint](https://gist.github.com/kasun-maldeni/580aaa1f12e80881050e473099e70a39#file-wdi_wk4_ruby_checkpoint-md)
