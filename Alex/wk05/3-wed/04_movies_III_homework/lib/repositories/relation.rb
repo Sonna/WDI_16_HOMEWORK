@@ -7,8 +7,7 @@ class Relation
   include Enumerable
 
   # attr_reader
-  attr_accessor :adapter, :entity_klass, :columns, :limit_sql, :order_sql,
-                :table, :wheres, :values
+  attr_accessor :adapter, :entity_klass, :table, :values
 
   def initialize(table:, adapter: PSQL, entity_klass: Entity, values: {})
     @table = table
