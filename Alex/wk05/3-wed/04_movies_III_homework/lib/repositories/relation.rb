@@ -48,9 +48,7 @@ class Relation
   end
 
   def select(*columns)
-    copy.tap do |relation|
-      relation.values[:columns] = columns
-    end
+    copy.tap { |r| r.values[:columns] = columns }
   end
 
   def pluck(column)
@@ -70,22 +68,19 @@ class Relation
   end
 
   def limit(n = 0)
-    copy.tap do |relation|
-      relation.values = relation.values.merge(limit_n: n)
-    end
+    copy.tap { |r| r.values = r.values.merge(limit_n: n) }
   end
 
   def order(*args)
-    copy.tap do |relation|
-      relation.values[:orders] = *args
-    end
+    copy.tap { |r| r.values[:orders] = *args }
   end
 
   def to_sql
-    [select_sql, from_sql, where_sql, order_sql, limit_sql, ";"].join(" ")
+    [select_sql, from_sql, where_sql, order_sql, limit_sql].compact.join(" ").strip + ";"
   end
 
   def count
+    return values[:limit_n] if values[:limit_n]&.positive?
     temp, values[:columns] = values[:columns], ["COUNT(id)"]
     # @count[[wheres, limit, order]] ||= adapter.exec(to_sql).first["count"].to_i
     @count = adapter.exec(to_sql).first["count"].to_i

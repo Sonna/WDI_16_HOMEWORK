@@ -9,9 +9,12 @@ require "lib/repositories/relation"
 
 relation = Relation.new(table: "movies")
 
+relation.to_sql
+# => "SELECT * FROM movies;"
+
 relation.count # => 103
 relation.first
-# => #<Entity:0x00007fbcb1890858
+# => #<Entity:0x00007f863e0941d0
 #     @attributes=
 #      {:id=>"1",
 #       :title=>"Jaws: The Revenge",
@@ -32,7 +35,7 @@ relation.first
 #       :imdbvotes=>"34,724",
 #       :production=>"Universal Pictures"}>
 relation.last
-# => #<Entity:0x00007fbcb014ddd0
+# => #<Entity:0x00007f863c06d7d0
 #     @attributes=
 #      {:id=>"115",
 #       :title=>"Drive",
@@ -55,14 +58,16 @@ relation.last
 
 relation.where(title: "Sharknado").count # => 1
 relation.where(title: "Sharknado")
-# => #<Relation:70224204385140 [#<Entity:0x00007fbcb015e478 @attributes={:id=>"2", :title=>"Sharknado", :year=>"2013", :rated=>"TV-14", :released=>"11 Jul 2013", :runtime=>"86 min", :genre=>"Action, Adventure, Comedy", :director=>"Anthony C. Ferrante", :writer=>"Thunder Levin", :actors=>"Ian Ziering, Tara Reid, John Heard, Cassandra Scerbo", :plot=>"When a freak hurricane swamps Los Angeles, nature's deadliest killer rules sea, land, and air as thousands of sharks terrorize the waterlogged populace.", :language=>"English", :poster=>"https://m.media-amazon.com/images/M/MV5BOTE2OTk4MTQzNV5BMl5BanBnXkFtZTcwODUxOTM3OQ@@._V1_SX300.jpg", :imdbrating=>"3.3", :imdbvotes=>"40,724", :production=>"NCM Fathom"}>]>
+# => #<Relation:70107279948460 [#<Entity:0x00007f863f08d938 @attributes={:id=>"2", :title=>"Sharknado", :year=>"2013", :rated=>"TV-14", :released=>"11 Jul 2013", :runtime=>"86 min", :genre=>"Action, Adventure, Comedy", :director=>"Anthony C. Ferrante", :writer=>"Thunder Levin", :actors=>"Ian Ziering, Tara Reid, John Heard, Cassandra Scerbo", :plot=>"When a freak hurricane swamps Los Angeles, nature's deadliest killer rules sea, land, and air as thousands of sharks terrorize the waterlogged populace.", :language=>"English", :poster=>"https://m.media-amazon.com/images/M/MV5BOTE2OTk4MTQzNV5BMl5BanBnXkFtZTcwODUxOTM3OQ@@._V1_SX300.jpg", :imdbrating=>"3.3", :imdbvotes=>"40,724", :production=>"NCM Fathom"}>]>
 
 relation.where(year: "2013").count # => 4
 relation.where(year: "2013")
-# => #<Relation:70224192397840 [#<Entity:0x00007fbcb18a22d8 @attributes={:id=>"2", :title=>"Sharknado", :year=>"2013", :rated=>"TV-14", :released=>"11 Jul 2013", :runtime=>"86 min", :genre=>"Action, Adventure, Comedy", :director=>"Anthony C. Ferrante", :writer=>"Thunder Levin", :actors=>"Ian Ziering, Tara Reid, John Heard, Cassandra Scerbo", :plot=>"When a freak hurricane swamps Los Angeles, nature's deadliest killer rules sea, land, and air as thousands of sharks terrorize the waterlogged populace.", :language=>"English", :poster=>"https://m.media-amazon.com/images/M/MV5BOTE2OTk4MTQzNV5BMl5BanBnXkFtZTcwODUxOTM3OQ@@._V1_SX300.jpg", :imdbrating=>"3.3", :imdbvotes=>"40,724", :production=>"NCM Fathom"}>, #<Entity:0x00007fbcb18a2288 @attributes={:id=>"80", :title=>"Fukushima: The Never Ending Story", :year=>"2013", :rated=>"N/A", :released=>"13 Jan 2013", :runtime=>"N/A", :genre=>"N/A", :director=>"N/A", :writer=>"N/A", :actors=>"N/A", :plot=>"N/A", :language=>"English", :poster=>"N/A", :imdbrating=>"N/A", :imdbvotes=>"N/A", :production=>"N/A"}>, #<Entity:0x00007fbcb18a2238 @attributes={:id=>"113", :title=>"Only God Forgives", :year=>"2013", :rated=>"R", :released=>"22 May 2013", :runtime=>"90 min", :genre=>"Crime, Drama", :director=>"Nicolas Winding Refn", :writer=>"Nicolas Winding Refn", :actors=>"Ryan Gosling, Kristin Scott Thomas, Vithaya Pansringarm, Gordon Brown", :plot=>"Julian, a drug-smuggler thriving in Bangkok's criminal underworld, sees his life get even more complicated when his mother compels him to find and kill whoever is responsible for his brother's recent death.", :language=>"English, Thai", :poster=>"https://m.media-amazon.com/images/M/MV5BMzE5NzcxMTk5NF5BMl5BanBnXkFtZTcwNjE2MDg2OQ@@._V1_SX300.jpg", :imdbrating=>"5.7", :imdbvotes=>"95,916", :production=>"Radius-TWC"}>, #<Entity:0x00007fbcb18a21e8 @attributes={:id=>"102", :title=>"A Certain Magical Index: The Miracle of Endymion", :year=>"2013", :rated=>"N/A", :released=>"23 Feb 2013", :runtime=>"90 min", :genre=>"Animation, Fantasy, Sci-Fi", :director=>"Hiroshi Nishikiori", :writer=>"Kazuma Kamachi (creator), Hiroyuki Yoshino (screenplay)", :actors=>"Atsushi Abe, Sachika Misawa, Yôko Hikasa, Yuka Iguchi", :plot=>"On the day Touma Kamijou and Index see Academy City's space elevator, Endymion in the distance, they meet a Level 0 girl with an amazing singing voice, Arisa Meigo. As the three enjoy their...", :language=>"Japanese", :poster=>"https://images-na.ssl-images-amazon.com/images/M/MV5BOWU0YTY1YjctODhjNi00YjRkLWJlYzEtODlmYTcwNjI5NmJiXkEyXkFqcGdeQXVyMjYxMzY2NDk@._V1_SX300.jpg", :imdbrating=>"6.6", :imdbvotes=>"179", :production=>"N/A"}>]>
+# => #<Relation:70107279681200 [#<Entity:0x00007f863e09dc58 @attributes={:id=>"2", :title=>"Sharknado", :year=>"2013", :rated=>"TV-14", :released=>"11 Jul 2013", :runtime=>"86 min", :genre=>"Action, Adventure, Comedy", :director=>"Anthony C. Ferrante", :writer=>"Thunder Levin", :actors=>"Ian Ziering, Tara Reid, John Heard, Cassandra Scerbo", :plot=>"When a freak hurricane swamps Los Angeles, nature's deadliest killer rules sea, land, and air as thousands of sharks terrorize the waterlogged populace.", :language=>"English", :poster=>"https://m.media-amazon.com/images/M/MV5BOTE2OTk4MTQzNV5BMl5BanBnXkFtZTcwODUxOTM3OQ@@._V1_SX300.jpg", :imdbrating=>"3.3", :imdbvotes=>"40,724", :production=>"NCM Fathom"}>, #<Entity:0x00007f863e09dc08 @attributes={:id=>"80", :title=>"Fukushima: The Never Ending Story", :year=>"2013", :rated=>"N/A", :released=>"13 Jan 2013", :runtime=>"N/A", :genre=>"N/A", :director=>"N/A", :writer=>"N/A", :actors=>"N/A", :plot=>"N/A", :language=>"English", :poster=>"N/A", :imdbrating=>"N/A", :imdbvotes=>"N/A", :production=>"N/A"}>, #<Entity:0x00007f863e09dbb8 @attributes={:id=>"113", :title=>"Only God Forgives", :year=>"2013", :rated=>"R", :released=>"22 May 2013", :runtime=>"90 min", :genre=>"Crime, Drama", :director=>"Nicolas Winding Refn", :writer=>"Nicolas Winding Refn", :actors=>"Ryan Gosling, Kristin Scott Thomas, Vithaya Pansringarm, Gordon Brown", :plot=>"Julian, a drug-smuggler thriving in Bangkok's criminal underworld, sees his life get even more complicated when his mother compels him to find and kill whoever is responsible for his brother's recent death.", :language=>"English, Thai", :poster=>"https://m.media-amazon.com/images/M/MV5BMzE5NzcxMTk5NF5BMl5BanBnXkFtZTcwNjE2MDg2OQ@@._V1_SX300.jpg", :imdbrating=>"5.7", :imdbvotes=>"95,916", :production=>"Radius-TWC"}>, #<Entity:0x00007f863e09db68 @attributes={:id=>"102", :title=>"A Certain Magical Index: The Miracle of Endymion", :year=>"2013", :rated=>"N/A", :released=>"23 Feb 2013", :runtime=>"90 min", :genre=>"Animation, Fantasy, Sci-Fi", :director=>"Hiroshi Nishikiori", :writer=>"Kazuma Kamachi (creator), Hiroyuki Yoshino (screenplay)", :actors=>"Atsushi Abe, Sachika Misawa, Yôko Hikasa, Yuka Iguchi", :plot=>"On the day Touma Kamijou and Index see Academy City's space elevator, Endymion in the distance, they meet a Level 0 girl with an amazing singing voice, Arisa Meigo. As the three enjoy their...", :language=>"Japanese", :poster=>"https://images-na.ssl-images-amazon.com/images/M/MV5BOWU0YTY1YjctODhjNi00YjRkLWJlYzEtODlmYTcwNjI5NmJiXkEyXkFqcGdeQXVyMjYxMzY2NDk@._V1_SX300.jpg", :imdbrating=>"6.6", :imdbvotes=>"179", :production=>"N/A"}>]>
 
+relation.where(title: "Sharknado", year: "2013").to_sql
+# => "SELECT * FROM movies WHERE title = 'Sharknado' AND year = '2013';"
 relation.where(title: "Sharknado", year: "2013").all
-# => [#<Entity:0x00007fbcb18ab248
+# => [#<Entity:0x00007f863d825558
 #      @attributes=
 #       {:id=>"2",
 #        :title=>"Sharknado",
@@ -83,8 +88,10 @@ relation.where(title: "Sharknado", year: "2013").all
 #        :imdbvotes=>"40,724",
 #        :production=>"NCM Fathom"}>]
 
+relation.where(title: "Sharknado").where(year: "2013").to_sql
+# => "SELECT * FROM movies WHERE title = 'Sharknado' AND year = '2013';"
 relation.where(title: "Sharknado").where(year: "2013").to_a
-# => [#<Entity:0x00007fbcb18aa370
+# => [#<Entity:0x00007f863f08c128
 #      @attributes=
 #       {:id=>"2",
 #        :title=>"Sharknado",
@@ -108,12 +115,15 @@ relation.where(title: "Sharknado").where(year: "2013").to_a
 relation.where(title: "Sharknado", year: "2013").to_a == relation.where(title: "Sharknado").where(year: "2013").to_a
 # => true
 
+relation.limit(5).order(:year, :desc).where("title ilike '%Shark%'").select(:title, "year").to_sql
+# => "SELECT title, year FROM movies WHERE title ilike '%Shark%' ORDER BY year desc LIMIT 5;"
+
 relation.select(:title, "year").where("title ilike '%Shark%'").limit(5).order(:year, :desc).to_a
-# => [#<Entity:0x00007fbcb01579e8
+# => [#<Entity:0x00007f864002c510
 #      @attributes={:title=>"Sharknado", :year=>"2013"}>,
-#     #<Entity:0x00007fbcb0157998
-#      @attributes={:title=>"Island of the Sharks", :year=>"1999"}>, # !> method redefined; discarding old order_sql
-#     #<Entity:0x00007fbcb0157948
+#     #<Entity:0x00007f864002c4c0
+#      @attributes={:title=>"Island of the Sharks", :year=>"1999"}>,
+#     #<Entity:0x00007f864002c470
 #      @attributes=
 #       {:title=>"The Making of 'Jaws 3-D': Sharks Don't Die", :year=>"1983"}>]
 
@@ -121,12 +131,12 @@ relation.select(:title, "year").where("title ilike '%Shark%'").limit(5).order(:y
 # => ["2", "7", "12"]
 
 relation.where("title ilike '%Shark%'").limit(5).order(:year, :desc).to_sql
-# => "SELECT * FROM movies WHERE title ilike '%Shark%' ORDER BY year desc LIMIT 5 ;"
+# => "SELECT * FROM movies WHERE title ilike '%Shark%' ORDER BY year desc LIMIT 5;"
 
 relation.where("title ilike '%Shark%'").limit(5).order(:year, :desc).to_a
-# => [#<Entity:0x00007fbcb189a088
+# => [#<Entity:0x00007f863c807c98
 #      @attributes=
-#       {:id=>"2", # !> method redefined; discarding old limit_sql
+#       {:id=>"2",
 #        :title=>"Sharknado",
 #        :year=>"2013",
 #        :rated=>"TV-14",
@@ -144,7 +154,7 @@ relation.where("title ilike '%Shark%'").limit(5).order(:year, :desc).to_a
 #        :imdbrating=>"3.3",
 #        :imdbvotes=>"40,724",
 #        :production=>"NCM Fathom"}>,
-#     #<Entity:0x00007fbcb189a038
+#     #<Entity:0x00007f863c807c48
 #      @attributes=
 #       {:id=>"7",
 #        :title=>"Island of the Sharks",
@@ -164,7 +174,7 @@ relation.where("title ilike '%Shark%'").limit(5).order(:year, :desc).to_a
 #        :imdbrating=>"7.0",
 #        :imdbvotes=>"97",
 #        :production=>"Imax Corporation"}>,
-#     #<Entity:0x00007fbcb1899fe8
+#     #<Entity:0x00007f863c807bf8
 #      @attributes=
 #       {:id=>"12",
 #        :title=>"The Making of 'Jaws 3-D': Sharks Don't Die",
@@ -184,8 +194,11 @@ relation.where("title ilike '%Shark%'").limit(5).order(:year, :desc).to_a
 #        :imdbvotes=>"12",
 #        :production=>"N/A"}>]
 
+relation.limit(5).count # => 5
+relation.limit(5).order(:year, :asc).to_sql # => "SELECT * FROM movies ORDER BY year asc LIMIT 5;"
+relation.limit(5).order(:year, :asc).to_a.size # => 5
 relation.limit(5).order(:year, :asc).to_a
-# => [#<Entity:0x00007fbcb18682b8
+# => [#<Entity:0x00007f863e88b3e8
 #      @attributes=
 #       {:id=>"11",
 #        :title=>"Jaws of Justice",
@@ -206,7 +219,7 @@ relation.limit(5).order(:year, :asc).to_a
 #        :imdbrating=>"4.0",
 #        :imdbvotes=>"24",
 #        :production=>"Sol Lesser Productions"}>,
-#     #<Entity:0x00007fbcb1868240
+#     #<Entity:0x00007f863e88b370
 #      @attributes=
 #       {:id=>"18",
 #        :title=>"Blade of the Ripper",
@@ -227,7 +240,7 @@ relation.limit(5).order(:year, :asc).to_a
 #        :imdbrating=>"7.0",
 #        :imdbvotes=>"2,730",
 #        :production=>"Gemini-Maron"}>,
-#     #<Entity:0x00007fbcb18681f0
+#     #<Entity:0x00007f863e88b320
 #      @attributes=
 #       {:id=>"4",
 #        :title=>"The Godfather",
@@ -249,7 +262,7 @@ relation.limit(5).order(:year, :asc).to_a
 #        :imdbrating=>"9.2",
 #        :imdbvotes=>"1,344,736",
 #        :production=>"Paramount Pictures"}>,
-#     #<Entity:0x00007fbcb1868150
+#     #<Entity:0x00007f863e88b2d0
 #      @attributes=
 #       {:id=>"14",
 #        :title=>"The Godfather",
@@ -271,7 +284,7 @@ relation.limit(5).order(:year, :asc).to_a
 #        :imdbrating=>"9.2",
 #        :imdbvotes=>"1,344,736",
 #        :production=>"Paramount Pictures"}>,
-#     #<Entity:0x00007fbcb1868088
+#     #<Entity:0x00007f863e88b280
 #      @attributes=
 #       {:id=>"16",
 #        :title=>"The Godfather",
@@ -293,4 +306,3 @@ relation.limit(5).order(:year, :asc).to_a
 #        :imdbrating=>"9.2",
 #        :imdbvotes=>"1,344,736",
 #        :production=>"Paramount Pictures"}>]
-# ~>  from -:8:in `<main>'
