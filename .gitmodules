@@ -13,3 +13,6 @@
 [submodule "Alex/project1/public"]
 	path = Alex/project1/public
 	url = ../wdi-project1
+[submodule "Alex/wk06/1-mon/00_crud_app_planets_heroku_deploy"]
+	path = Alex/wk06/1-mon/00_crud_app_planets_heroku_deploy
+	url = ../crud_app_planets_heroku_deploy-wdi
