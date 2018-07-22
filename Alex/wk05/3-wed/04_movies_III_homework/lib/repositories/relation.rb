@@ -8,16 +8,15 @@ class Relation
 
   # attr_reader
   attr_accessor :adapter, :entity_klass, :columns, :limit_sql, :order_sql,
-                :table, :wheres
+                :table, :wheres, :values
 
-  def initialize(table:, adapter: PSQL, entity_klass: Entity)
-    # @query
-    @columns = "*"
+  def initialize(table:, adapter: PSQL, entity_klass: Entity, values: {})
     @table = table
     @adapter = adapter
-    @wheres = []
     @entity_klass = entity_klass
-    # @count = {}
+    @values = {
+      columns: ["*"], wheres: [], orders: nil, limit_n: nil
+    }.merge(values)
   end
 
   def each
@@ -27,16 +26,18 @@ class Relation
   alias all to_a
 
   def inspect
-    "<#{self.class.name}:#{object_id} [#{rows.inspect}]>"
+    # subject = loaded? ? records : self
+    # entries = subject.take([limit_value, 11].compact.min).map!(&:inspect)
+    entries = each.take([values[:limit_n], 11].compact.min).map!(&:inspect)
+
+    entries[10] = "..." if entries.size == 11
+
+    "#<#{self.class.name}:#{object_id} [#{entries.join(', ')}]>"
   end
 
   def copy
-    self.class.new(table: table).tap do |relation|
-      relation.columns = columns
-      relation.wheres = wheres
-      relation.limit_sql = limit_sql
-      relation.order_sql = order_sql
-    end
+    self.class.new(table: table, adapter: adapter, entity_klass: entity_klass,
+                   values: values)
   end
 
   def first
@@ -49,19 +50,19 @@ class Relation
 
   def select(*columns)
     copy.tap do |relation|
-      relation.columns = columns.join(", ")
+      relation.values[:columns] = columns
     end
   end
 
   def pluck(column)
     copy.tap do |relation|
-      relation.columns = column
+      relation.values[:columns] = [column]
     end.rows.map { |row| row[column.to_s] }
   end
 
   def where(cond)
     copy.tap do |relation|
-      relation.wheres = wheres +
+      relation.values[:wheres] = values[:wheres] +
         case cond
         when Hash then cond.map { |k, v| "#{k} = '#{v}'" }
         else [cond]
@@ -71,31 +72,25 @@ class Relation
 
   def limit(n = 0)
     copy.tap do |relation|
-      relation.limit_sql = "LIMIT #{n}" if n.positive?
+      relation.values = relation.values.merge(limit_n: n)
     end
   end
 
-  def order(attribute = "id", direction = "ASC")
+  def order(*args)
     copy.tap do |relation|
-      relation.order_sql = "ORDER BY #{attribute} #{direction.to_s.upcase}"
+      relation.values[:orders] = *args
     end
   end
 
   def to_sql
-    <<~SQL.gsub(/\n/, " ").strip + ";"
-      SELECT #{columns}
-      FROM #{table}
-      #{where_sql}
-      #{order_sql}
-      #{limit_sql}
-    SQL
+    [select_sql, from_sql, where_sql, order_sql, limit_sql, ";"].join(" ")
   end
 
   def count
-    temp, @columns = columns, "COUNT(id)"
+    temp, values[:columns] = values[:columns], ["COUNT(id)"]
     # @count[[wheres, limit, order]] ||= adapter.exec(to_sql).first["count"].to_i
     @count = adapter.exec(to_sql).first["count"].to_i
-    @columns = temp
+    values[:columns] = temp
     @count
   end
 
@@ -105,7 +100,33 @@ class Relation
     @rows = adapter.exec(to_sql).to_a
   end
 
+  def select_sql
+    "SELECT #{values[:columns].join(', ')}"
+  end
+
+  def from_sql
+    "FROM #{table}"
+  end
+
   def where_sql
-    "WHERE #{wheres.join(' AND ')}" if wheres.any?
+    "WHERE #{values[:wheres].join(' AND ')}" if values[:wheres].any?
+  end
+
+  def order_sql
+    case values[:orders]
+    when Array then
+      *orders, tail = values[:orders]
+      "ORDER BY #{orders.join(', ')} #{tail}"
+    when Hash then
+      *orders, tail = values[:orders]
+      # "ORDER BY #{orders.join(', ')}#{orders.size >= 2 ? ',' : ''} #{tail.to_a.join(' ')}"
+      "ORDER BY #{orders.join(', ')} #{tail.to_a.join(' ')}"
+    when String then "ORDER BY #{values[:orders]}"
+    else ""
+    end
+  end
+
+  def limit_sql
+    "LIMIT #{values[:limit_n]}" if values[:limit_n]&.positive?
   end
 end
