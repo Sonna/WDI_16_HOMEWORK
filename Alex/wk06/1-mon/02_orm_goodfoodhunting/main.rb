@@ -97,6 +97,8 @@ post "/users" do
 end
 
 post "/likes" do
+  redirect '/login' unless logged_in?
+
   # like = Like.new
   # like.dish_id = params[:dish_id]
   # like.user_id = params[:user_id]
