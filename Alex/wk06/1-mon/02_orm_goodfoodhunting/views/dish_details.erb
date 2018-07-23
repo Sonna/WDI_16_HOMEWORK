@@ -11,12 +11,12 @@
 
 <p>posted by <%= @dish.user.email %></p>
 
-<p>42 likes</p>
+<!-- <p><%= Like.where(dish_id: @dish.id).count %> likes</p> -->
+<p><%= @dish.likes.count %> likes</p>
 
 <% if logged_in? %>
 <form action="/likes" method="post">
   <input type="hidden" name="dish_id" value="<%= @dish.id %>">
-  <input type="hidden" name="user_id" value="<%= current_user.id %>">
   <button>like</button>
 </form>
 <% end %>

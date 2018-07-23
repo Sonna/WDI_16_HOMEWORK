@@ -8,6 +8,7 @@ require 'sinatra/reloader' # only reloads this file by default
 require "db_config"
 require "models/dish"
 require "models/comment"
+require "models/like"
 require "models/user"
 
 enable :sessions
@@ -93,4 +94,16 @@ post "/users" do
   user = User.new(email: params[:email], password: params[:password])
   redirect "/" if user.valid? && user.save
   erb :signup
+end
+
+post "/likes" do
+  # like = Like.new
+  # like.dish_id = params[:dish_id]
+  # like.user_id = params[:user_id]
+  # like.save
+
+  # like = Like.new(dish_id: params[:dish_id], user_id: params[:user_id])
+  Like.find_or_create_by(dish_id: params[:dish_id], user_id: current_user.id)
+
+  redirect "/dishes/#{params[:dish_id]}"
 end

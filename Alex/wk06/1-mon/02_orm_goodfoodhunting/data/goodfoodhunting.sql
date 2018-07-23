@@ -66,3 +66,17 @@ ALTER TABLE comments ADD COLUMN user_id INTEGER;
 -- ALTER TABLE
 UPDATE comments SET user_id = 1;
 -- UPDATE 2
+
+CREATE TABLE likes (
+  id SERIAL4 PRIMARY KEY,
+  user_id INTEGER,
+  dish_id INTEGER
+);
+
+-- CREATE TABLE likes (
+--   id SERIAL4 PRIMARY KEY,
+--   user_id INTEGER NOT NULL,
+--   dish_id INTEGER NOT NULL,
+--   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE RESTRICT,
+--   FOREIGN KEY (dish_id) REFERENCES dishes(id) ON DELETE RESTRICT
+-- );
