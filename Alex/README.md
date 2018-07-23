@@ -447,3 +447,21 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
   * deployment
 
 - [WDI Heroku Sinatra Deployment Guide](https://gist.github.com/kasun-maldeni/bf8153996f4a9aa1eacdac2dee9e636c)
+
+- [file-wdi16_project1.md](https://gist.github.com/epoch/8947ddde03a10b636318a31b5aa8c846#file-wdi16_project1-md)
+
+##### Day 2 - 2018/07/24
+
+- [Project 2](https://gist.github.com/epoch/8947ddde03a10b636318a31b5aa8c846#file-wdi16_project1-md)
+
+##### Day 3 - 2018/07/25
+
+- [Project 2](https://gist.github.com/epoch/8947ddde03a10b636318a31b5aa8c846#file-wdi16_project1-md)
+
+##### Day 4 - 2018/07/26
+
+- [Project 2](https://gist.github.com/epoch/8947ddde03a10b636318a31b5aa8c846#file-wdi16_project1-md)
+
+##### Day 5 - 2018/07/27
+
+- [Project 2](https://gist.github.com/epoch/8947ddde03a10b636318a31b5aa8c846#file-wdi16_project1-md)
