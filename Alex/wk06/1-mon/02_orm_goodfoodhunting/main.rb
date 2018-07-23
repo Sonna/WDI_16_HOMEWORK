@@ -3,11 +3,12 @@ $LOAD_PATH.push File.expand_path('../', __FILE__)
 require 'pg'
 
 require 'sinatra'
-require 'sinatra/reloader'
+require 'sinatra/reloader' # only reloads this file by default
 
 require "db_config"
 require "models/dish"
 require "models/comment"
+require "models/user"
 
 # class Dish
 

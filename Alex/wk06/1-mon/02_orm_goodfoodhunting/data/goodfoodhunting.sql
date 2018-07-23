@@ -21,3 +21,46 @@ CREATE TABLE comments (
 INSERT INTO comments (content, dish_id) values ('yum', 2);
 INSERT INTO comments (content, dish_id) values ('first', 2);
 INSERT INTO comments (content, dish_id) values ('yay', 2);
+
+CREATE TABLE users (
+  id SERIAL4 PRIMARY KEY,
+  email VARCHAR(300) NOT NULL,
+  password_digest VARCHAR(400)
+);
+
+ALTER TABLE dishes ADD COLUMN user_id INTEGER;
+
+-- SELECT id, name, user_id FROM dishes;
+--  id |                name                | user_id
+-- ----+------------------------------------+---------
+--   3 | sandwich                           |
+--   4 | macaroon                           |
+--   5 | pancakes                           |
+--   2 | can't believe it's pudding pudding |
+--   7 | milk tea                           |
+--   8 | meaty burger                       |
+-- (6 rows)
+
+-- SELECT id, email FROM users;
+--  id |    email
+-- ----+-------------
+--   1 | dt@ga.co
+--   2 | a@gmail.com
+-- (2 rows)
+
+UPDATE dishes SET user_id = 1;
+-- UPDATE 6
+
+-- SELECT id, name, user_id FROM dishes;
+--  id |                name                | user_id
+-- ----+------------------------------------+---------
+--   3 | sandwich                           |       1
+--   4 | macaroon                           |       1
+--   5 | pancakes                           |       1
+--   2 | can't believe it's pudding pudding |       1
+--   7 | milk tea                           |       1
+--   8 | meaty burger                       |       1
+-- (6 rows)
+
+
+-- ALTER TABLE comments ADD COLUMN user_id INTEGER;

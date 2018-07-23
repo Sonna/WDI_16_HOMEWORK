@@ -9,6 +9,8 @@
 
 <a href="/dishes/<%= @dish['id'] %>/edit">edit</a>
 
+<p>posted by <%= @dish.user.email %></p>
+
 <% if @comments %>
   <section class="comments">
     <h2>Comments</h2>
