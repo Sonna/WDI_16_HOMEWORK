@@ -13,6 +13,17 @@
   * Book Shop
   * Movie Shop
   * Supermarket
+  * Organ Donors
+
+- "Looking for Group" / creating a group of DnD characters / Raid party
+  * Characters
+    + Name
+    + Artwork
+    + Stats
+  * Users / Players
+  * Groups / Parties
+  * Enemies
+  * Mobs
 
 - Twitter app / Social Media
   * Add Tweets to a social timeline (140 characters or less)
@@ -22,6 +33,12 @@
 - Photo/File sharing app (file uploads)
 
 - Nurse / Employee Roster generator
+  * Models
+    + Nurses / Employees
+    + Shifts
+    + Month Roster
+    + Organisation ? (A group of Nurses)
+    + Users?
   * Builds a calendar with Shifts for each time-frame, etc
   * Calendar CSS
   * Import CSV data?
