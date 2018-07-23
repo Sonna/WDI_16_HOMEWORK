@@ -90,34 +90,56 @@ peter = pack_itr.next # => [{:name=>"Moltres", :attack=>100}, {:name=>"Gengar", 
 #     each person gets.
 
 # to_alfred, to_peter = [pack_itr.next, pack_itr.next].shuffle
-to_alfred = [] # => []
-to_peter = [] # => []
+# to_alfred = [] # =/> []
+# to_peter = [] # =/> []
 
-assign = [
-  to_alfred, to_alfred, to_alfred, to_alfred, to_alfred, to_alfred, to_alfred,
-  to_peter, to_peter, to_peter
-].shuffle
+# assign = [
+#   to_alfred, to_alfred, to_alfred, to_alfred, to_alfred, to_alfred, to_alfred,
+#   to_peter, to_peter, to_peter
+# ].shuffle
 
-assign.first.push(pack_itr.next) # => [[{:name=>"Alakazam", :attack=>80}, {:name=>"Pidgeot", :attack=>60}, {:name=>"Rattata", :attack=>20}]]
+# assign.first.push(pack_itr.next) # =/> [[{:name=>"Alakazam", :attack=>80}, {:name=>"Pidgeot", :attack=>60}, {:name=>"Rattata", :attack=>20}]]
 
-to_alfred # => [[{:name=>"Alakazam", :attack=>80}, {:name=>"Pidgeot", :attack=>60}, {:name=>"Rattata", :attack=>20}]]
-to_peter # => []
+# to_alfred # =/> [[{:name=>"Alakazam", :attack=>80}, {:name=>"Pidgeot", :attack=>60}, {:name=>"Rattata", :attack=>20}]]
+# to_peter # =/> []
 
-to_alfred = pack_itr.next if to_alfred.empty? # => nil
-to_peter = pack_itr.next if to_peter.empty? # => [{:name=>"Pikachu", :attack=>40}]
+# to_alfred = pack_itr.next if to_alfred.empty? # =/> nil
+# to_peter = pack_itr.next if to_peter.empty? # =/> [{:name=>"Pikachu", :attack=>40}]
 
-to_alfred # => [[{:name=>"Alakazam", :attack=>80}, {:name=>"Pidgeot", :attack=>60}, {:name=>"Rattata", :attack=>20}]]
-to_peter # => [{:name=>"Pikachu", :attack=>40}]
+# to_alfred # =/> [[{:name=>"Alakazam", :attack=>80}, {:name=>"Pidgeot", :attack=>60}, {:name=>"Rattata", :attack=>20}]]
+# to_peter # =/> [{:name=>"Pikachu", :attack=>40}]
 
-alfred += to_alfred
+# alfred += to_alfred
+# # =/> [{:name=>"Hitmonchan", :attack=>50},
+# #     {:name=>"Blastoise", :attack=>80},
+# #     {:name=>"Vulpix", :attack=>40},
+# #     [{:name=>"Alakazam", :attack=>80},
+# #      {:name=>"Pidgeot", :attack=>60},
+# #      {:name=>"Rattata", :attack=>20}]]
+
+# peter += to_peter
+# # =/> [{:name=>"Moltres", :attack=>100},
+# #     {:name=>"Gengar", :attack=>70},
+# #     {:name=>"Butterfree", :attack=>30},
+# #     {:name=>"Pikachu", :attack=>40}]
+
+case rand
+when (0.0...0.7)
+  alfred += pack_itr.next
+  peter += pack_itr.next
+when (0.7..1)
+  peter += pack_itr.next
+  alfred += pack_itr.next
+end
+
+alfred
 # => [{:name=>"Hitmonchan", :attack=>50},
 #     {:name=>"Blastoise", :attack=>80},
 #     {:name=>"Vulpix", :attack=>40},
-#     [{:name=>"Alakazam", :attack=>80},
-#      {:name=>"Pidgeot", :attack=>60},
-#      {:name=>"Rattata", :attack=>20}]]
-
-peter += to_peter
+#     {:name=>"Alakazam", :attack=>80},
+#     {:name=>"Pidgeot", :attack=>60},
+#     {:name=>"Rattata", :attack=>20}]
+peter
 # => [{:name=>"Moltres", :attack=>100},
 #     {:name=>"Gengar", :attack=>70},
 #     {:name=>"Butterfree", :attack=>30},
