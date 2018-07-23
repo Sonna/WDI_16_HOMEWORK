@@ -62,5 +62,7 @@ UPDATE dishes SET user_id = 1;
 --   8 | meaty burger                       |       1
 -- (6 rows)
 
-
--- ALTER TABLE comments ADD COLUMN user_id INTEGER;
+ALTER TABLE comments ADD COLUMN user_id INTEGER;
+-- ALTER TABLE
+UPDATE comments SET user_id = 1;
+-- UPDATE 2

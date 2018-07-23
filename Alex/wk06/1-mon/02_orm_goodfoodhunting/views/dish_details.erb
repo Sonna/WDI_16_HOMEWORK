@@ -15,7 +15,7 @@
   <section class="comments">
     <h2>Comments</h2>
     <% @comments.each do |comment| %>
-      <p><%= comment.content %></p>
+      <p><%= comment.content %><span> by <%= comment.user.email %></span></p>
     <% end %>
   </section>
 <% end %>
