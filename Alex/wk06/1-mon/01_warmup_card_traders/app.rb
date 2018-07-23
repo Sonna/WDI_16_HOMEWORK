@@ -80,8 +80,22 @@ pack_itr = pack.each_slice(3)
 
 # 2c) Alfred takes the first pile of cards, and Peter takes the second pile.
 #     Create a new data structure for Alfred and Peter and pass them the cards.
-alfred = pack_itr.next # => [{:name=>"Hitmonchan", :attack=>50}, {:name=>"Blastoise", :attack=>80}, {:name=>"Vulpix", :attack=>40}]
-peter = pack_itr.next # => [{:name=>"Moltres", :attack=>100}, {:name=>"Gengar", :attack=>70}, {:name=>"Butterfree", :attack=>30}]
+# alfred = pack_itr.next # =/> [{:name=>"Hitmonchan", :attack=>50}, {:name=>"Blastoise", :attack=>80}, {:name=>"Vulpix", :attack=>40}]
+# peter = pack_itr.next # =/> [{:name=>"Moltres", :attack=>100}, {:name=>"Gengar", :attack=>70}, {:name=>"Butterfree", :attack=>30}]
+
+players = {
+  alfred: pack_itr.next,
+  peter: pack_itr.next
+}
+players
+# => {:alfred=>
+#      [{:name=>"Hitmonchan", :attack=>50},
+#       {:name=>"Blastoise", :attack=>80},
+#       {:name=>"Vulpix", :attack=>40}],
+#     :peter=>
+#      [{:name=>"Moltres", :attack=>100},
+#       {:name=>"Gengar", :attack=>70},
+#       {:name=>"Butterfree", :attack=>30}]}
 
 # 2d) At this point only two piles of cards are leftover, one with 3 cards, and
 #     one with 1 card. They decide to arm-wrestle, where the winner gets the
@@ -125,22 +139,22 @@ peter = pack_itr.next # => [{:name=>"Moltres", :attack=>100}, {:name=>"Gengar", 
 
 case rand
 when (0.0...0.7)
-  alfred += pack_itr.next
-  peter += pack_itr.next
-when (0.7..1)
-  peter += pack_itr.next
-  alfred += pack_itr.next
+  players[:alfred] += pack_itr.next
+  players[:peter] += pack_itr.next
+else # when (0.7..1)
+  players[:peter] += pack_itr.next
+  players[:alfred] += pack_itr.next
 end
 
-alfred
+players[:alfred]
 # => [{:name=>"Hitmonchan", :attack=>50},
 #     {:name=>"Blastoise", :attack=>80},
 #     {:name=>"Vulpix", :attack=>40},
-#     {:name=>"Alakazam", :attack=>80},
-#     {:name=>"Pidgeot", :attack=>60},
-#     {:name=>"Rattata", :attack=>20}]
-peter
+#     {:name=>"Pikachu", :attack=>40}]
+players[:peter]
 # => [{:name=>"Moltres", :attack=>100},
 #     {:name=>"Gengar", :attack=>70},
 #     {:name=>"Butterfree", :attack=>30},
-#     {:name=>"Pikachu", :attack=>40}]
+#     {:name=>"Alakazam", :attack=>80},
+#     {:name=>"Pidgeot", :attack=>60},
+#     {:name=>"Rattata", :attack=>20}]
