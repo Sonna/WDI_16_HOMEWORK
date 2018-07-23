@@ -445,3 +445,5 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
     + one to many
     + many to many
   * deployment
+
+- [WDI Heroku Sinatra Deployment Guide](https://gist.github.com/kasun-maldeni/bf8153996f4a9aa1eacdac2dee9e636c)

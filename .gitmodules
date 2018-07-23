@@ -16,3 +16,6 @@
 [submodule "Alex/wk06/1-mon/00_crud_app_planets_heroku_deploy"]
 	path = Alex/wk06/1-mon/00_crud_app_planets_heroku_deploy
 	url = ../crud_app_planets_heroku_deploy-wdi
+[submodule "Alex/wk06/1-mon/03_heroku_deployment/orm_goodfoodhunting"]
+	path = Alex/wk06/1-mon/03_heroku_deployment/orm_goodfoodhunting
+	url = ../orm_goodfoodhunting-heroku_deploy-wdi
