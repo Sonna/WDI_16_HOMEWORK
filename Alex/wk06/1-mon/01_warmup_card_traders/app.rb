@@ -88,16 +88,37 @@ peter = pack_itr.next # => [{:name=>"Moltres", :attack=>100}, {:name=>"Gengar", 
 #     pile with 3 cards, and the loser gets the remaining pile. Alfred wins 7
 #     out of 10 times, so write some randomising code that decides which pile
 #     each person gets.
-to_alfred, to_peter = [pack_itr.next, pack_itr.next].shuffle
-# => [[{:name=>"Pikachu", :attack=>40}],
+
+# to_alfred, to_peter = [pack_itr.next, pack_itr.next].shuffle
+to_alfred = [] # => []
+to_peter = [] # => []
+
+assign = [
+  to_alfred, to_alfred, to_alfred, to_alfred, to_alfred, to_alfred, to_alfred,
+  to_peter, to_peter, to_peter
+].shuffle
+
+assign.first.push(pack_itr.next) # => [[{:name=>"Alakazam", :attack=>80}, {:name=>"Pidgeot", :attack=>60}, {:name=>"Rattata", :attack=>20}]]
+
+to_alfred # => [[{:name=>"Alakazam", :attack=>80}, {:name=>"Pidgeot", :attack=>60}, {:name=>"Rattata", :attack=>20}]]
+to_peter # => []
+
+to_alfred = pack_itr.next if to_alfred.empty? # => nil
+to_peter = pack_itr.next if to_peter.empty? # => [{:name=>"Pikachu", :attack=>40}]
+
+to_alfred # => [[{:name=>"Alakazam", :attack=>80}, {:name=>"Pidgeot", :attack=>60}, {:name=>"Rattata", :attack=>20}]]
+to_peter # => [{:name=>"Pikachu", :attack=>40}]
+
+alfred += to_alfred
+# => [{:name=>"Hitmonchan", :attack=>50},
+#     {:name=>"Blastoise", :attack=>80},
+#     {:name=>"Vulpix", :attack=>40},
 #     [{:name=>"Alakazam", :attack=>80},
 #      {:name=>"Pidgeot", :attack=>60},
 #      {:name=>"Rattata", :attack=>20}]]
 
-alfred += to_alfred
-# => [{:name=>"Pikachu", :attack=>40}]
-
 peter += to_peter
-# => [{:name=>"Alakazam", :attack=>80},
-#     {:name=>"Pidgeot", :attack=>60},
-#     {:name=>"Rattata", :attack=>20}]
+# => [{:name=>"Moltres", :attack=>100},
+#     {:name=>"Gengar", :attack=>70},
+#     {:name=>"Butterfree", :attack=>30},
+#     {:name=>"Pikachu", :attack=>40}]
