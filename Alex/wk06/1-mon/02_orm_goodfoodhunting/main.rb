@@ -10,30 +10,20 @@ require "models/dish"
 require "models/comment"
 require "models/user"
 
-# class Dish
+enable :sessions
 
-#   def self.all
-#     # connect db
-#     # work which table
-#     #
-#   end
+helpers do
+  def current_user
+    User.find_by(id: session[:user_id])
+  end
 
-# end
-
-# d1 = Dish.new
-# d2 = Dish.new
-# d1.name
-# Dish.all
-
-#                |    get '/dishes/:id'      | show
-# show new form  |    get '/dishes/new'      | new
-# create dish    |   post '/dishes'          | redirect
-#                | delete '/dishes/new'      | redirect
-# show edit form |    get '/dishes/:id/edit' | edit
-# update dish    |    put '/dishes/:id'      | redirect
+  def logged_in?
+    !!current_user
+  end
+end
 
 get '/' do
-  @dishes = Dish.all # run_sql("SELECT * FROM dishes;")
+  @dishes = Dish.all
   erb :index
 end
 
@@ -47,42 +37,60 @@ end
 
 # create a dish
 post '/dishes' do
-  # sql = "INSERT INTO dishes (name, image_url) VALUES ('#{ params[:name] }', '#{ params[:image_url] }');"
   Dish.create(name: params[:name], image_url: params[:image_url])
   redirect '/'
 end
 
 # delete a dish
 delete '/dishes/:id' do
-  # "danger!!!!"
-  Dish.destroy(params[:id]) # "DELETE FROM dishes WHERE id = #{ params[:id] };"
+  Dish.destroy(params[:id])
   redirect '/'
 end
 
 # showing single dish by id
 get '/dishes/:id' do
-  @dish = Dish.find(params[:id]) # "SELECT * FROM dishes WHERE id = #{ params[:id] };"
+  @dish = Dish.find(params[:id])
   @comments = @dish.comments
   erb :dish_details, locals: { name: @dish["name"], image_url: @dish["image_url"] }
 end
 
 get '/dishes/:id/edit' do
-  # return "edit form"
-  # run_sql("SELECT * FROM dishes WHERE id = #{ params[:id] };")
   @dish = Dish.find(params[:id])
   erb :edit
 end
 
 # updates an existing dish
 put '/dishes/:id' do
-  # prepare_sql("update_dish", "UPDATE dishes SET name = $1, image_url = $2 where id = $3;",
-  #             [params[:name], params[:image_url], params[:id]])
-
-  # dish = Dish.find(params[:id])
-  # dish.name = params[:name]
-  # dish.image_url = params[:image_url]
-  # dish.save
-
   Dish.find(params[:id]).update(name: params[:name], image_url: params[:image_url])
   redirect '/'
+end
+
+# get "/session/new" do
+get "/login" do
+  erb :login
+end
+
+post "/session" do
+  user = User.find_by(email: params[:email])
+  if user && user.authenticate(params[:password])
+    session[:user_id] = user.id
+    redirect '/'
+  else
+    erb :login
+  end
+end
+
+delete "/session" do
+  session[:user_id] = nil
+  redirect '/login'
+end
+
+get "/users/new" do
+  erb :signup
+end
+
+post "/users" do
+  user = User.new(email: params[:email], password: params[:password])
+  redirect "/" if user.valid? && user.save
+  erb :signup
 end

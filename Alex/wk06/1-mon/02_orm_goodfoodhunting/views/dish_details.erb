@@ -11,6 +11,16 @@
 
 <p>posted by <%= @dish.user.email %></p>
 
+<p>42 likes</p>
+
+<% if logged_in? %>
+<form action="/likes" method="post">
+  <input type="hidden" name="dish_id" value="<%= @dish.id %>">
+  <input type="hidden" name="user_id" value="<%= current_user.id %>">
+  <button>like</button>
+</form>
+<% end %>
+
 <% if @comments %>
   <section class="comments">
     <h2>Comments</h2>

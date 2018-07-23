@@ -439,4 +439,9 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 
 - [WDI Week 4 Ruby Checkpoint](https://gist.github.com/kasun-maldeni/580aaa1f12e80881050e473099e70a39#file-wdi_wk4_ruby_checkpoint-md)
 
-- Server-side deployment
+- Database design
+  * extending `goodfoodhunting`
+    + one to one
+    + one to many
+    + many to many
+  * deployment
