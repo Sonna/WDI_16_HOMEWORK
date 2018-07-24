@@ -1,0 +1,11 @@
+* { box-sizing: border-box; }
+
+.input-group {
+  display: block;
+}
+
+.stats input {
+  text-align: right;
+  padding: 5px;
+  width: 75px;
+}

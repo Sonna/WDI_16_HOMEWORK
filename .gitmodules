@@ -19,3 +19,6 @@
 [submodule "Alex/wk06/1-mon/03_heroku_deployment/orm_goodfoodhunting"]
 	path = Alex/wk06/1-mon/03_heroku_deployment/orm_goodfoodhunting
 	url = ../orm_goodfoodhunting-heroku_deploy-wdi
+[submodule "Alex/project2/Twatter"]
+	path = Alex/project2/Twatter
+	url = ../twatter-wdi-app-ruby
