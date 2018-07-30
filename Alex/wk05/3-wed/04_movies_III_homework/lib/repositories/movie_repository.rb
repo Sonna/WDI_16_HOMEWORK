@@ -1,18 +1,19 @@
+require "lib/entities/movie"
+require "lib/repositories/base_repository"
+
 class MovieRepository < BaseRepository
-  ATTRIBUTES = %w(
-    title year rated released runtime genre director writer actors plot language
-    poster imdbrating imdbvotes production
-  ).freeze
-
-  def initialize(table: "movies", adapter: PSQL, attributes: ATTRIBUTES)
-    super(table: table, adapter: adapter, attributes: attributes)
+  def initialize
+    super(table: "movies", entity_klass: Movie)
   end
 
-  def create(attributes)
-    adapter.exec_prepared("create_movie", create_sql, *attributes)
+  def find_by_title(title)
+    record = adapter.exec_prepared("find_#{table_name}", find_by_title_sql, title).first
+    entity_klass.new(record) if record
   end
 
-  def find(title)
-    adapter.exec_prepared("find_movie", find_sql("title"), title).first
+  protected
+
+  def find_by_title_sql
+    "SELECT * FROM #{table_name} WHERE title ILIKE ($1);"
   end
 end

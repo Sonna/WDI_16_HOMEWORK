@@ -425,3 +425,54 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 5 - 2018/07/19
 
 - [WDI Odd Int Warmup](https://gist.github.com/kasun-maldeni/919b2d75fe2d41c563c826ff1616bbf7)
+
+- Career Outcomes Lecture (Resume writing)
+
+- Homework
+  * Movies III
+  * CRUD App
+  * Robot Name
+
+#### Week 06 (2018/07/23)
+
+##### Day 1 - 2018/07/23
+
+- [WDI Week 4 Ruby Checkpoint](https://gist.github.com/kasun-maldeni/580aaa1f12e80881050e473099e70a39#file-wdi_wk4_ruby_checkpoint-md)
+
+- Database design
+  * extending `goodfoodhunting`
+    + one to one
+    + one to many
+    + many to many
+  * deployment
+
+- [WDI Heroku Sinatra Deployment Guide](https://gist.github.com/kasun-maldeni/bf8153996f4a9aa1eacdac2dee9e636c)
+
+- [file-wdi16_project1.md](https://gist.github.com/epoch/8947ddde03a10b636318a31b5aa8c846#file-wdi16_project1-md)
+
+##### Day 2 - 2018/07/24
+
+- [Project 2](https://gist.github.com/epoch/8947ddde03a10b636318a31b5aa8c846#file-wdi16_project1-md)
+
+##### Day 3 - 2018/07/25
+
+- [Project 2](https://gist.github.com/epoch/8947ddde03a10b636318a31b5aa8c846#file-wdi16_project1-md)
+
+##### Day 4 - 2018/07/26
+
+- [Project 2](https://gist.github.com/epoch/8947ddde03a10b636318a31b5aa8c846#file-wdi16_project1-md)
+
+##### Day 5 - 2018/07/27
+
+- [Project 2](https://gist.github.com/epoch/8947ddde03a10b636318a31b5aa8c846#file-wdi16_project1-md)
+
+#### Week 01 (2018/07/30)
+
+##### Day 1 - 2018/07/30
+
+- [WDI Proximity Problem](https://gist.github.com/kasun-maldeni/1a3a65b1a2c8019fb1a4cf367ada4870)
+- [WDI Proximity Solution](https://gist.github.com/kasun-maldeni/88cb244feaf3b6229f465f58481a6c06)
+
+- Install Node?
+
+- [WDI City Pix](https://github.com/kasun-maldeni/wdi_city_pix)

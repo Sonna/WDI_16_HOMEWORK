@@ -1,0 +1,10 @@
+<nav class="movies">
+  <% search.each do |result| %>
+    <a href="/<%= result['Title'] %>">
+      <article>
+        <img class="inline-poster" src="<%= result['Poster'] %>">
+        <h2><%= result['Title'] %> (<%= result['Year'] %>)</h2>
+      </article>
+    </a>
+  <% end %>
+</nav>

@@ -1,0 +1,96 @@
+<article id="twat-<%= twat_id %>" class="twat card">
+  <% if retwated_by %>
+    <span class="retwated-by">
+      <i class="far fa-retweet"></i>
+      <a href="/users/<%= retwated_by.username %>"><%= retwated_by.name %></a>
+      Retwated
+    </span>
+  <% end %>
+  <img src="<%= image_url %>">
+  <div class="card-container">
+  <header class="head">
+    <h1>
+      <%= name %>
+      <a class="at-username" href="/users/<%= username %>">@<%= username %></a>
+      <time class="post-date" datetime="<%= created_at %>"><%= created_at %></time>
+    </h1>
+    <% unless !logged_in? || current_user.id == twatter_id %>
+      <form class="block-twatter-<%= twatter_id %>" action="/blocks" method="post" class="action">
+        <input type="hidden" name="blocker_id" value="<%= twatter_id %>">
+        <button>
+          <i class="fas fa-ban"></i>
+          <span class="sr-only">Block</span>
+        </button>
+      </form>
+    <% else %>
+      <% if current_user.id == twatter_id %>
+        <a class="edit" href="/twats/<%= twat_id %>/edit">edit</a>
+      <% end %>
+    <% end %>
+  </header>
+  <section class="body">
+    <p><%= message %></p>
+    <% if message.length > Twat::MAX_CHARS %>
+      <p class="read-more">
+        <a href="#" class="button">Read More</a>
+      </p>
+    <% end %>
+  </section>
+  <footer class="foot actions">
+    <form action="/twats/<%= twat_id %>" class="action comment">
+      <button>
+        <i class="far fa-comment-alt"></i>
+        <span class="sr-only">Comments</span>
+        <span class="count"><%= comments_count %></span>
+      </button>
+    </form>
+    <% if like %>
+      <form action="/likes/<%= like.id %>" method="post" class="action unlike unlike-<%= like.id %>" >
+        <input type="hidden" name="_method" value="delete">
+        <button>
+          <i class="fas fa-heart"></i>
+          <span class="sr-only">Unlike</span>
+          <span class="count"><%= likes_count %></span>
+        </button>
+      </form>
+    <% else %>
+      <form action="/likes" method="post" class="action like like-<%= twat_id %>">
+        <input type="hidden" name="twat_id" value="<%= twat_id %>">
+        <button>
+          <i class="far fa-heart"></i>
+          <span class="sr-only">Like</span>
+          <span class="count"><%= likes_count %></span>
+        </button>
+      </form>
+    <% end %>
+    <% unless current_user.id == twatter_id %>
+      <% if retwat %>
+        <form action="/retwats/<%= retwat.id %>" method="post" class="action unretwat unretwat-<%= retwat.id %>" >
+          <input type="hidden" name="_method" value="delete">
+          <button>
+            <i class="fas fa-retweet"></i>
+            <span class="sr-only">Unretwat</span>
+            <span class="count"><%= retwats_count %></span>
+          </button>
+        </form>
+      <% else %>
+        <form action="/retwats" method="post" class="action retwat retwat-<%= twat_id %>">
+          <input type="hidden" name="twat_id" value="<%= twat_id %>">
+          <button>
+            <i class="far fa-retweet"></i>
+            <span class="sr-only">Retwat</span>
+            <span class="count"><%= retwats_count %></span>
+          </button>
+        </form>
+      <% end %>
+      <form action="/messages/new" class="action direct-message">
+        <input type="hidden" name="twatter_id" value="<%= twatter_id %>">
+        <button>
+          <i class="far fa-envelope"></i>
+          <span class="sr-only">Direct Message</span>
+        </button>
+      </form>
+    <% end %>
+  </footer>
+  </div>
+</article>

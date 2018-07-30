@@ -1,0 +1,6 @@
+<section class="twats">
+  <h2>All Twats</h2>
+  <% @twats.each do |twat| %>
+    <%= erb :"twats/show", locals: { twat: twat } %>
+  <% end %>
+</section>

@@ -1,0 +1,18 @@
+<section class="profile-container">
+  <%= erb :"users/profile_card", locals: @twatter.profile.attributes %>
+</section>
+
+<section class="activity-container">
+  <section class="new-post">
+    <%= erb :"twats/form" %>
+  </section>
+
+  <section class="timeline">
+    <h2 class="sr-only">Recent Activity</h2>
+    <section class="twats">
+
+    <% @twats.each do |twat| %>
+      <%= erb :"twats/show", locals: { twat: twat } %>
+    <% end %>
+  </section>
+</section>

@@ -1,0 +1,33 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+  - "app_console.rb"
+  - "db/seed.rb"
+  - "db/schema.rb"
+  - "vendor/**/*"
+
+Metrics/AbcSize:
+  Exclude:
+  - "spec/**/*"
+  - "test/**/*"
+
+Metrics/BlockLength:
+  Exclude:
+  - "lib/tasks/**/*"
+
+Metrics/MethodLength:
+  Exclude:
+  - "spec/**/*"
+  - "test/**/*"
+
+Style/Documentation:
+  Exclude:
+  - "spec/**/*"
+  - "test/**/*"
+  - "apps/**/*"
+  - "controllers/**/*"
+  - "main.rb"
+  - "models/**/*"
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

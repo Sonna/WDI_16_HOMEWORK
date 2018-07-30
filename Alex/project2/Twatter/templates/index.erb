@@ -1,0 +1,20 @@
+<section class="profile-container">
+  <% if logged_in? %>
+    <%= erb :"users/profile_card", locals: current_user.profile.attributes %>
+  <% end %>
+</section>
+
+<section class="activity-container">
+  <section class="new-post">
+    <%= erb :"twats/form" %>
+  </section>
+
+  <section class="timeline">
+    <h2 class="sr-only">Recent Activity</h2>
+    <section class="twats">
+
+    <% @twats.each do |twat| %>
+      <%= erb :"twats/show", locals: { twat: twat } %>
+    <% end %>
+  </section>
+</section>

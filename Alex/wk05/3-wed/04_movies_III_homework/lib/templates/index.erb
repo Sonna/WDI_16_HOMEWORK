@@ -1,0 +1,31 @@
+<h1>Movie Search</h1>
+<section class="search">
+  <form>
+    <input type="text" name="movie_name" value="<%= params['movie_name'] %>">
+    <button>Search</button>
+  </form>
+</section>
+
+<% if params['movie_name'] %>
+<section class="results">
+
+  <% if error_message %>
+    <h1><%= params['movie_name'] %> - <%= error_message %></h1>
+  <% else %>
+    <%= yield %>
+  <% end %>
+</section>
+
+<% else %>
+
+<section class="extras">
+  <p>Not sure what to look for? Check out these movies, whilst you decide</p>
+  <ul>
+    <li><a href="/blade%20runner">Blade Runner</a></li>
+    <li><a href="/the%20godfather">The Godfather</a></li>
+    <li><a href="/jaws">Jaws</a></li>
+    <li><a href="/sharknado">Sharknado</a></li>
+    <li><a href="/once">Once</a></li>
+  </ul>
+</section>
+<% end %>
