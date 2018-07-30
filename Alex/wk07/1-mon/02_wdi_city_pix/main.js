@@ -13,8 +13,8 @@ var cities = {
   NYC: "nyc",
   SF: "sf",
   LA: "la",
-  SYD: "austin",
-  ATX: "sydney"
+  SYD: "sydney",
+  ATX: "austin"
 };
 var selectEl = document.querySelector("#city-type");
 
@@ -31,7 +31,5 @@ Object.keys(cities).forEach(function(city) {
 //    image in the `style.css` file (at the bottom). Feel free to use those
 //    classes.
 selectEl.addEventListener("change", function(event) {
-  var city = event.target.value;
-  document.body.classList = "";
-  document.body.classList.add(cities[city]);
+  document.body.classList = cities[event.target.value];
 });
