@@ -40,12 +40,17 @@ var results = [
 // based on that. This way, while the user is walking around the city, they can
 // see which result is closest to their current location.
 
-function magnitude(coordinate) {
-  return Math.sqrt(Math.pow(coordinate.lat, 2) + Math.pow(coordinate.long, 2));
+function magnitude(coordinate, startPoint) {
+  startPoint = (typeof startPoint !== 'undefined') ? startPoint : {location: {lat: 0, long: 0}};
+  var latDiff = startPoint.location.lat - coordinate.location.lat;
+  var longDiff = startPoint.location.long - coordinate.location.long;
+
+  return Math.sqrt((latDiff ** 2) + (longDiff ** 2));
+  // return Math.sqrt(Math.pow(coordinate.lat, 2) + Math.pow(coordinate.long, 2));
 }
 
 function calcDistance(a, b) {
-  return magnitude(b) - magnitude(a);
+  return magnitude(a) > magnitude(b);
 }
 
 // function calcDistanceFromStartPoint(start) {
@@ -53,7 +58,7 @@ function calcDistance(a, b) {
 // }
 
 function calcDistanceFromStartPoint(start) {
-  return function(a, b) { return (magnitude(start) - magnitude(a)) - magnitude(b); };
+  return function(a, b) { return magnitude(a, start) > magnitude(b, start); };
 }
 
 function printNames(collection) {
