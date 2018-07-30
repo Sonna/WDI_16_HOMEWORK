@@ -472,3 +472,7 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 
 - [WDI Proximity Problem](https://gist.github.com/kasun-maldeni/1a3a65b1a2c8019fb1a4cf367ada4870)
 - [WDI Proximity Solution](https://gist.github.com/kasun-maldeni/88cb244feaf3b6229f465f58481a6c06)
+
+- Install Node?
+
+- [WDI City Pix](https://github.com/kasun-maldeni/wdi_city_pix)
