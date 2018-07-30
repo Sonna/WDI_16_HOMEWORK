@@ -465,3 +465,9 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 5 - 2018/07/27
 
 - [Project 2](https://gist.github.com/epoch/8947ddde03a10b636318a31b5aa8c846#file-wdi16_project1-md)
+
+#### Week 01 (2018/07/30)
+
+##### Day 1 - 2018/07/30
+
+- [WDI Proximity](https://gist.github.com/kasun-maldeni/1a3a65b1a2c8019fb1a4cf367ada4870)
