@@ -9,10 +9,16 @@
 // 1. Update the drop down box to show the five cities NYC, SF, LA, SYD, ATX.
 //    **Note:** You might need to research how to add DOM objects to a web page
 //    to be able to add option tags to the select tag.
-var cities = ["NYC", "SF", "LA", "SYD", "ATX"];
+var cities = {
+  NYC: "nyc",
+  SF: "sf",
+  LA: "la",
+  SYD: "austin",
+  ATX: "sydney"
+};
 var selectEl = document.querySelector("#city-type");
 
-cities.forEach(function(city) {
+Object.keys(cities).forEach(function(city) {
   var cityOptionEl = document.createElement("option");
   cityOptionEl.value = city;
   cityOptionEl.innerText = city;
@@ -24,3 +30,8 @@ cities.forEach(function(city) {
 //    folder. We have already provided the css code for changing the background
 //    image in the `style.css` file (at the bottom). Feel free to use those
 //    classes.
+selectEl.addEventListener("change", function(event) {
+  var city = event.target.value;
+  document.body.classList = "";
+  document.body.classList.add(cities[city]);
+});
