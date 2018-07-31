@@ -481,3 +481,5 @@ JavaScript Variables        | Tue, 19 Jun | [wk01/2-tue/06_fortune_teller](wk01/
 ##### Day 2 - 2018/07/31
 
 - [WDI Texas Hold 'em Poker Warmup](https://gist.github.com/kasun-maldeni/6816275e1bedeab95f2cc3671b085df8)
+
+- [ajax_movies.md](https://gist.github.com/epoch/c173a5b0c545babd3c40da93e150303a)
