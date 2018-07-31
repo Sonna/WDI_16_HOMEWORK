@@ -19,6 +19,7 @@ Time  | Table
 
 Task                        | Due Date    | Link
 ----------------------------|-------------|---------------------------------------
+AJAX Movies                 | Tue, 31 Jul | [wk07/2-tue/02_ajax_movies](wk07/2-tue/02_ajax_movies)
 City Pix                    | Mon, 30 Jul | [wk07/1-mon/02_wdi_city_pix](wk07/1-mon/02_wdi_city_pix)
 CRUD App                    | Thu, 19 Jul | [wk05/4-thu/03_crud_app_planets](wk05/4-thu/03_crud_app_planets)
 Ruby Robots                 | Thu, 19 Jul | [wk05/4-thu/04_robot_name](wk05/4-thu/04_robot_name)
