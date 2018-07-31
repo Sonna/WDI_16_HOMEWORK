@@ -18,9 +18,12 @@ $(document).ready(function() {
 
         data["Search"].forEach(function(result) {
           var el = document.createElement("p");
-          el.innerText = result["Title"];
+          // el.innerText = result["Title"];
+          el.innerHTML = '<a href="https://www.imdb.com/title/' + result["imdbID"] + '" target="_blank">' +
+            result["Title"] +
+            '</a>';
           newResultsEl.appendChild(el);
-        })
+        });
 
         resultsEl.parentNode.replaceChild(newResultsEl, resultsEl);
       }
