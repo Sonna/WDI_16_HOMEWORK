@@ -5,6 +5,7 @@ source:
 ---
 
 ### Ajax Movies
+
 * movies fetching using javascript
 * this is a client side javascript app, no server side code needed
 
